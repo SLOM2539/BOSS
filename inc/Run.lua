@@ -1,6 +1,4 @@
-
-
-
+local inspect = (loadfile "./libs/inspect.lua")()
 Er_ssl   , https = pcall(require, "ssl.https")
 Er_http  , http  = pcall(require, "socket.http")
 http.TIMEOUT = 5
@@ -9,7 +7,6 @@ redis  = (loadfile "./libs/redis.lua")()
 URL    = (loadfile "./libs/url.lua")()
 Er_utf8  , utf8  = pcall(require, "lua-utf8")
 redis = redis.connect('127.0.0.1',6379)
-
 
 
 if not Er_ssl then
@@ -106,12 +103,6 @@ rm -fr ~/BOSS
 print(CmdRun)
 os.execute(CmdRun)
 end
-
-function Start_Bot() 
-local TokenBot = io.open('./inc/Token.txt', "r")
-if not TokenBot then
-print('\27[0;33m>>'..[[
-
 
 
 
@@ -279,7 +270,7 @@ end
 return false 
 end 
 
-if msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486  then 
+if msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486 then 
 msg.TheRankCmd = 'الهكر فواز'
 msg.TheRank = 'الهكر فواز'
 msg.Rank = 1
@@ -387,7 +378,7 @@ text = [[*اهلين انا ]]..redis:get(boss..':NameBot:')..[[ 🧚*
 
 
 ]]
-local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/KQEBot?startgroup=start"}},{{text="تحديثات شهد 🦦",url="https://t.me/FAWAZ879"}}}
+local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/Y_8Bot?startgroup=start"}},{{text="تحديثات طوكيو 🦦",url="https://t.me/OnlyHMD"}}}
 send_keyPhoto(msg.chat_id_,text,nil,inline,msg.id_)
 return false
 end
@@ -620,7 +611,7 @@ else
 --	answerCallbackQuery(data.id_,"امر غير معرف",true)
 end
 print(inspect(data))
-if abbas == '/AAAAA'..UserID then
+if abbas == '/HelpList1'..UserID then
 
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 Text = [[
@@ -678,14 +669,14 @@ Text = [[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text="م3",callback_data="/QQQQQ"..UserID},{text="م2",callback_data="/EEEEE"..UserID}},
-{{text="الاغاني",callback_data="/UUUUU"..UserID},{text="التسليه",callback_data="/TTTTT"..UserID}},
+{{text="م3",callback_data="/HelpList3"..UserID},{text="م2",callback_data="/HelpList2"..UserID}},
+{{text="الاغاني",callback_data="/HelpListDev"..UserID},{text="التسليه",callback_data="/HelpListRrd"..UserID}},
 {{text="رجوع",callback_data="/HelpList"..UserID}}
 } 
 return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatID..'&message_id='..IQ_ABS..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end 
 
-if abbas == '/EEEEE'..UserID then
+if abbas == '/HelpList2'..UserID then
 
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 Text = [[
@@ -725,8 +716,8 @@ Text = [[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text="م3",callback_data="/QQQQQ"..UserID},{text="م2",callback_data="/EEEEE"..UserID}},
-{{text="الاغاني",callback_data="/UUUUU"..UserID},{text="التسليه",callback_data="/TTTTT"..UserID}},
+{{text="م3",callback_data="/HelpList3"..UserID},{text="م2",callback_data="/HelpList2"..UserID}},
+{{text="الاغاني",callback_data="/HelpListDev"..UserID},{text="التسليه",callback_data="/HelpListRrd"..UserID}},
 {{text="رجوع",callback_data="/HelpList"..UserID}}
 } 
 return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatID..'&message_id='..IQ_ABS..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -734,7 +725,7 @@ end
 
 
 
-if abbas == '/QQQQQ'..UserID then
+if abbas == '/HelpList3'..UserID then
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 Text = [[
 * للاستفسار -* []]..SUDO_USER..[[]
@@ -814,14 +805,14 @@ Text = [[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text="م2",callback_data="/EEEEE"..UserID},{text="م1",callback_data="/AAAAA"..UserID}},
-{{text="الاغاني",callback_data="/UUUUU"..UserID},{text="التسليه",callback_data="/TTTTT"..UserID}},
+{{text="م2",callback_data="/HelpList2"..UserID},{text="م1",callback_data="/HelpList1"..UserID}},
+{{text="الاغاني",callback_data="/HelpListDev"..UserID},{text="التسليه",callback_data="/HelpListRrd"..UserID}},
 {{text="رجوع",callback_data="/HelpList"..UserID}}
 } 
 return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatID..'&message_id='..IQ_ABS..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
-if abbas == '/TTTTT'..UserID then
+if abbas == '/HelpListRrd'..UserID then
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 Text = [[
 * للاستفسار -* []]..SUDO_USER..[[]
@@ -863,14 +854,14 @@ Text = [[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text="م2",callback_data="/EEEEE"..UserID},{text="م1",callback_data="/AAAAA"..UserID}},
-{{text="الاغاني",callback_data="/UUUUU"..UserID},{text="م3",callback_data="/QQQQQ"..UserID}},
+{{text="م2",callback_data="/HelpList2"..UserID},{text="م1",callback_data="/HelpList1"..UserID}},
+{{text="الاغاني",callback_data="/HelpListDev"..UserID},{text="م3",callback_data="/HelpList3"..UserID}},
 {{text="رجوع",callback_data="/HelpList"..UserID}}
 } 
 return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatID..'&message_id='..IQ_ABS..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
-if abbas == '/UUUUU'..UserID then
+if abbas == '/HelpListDev'..UserID then
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 Text = [[
 * للاستفسار -* []]..SUDO_USER..[[]
@@ -886,8 +877,8 @@ Text = [[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text="م2",callback_data="/EEEEE"..UserID},{text="م1",callback_data="/AAAAA"..UserID}},
-{{text="التسليه",callback_data="/TTTTT"..UserID},{text="م3",callback_data="/QQQQQ"..UserID}},
+{{text="م2",callback_data="/HelpList2"..UserID},{text="م1",callback_data="/HelpList1"..UserID}},
+{{text="التسليه",callback_data="/HelpListRrd"..UserID},{text="م3",callback_data="/HelpList3"..UserID}},
 {{text="رجوع",callback_data="/HelpList"..UserID}}
 } 
 return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatID..'&message_id='..IQ_ABS..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -901,7 +892,7 @@ Text = [[*• اهلا بك في اوامر البوت
 
 ]]
 keyboard = {} 
-keyboard.inline_keyboard = {{{text="م1",callback_data="/AAAAA"..UserID},{text="م2",callback_data="/EEEEE"..UserID}},{{text="م3",callback_data="/QQQQQ"..UserID}},{{text="الاغاني",callback_data="/UUUUU"..UserID},{text="التسليه",callback_data="/TTTTT"..UserID}}} 
+keyboard.inline_keyboard = {{{text="م1",callback_data="/HelpList1"..UserID},{text="م2",callback_data="/HelpList2"..UserID}},{{text="م3",callback_data="/HelpList3"..UserID}},{{text="الاغاني",callback_data="/HelpListDev"..UserID},{text="التسليه",callback_data="/HelpListRrd"..UserID}}} 
 return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatID..'&message_id='..IQ_ABS..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
@@ -942,19 +933,19 @@ print("MessageEntityCode")
 end
 end
 msg.text = msg.content_.text_
-if (msg.text=="تحديث" or msg.text=="ت" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 39809485) then
+if (msg.text=="تحديث" or msg.text=="ت" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1088394097 or msg.sender_user_id_ == 39809485) then
 return sendMsg(msg.chat_id_,msg.id_,"*تم*",function(arg,data)
 Refresh_Start = true
 end)
 end 
-if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 39809485) then
+if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1088394097 or msg.sender_user_id_ == 39809485) then
 UpdateSource(msg)
 sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end) 
 end
-if (msg.text == 'reload' or msg.text == "ر") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 39809485) then
+if (msg.text == 'reload' or msg.text == "ر") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1088394097 or msg.sender_user_id_ == 39809485) then
 sendMsg(msg.chat_id_,msg.id_,'*تم*',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
