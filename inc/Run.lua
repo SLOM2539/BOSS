@@ -90,7 +90,7 @@ rm -rf ./.git
 chmod +x ./run
 ./run
 ]])
-end
+eof
 
 function Start_Bot() 
 local TokenBot = io.open('./inc/Token.txt', "r")
