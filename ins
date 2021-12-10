@@ -23,25 +23,6 @@ CNIL='\033[0m'
 
 Version=`lsb_release -rs | cut -f1 -d"."`
 
-if [ "$Version" == "21" ];then
-echo -e "${SMAY}\n"
-echo -e " ▀█████████▄   ▄██████▄     ▄████████    ▄████████"
-echo -e "   ███    ███ ███    ███   ███    ███   ███    ███"
-echo -e "   ███    ███ ███    ███   ███    █▀    ███    █▀"
-echo -e "  ▄███▄▄▄██▀  ███    ███   ███          ███"
-echo -e " ▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @TH3BOSS"
-echo -e "   ███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM"
-echo -e "   ███    ███ ███    ███    ▄█    ███    ▄█    ███"
-echo -e " ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source TH3BOSS BY @TH3BS"
-echo -e " ---------------------------------------------------------------------"
-echo -e "${CNIL}"
-echo -e "${RED}| للاسف لايمكنك تنصيب السورس ع نظام اوبنتو {${Version}} يجب ان يكون على اصدار  اقل مثلا  ${SMAY}14 او 16
-${CNIL}";
-echo -e "${RED}| Sorry Canot install Source on Ubuntu {${Version}} Please install system To Ubuntu ${SMAY}14 or 16 ${RED} For Run The Source Th3Boss 
-${CNIL}";
-exit;
-fi
-
 echo -e "${SMAY}\n"
 echo -e " ▀█████████▄   ▄██████▄     ▄████████    ▄████████"
 echo -e "   ███    ███ ███    ███   ███    ███   ███    ███"
@@ -81,6 +62,7 @@ sudo ./run
 exit;
 fi 
 fi
+
 
 echo -e "${WHITB}\n¦ installing source ... \n\n\n\n${CNIL}"
 sudo apt-get update -y
@@ -128,14 +110,12 @@ echo -e "\x1B[01;90m\n¦ Remove luarocks ... \n\x1B[0m"
 cd .. ;sudo rm -fr ./luarocks*
 echo -e "${WHITB}\n¦ Convert TimeZone To Asia/Baghdad  ... \n${CNIL}"
 sudo timedatectl set-timezone Asia/Baghdad
-sudo chmod +x TG
-sudo chmod +x run
-sudo chmod +x ./run
+cd && cd BOSS && sudo find . -type f -print0 | xargs -0 chmod +x
 echo -e "\n
-${SMAY}>> Installation ${LSAMAY}Source TH3BOSS${SMAY} Completed ^_^ .\n
+${SMAY}>> Installation ${LSAMAY}Source TH3BOSS ${SMAY} Completed ^_^ .\n
 Now I Have Information For Your Bot  \n
 1- Enter Token Your Bot .
 2- Enter Your UserName Sudo .
-3- And End Press Enter To Run Source Th3Bs .\n\n
+3- And End Press Enter To Run Source TH3BOSS .\n\n
 ${RED}Note:${Yellow} Send \"/start\"${SMAY} To Your Bot For Show All Commands.${CNIL}"
 sudo ./run
