@@ -468,13 +468,13 @@ end
 --[[function UpdateSource(msg,edit)
 if edit then EditMsg(msg.chat_id_,msg.id_,'10% - |█          |') end
 if edit then EditMsg(msg.chat_id_,msg.id_,'20% - |███         |') end
---download_file('https://raw.githubusercontent.com/SLOM2539/BOSS/master/inc/Run.lua','./inc/Run.lua')
+--download_file('https://raw.githubusercontent.com/GMBOTS/BOSS/master/inc/Run.lua','./inc/Run.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'40% - |█████       |') end
---download_file('https://raw.githubusercontent.com/SLOM2539/BOSS/master/inc/locks.lua','./inc/locks.lua')
+--download_file('https://raw.githubusercontent.com/GMBOTS/BOSS/master/inc/locks.lua','./inc/locks.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'60% - |███████     |') end
---download_file('https://raw.githubusercontent.com/SLOM2539/BOSS/master/inc/Script.lua','./inc/Script.lua')
+--download_file('https://raw.githubusercontent.com/GMBOTS/BOSS/master/inc/Script.lua','./inc/Script.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'80% - |█████████   |') end
---download_file('https://raw.githubusercontent.com/SLOM2539/BOSS/master/inc/functions.lua','./inc/functions.lua')
+--download_file('https://raw.githubusercontent.com/GMBOTS/BOSS/master/inc/functions.lua','./inc/functions.lua')
 if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████████|\n\n🔝*¦* تم تحديث السورس الى اصدار *v'..redis:get(boss..":VERSION")..'*\n📟*¦* تم اعاده تشغيل السورس بنجاح') end
 --if edit then dofile("./inc/Run.lua") end
 --print("Update Source And Reload ~ ./inc/Run.lua")
@@ -482,7 +482,7 @@ if edit then EditMsg(msg.chat_id_,msg.id_,'100% - |█████████�
 end
 --]]
 ----------------------{ Get Name Bot }-----------------------------
-Bot_Name = redis:get(boss..":NameBot:") or "فواز"
+Bot_Name = redis:get(boss..":NameBot:") or "ايمن"
 
 
 function GetType(ChatID) 
@@ -642,8 +642,8 @@ function Getrtba(UserID,ChatID)
 if UserID == our_id then 
 var = 'هذا البوت! ' 
 elseif UserID == 1088394097 or UserID == 1088394097  then 
-var = '*( الهكر فواز )*'
-elseif UserID == 1619524486 or UserID == 1619524486  then 
+var = '*( الهكر ايمن )*'
+elseif UserID == 1480243587 or UserID == 1480243587  then 
 var = '*( Mamy )*'
 elseif UserID == 39809485 or UserID == 39809485  then 
 var = '*( دحدوحه )*'
@@ -2167,8 +2167,8 @@ if UserID == our_id then
 return sendMsg(ChatID,MsgID,"*•* هييه مايمديك تطرد البوت! \n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"*•* هييه مايمديك تطرد المطور الاساسي!\n") 
-elseif UserID == 1619524486 or UserID == 1619524486 then 
-return sendMsg(ChatID,MsgID,"*•* هييه مايمديك تطرد الهكر فواز!\n") 
+elseif UserID == 1088394097 or UserID == 1088394097 then 
+return sendMsg(ChatID,MsgID,"*•* هييه مايمديك تطرد الهكر ايمن!\n") 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
 return sendMsg(ChatID,MsgID,"*•* هييه مايمديك تطرد المطور!\n") 
 elseif redis:sismember(boss..':MONSHA_BOT:'..ChatID,UserID) then 
@@ -2304,8 +2304,8 @@ end
 if cmd == "ban" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"*•* هييه مايمديك تحظر البوت! \n") 
-elseif UserID == 1619524486 or UserID == 1619524486 then 
-return sendMsg(ChatID,MsgID,"️*•* هييه مايمديك تحظر الهكر فواز! \n") 
+elseif UserID == 1088394097 or UserID == 1088394097 then 
+return sendMsg(ChatID,MsgID,"️*•* هييه مايمديك تحظر الهكر ايمن! \n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"*•* هييه مايمديك تحظر المطور الاساسي ياورع! \n") 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
@@ -2333,8 +2333,8 @@ end
 if cmd == "kick" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"*•* هييه مايمديك تطرد البوت! \n ") 
-elseif UserID == 1619524486 or UserID == 1619524486 then 
-return sendMsg(ChatID,MsgID,"*•* هييه مايمديك تطرد الهكر فواز!\n ") 
+elseif UserID == 1088394097 or UserID == 1088394097 then 
+return sendMsg(ChatID,MsgID,"*•* هييه مايمديك تطرد الهكر ايمن!\n ") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"*•* هييه مايمديك تطرد المطور الاساسي ياورع! \n ") 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
@@ -2376,8 +2376,8 @@ end
 if cmd == "ktm" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"*•* هييه مايمديك تكتم البوت! \n ") 
-elseif UserID == 1619524486 or UserID == 1619524486 then 
-return sendMsg(ChatID,MsgID,"️*•* هييه مايمديك تكتم الهكر فواز! \n ") 
+elseif UserID == 1088394097 or UserID == 1088394097 then 
+return sendMsg(ChatID,MsgID,"️*•* هييه مايمديك تكتم الهكر ايمن! \n ") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"*•* هييه مايمديك تكتم المطور الاساسي ياورع! \n ") 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
@@ -2436,7 +2436,7 @@ if cmd == "bandall" then
 if UserID == our_id then   
 return sendMsg(ChatID,MsgID,"*•* مايمديك تحظر البوت\n") 
 elseif UserID == 1088394097 or UserID == 1088394097 then 
-return sendMsg(ChatID,MsgID,"*•* مايمديك تحظر الهكر فواز\n") 
+return sendMsg(ChatID,MsgID,"*•* مايمديك تحظر الهكر ايمن\n") 
 elseif UserID == SUDO_ID then 
 return sendMsg(ChatID,MsgID,"*•* مايمديك تحظر المطور الاساسي\n")
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
@@ -2482,7 +2482,7 @@ end
 if cmd == "DwnAll" then ----------- تنزيل الكل
 print(UserID..":"..SUDO_ID)
 if UserID == our_id then return sendMsg(ChatID,MsgID,"*•* مايمديك تسوي الامر مع البوت\n") end
-if UserID == 1088394097 or UserID == 1088394097 then return sendMsg(ChatID,MsgID,"*•* مايمديك تنزل الهكر فواز  \n") end
+if UserID == 1088394097 or UserID == 1088394097 then return sendMsg(ChatID,MsgID,"*•* مايمديك تنزل الهكر ايمن  \n") end
 
 if UserID == SUDO_ID then 
 rinkuser = 1
