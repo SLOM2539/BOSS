@@ -50,7 +50,6 @@ if not SUDO_USER:match('@[%a%d_]') then
 print('\n\27[1;31m￤ This is Not USERNAME !\n￤هہ‏‏ذآ ليس مـعرف حسـآب تلگرآم , عذرآ آدخل آلمـعرف آلصـحيح آلآن . ')
 create_config(Token)
 end
-if not GetUser.result then
 if GetUser.cause then
 print('\n\27[1;31m￤ '..GetUser.cause)
 os.exit()
