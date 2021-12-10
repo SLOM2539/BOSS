@@ -1883,7 +1883,7 @@ uuuu = arg.UserName:gsub("@","")
 sendMsg(arg.ChatID,arg.MsgID,"["..data.title_.."](t.me/"..uuuu..")")
 end,{ChatID=msg.chat_id_,MsgID=msg.id_,UserName=info.username})
 else
-message = message..' ['..info.username..'](t.me/TX7Bot)  \n'
+message = message..' ['..info.username..'](t.me/Y_8Bot)  \n'
 sendMsg(msg.chat_id_,msg.id_,message)
 end
 
@@ -4908,7 +4908,7 @@ end
 if (MsgText[1]== "ايدي" or MsgText[1]=="ايدي 🆔") and msg.type == "pv" then return  "\n"..msg.sender_user_id_.."\n"  end
 
 if MsgText[1]== "قناة السورس 📡" and msg.type == "pv" then
-local inline = {{{text="سيي",url="سييي"}}}
+local inline = {{{text="سسس",url="سسس"}}}
 send_key(msg.sender_user_id_,'  [ييي](ييي)',nil,inline,msg.id_)
 return false
 end
@@ -5205,7 +5205,7 @@ end
 
 
 
-if MsgText[1] == "الاوامر" or MsgText[1] == "/Commands" or MsgText[1] == "/Commands@TX7bot" then
+if MsgText[1] == "الاوامر" or MsgText[1] == "/Commands" or MsgText[1] == "/Commands@Y_8Bot" then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 text = [[*• هلا فيك في اوامر البوت
@@ -5471,7 +5471,7 @@ local text = [[
 
 ↞ رابط الاغنية
 
-「[F A W A Z](https://t.me/FAWAZ901)」 ]]
+「[𝘈 𝘞 𝘔 ](https://t.me/AAAAz)」 ]]
 
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg
@@ -5512,7 +5512,7 @@ local text = [[
 بعدها ترسل اسم الاغنية او الرابط
 
 
-「[F A W A Z](https://t.me/FAWAZ901)」 ]]
+「[𝘈 𝘞 𝘔 ](https://t.me/AAAAz)」 ]]
 
 
 GetUserID(msg.sender_user_id_,function(arg,data)
@@ -5707,10 +5707,10 @@ end
 
 if MsgText[1] == "سورس" or MsgText[1]=="السورس" then
 return [[
-𒍭 Source Fawaz
+𒍭 𝙨𝙤𝙪𝙧𝙘𝙚 𝙬𝙖𝙖𝙙
  
-[𓅓 𝙈𝘼𝙎𝙏𝙀𝙍](https://t.me/FAWAZ901)
-
+[𓅓 𝙈𝘼𝙎𝙏𝙀𝙍](https://t.me/AAAAz)
+[𓅓𝘾𝙃𝘼𝙉𝙉𝙀𝙇](https://t.me/YYYYF)
 
 ]]
 end
@@ -5917,9 +5917,9 @@ text = text:gsub("{البوت}",redis:get(boss..':NameBot:'))
 text = text:gsub("{المطور}",SUDO_USER)
 xsudouser = SUDO_USER:gsub('@','')
 xsudouser = xsudouser:gsub([[\_]],'_')
---local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/TX7Bot?startgroup=start"}}}
+--local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/Y_8Bot?startgroup=start"}}}
 --send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
-local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/TX7bot?startgroup=start"}},{{text="للاستفسارات",url="https://t.me/RRLRR"}}}
+local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/Y_8Bot?startgroup=start"}},{{text="للاستفسارات",url="https://t.me/RRLRR"}}}
 send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
 end,nil)
 return false
@@ -7866,7 +7866,7 @@ local sb = {
 }
 
 local bb = {
-"اسمي فواز","انطم","مو بوته!","اذلف","تراها زاقه","الله يعين","اسممممممممممييي ططوووككييووو","ياصبر الارض","هاه","ط و ك ي و","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
+"اسمي طوكيو","انطم","مو بوته!","اذلف","تراها زاقه","الله يعين","اسممممممممممييي ططوووككييووو","ياصبر الارض","هاه","ط و ك ي و","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
 }
 
 
@@ -8653,7 +8653,7 @@ Boss = {
 "^(قائمة الخاروف)$",
 "^(/Commands)$",
 "^(/start commands)$",
-"^(/Commands@TX7Bot)$",
+"^(/Commands@Y_8Bot)$",
 
 },
 iBoss = iBoss,
