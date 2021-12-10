@@ -436,7 +436,7 @@ end
 end
 if ISONEBOT then return false end
 end
-
+print(inspect(data))
 if abbas == '/HelpList1'..UserID then
 
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
