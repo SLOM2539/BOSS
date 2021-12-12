@@ -90,6 +90,7 @@ boss..":ApiSource",GetUser.information.WebSite,
 boss..":NameBot:","شهد",
 "TH3BOSS_INSTALL","Yes"
 )
+
 redis:hset(boss..'username:'..GetUser.information.id,'username','@'..GetUser.information.username:gsub('_',[[\_]]))
 info = {} 
 info.username = '@'..GetUser.information.username
@@ -109,6 +110,13 @@ chmod +x ./run
 ./run
 ]])
 end
+
+function Start_Bot() 
+local TokenBot = io.open('./inc/Token.txt', "r")
+if not TokenBot then
+print('\27[0;33m>>'..[[
+
+
 
 
 
