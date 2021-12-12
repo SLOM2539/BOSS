@@ -12,7 +12,7 @@ text = [[*⇜ هلا فيك في اوامر البوت
 
 
 ]]
-local inline = {{{text="م1",callback_data="/AAAAA"..msg.sender_user_id_},{text="م2",callback_data="/EEEEE"..msg.sender_user_id_}},{{text="م3",callback_data="/QQQQQ"..msg.sender_user_id_}},{{text="الاغاني",callback_data="/UUUUU"..msg.sender_user_id_},{text="التسليه",callback_data="/TTTTT"..msg.sender_user_id_}}} 
+local inline = {{{text="م1",callback_data="/HelpList1"..msg.sender_user_id_},{text="م2",callback_data="/HelpList2"..msg.sender_user_id_}},{{text="م3",callback_data="/HelpList3"..msg.sender_user_id_}},{{text="الاغاني",callback_data="/HelpListDev"..msg.sender_user_id_},{text="التسليه",callback_data="/HelpListRrd"..msg.sender_user_id_}}} 
 return send_inline(msg.chat_id_,text,inline,msg.id_)
 end
 
