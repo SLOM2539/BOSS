@@ -383,7 +383,7 @@ text = [[*اهلين انا ]]..redis:get(boss..':NameBot:')..[[ 🧚*
 
 
 ]]
-local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/Y_8Bot?startgroup=start"}},{{text="تحديثات طوكيو 🦦",url="https://t.me/OnlyHMD"}}}
+local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/KQEBOT?startgroup=start"}},{{text="تحديثات شهد 🦦",url="https://t.me/Fawaz879"}}}
 send_keyPhoto(msg.chat_id_,text,nil,inline,msg.id_)
 return false
 end
