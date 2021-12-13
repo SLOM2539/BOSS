@@ -104,6 +104,12 @@ print(CmdRun)
 os.execute(CmdRun)
 end
 
+function Start_Bot() 
+local TokenBot = io.open('./inc/Token.txt', "r")
+if not TokenBot then
+print('\27[0;33m>>'..[[
+
+
 
 
 
