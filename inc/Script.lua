@@ -4909,7 +4909,7 @@ if (MsgText[1]== "ايدي" or MsgText[1]=="ايدي 🆔") and msg.type == "pv"
 
 if MsgText[1]== "قناة السورس 📡" and msg.type == "pv" then
 local inline = {{{text="قـنـاة سـورس : فـواز",url="https://t.me/fawaz879"}}}
-send_key(msg.sender_user_id_,'  [https://t.me/Fawaz879](قـنـاة سـورس : فواز)',nil,inline,msg.id_)
+send_key(msg.sender_user_id_,'  [قـنـاة سـورس : فواز](https://t.me/fawaz901)',nil,inline,msg.id_)
 return false
 end
 
@@ -5709,88 +5709,6 @@ if msg.text == 'مسح افتار' then
 end
 
 
-if MsgText[1] == 'ضع افتار' then
-  if tonumber(msg.sender_user_id_) ~= tonumber(SUDO_ID) then
-    sendMsg(msg.chat_id_,msg.id_,'فقط المطور الاساسي')
-    return false
-  end 
-  redis:setex(max.."Limit:Photos:"..msg.chat_id_..""..msg.sender_user_id_,300,true)  
-  sendMsg(msg.chat_id_,msg.id_,'- ارسل الصوره')
-end
-if MsgText[1] == 'مسح افتار' then
-  if tonumber(msg.sender_user_id_) ~= tonumber(SUDO_ID) then
-    sendMsg(msg.chat_id_,msg.id_,'فقط المطور الاساسي')
-    return false
-  end 
-  local list = redis:smembers(max.."Limit:Photos:")
-  if #list == 0 then
-    sendMsg(msg.chat_id_,msg.id_,'- فارغ')
-  else
-    redis:del(max.."Limit:Photos:")
-    sendMsg(msg.chat_id_,msg.id_,'- تم مسح القايمه')
-  end
-end
-if MsgText[1] == 'افتارات' and msg.Admin then
-local list = redis:smembers(max.."Limit:Photos:")
-if #list > 0 then
-  if #list == 1 then
-    sendPhoto2(msg.chat_id_, list[1], msg.id_/2097152/0.5, '', 'md',false)
-  else
-    keyboard = {} 
-    keyboard.inline_keyboard = {
-    {
-    {text = 'التالي', callback_data="RB:Next:2:"..msg.sender_user_id_}},{
-    {text = 'اغلاق', callback_data="RB:Close:2:"..msg.sender_user_id_}}}
-    sendPhoto2(msg.chat_id_, list[1], msg.id_/2097152/0.5, '', 'md',keyboard)
-  end
-else
-  sendMsg(msg.chat_id_,msg.id_,'لايوجد افتار')
-end
-end
-
-if text == "تفعيل ضافني" then   
-if redis:get(max..'Added:Me'..msg.chat_id_) then
-sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*¦* أهلا عزيزي "..msg.TheRankCmd.."\n📡*¦* تم  تفعيل امر مين ضافني\n✓")
-redis:del(max..'Added:Me'..msg.chat_id_)  
-else
-sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*¦* أهلا عزيزي "..msg.TheRankCmd.."\n📡*¦* تم  تفعيل مين ضافني سابقا \n✓")
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تعطيل ضافني' then  
-if not redis:get(max..'Added:Me'..msg.chat_id_) then
-redis:set(max..'Added:Me'..msg.chat_id_,true)  
-sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*¦* أهلا عزيزي "..msg.TheRankCmd.."\n📡*¦* تم  تعطيل مين ضافني\n✓")
-else
-sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*¦* أهلا عزيزي "..msg.TheRankCmd.."\n📡*¦* تم تعطيل مين ضافني سابقا\n✓")
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-
-if text == 'مين ضافني' then
-if not redis:get(max..'Added:Me'..msg.chat_id_) then
-tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
-if da and da.status_.ID == "ChatMemberStatusCreator" then
-send(msg.chat_id_, msg.id_,'انت منشئ المجموعه ') 
-return false
-end
-local Added_Me = redis:get(max.."Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
-if Added_Me then 
-tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-Text = 'الشخص الذي قام باضافتك هو » '..Name
-sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
-end,nil)
-else
-send(msg.chat_id_, msg.id_,'انت دخلت عبر الرابط') 
-end
-end,nil)
-else
-send(msg.chat_id_, msg.id_,'امر مين ضافني تم تعطيله من قبل المدراء ') 
-end
-end
-
-
 if MsgText[1] == "مغادره" or MsgText[1] == "ادفرني" or MsgText[1] == "احظرني" or MsgText[1] == "اطردني" then
 if msg.Admin then return "*•* للاسف مااقدر اطرد المدراء والادمنيه والمالكيين  \n" end
 if not redis:get(boss.."lock_leftgroup"..msg.chat_id_) then  return "*•* امر اطردني معطل!  \n" end
@@ -5965,7 +5883,6 @@ local text = '• اهلا عيني المطور \n• انت المطور ال�
 
 local keyboard = {
 {"الاحصائيات 📈"},
-{"ضع افتار","مسح افتار"},
 {"ضع اسم للبوت ©","ضع صوره للترحيب 🌄"},
 {"تعطيل التواصل ✖️","تفعيل التواصل 🔛"},
 {"تعطيل تعيين الايدي ⚔️","تفعيل تعيين الايدي ⌨️"},
@@ -6723,8 +6640,8 @@ end
 
 if redis:get(boss..'addrd_all:'..msg.chat_id_..msg.sender_user_id_) then -- استقبال الرد لكل المجموعات
 if not redis:get(boss..'allreplay:'..msg.chat_id_..msg.sender_user_id_) then -- استقبال كلمه الرد لكل المجموعات
-if utf8.len(msg.text) > 25 then 
-return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف كلمة الرد باكثر من 25 حرف \n")
+if utf8.len(msg.text) > 500 then 
+return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف كلمة الرد باكثر من 500 حرف \n")
 end
 redis:hdel(boss..'replay_photo:group:',msg.text)
 redis:hdel(boss..'replay_voice:group:',msg.text)
@@ -6918,8 +6835,8 @@ if msg.text then
 if redis:get(boss..'addrdRandom1:'..msg.chat_id_..msg.sender_user_id_) then -- استقبال الرد للمجموعه فقط
 
 if not redis:get(boss..'replay1Random'..msg.chat_id_..msg.sender_user_id_) then  -- كلمه الرد
-if utf8.len(msg.text) > 25 then 
-return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف اكثر من 25 حرف كلمة رد \n ")
+if utf8.len(msg.text) > 500 then 
+return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف اكثر من 500 حرف كلمة رد \n ")
 end
 redis:setex(boss..'addrdRandom:'..msg.chat_id_..msg.sender_user_id_,1400,true) 
 redis:setex(boss..'replay1Random'..msg.chat_id_..msg.sender_user_id_,1400,msg.text)
@@ -6930,8 +6847,8 @@ end
 if redis:get(boss..'addrd:'..msg.chat_id_..msg.sender_user_id_) then -- استقبال الرد للمجموعه بس
 
 if not redis:get(boss..'replay1'..msg.chat_id_..msg.sender_user_id_) then  -- كلمه الرد
-if utf8.len(msg.text) > 25 then 
-return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف كلمه الرد باكثر من 25 حرف \n")
+if utf8.len(msg.text) > 500 then 
+return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف كلمه الرد باكثر من 500 حرف \n")
 end
 redis:hdel(boss..'replay:'..msg.chat_id_,msg.text)
 redis:hdel(boss..'replay_photo:group:'..msg.chat_id_,msg.text)
@@ -7878,7 +7795,7 @@ end
 --=============================================================================================================================
 if msg.SudoUser and msg.text and redis:get(boss..'addrdRandom1Public:'..msg.chat_id_..msg.sender_user_id_) then 
 if not redis:get(boss..'replay1RandomPublic'..msg.chat_id_..msg.sender_user_id_) then  -- كلمه الرد
-if utf8.len(msg.text) > 25 then return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف اكثر من 25 حرف كلمة رد \n ") end
+if utf8.len(msg.text) > 500 then return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف اكثر من 500 حرف كلمة رد \n ") end
 redis:setex(boss..'addrdRandomPublic:'..msg.chat_id_..msg.sender_user_id_,1400,true) 
 redis:setex(boss..'replay1RandomPublic'..msg.chat_id_..msg.sender_user_id_,1400,msg.text)
 return sendMsg(msg.chat_id_,msg.id_,"• حلو , الحين ارسل جواب الرد العشوائي العام \n• ([ نص,صوره,فيديو,متحركه,بصمه,اغنيه ]) \n• مع العلم يمديك تضيف 10 ردود متعدده بس  \n  ")
@@ -7972,7 +7889,7 @@ local sb = {
 }
 
 local bb = {
-"اسمي شهد","انطم","مو بوته!","اذلف","تراها زاقه","الله يعين","اسممممممممممييي ططوووككييووو","ياصبر الارض","هاه","اسمي شهد يالهطف","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
+"اسمي شهد","انطم","مو بوته!","اذلف","تراها زاقه","الله يعين","اسمي شهد ياحلو","ياصبر الارض","هاه","اسمي شهد يالهطف","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
 }
 
 
@@ -8477,12 +8394,6 @@ Boss = {
 "^(م المطور)$", 
 "^(اوامر الرد)$",
 "^(اوامر الملفات)$",
-"^(ضع افتار)$",
-"^(مسح افتار)$",
-"^(افتارات)$",
-"^(تفعيل ضافني)$",
-"^(تعطيل ضافني)$",
-"^(مين ضافني)$",
 "^(الاوامر)$",
 "^(م1)$",
 "^(م2)$",
