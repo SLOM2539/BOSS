@@ -383,7 +383,7 @@ text = [[*اهلين انا ]]..redis:get(boss..':NameBot:')..[[ 🧚*
 
 
 ]]
-local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/KQEBOT?startgroup=start"}},{{text="تحديثات شهد 🦦",url="https://t.me/Fawaz879"}}}
+local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/w8gbot?startgroup=start"}},{{text="تحديثات شهد 🦦",url="https://t.me/Fawaz879"}}}
 send_keyPhoto(msg.chat_id_,text,nil,inline,msg.id_)
 return false
 end
@@ -943,7 +943,7 @@ return sendMsg(msg.chat_id_,msg.id_,"*تم*",function(arg,data)
 Refresh_Start = true
 end)
 end 
-if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
+if msg.text == 'يابوت حدث' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
 UpdateSource(msg)
 sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
 dofile("./inc/Run.lua")
