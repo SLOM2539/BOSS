@@ -465,6 +465,52 @@ name = string.gsub(name,'مخابر','الرجال .... مو مناظر')
 return 'اكمل المثل التالي (* '..name..' *)'
 end
 
+if MsgText[1] == 'كلمات' or MsgText[1] == 'كلمات' then
+  katu = {
+  'افتح','باب','الافضل','جدار','طيران','ورده','جيد','سيء','اريد','غريب','خطير','يهتم','حفظ','تحرك','ربما','ثقة','حقيقه','صندوق','يد','شجاع','هادئ','حذر','مرح','ذكي','جبان','مجنون','عاطفي','ودود','مضحك','كريم','صادق','غير صبور','غير مهذب','حنون','كسول','حقير','مريض',
+  };
+  name = katu[math.random(#katu)]
+  redis:set(boss..':Set_klm:'..msg.chat_id_,name)
+  name = string.gsub(name,'افتح','افتح')
+  name = string.gsub(name,'باب','باب')
+  name = string.gsub(name,'الافضل','الافضل')
+  name = string.gsub(name,'جدار','جدار')
+  name = string.gsub(name,'طيران','طيران')
+  name = string.gsub(name,'ورده','ورده')
+  name = string.gsub(name,'جيد','جيد')
+  name = string.gsub(name,'سيء','سيء')
+  name = string.gsub(name,'اريد','اريد')
+  name = string.gsub(name,'غريب','غريب')
+  name = string.gsub(name,'خطير','خطير')
+  name = string.gsub(name,'يهتم','يهتم')
+  name = string.gsub(name,'حفظ','حفظ')
+  name = string.gsub(name,'تحرك','تحرك')
+  name = string.gsub(name,'ربما','ربما')
+  name = string.gsub(name,'ثقة','ثقة')
+  name = string.gsub(name,'حقيقه','حقيقه')
+  name = string.gsub(name,'صندوق','صندوق')
+  name = string.gsub(name,'يد','يد')
+  name = string.gsub(name,'شجاع','شجاع')
+  name = string.gsub(name,'هادئ','هادئ')
+  name = string.gsub(name,'حذر','حذر')
+  name = string.gsub(name,'مرح','مرح')
+  name = string.gsub(name,'ذكي','ذكي')
+  name = string.gsub(name,'جبان','جبان')
+  name = string.gsub(name,'مجنون','مجنون')
+  name = string.gsub(name,'عاطفي','عاطفي')
+  name = string.gsub(name,'ودود','ودود')
+  name = string.gsub(name,'مضحك','مضحك')
+  name = string.gsub(name,'كريم','كريم')
+  name = string.gsub(name,'صادق','صادق')
+  name = string.gsub(name,'غير صبور','غير صبور')
+  name = string.gsub(name,'غير مهذب','غير مهذب')
+  name = string.gsub(name,'حنون','حنون')
+  name = string.gsub(name,'كسول','كسول')
+  name = string.gsub(name,'حقير','حقير')
+  name = string.gsub(name,'مريض','مريض')
+  return 'اسرع شخص يكتب (* '..name..' *)'
+  end
+
 if MsgText[1] == 'انقليزي' or MsgText[1] == 'الانقليزي' then
   katu = {
   'افتح','باب','الافضل','جدار','طيران','ورده','جيد','سيء','اريد','غريب','خطير','يهتم','حفظ','تحرك','ربما','ثقة','حقيقه','صندوق','يد','شجاع','هادئ','حذر','مرح','ذكي','جبان','مجنون','عاطفي','ودود','مضحك','كريم','صادق','غير صبور','غير مهذب','حنون','كسول','حقير','مريض',
@@ -653,44 +699,6 @@ if MsgText[1] == 'تفكيك' then
   name = string.gsub(name,'م ك ي ف','مكيف')
   name = string.gsub(name,'م ر و ح ه','مروحه')
   return 'اسرع واحد يفكك (* '..name..' *)'
-  end
-  if MsgText[1] == 'كلمات' then
-  katu = {'نار','بارد','اسد','ملاهي','طريق','شرس','محترف','ساهر','فطور','شاهد','بريك','ببسي','ساطور','احبك','ذئب','بعير','طير','ورده','جميل ','حلو','بطريق','طماطم','موز','سيارة','تحريك','فلوس','بوت','ثقة','حلزون','مكيف','مروحه'
-  };
-  name = katu[math.random(#katu)]
-  redis:set(boss..':Set_kmm:'..msg.chat_id_,name)
-  name = string.gsub(name,'نار','نار')
-  name = string.gsub(name,'بارد','بارد')
-  name = string.gsub(name,'اسد','اسد')
-  name = string.gsub(name,'ملاهي','ملاهي')
-  name = string.gsub(name,'طريق','طريق')
-  name = string.gsub(name,'شرس','شرس')
-  name = string.gsub(name,'محترف','محترف')
-  name = string.gsub(name,'ساهر','ساهر')
-  name = string.gsub(name,'فطور','فطور')
-  name = string.gsub(name,'شاهد','شاهد')
-  name = string.gsub(name,'بريك','بريك')
-  name = string.gsub(name,'ببسي','ببسي')
-  name = string.gsub(name,'ساطور','ساطور')
-  name = string.gsub(name,'احبك','احبك')
-  name = string.gsub(name,'ذئب','ذئب')
-  name = string.gsub(name,'بعير','بعير')
-  name = string.gsub(name,'طير','طير')
-  name = string.gsub(name,'ورده','ورده')
-  name = string.gsub(name,'جميل','جميل')
-  name = string.gsub(name,'حلو','حلو')
-  name = string.gsub(name,'بطريق','بطريق')
-  name = string.gsub(name,'طماطم','طماطم')
-  name = string.gsub(name,'موز','موز')
-  name = string.gsub(name,'سيارة','سيارة')
-  name = string.gsub(name,'تحريك','تحريك')
-  name = string.gsub(name,'فلوس','فلوس')
-  name = string.gsub(name,'بوت','بوت')
-  name = string.gsub(name,'ثقة','ثقة')
-  name = string.gsub(name,'حلزون','حلزون')
-  name = string.gsub(name,'مكيف','مكيف')
-  name = string.gsub(name,'مروحه','مروحه')
-  return 'اسرع واحد يكتب (* '..name..' *)'
   end
   if MsgText[1] == 'تركيب' then
   katu = {'نار','بارد','اسد','ملاهي','طريق','شرس','محترف','ساهر','فطور','شاهد','بريك','ببسي','ساطور','احبك','ذئب','بعير','طير','ورده','جميل ','حلو','بطريق','طماطم','موز','سيارة','تحريك','فلوس','بوت','ثقة','حلزون','مكيف','مروحه'
@@ -1356,6 +1364,7 @@ Boss = {
 "^(حزوره)$", 
 "^(المختلف)$",
  "^(امثله)$",
+"^(كلمات)$",
 "^(نعم)$",
 "^(الاعبين)$",
 "^(بدء الاسئله)$",
@@ -1363,7 +1372,6 @@ Boss = {
 "^(اسئله)$",
 "^(الالعاب)$",
 "^(محيبس)$",
-"^(كلمات)$",
    "^(تركيب)$",
 "^(تخمين)$",
 "^(خمن)$",
