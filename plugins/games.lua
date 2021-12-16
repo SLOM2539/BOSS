@@ -1,5 +1,5 @@
 --[[
-العاب سورس آرماندو
+العاب سورس شهد
 --]]
 local function games(msg,MsgText)
 if msg.type ~= "pv" then
@@ -655,10 +655,23 @@ if MsgText[1] == 'تفكيك' then
   return 'اسرع واحد يفكك (* '..name..' *)'
   end
   if MsgText[1] == 'تركيب' then
-  katu = {'احبك','ذئب','بعير','طير','ورده','جميل ','حلو','بطريق','طماطم','موز','سيارة','تحريك','فلوس','بوت','ثقة','حلزون','مكيف','مروحه'
+  katu = {نار','بارد','اسد','ملاهي','طريق','شرس','محترف','ساهر','فطور','شاهد','بريك','ببسي','ساطور','احبك','ذئب','بعير','طير','ورده','جميل ','حلو','بطريق','طماطم','موز','سيارة','تحريك','فلوس','بوت','ثقة','حلزون','مكيف','مروحه'
   };
   name = katu[math.random(#katu)]
   redis:set(boss..':Set_trkib:'..msg.chat_id_,name)
+  name = string.gsub(name,'نار','ن ا ر')
+  name = string.gsub(name,'بارد','ب ا ر د')
+  name = string.gsub(name,'اسد','ا س د')
+  name = string.gsub(name,'ملاهي','م ل ا ه ي')
+  name = string.gsub(name,'طريق','ط ر ي ق')
+  name = string.gsub(name,'شرس','ش ر س')
+  name = string.gsub(name,'محترف','م ح ت ر ف')
+  name = string.gsub(name,'ساهر','س ا ه ر')
+  name = string.gsub(name,'فطور','ف ط و ر')
+  name = string.gsub(name,'شاهد','ش ا ه د')
+  name = string.gsub(name,'بريك','ب ر ي ك')
+  name = string.gsub(name,'ببسي','ب ب س ي')
+  name = string.gsub(name,'ساطور','س ا ط و ر')
   name = string.gsub(name,'احبك','ا ح ب ك')
   name = string.gsub(name,'ذئب','ذ ئ ب')
   name = string.gsub(name,'بعير','ب ع ي ر')
