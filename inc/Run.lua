@@ -383,17 +383,6 @@ text = [[*اهلين انا ]]..redis:get(boss..':NameBot:')..[[ 🧚*
 
 
 ]]
-local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/w8gbot?startgroup=start"}},{{text="تحديثات شهد 🦦",url="https://t.me/KKEXK"}}}
-send_keyPhoto(msg.chat_id_,text,nil,inline,msg.id_)
-return false
-end
-if not ISONEBOT then
-msg.adduser = msg.content_.members_[0].id_
-msg.addusername = msg.content_.members_[0].username_
-msg.addname = msg.content_.members_[0].first_name_
-msg.adduserType = msg.content_.members_[0].type_.ID
-end
-end
 if msg.content_.ID == "MessageChatAddMembers" or msg.content_.ID == "MessageChatJoinByLink" then 
 if msg.GroupActive then
 if msg.content_.ID == "MessageChatAddMembers" then
