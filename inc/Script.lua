@@ -4908,8 +4908,8 @@ end
 if (MsgText[1]== "ايدي" or MsgText[1]=="ايدي 🆔") and msg.type == "pv" then return  "\n"..msg.sender_user_id_.."\n"  end
 
 if MsgText[1]== "قناة السورس 📡" and msg.type == "pv" then
-local inline = {{{text="قـنـاة سـورس : فـواز",url="https://t.me/fawaz879"}}}
-send_key(msg.sender_user_id_,'  [قـنـاة سـورس : فواز](https://t.me/fawaz901)',nil,inline,msg.id_)
+local inline = {{{text="قـنـاة سـورس : فـواز",url="https://t.me/kkexk"}}}
+send_key(msg.sender_user_id_,'  [قـنـاة سـورس : فواز](https://t.me/kkexk)',nil,inline,msg.id_)
 return false
 end
 
@@ -5733,7 +5733,7 @@ return [[
 𒍭 𝙨𝙤𝙪𝙧𝙘𝙚 𝙨𝙝𝙨𝙝𝙖𝙙
  
 [𓅓 𝙈𝘼𝙎𝙏𝙀𝙍](https://t.me/FAWAZ901)
-[𓅓𝘾𝙃𝘼𝙉𝙉𝙀𝙇](https://t.me/fawaz879)
+[𓅓𝘾𝙃𝘼𝙉𝙉𝙀𝙇](https://t.me/kkexk)
 
 ]]
 end
