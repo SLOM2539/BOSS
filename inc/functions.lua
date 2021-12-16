@@ -545,10 +545,10 @@ Name = data.first_name_ .." "..data.last_name_
 else 
 Name = data.first_name_ 
 end
-usernn = data.username_ or "KQEBot"
+usernn = data.username_ or "W8gBot"
 else 
 Name = data.title_
-usernn = data.type_.user_.username_ or "KQEBot"
+usernn = data.type_.user_.username_ or "W8gBot"
 end
 Name = Name:gsub('[[][]]','')
 Name = FlterName(Name,10)
@@ -747,7 +747,7 @@ local info  = redis:hgetall(boss..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."- ["..info.username..'] \n'
 else
-message = message ..i.. '- ['..info.username..'](t.me/KQEBot) \n'
+message = message ..i.. '- ['..info.username..'](t.me/W8gbot) \n'
 end
 
 i=i+1
@@ -759,7 +759,7 @@ local info  = redis:hgetall(boss..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."- ["..info.username..'] \n'
 else
-message = message ..i.. '- ['..info.username..'](t.me/KQEBot) \n'
+message = message ..i.. '- ['..info.username..'](t.me/W8gBot) \n'
 end
 i=i+1
 end 
@@ -770,7 +770,7 @@ local info  = redis:hgetall(boss..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."- ["..info.username..'] \n'
 else
-message = message ..i.. '- ['..info.username..'](t.me/KQEBot) \n'
+message = message ..i.. '- ['..info.username..'](t.me/W8gbot) \n'
 end
 i=i+1
 end 
@@ -781,7 +781,7 @@ local info  = redis:hgetall(boss..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."- ["..info.username..'] \n'
 else
-message = message ..i.. '- ['..info.username..'](t.me/KQEBot) \n'
+message = message ..i.. '- ['..info.username..'](t.me/w8gbot) \n'
 end
 i=i+1
 end 
@@ -793,7 +793,7 @@ local info  = redis:hgetall(boss..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..i.."- ["..info.username..'] \n'
 else
-message = message ..i.. '- ['..info.username..'](t.me/KQEBot) \n'
+message = message ..i.. '- ['..info.username..'](t.me/w8gbot) \n'
 end
 i=i+1
 end 
@@ -812,7 +812,7 @@ local count = redis:scard(boss..'mtwr_count'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.." ➣ ["..info.username..'] ࿓ (`' ..v.. '`) \n'
 else
-message = message ..k.. ' ➣ ['..info.username..'](t.me/KQEBot) ࿓ (`' ..v.. '`) \n'
+message = message ..k.. ' ➣ ['..info.username..'](t.me/w8gbot) ࿓ (`' ..v.. '`) \n'
 end
 end 
 end
@@ -838,7 +838,7 @@ local info = redis:hgetall(boss..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.." ➣ ["..info.username..'] ࿈ ( `' ..v.. '` ) \n'
 else
-message = message ..k.. ' ➣ ['..info.username..'](t.me/KQEBot) ࿓  (`' ..v.. '`) \n'
+message = message ..k.. ' ➣ ['..info.username..'](t.me/W8gbot) ࿓  (`' ..v.. '`) \n'
 end
 end
 end
@@ -853,7 +853,7 @@ local info = redis:hgetall(boss..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.." ➣ ["..info.username..'] ࿓ ( `' ..v.. '` ) \n'
 else
-message = message ..k.. ' ➣ ['..info.username..'](t.me/KQEBot) ࿓  (`' ..v.. '`) \n'
+message = message ..k.. ' ➣ ['..info.username..'](t.me/W8gbot) ࿓  (`' ..v.. '`) \n'
 end
 end
 end
@@ -872,7 +872,7 @@ local info = redis:hgetall(boss..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. ' ➣ ['..(Flter_Markdown(info.username) or '')..'] ࿓ ( `' ..v.. '` ) \n'
 else
-message = message ..k.. ' ➣ ['..info.username..'](t.me/KQEBot) ࿓  ( `' ..v.. '` ) \n'
+message = message ..k.. ' ➣ ['..info.username..'](t.me/W8gbot) ࿓  ( `' ..v.. '` ) \n'
 end
 end
 end
@@ -894,7 +894,7 @@ local info = redis:hgetall(boss..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. ' ➣ ['..info.username..'] ࿓ ( `' ..v.. '` ) \n'
 else
-message = message ..k.. ' ➣ ['..info.username..'](t.me/KQEBot) ࿓  ( `' ..v.. '` ) \n'
+message = message ..k.. ' ➣ ['..info.username..'](t.me/W8gbot) ࿓  ( `' ..v.. '` ) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -915,7 +915,7 @@ local info = redis:hgetall(boss..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. ' ➣ ['..info.username..'] ࿓ ( `' ..v.. '` ) \n'
 else
-message = message ..k.. ' ➣ ['..info.username..'](t.me/KQEBot) ࿓  ( `' ..v.. '` ) \n'
+message = message ..k.. ' ➣ ['..info.username..'](t.me/W8gbot) ࿓  ( `' ..v.. '` ) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -945,7 +945,7 @@ local info = redis:hgetall(boss..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. ' ➣ ['..info.username..'] ࿓ ( `' ..v.. '` ) \n'
 else
-message = message ..k.. ' ➣ ['..info.username..'](t.me/KQEBot) ࿓  ( `' ..v.. '` ) \n'
+message = message ..k.. ' ➣ ['..info.username..'](t.me/W8gbot) ࿓  ( `' ..v.. '` ) \n'
 end
 end
 if utf8.len(message) > 4096 then
@@ -976,7 +976,7 @@ local info = redis:hgetall(boss..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. ' ➣ ['..info.username..'] ࿓ ( `' ..v.. '` ) \n'
 else
-message = message ..k.. ' ➣ ['..info.username..'](t.me/KQEBot) ࿓  ( `' ..v.. '` ) \n'
+message = message ..k.. ' ➣ ['..info.username..'](t.me/W8gbot) ࿓  ( `' ..v.. '` ) \n'
 end 
 end 
 if utf8.len(message) > 4096 then
@@ -1006,7 +1006,7 @@ local info = redis:hgetall(boss..'username:'..v)
 if info and info.username and info.username:match("@[%a%d_]+") then
 message = message ..k.. ' ➣ ['..info.username..'] ࿓ ( `' ..v.. '` ) \n'
 else
-message = message ..k.. ' ➣ ['..info.username..'](t.me/KQEBot) ࿓  ( `' ..v.. '` ) \n'
+message = message ..k.. ' ➣ ['..info.username..'](t.me/W8gbot) ࿓  ( `' ..v.. '` ) \n'
 end
 end 
 if utf8.len(message) > 4096 then
@@ -1328,7 +1328,7 @@ if data.channel_ and data.channel_.status_.ID  == "ChatMemberStatusMember" then
 return sendMsg(arg.chat_id_,arg.id_,'*•* انا مو ادمن في المجموعة \n*•* ارفعني ادمن عشان تقدر تفعلني \n ')
 end
 if arg.lock_servicez then 
-sendMsg(arg.chat_id_,arg.id_,'• من「 '..NameUser..'」فعلت المجموعة \n• ورفعت كل الادمن \nاضغط هنا [/Commands](https://t.me/KQEBot?start=commands) \n')
+sendMsg(arg.chat_id_,arg.id_,'• من「 '..NameUser..'」فعلت المجموعة \n• ورفعت كل الادمن \nاضغط هنا [/Commands](https://t.me/W8gbot?start=commands) \n')
 redis:set(boss.."idphoto"..arg.chat_id_,true)
 redis:set(boss..":yt:"..arg.chat_id_,'on')
 redis:set(boss..":sound:"..arg.chat_id_,'on')
@@ -1336,7 +1336,7 @@ redis:set(boss..":tts:"..arg.chat_id_,'on')
 redis:set(boss..':bio:'..msg.chat_id_,"yes")
 redis:set(boss..":trans:"..arg.chat_id_,'on')
 else
-sendMsg(arg.chat_id_,arg.id_,'• من「 '..NameUser..'」 \n ابشر فعلت المجموعة\nاضغط هنا [/Commands](https://t.me/KQEBot?start=commands) \n ')
+sendMsg(arg.chat_id_,arg.id_,'• من「 '..NameUser..'」 \n ابشر فعلت المجموعة\nاضغط هنا [/Commands](https://t.me/W8gBot?start=commands) \n ')
 redis:set(boss.."idphoto"..arg.chat_id_,true)
 redis:set(boss..":yt:"..arg.chat_id_,'on')
 redis:set(boss..":sound:"..arg.chat_id_,'on')
