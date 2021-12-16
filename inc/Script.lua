@@ -5724,7 +5724,7 @@ end)
 return false
 end
 
-end 
+end
 
 if MsgText[1] == "متجر الملفات" or MsgText[1]:lower() == "/store"  then
 if not msg.SudoBase then return "• هذا الامر يخص ( المطور الاساسي ) بس  \n" end
@@ -5926,9 +5926,15 @@ text = text:gsub("{المعرف}",UserNameID)
 text = text:gsub("{الرتبه}",msg.TheRank)
 text = text:gsub("{البوت}",redis:get(boss..':NameBot:'))
 text = text:gsub("{المطور}",SUDO_USER)
-xsudouser = SUDO_USER:gsub('','')
+xsudouser = SUDO_USER:gsub('@','')
 xsudouser = xsudouser:gsub([[\_]],'_')
---local inline = {{{text="الـمـطور 🕵🏻",url="https://t.me/SUDO_USER"}}}
+--local inline = {{{text="للاستفسارات",url="https://t.me/SUDO_USER"}}}
+--send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
+local inline = {{{text="للاستفسارات",url="https://t.me/SUDO_USER"}},
+send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
+end,nil)
+return false
+end
 end
 
 if msg.SudoBase then
@@ -7802,15 +7808,15 @@ if msg.text and redis:get(boss.."lock_rdodSource"..msg.chat_id_) then
 --================================{{  Reply Bot  }} ===================================
 
 local su = {
-"اشغلتني تراك",
+"ارحب امرني",
 "يابعد عيون ["..Bot_Name.."] ",
-"ياروح البوت"}
+"روح البوت"}
 local ss97 = {
 "عيوني","هلا",
 "نعم","امرني ياعيوني","لبيه","قول شعندك",
 "رنق رنق قول ياخي","سم","امرني",
 "هلا والله","ها يعمري",
-"نييم","روحها","هاه",
+"نييم","تراك اشغلتني","هاه",
 "زفت",
 "الله ياخذ ["..Bot_Name.."] ","لبيه","ها ","الله يرزقك حياة غير ["..Bot_Name.."] ",
 "تواصل مع مدير اعمالي","سم لبيه امر",
@@ -7871,7 +7877,7 @@ local sb = {
 }
 
 local bb = {
-"اسمي ["..Bot_Name.."] ترا","انطم","مو بوت!","اذلف","تراها زاقه","الله يعين","ياصبر الارض","هاه","الله يصبرنا عليك","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
+"اسمي ["..Bot_Name.."] ترا","انطم","مو بوت!","اذلف","تراها زاقه","الله يعين","عندي اسم يالهطف","ياصبر الارض","هاه","ماتشوف اسمي؟","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
 }
 
 
@@ -7893,8 +7899,8 @@ else
 return sendMsg(msg.chat_id_,0,callback_Text) 
 end
 
-elseif Text:match("^قولي (.*)$") then
-if utf8.len(Text:match("^قولي (.*)$")) > 500 then 
+elseif Text:match("^قول (.*)$") then
+if utf8.len(Text:match("^قول (.*)$")) > 500 then 
 return sendMsg(msg.chat_id_,msg.id_,"• ما اقدر اقول اكثر من 500 حرف ")
 end
 local callback_Text = FlterName(Text:match("^قولي (.*)$"),500)
@@ -7950,7 +7956,7 @@ elseif Text== "كل خرا" or Text== "كلخرا" or Text=="على خرا" or T
 return sendMsg(msg.chat_id_,msg.id_,ra[math.random(#ra)])
 elseif Text== "كسمك" or Text== "كس امك" or Text=="قحبه" or Text== "ياقحبه" or Text== "ياخنيث" or Text== "خنيث" or Text== "انيكك" or Text== "اركب عليه" then
 return sendMsg(msg.chat_id_,msg.id_,sb[math.random(#sb)])
-elseif Text== "بوت" or Text== "بوت"  then
+elseif Text== "بوت" or Text== "بوته"  then
 return sendMsg(msg.chat_id_,msg.id_,bb[math.random(#bb)])
 elseif Text=="" or Text=="" then
 if msg.Admin then 
