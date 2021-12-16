@@ -1181,6 +1181,12 @@ redis:del(boss..':Set_Amthlh:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'*     كفو اجابتك صح  \n*   \n')
 end
 
+if msg.text == redis:get(boss..':Set_fkk:'..msg.chat_id_) then -- // كلمات
+redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
+redis:del(boss..':Set_klm:'..msg.chat_id_)
+return sendMsg(msg.chat_id_,msg.id_,'*•   كفو اجابتك صح   \n*   \n')
+end
+
 if msg.text == redis:get(boss..':Set_trkib:'..msg.chat_id_) then -- // تركيب
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_trkib:'..msg.chat_id_)
