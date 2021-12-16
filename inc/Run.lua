@@ -74,7 +74,7 @@ boss..":SUDO_ID:",SUDO_USER,
 boss..":DataCenter:","Amsterdam",
 boss..":UserNameBot:",BOT_User,
 boss..":ApiSource","Sourceabaza",
-boss..":NameBot:","فواز",
+boss..":NameBot:","شهد",
 "TH3BOSS_INSTALL","Yes"
 )
 redis:hset(boss..'username:'..SUDO_USER,'username','@'..GetUser.result.username:gsub('_',[[\_]]))
@@ -90,7 +90,7 @@ Cr_file = io.open("./inc/Token.txt", "w")
 Cr_file:write(Token)
 Cr_file:close()
 print('\27[1;36m￤Token.txt is created.\27[m')
-local Text = " اهلا عزيزي[المطور الاساسي](tg://user?id="..SUDO_USER..") \n شكرا لاستخدامك سورس فواز \n أرســل  الان /start\n لاضهار الاوامر للمطور  المجهزه بالكيبورد\n\n"
+local Text = " اهلا عزيزي[المطور الاساسي](tg://user?id="..SUDO_USER..") \n شكرا لاستخدامك سورس شهد \n أرســل  الان /start\n لاضهار الاوامر للمطور  المجهزه بالكيبورد\n\n"
 https.request(Api_Token..'/sendMessage?chat_id='..SUDO_USER..'&text='..URL.escape(Text)..'&parse_mode=Markdown')
 local CmdRun = [[
 rm -f ./README.md
@@ -383,7 +383,7 @@ text = [[*اهلين انا ]]..redis:get(boss..':NameBot:')..[[ 🧚*
 
 
 ]]
-local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/w8gbot?startgroup=start"}},{{text="تحديثات شهد 🦦",url="https://t.me/Fawaz879"}}}
+local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/w8gbot?startgroup=start"}},{{text="تحديثات شهد 🦦",url="https://t.me/KKEXK"}}}
 send_keyPhoto(msg.chat_id_,text,nil,inline,msg.id_)
 return false
 end
@@ -943,7 +943,7 @@ return sendMsg(msg.chat_id_,msg.id_,"*تم*",function(arg,data)
 Refresh_Start = true
 end)
 end 
-if msg.text == 'FAWAZ901' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
+if msg.text == 'سوي تحديث' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
 UpdateSource(msg)
 sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
 dofile("./inc/Run.lua")
