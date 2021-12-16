@@ -491,7 +491,7 @@ name = string.gsub(name,'القاهرة','-› ماهي عاصمة مصر؟')
 name = string.gsub(name,'صنعاء','-› ماهي عاصمة اليمن؟')
 name = string.gsub(name,'عمان','-› ماهي عاصمة الاردن؟')
 name = string.gsub(name,'الكويت','-› ماهي عاصمة الكويت؟')
-return 'اكمل المثل التالي (* '..name..' *)'
+return '* '..name..' *'
 end
 
 if MsgText[1] == 'كلمات' or MsgText[1] == 'كلمات' then
