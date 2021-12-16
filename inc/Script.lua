@@ -5928,8 +5928,7 @@ text = text:gsub("{البوت}",redis:get(boss..':NameBot:'))
 text = text:gsub("{المطور}",SUDO_USER)
 xsudouser = SUDO_USER:gsub('','')
 xsudouser = xsudouser:gsub([[\_]],'_')
---local inline = {{{text="الـمـطور 🕵🏻",url="https://t.me/..SUDO_USER"}}}
-end
+--local inline = {{{text="الـمـطور 🕵🏻",url="https://t.me/SUDO_USER"}}}
 end
 
 if msg.SudoBase then
