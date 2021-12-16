@@ -4836,7 +4836,7 @@ end
 
 
 if MsgText[1] == 'اصدار السورس' or MsgText[1] == 'الاصدار' then
-return '• اصدار سورس كاسبر : *v'..version..'* \n'
+return '• اصدار سورس شهد : *v'..version..'* \n'
 end
 
 if (MsgText[1] == 'تحديث السورس' or MsgText[1] == 'تحديث السورس ™') then
@@ -4885,7 +4885,7 @@ else
 sendMsg(arg.chat_id_,arg.id_,"*•* عذرا النسخه الاحتياطيه هذا ليست للبوت » ["..Bot_User.."]  \n❕")
 end
 else 
-sendMsg(arg.chat_id_,arg.id_,'*•* عذرا اسم الملف غير مدعوم للنظام او لا يتوافق مع سورس كاسبر يرجى جلب الملف الاصلي الذي قمت بسحبه وبدون تعديل ع الاسم\n')
+sendMsg(arg.chat_id_,arg.id_,'*•* عذرا اسم الملف غير مدعوم للنظام او لا يتوافق مع سورس شهد يرجى جلب الملف الاصلي الذي قمت بسحبه وبدون تعديل ع الاسم\n')
 end  
 else
 sendMsg(arg.chat_id_,arg.id_,'*•* عذرا الملف ليس بصيغه Json !?\n❕')
@@ -5726,18 +5726,6 @@ end
 
 end 
 
-
-
-if MsgText[1] == "سورس" or MsgText[1]=="السورس" then
-return [[
-𒍭 𝙨𝙤𝙪𝙧𝙘𝙚 𝙨𝙝𝙨𝙝𝙖𝙙
- 
-[𓅓 𝙈𝘼𝙎𝙏𝙀𝙍](https://t.me/FAWAZ901)
-[𓅓𝘾𝙃𝘼𝙉𝙉𝙀𝙇](https://t.me/kkexk)
-
-]]
-end
-
 if MsgText[1] == "متجر الملفات" or MsgText[1]:lower() == "/store"  then
 if not msg.SudoBase then return "• هذا الامر يخص ( المطور الاساسي ) بس  \n" end
 local Get_Files, res = https.request("https://th3bs.github.io/GetFiles.json")
@@ -5938,14 +5926,9 @@ text = text:gsub("{المعرف}",UserNameID)
 text = text:gsub("{الرتبه}",msg.TheRank)
 text = text:gsub("{البوت}",redis:get(boss..':NameBot:'))
 text = text:gsub("{المطور}",SUDO_USER)
-xsudouser = SUDO_USER:gsub('@','')
+xsudouser = SUDO_USER:gsub('','')
 xsudouser = xsudouser:gsub([[\_]],'_')
---local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/w8gBot?startgroup=start"}}}
---send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
-local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/w8gBOT?startgroup=start"}},{{text="للاستفسارات",url="https://t.me/fawaz901"}}}
-send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
-end,nil)
-return false
+--local inline = {{{text="الـمـطور 🕵🏻",url="https://t.me/..SUDO_USER"}}}
 end
 end
 
@@ -7889,7 +7872,7 @@ local sb = {
 }
 
 local bb = {
-"اسمي شهد","انطم","مو بوته!","اذلف","تراها زاقه","الله يعين","اسمي شهد ياحلو","ياصبر الارض","هاه","اسمي شهد يالهطف","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
+"اسمي ["..Bot_Name.."] ترا","انطم","مو بوت!","اذلف","تراها زاقه","الله يعين","ياصبر الارض","هاه","الله يصبرنا عليك","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
 }
 
 
@@ -7968,7 +7951,7 @@ elseif Text== "كل خرا" or Text== "كلخرا" or Text=="على خرا" or T
 return sendMsg(msg.chat_id_,msg.id_,ra[math.random(#ra)])
 elseif Text== "كسمك" or Text== "كس امك" or Text=="قحبه" or Text== "ياقحبه" or Text== "ياخنيث" or Text== "خنيث" or Text== "انيكك" or Text== "اركب عليه" then
 return sendMsg(msg.chat_id_,msg.id_,sb[math.random(#sb)])
-elseif Text== "بوت" or Text== "بوته"  then
+elseif Text== "بوت" or Text== "بوت"  then
 return sendMsg(msg.chat_id_,msg.id_,bb[math.random(#bb)])
 elseif Text=="" or Text=="" then
 if msg.Admin then 
@@ -8389,8 +8372,6 @@ Boss = {
 "^(مسح الايدي عام)$", 
 "^(مسح ايدي عام)$", 
 "^(مسح كليشة الايدي عام)$", 
-"^(السورس)$",
-"^(سورس)$",
 "^(م المطور)$", 
 "^(اوامر الرد)$",
 "^(اوامر الملفات)$",
