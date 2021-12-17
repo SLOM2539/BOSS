@@ -470,7 +470,7 @@ katu = {
 'موسى','عثمان بن عفان','63','الرحمن','عبدالله بن الزبير','التين','ابو خزاعة','داود','1000','زكريا','عيسى','ابو حنيفة','الشافعي','زيد بن ثابت','عمر بن الخطاب','علي بن ابي طالب','خديجه','الاوس والخزرج','الفاتحة','خمس اركان',
 };
 name = katu[math.random(#katu)]
-redis:set(boss..':Set_dan:'..msg.chat_id_,name)
+redis:set(boss..':Set_religion:'..msg.chat_id_,name)
 name = string.gsub(name,'موسى','-› من اكثر الانبياء ذكراً بالقران؟')
 name = string.gsub(name,'عثمان بن عفان','-› من الحلفاء الراشدين كان اكبر سنا عندما لقي ربه؟')
 name = string.gsub(name,'63','-› كم كان عمر علي بن أبي طالب رضي الله عنه حين استشهد؟')
@@ -1245,15 +1245,15 @@ redis:del(boss..':Set_Amthlh:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'*•   كفو اجابتك صح   \n*   \n')
 end
 
-if msg.text == redis:get(boss..':Set_ssa:'..msg.chat_id_) then -- // عواصم
+if msg.text == redis:get(boss..':Set_religion:'..msg.chat_id_) then -- // دين
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
-redis:del(boss..':Set_ssa:'..msg.chat_id_)
+redis:del(boss..':Set_religion:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'*•   كفو اجابتك صح   \n*   \n')
 end
 
-if msg.text == redis:get(boss..':Set_dan:'..msg.chat_id_) then -- // دين
+if msg.text == redis:get(boss..':Set_ssa:'..msg.chat_id_) then -- // عواصم
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
-redis:del(boss..':Set_dan:'..msg.chat_id_)
+redis:del(boss..':Set_ssa:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'*•   كفو اجابتك صح   \n*   \n')
 end
 
