@@ -5928,10 +5928,8 @@ text = text:gsub("{البوت}",redis:get(boss..':NameBot:'))
 text = text:gsub("{المطور}",SUDO_USER)
 xsudouser = SUDO_USER:gsub('@','')
 xsudouser = xsudouser:gsub([[\_]],'_')
---local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/w8gBot?startgroup=start"}}}
---send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
-local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/w8gBOT?startgroup=start"}},{{text="للاستفسارات",url="https://t.me/fawaz901"}}}
-send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
+local inline = {{{text="للاسفتسارات",url="t.me/"..xsudouser}}}
+send_key(msg.sender_user_id_,Flter_Markdown(text),nil,inline,msg.id_)
 end,nil)
 return false
 end
