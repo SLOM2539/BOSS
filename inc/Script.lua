@@ -1963,6 +1963,24 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, o
 end
 end
 
+if MsgText[1] == 'افتارات' and msg.Admin then
+local list = redis:smembers(max.."Limit:Photos:")
+if #list > 0 then
+  if #list == 1 then
+    sendPhoto2(msg.chat_id_, list[1], msg.id_/2097152/0.5, '', 'md',false)
+  else
+    keyboard = {} 
+    keyboard.inline_keyboard = {
+    {
+    {text = 'التالي', callback_data="RB:Next:2:"..msg.sender_user_id_}},{
+    {text = 'اغلاق', callback_data="RB:Close:2:"..msg.sender_user_id_}}}
+    sendPhoto2(msg.chat_id_, list[1], msg.id_/2097152/0.5, '', 'md',keyboard)
+  end
+else
+  sendMsg(msg.chat_id_,msg.id_,'لايوجد افتار')
+end
+end
+
 if MsgText[1] == "تثبيت" and msg.reply_id then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 local GroupID = msg.chat_id_:gsub('-100','')
@@ -5977,7 +5995,7 @@ text = text:gsub("{البوت}",redis:get(boss..':NameBot:'))
 text = text:gsub("{المطور}",SUDO_USER)
 xsudouser = SUDO_USER:gsub('@','')
 xsudouser = xsudouser:gsub([[\_]],'_')
-local inline = {{{text="للاسفتسارات",url="t.me/"..xsudouser}}}
+local inline = {{{text="للاستفسارات",url="t.me/"..xsudouser}}}
 send_key(msg.sender_user_id_,Flter_Markdown(text),nil,inline,msg.id_)
 end,nil)
 return false
@@ -8292,6 +8310,9 @@ Boss = {
 "^(الاشتراك)$",
 "^(المجموعه)$",
 "^(كشف البوت)$",
+"^(ضع افتار)$",
+"^(مسح افتار)$",
+"^(افتارات)$",
 "^(انشاء رابط)$",
 "^(وضع الرابط)$",
 "^(تثبيت)$",
