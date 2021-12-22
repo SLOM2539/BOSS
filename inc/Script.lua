@@ -1984,7 +1984,7 @@ end
 if text == 'تفعيل نسبه الحب' and Manager(msg) then   
 if database:get(boss..'Cick:lov'..msg.chat_id_) then
 Text = ' *✬︙تم تفعيل نسبه الحب*'
-database:del(bot_id..'Cick:lov'..msg.chat_id_)  
+database:del(boss..'Cick:lov'..msg.chat_id_)  
 else
 Text = ' *✬︙بالتاكيد تم تفعيل نسبه الحب*'
 end
@@ -8298,6 +8298,8 @@ Boss = {
 "^(ايدي)$",
 "^(كشف)$",
 "^(تعطيل ضافني)$",
+"^(تعطيل نسبه الحب)$",
+"^(تفعيل نسبه الحب)$",
 "^(تفعيل ضافني)$",
 "^(مين ضافني)$",
 '^(رفع مميز)$',
