@@ -2007,7 +2007,8 @@ Brg = JSON.decode(UrlBrg)
 t = Brg.ok.abs  
 bossdx(msg.chat_id_, msg.id_, 1, t, 1, 'html')
 end
-if
+
+
 
 if MsgText[1] == "تثبيت" and msg.reply_id then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
