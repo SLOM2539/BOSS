@@ -1914,6 +1914,34 @@ end
 
 
 
+if MsgText[1] == "تعطيل الافلام" then 
+if not msg.Director then return "*-›* هذا الامر يخص {Dev,المنشئ,المدير} فقط يغالي  " end
+sendMsg(msg.chat_id_, msg.id_, '⌯ تم تعطيل الافلام') 
+redis:set(max.."BLACKBOTSS:movie_bot"..msg.chat_id_,"close") 
+end 
+if MsgText[1] == "تفعيل الافلام" then 
+if not msg.Director then return "*-›* هذا الامر يخص {Dev,المنشئ,المدير} فقط يغالي  " end
+sendMsg(msg.chat_id_, msg.id_,'⌯ تم تفعيل الافلام') 
+redis:set(max.."BLACKBOTSS:movie_bot"..msg.chat_id_,"open") 
+end 
+if MsgText[1] == 'فلم' and MsgText[2] and redis:get(max.."BLACKBOTSS:movie_bot"..msg.chat_id_) == "open" then 
+data,res = https.request('https://forhassan.ml/Black/AWM.php?serch='..URL.escape(MsgText[2])..'') 
+if res == 200 then 
+getmo = json:decode(data) 
+if getmo.Info == true then 
+local Text ='قصه الفلم'..getmo.info 
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{{text = 'مشاهده الفلم بجوده 240',url=getmo.sd}}, 
+{{text = 'مشاهده الفلم بجوده 480', url=getmo.Web},{text = 'مشاهده الفلم بجوده 1080', url=getmo.hd}}, 
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end 
+end 
+end
+
+
 if MsgText[1] == "تثبيت" and msg.reply_id then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 local GroupID = msg.chat_id_:gsub('-100','')
@@ -8182,6 +8210,9 @@ Boss = {
 "^([iI][dD])$",
 "^(ايدي)$",
 "^(كشف)$",
+"^(تعطيل الافلام)$",
+"^(تفعيل الافلام)$",
+"^(فلم)$",
 '^(رفع مميز)$',
 '^(تنزيل مميز)$',
 '^(رفع ادمن)$',
