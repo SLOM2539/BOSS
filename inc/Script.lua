@@ -1981,6 +1981,34 @@ else
 end
 end
 
+if text == "نسبه الحب" and boss11(msg) then
+bossdx1:set(boss..'nsba'..msg.chat_id_..msg.sender_user_id_,'Check')
+boss = '-› ارسل اسمك واسم الشخص الاخر ،\n-› مثال :- فواز وشهد ، '
+bossdx(msg.chat_id_, msg.id_, 1,boss, 1, 'md')
+end
+if text and text ~="نسبه الحب"  and bossdx1:get(boss..'nsba'..msg.chat_id_..msg.sender_user_id_) == 'Check' then
+tt = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","3","8","3","6","0",};
+rr = tt[math.random(#tt)]
+boss2 = '-› نسبه حب ، '..text..' هي : '..rr..'%'
+bossx(msg.chat_id_, msg.id_, 1,boss2, 1, 'md')
+bossdx1:del(boss..'nsba'..msg.chat_id_..msg.sender_user_id_)
+end
+if text and text:match("^احسب (.*)$") and boss11(msg) or text and text:match("^عمري (.*)$") and boss11(msg) then 
+local TextAge = text:match("^احسب (.*)$") or text:match("^عمري (.*)$") 
+UrlAge = https.request('https://apiabs.ml/age.php?age='..URL.escape(TextAge)) 
+Age = JSON.decode(UrlAge)
+t = Age.ok.abs
+bossdx(msg.chat_id_, msg.id_, 1, t, 1, 'html')
+end
+if text and text:match("^برج (.*)$") and boss11(msg)  or text and text:match("^برجي (.*)$") and boss11(msg) then 
+local TextBrg = text:match("^برج (.*)$") or text:match("^برجي (.*)$") 
+UrlBrg = https.request('https://apiabs.ml/brg.php?brg='..URL.escape(TextBrg)) 
+Brg = JSON.decode(UrlBrg) 
+t = Brg.ok.abs  
+bossdx(msg.chat_id_, msg.id_, 1, t, 1, 'html')
+end
+if
+
 if MsgText[1] == "تثبيت" and msg.reply_id then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 local GroupID = msg.chat_id_:gsub('-100','')
@@ -8254,6 +8282,9 @@ Boss = {
 "^(مين ضافني)$",
 '^(رفع مميز)$',
 '^(تنزيل مميز)$',
+'^(^احسب (.*)$)$',
+'^(^برج (.*)$)$',
+'^(نسبه الحب)$',
 '^(رفع ادمن)$',
 '^(تنزيل ادمن)$', 
 '^(رفع المدير)$',
