@@ -1981,6 +1981,25 @@ else
 end
 end
 
+if text == 'تفعيل نسبه الحب' and Manager(msg) then   
+if database:get(boss..'Cick:lov'..msg.chat_id_) then
+Text = ' *✬︙تم تفعيل نسبه الحب*'
+database:del(bot_id..'Cick:lov'..msg.chat_id_)  
+else
+Text = ' *✬︙بالتاكيد تم تفعيل نسبه الحب*'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل نسبه الحب' and Manager(msg) then  
+if not database:get(boss..'Cick:lov'..msg.chat_id_) then
+database:set(boss..'Cick:lov'..msg.chat_id_,true)  
+Text = '\n *✬︙تم تعطيل نسبه الحب*'
+else
+Text = '\n *✬︙بالتاكيد تم تعطيل نسبه الحب*'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+
 if text == "نسبه الحب" and boss11(msg) then
 bossdx1:set(boss..'nsba'..msg.chat_id_..msg.sender_user_id_,'Check')
 boss = '-› ارسل اسمك واسم الشخص الاخر ،\n-› مثال :- فواز وشهد ، '
