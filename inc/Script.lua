@@ -1929,14 +1929,14 @@ if MsgText[1]== 'مين ضافني' then
 if not redis:get(boss..":Added:Me:"..msg.chat_id_) then
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
 if da and da.status_.ID == "ChatMemberStatusCreator" then
-sendMsg(msg.chat_id_,msg.id_,'*✶انت منشئ المجموعه *') 
+sendMsg(msg.chat_id_,msg.id_,'*-› انت منشئ المجموعه *') 
 return false
 end
 local Added_Me = redis:get(boss..":Added:Me:Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
 if Added_Me then 
 tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-Text = '*✶الشخص الذي قام باضافتك هو * '..Name
+Text = '*-› الشخص الذي قام باضافتك هو * '..Name
 sendMsg(msg.chat_id_,msg.id_,Text) 
 end,nil)
 else
@@ -1944,7 +1944,22 @@ sendMsg(msg.chat_id_,msg.id_,'*✶انت دخلت عبر الرابط*')
 end
 end,nil)
 else
-sendMsg(msg.chat_id_,msg.id_,'*✶امر مين ضافني تم تعطيله من قبل المدراء *') 
+sendMsg(msg.chat_id_,msg.id_,'* -› امر مين ضافني تم تعطيله من قبل المدراء *') 
+end
+end
+
+if MsgText[1] == "صورتي" or MsgText[1] == 'افتاري' then
+local my_ph = redis:get(boss..'my_photo:status:bot'..msg.chat_id_)
+print(my_ph)
+if not my_ph then
+local function getpro(extra, result, success)
+if result.photos_[0] then
+sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,'')
+else
+send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك')
+end 
+end
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
 end
 
@@ -8290,6 +8305,8 @@ Boss = {
 "^(وضع تكرار)$",
 "^(وضع التكرار)$",
 "^(المالكين)$",
+"^(صورتي)$",
+"^(افتاري)$",
 "^(المالكيين)$",
 "^(المالكين الاساسين)$",
 "^(المالكيين الاساسيين)$",
