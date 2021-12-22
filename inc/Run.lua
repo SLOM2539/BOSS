@@ -943,7 +943,7 @@ return sendMsg(msg.chat_id_,msg.id_,"*تم*",function(arg,data)
 Refresh_Start = true
 end)
 end 
-if msg.text == 'سوي تحديث' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
+if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
 UpdateSource(msg)
 sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
 dofile("./inc/Run.lua")
