@@ -383,7 +383,7 @@ text = [[*اهلين انا ]]..redis:get(boss..':NameBot:')..[[ 🧚*
 
 
 ]]
-local inline = {{{text="للاستفسارات",url="t.me/"..xsudouser"}}}
+local inline = {{{text="للاستفسارات",url="t.me/"..xsudouser"}}
 send_keyPhoto(msg.chat_id_,text,nil,inline,msg.id_)
 return false
 end
