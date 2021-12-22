@@ -1964,7 +1964,7 @@ end
 end
 
 if MsgText[1] == 'افتارات' and msg.Admin then
-local list = redis:smembers(max.."Limit:Photos:")
+local list = redis:smembers(boss.."Limit:Photos:")
 if #list > 0 then
   if #list == 1 then
     sendPhoto2(msg.chat_id_, list[1], msg.id_/2097152/0.5, '', 'md',false)
@@ -5758,7 +5758,7 @@ if msg.text == 'ضع افتار' then
     sendMsg(msg.chat_id_,msg.id_,'فقط المطور الاساسي')
     return false
   end 
-  redis:setex(max.."Limit:Photos:"..msg.chat_id_..""..msg.sender_user_id_,300,true)  
+  redis:setex(boss.."Limit:Photos:"..msg.chat_id_..""..msg.sender_user_id_,300,true)  
   sendMsg(msg.chat_id_,msg.id_,'- ارسل الصوره')
 end
 if msg.text == 'مسح افتار' then
@@ -5766,11 +5766,11 @@ if msg.text == 'مسح افتار' then
     sendMsg(msg.chat_id_,msg.id_,'فقط المطور الاساسي')
     return false
   end 
-  local list = redis:smembers(max.."Limit:Photos:")
+  local list = redis:smembers(boss.."Limit:Photos:")
   if #list == 0 then
     sendMsg(msg.chat_id_,msg.id_,'- فارغه')
   else
-    redis:del(max.."Limit:Photos:")
+    redis:del(boss.."Limit:Photos:")
     sendMsg(msg.chat_id_,msg.id_,'- تم مسح الافتارات')
   end
 end
