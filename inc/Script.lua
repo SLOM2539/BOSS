@@ -1914,6 +1914,48 @@ end
 
 
 
+if msg.Director then 
+if MsgText[1] == 'تفعيل ضافني' then  
+redis:del(boss..":Added:Me:"..msg.chat_id_)   
+sendMsg(msg.chat_id_,msg.id_,'-› تم تفعيل امر مين ضافني') 
+end 
+if MsgText[1] == 'تعطيل ضافني' then   
+redis:set(boss..":Added:Me:"..msg.chat_id_,true)     
+sendMsg(msg.chat_id_,msg.id_,'-› تم تعطيل امر مين ضافني') 
+end 
+end
+
+if Text:match('^tosticker$') or Text:match('^ملصق$') and tonumber(msg.reply_to_message_id_) > 0 then
+whoami()
+BD = '/home/root/.telegram-cli/data/'
+function tosticker(arg,data)
+if data.content_.ID == 'MessagePhoto' then
+if BD..'photo/'..data.content_.photo_.id_..'_(1).jpg' == '' then
+pathf = BD..'photo/'..data.content_.photo_.id_..'.jpg'
+else
+pathf = BD..'photo/'..data.content_.photo_.id_..'_(1).jpg'
+end
+sendSticker(msg.chat_id_,msg.id_,pathf,'')
+else
+sendMsg(msg.chat_id_,msg.id_,'-›اهلا عزيزي\n-› الامر فقط للصوره\n✓')
+end
+end
+tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},tosticker, nil)
+end
+
+if Text == 'tophoto' or Text == 'صوره' and tonumber(msg.reply_to_message_id_) > 0 then
+function tophoto(kara,boss)   
+if boss.content_.ID == "MessageSticker" then        
+local bd = boss.content_.sticker_.sticker_.path_          
+sendPhoto(msg.chat_id_,msg.id_,bd,'')
+else
+sendMsg(msg.chat_id_,msg.id_,'-› اهلا عزيزي\n-› الامر فقط على الملصق\n✓')
+end
+end
+tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},tophoto, nil)
+end
+end
+
 if MsgText[1] == "تثبيت" and msg.reply_id then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 local GroupID = msg.chat_id_:gsub('-100','')
