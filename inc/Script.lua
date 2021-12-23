@@ -1950,7 +1950,7 @@ if text == 'مين ضافني' then
 if not redis:get(boss..'Added:Me'..msg.chat_id_) then
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
 if da and da.status_.ID == "ChatMemberStatusCreator" then
-send(msg.chat_id_, msg.id_,'-› انت مالك المجموعه') 
+send(msg.chat_id_, msg.id_,'-›انت منشئ المجموعه') 
 return false
 end
 local Added_Me = redis:get(boss.."Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
@@ -1961,11 +1961,11 @@ Text = '-› الشخص الذي قام باضافتك هو » '..Name
 sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
 end,nil)
 else
-send(msg.chat_id_, msg.id_,'-› انت دخلت عبر الرابط') 
+send(msg.chat_id_, msg.id_,'-› يالطيب انت داخل من الرابط') 
 end
 end,nil)
 else
-send(msg.chat_id_, msg.id_,'-› امر مين ضافني تم تعطيله من قبل المدراء') 
+send(msg.chat_id_, msg.id_,'-›امر مين ضافني تم تعطيله من قبل المدراء') 
 end
 end
 
@@ -5741,29 +5741,6 @@ return false
 end
 
 
-if msg.text == 'ضع افتار' then
-  if tonumber(msg.sender_user_id_) ~= tonumber(SUDO_ID) then
-    sendMsg(msg.chat_id_,msg.id_,'فقط المطور الاساسي')
-    return false
-  end 
-  redis:setex(max.."Limit:Photos:"..msg.chat_id_..""..msg.sender_user_id_,300,true)  
-  sendMsg(msg.chat_id_,msg.id_,'- ارسل الصوره')
-end
-if msg.text == 'مسح افتار' then
-  if tonumber(msg.sender_user_id_) ~= tonumber(SUDO_ID) then
-    sendMsg(msg.chat_id_,msg.id_,'فقط المطور الاساسي')
-    return false
-  end 
-  local list = redis:smembers(max.."Limit:Photos:")
-  if #list == 0 then
-    sendMsg(msg.chat_id_,msg.id_,'- فارغه')
-  else
-    redis:del(max.."Limit:Photos:")
-    sendMsg(msg.chat_id_,msg.id_,'- تم مسح الافتارات')
-  end
-end
-
-
 if MsgText[1] == "مغادره" or MsgText[1] == "ادفرني" or MsgText[1] == "احظرني" or MsgText[1] == "اطردني" then
 if msg.Admin then return "*•* للاسف مااقدر اطرد المدراء والادمنيه والمالكيين  \n" end
 if not redis:get(boss.."lock_leftgroup"..msg.chat_id_) then  return "*•* امر اطردني معطل!  \n" end
@@ -8322,9 +8299,9 @@ Boss = {
 "^(وضع ترحيب)$",
 "^(فحص البوت)$",
 "^(وضع الترحيب)$",
-"^(مين ضافني)$",
 "^(تعطيل ضافني)$",
 "^(تفعيل ضافني)$",
+"^(مين ضافني)$",
 "^(الترحيب)$",
 "^(المحظورين)$",
 "^(وضع اسم)$",
