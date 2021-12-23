@@ -1948,6 +1948,37 @@ sendMsg(msg.chat_id_,msg.id_,'* -› امر مين ضافني تم تعطيله 
 end
 end
 
+if Text:match('^tosticker$') or Text:match('^ملصق$') and tonumber(msg.reply_to_message_id_) > 0 then
+whoami()
+BD = '/home/root/.telegram-cli/data/'
+function tosticker(arg,data)
+if data.content_.ID == 'MessagePhoto' then
+if BD..'photo/'..data.content_.photo_.id_..'_(1).jpg' == '' then
+pathf = BD..'photo/'..data.content_.photo_.id_..'.jpg'
+else
+pathf = BD..'photo/'..data.content_.photo_.id_..'_(1).jpg'
+end
+sendSticker(msg.chat_id_,msg.id_,pathf,'')
+else
+sendMsg(msg.chat_id_,msg.id_,'🙋🏻‍♂╿عزيزي المستخدم👨🏻‍✈️ \n📌╽الامر فقط للصوره\n✓')
+end
+end
+tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},tosticker, nil)
+end
+
+if Text == 'tophoto' or Text == 'صوره' and tonumber(msg.reply_to_message_id_) > 0 then
+function tophoto(kara,max)   
+if max.content_.ID == "MessageSticker" then        
+local bd = max.content_.sticker_.sticker_.path_          
+sendPhoto(msg.chat_id_,msg.id_,bd,'')
+else
+sendMsg(msg.chat_id_,msg.id_,'🙋🏻‍♂╿عزيزي المستخدم👨🏻‍✈️ \n📌╽الامر فقط للملصق\n✓')
+end
+end
+tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},tophoto, nil)
+end
+end
+
 if MsgText[1] == "صورتي" or MsgText[1] == 'افتاري' then
 local my_ph = redis:get(boss..'my_photo:status:bot'..msg.chat_id_)
 print(my_ph)
@@ -1963,69 +1994,6 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, o
 end
 end
 
-if MsgText[1] == 'افتارات' and msg.Admin then
-local list = redis:smembers(boss.."Limit:Photos:")
-if #list > 0 then
-  if #list == 1 then
-    sendPhoto2(msg.chat_id_, list[1], msg.id_/2097152/0.5, '', 'md',false)
-  else
-    keyboard = {} 
-    keyboard.inline_keyboard = {
-    {
-    {text = 'التالي', callback_data="RB:Next:2:"..msg.sender_user_id_}},{
-    {text = 'اغلاق', callback_data="RB:Close:2:"..msg.sender_user_id_}}}
-    sendPhoto2(msg.chat_id_, list[1], msg.id_/2097152/0.5, '', 'md',keyboard)
-  end
-else
-  sendMsg(msg.chat_id_,msg.id_,'لايوجد افتار')
-end
-end
-
-if text == 'تفعيل نسبه الحب' and Manager(msg) then   
-if database:get(boss..'Cick:lov'..msg.chat_id_) then
-Text = ' *✬︙تم تفعيل نسبه الحب*'
-database:del(boss..'Cick:lov'..msg.chat_id_)  
-else
-Text = ' *✬︙بالتاكيد تم تفعيل نسبه الحب*'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تعطيل نسبه الحب' and Manager(msg) then  
-if not database:get(boss..'Cick:lov'..msg.chat_id_) then
-database:set(boss..'Cick:lov'..msg.chat_id_,true)  
-Text = '\n *✬︙تم تعطيل نسبه الحب*'
-else
-Text = '\n *✬︙بالتاكيد تم تعطيل نسبه الحب*'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-
-if text == "نسبه الحب" and boss11(msg) then
-bossdx1:set(boss..'nsba'..msg.chat_id_..msg.sender_user_id_,'Check')
-boss = '-› ارسل اسمك واسم الشخص الاخر ،\n-› مثال :- فواز وشهد ، '
-bossdx(msg.chat_id_, msg.id_, 1,boss, 1, 'md')
-end
-if text and text ~="نسبه الحب"  and bossdx1:get(boss..'nsba'..msg.chat_id_..msg.sender_user_id_) == 'Check' then
-tt = {"10","20","30","35","75","34","66","82","23","19","55","8","63","32","27","89","99","98","3","3","8","3","6","0",};
-rr = tt[math.random(#tt)]
-boss2 = '-› نسبه حب ، '..text..' هي : '..rr..'%'
-bossx(msg.chat_id_, msg.id_, 1,boss2, 1, 'md')
-bossdx1:del(boss..'nsba'..msg.chat_id_..msg.sender_user_id_)
-end
-if text and text:match("^احسب (.*)$") and boss11(msg) or text and text:match("^عمري (.*)$") and boss11(msg) then 
-local TextAge = text:match("^احسب (.*)$") or text:match("^عمري (.*)$") 
-UrlAge = https.request('https://apiabs.ml/age.php?age='..URL.escape(TextAge)) 
-Age = JSON.decode(UrlAge)
-t = Age.ok.abs
-bossdx(msg.chat_id_, msg.id_, 1, t, 1, 'html')
-end
-if text and text:match("^برج (.*)$") and boss11(msg)  or text and text:match("^برجي (.*)$") and boss11(msg) then 
-local TextBrg = text:match("^برج (.*)$") or text:match("^برجي (.*)$") 
-UrlBrg = https.request('https://apiabs.ml/brg.php?brg='..URL.escape(TextBrg)) 
-Brg = JSON.decode(UrlBrg) 
-t = Brg.ok.abs  
-bossdx(msg.chat_id_, msg.id_, 1, t, 1, 'html')
-end
 
 
 
@@ -5800,30 +5768,6 @@ end,{msg=msg})
 return false
 end
 
-
-if msg.text == 'ضع افتار' then
-  if tonumber(msg.sender_user_id_) ~= tonumber(SUDO_ID) then
-    sendMsg(msg.chat_id_,msg.id_,'فقط المطور الاساسي')
-    return false
-  end 
-  redis:setex(boss.."Limit:Photos:"..msg.chat_id_..""..msg.sender_user_id_,300,true)  
-  sendMsg(msg.chat_id_,msg.id_,'- ارسل الصوره')
-end
-if msg.text == 'مسح افتار' then
-  if tonumber(msg.sender_user_id_) ~= tonumber(SUDO_ID) then
-    sendMsg(msg.chat_id_,msg.id_,'فقط المطور الاساسي')
-    return false
-  end 
-  local list = redis:smembers(boss.."Limit:Photos:")
-  if #list == 0 then
-    sendMsg(msg.chat_id_,msg.id_,'- فارغه')
-  else
-    redis:del(boss.."Limit:Photos:")
-    sendMsg(msg.chat_id_,msg.id_,'- تم مسح الافتارات')
-  end
-end
-
-
 if MsgText[1] == "مغادره" or MsgText[1] == "ادفرني" or MsgText[1] == "احظرني" or MsgText[1] == "اطردني" then
 if msg.Admin then return "*•* للاسف مااقدر اطرد المدراء والادمنيه والمالكيين  \n" end
 if not redis:get(boss.."lock_leftgroup"..msg.chat_id_) then  return "*•* امر اطردني معطل!  \n" end
@@ -5883,7 +5827,7 @@ TText = "• الملف موجود بالفعل \n• تم تحديث الملف
 else
 TText = "• تم تثبيت وتفعيل الملف بنجاح \n "
 end
-local Get_Files, res = https.request("https://raw.githubusercontent.com/TH3BS/th3bs.github.io/master/plugins/"..FileName)
+local Get_Files, res = https.request("https://raw.githubusercontent.com/SLOM2539/slom2539.github.io/master/plugins/"..FileName)
 if res == 200 then
 print("DONLOADING_FROM_URL: "..FileName)
 local FileD = io.open("plugins/"..FileName,'w+')
@@ -8363,9 +8307,6 @@ Boss = {
 "^(الاشتراك)$",
 "^(المجموعه)$",
 "^(كشف البوت)$",
-"^(ضع افتار)$",
-"^(مسح افتار)$",
-"^(افتارات)$",
 "^(انشاء رابط)$",
 "^(وضع الرابط)$",
 "^(تثبيت)$",
