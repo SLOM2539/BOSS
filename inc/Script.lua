@@ -5905,7 +5905,7 @@ end
 
 
 local function dBoss(msg)
-
+e
 if msg.type == "pv" then 
 
 if not msg.SudoUser then
