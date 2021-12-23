@@ -1912,31 +1912,6 @@ end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 return false
 end
 
-
-
-if text == 'مين ضافني' then
-if not redis:get(boss..'Added:Me'..msg.chat_id_) then
-tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
-if da and da.status_.ID == "ChatMemberStatusCreator" then
-send(msg.chat_id_, msg.id_,'-› انت مالك المجموعه') 
-return false
-end
-local Added_Me = redis:get(boss.."Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
-if Added_Me then 
-tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-Text = '-› الشخص الذي قام باضافتك هو » '..Name
-sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
-end,nil)
-else
-send(msg.chat_id_, msg.id_,'-› انت دخلت عبر الرابط') 
-end
-end,nil)
-else
-send(msg.chat_id_, msg.id_,'-› امر مين ضافني تم تعطيله من قبل المدراء') 
-end
-end
-
 if MsgText[1] == "فحص البوت" then
 if not msg.Director then return "♦️*│*هذا الامر يخص {المطور,المنشئ,المدير} فقط  \n💥" end
 local Chek_Info = https.request('https://api.telegram.org/bot'..Token..'/getChatMember?chat_id='.. msg.chat_id_ ..'&user_id='.. boss..'')
@@ -1971,34 +1946,26 @@ sendMsg(msg.chat_id_,msg.id_,'-› تم تعطيل امر مين ضافني')
 end 
 end
 
-if Text:match('^tosticker$') or Text:match('^ملصق$') and tonumber(msg.reply_to_message_id_) > 0 then
-whoami()
-BD = '/home/root/.telegram-cli/data/'
-function tosticker(arg,data)
-if data.content_.ID == 'MessagePhoto' then
-if BD..'photo/'..data.content_.photo_.id_..'_(1).jpg' == '' then
-pathf = BD..'photo/'..data.content_.photo_.id_..'.jpg'
+if text == 'مين ضافني' then
+if not redis:get(boss..'Added:Me'..msg.chat_id_) then
+tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
+if da and da.status_.ID == "ChatMemberStatusCreator" then
+send(msg.chat_id_, msg.id_,'-› انت مالك المجموعه') 
+return false
+end
+local Added_Me = redis:get(boss.."Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
+if Added_Me then 
+tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
+local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+Text = '-› الشخص الذي قام باضافتك هو » '..Name
+sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
+end,nil)
 else
-pathf = BD..'photo/'..data.content_.photo_.id_..'_(1).jpg'
+send(msg.chat_id_, msg.id_,'-› انت دخلت عبر الرابط') 
 end
-sendSticker(msg.chat_id_,msg.id_,pathf,'')
+end,nil)
 else
-sendMsg(msg.chat_id_,msg.id_,'-›اهلا عزيزي\n-› الامر فقط للصوره\n✓')
-end
-end
-tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},tosticker, nil)
-end
-
-if Text == 'tophoto' or Text == 'صوره' and tonumber(msg.reply_to_message_id_) > 0 then
-function tophoto(kara,boss)   
-if boss.content_.ID == "MessageSticker" then        
-local bd = boss.content_.sticker_.sticker_.path_          
-sendPhoto(msg.chat_id_,msg.id_,bd,'')
-else
-sendMsg(msg.chat_id_,msg.id_,'-› اهلا عزيزي\n-› الامر فقط على الملصق\n✓')
-end
-end
-tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},tophoto, nil)
+send(msg.chat_id_, msg.id_,'-› امر مين ضافني تم تعطيله من قبل المدراء') 
 end
 end
 
@@ -4929,7 +4896,7 @@ end
 
 if (MsgText[1] == 'تحديث السورس' or MsgText[1] == 'تحديث السورس ™') then
 if not msg.SudoBase then return "• هذا الامر يخص ( المطور الاساسي ) بس  \n" end
-local GetVerison = 3.3 --https.request('https://th3bs.github.io/GetVersion.txt') or "0"
+local GetVerison = 3.3 --https.request('https://slom2539.github.io/GetVersion.txt') or "0"
 --GetVerison = GetVerison:gsub("\n",""):gsub(" ","")
 if GetVerison > 3.3 then
 UpdateSourceStart = true
@@ -5816,7 +5783,7 @@ end
 
 if MsgText[1] == "متجر الملفات" or MsgText[1]:lower() == "/store"  then
 if not msg.SudoBase then return "• هذا الامر يخص ( المطور الاساسي ) بس  \n" end
-local Get_Files, res = https.request("https://th3bs.github.io/GetFiles.json")
+local Get_Files, res = https.request("https://slom2539.github.io/GetFiles.json")
 print(Get_Files)
 print(res)
 if res == 200 then
@@ -5856,7 +5823,7 @@ TText = "• الملف موجود بالفعل \n• تم تحديث الملف
 else
 TText = "• تم تثبيت وتفعيل الملف بنجاح \n "
 end
-local Get_Files, res = https.request("https://raw.githubusercontent.com/TH3BS/th3bs.github.io/master/plugins/"..FileName)
+local Get_Files, res = https.request("https://raw.githubusercontent.com/SLOM2539/slom2539.github.io/master/plugins/"..FileName)
 if res == 200 then
 print("DONLOADING_FROM_URL: "..FileName)
 local FileD = io.open("plugins/"..FileName,'w+')
@@ -8332,10 +8299,6 @@ Boss = {
 "^(كشف البوت)$",
 "^(انشاء رابط)$",
 "^(وضع الرابط)$",
-"^(تفعيل ضافني)$",
-"^(تعطيل ضافني)$",
-"^(مين ضافني)$",
-"^(فحص البوت)$",
 "^(تثبيت)$",
 "^(الغاء التثبيت)$",
 "^(الغاء تثبيت)$",
@@ -8357,7 +8320,11 @@ Boss = {
 "^(المميزين)$",
 "^(المكتومين)$",
 "^(وضع ترحيب)$",
+"^(فحص البوت)$",
 "^(وضع الترحيب)$",
+"^(مين ضافني)$",
+"^(تعطيل ضافني)$",
+"^(تفعيل ضافني)$",
 "^(الترحيب)$",
 "^(المحظورين)$",
 "^(وضع اسم)$",
