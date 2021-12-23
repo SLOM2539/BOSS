@@ -1938,19 +1938,19 @@ end
 if msg.Director then 
 if MsgText[1] == 'تفعيل ضافني' then  
 redis:del(boss..":Added:Me:"..msg.chat_id_)   
-sendMsg(msg.chat_id_,msg.id_,'-› تم تفعيل امر مين ضافني') 
+sendMsg(msg.chat_id_,msg.id_,'-› تم تفعيل امر منو ضافني') 
 end 
 if MsgText[1] == 'تعطيل ضافني' then   
 redis:set(boss..":Added:Me:"..msg.chat_id_,true)     
-sendMsg(msg.chat_id_,msg.id_,'-› تم تعطيل امر مين ضافني') 
+sendMsg(msg.chat_id_,msg.id_,'-› تم تعطيل امر منو ضافني') 
 end 
 end
 
-if text == 'مين ضافني' then
+if text == 'منو ضافني' then
 if not redis:get(boss..'Added:Me'..msg.chat_id_) then
 tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
 if da and da.status_.ID == "ChatMemberStatusCreator" then
-send(msg.chat_id_, msg.id_,'-›انت منشئ المجموعه') 
+send(msg.chat_id_, msg.id_,'-› انت مالك المجموعه') 
 return false
 end
 local Added_Me = redis:get(boss.."Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
@@ -1965,7 +1965,7 @@ send(msg.chat_id_, msg.id_,'-› يالطيب انت داخل من الرابط'
 end
 end,nil)
 else
-send(msg.chat_id_, msg.id_,'-›امر مين ضافني تم تعطيله من قبل المدراء') 
+send(msg.chat_id_, msg.id_,'-› امنو ضافني معطل') 
 end
 end
 
@@ -8300,7 +8300,7 @@ Boss = {
 "^(وضع الترحيب)$",
 "^(تعطيل ضافني)$",
 "^(تفعيل ضافني)$",
-"^(مين ضافني)$",
+"^(منو ضافني)$",
 "^(الترحيب)$",
 "^(المحظورين)$",
 "^(وضع اسم)$",
