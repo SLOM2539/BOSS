@@ -5740,11 +5740,6 @@ end,{msg=msg})
 return false
 end
 
-if MsgText[1] == 'الاوامر خاص' then
-sendMsg(msg.chat_id_,msg.id_,'اهلا عزيزي تم ارسال الاوامر لك في الخاص',msg.message_id,'md')
-sendMsg(msg.chat_id_,msg.id_,txt,0, 'md',awamer_Klesha_m(msg.chat_id_,msg.id_,1))
-end
-
 if MsgText[1] == "مغادره" or MsgText[1] == "ادفرني" or MsgText[1] == "احظرني" or MsgText[1] == "اطردني" then
 if msg.Admin then return "*•* للاسف مااقدر اطرد المدراء والادمنيه والمالكيين  \n" end
 if not redis:get(boss.."lock_leftgroup"..msg.chat_id_) then  return "*•* امر اطردني معطل!  \n" end
@@ -8434,7 +8429,6 @@ Boss = {
 "^(اليوتيوب)$", 
 "^(/store)$", 
 "^(/files)$", 
-"^(الاوامر خاص)$",
 "^(قفل الصور بالتقييد)$",
 "^(قفل الفيديو بالتقييد)$",
 "^(قفل المتحركه بالتقييد)$",
