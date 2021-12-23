@@ -1914,86 +1914,6 @@ end
 
 
 
-if Text:match('^tosticker$') or Text:match('^ملصق$') and tonumber(msg.reply_to_message_id_) > 0 then
-whoami()
-BD = '/home/root/.telegram-cli/data/'
-function tosticker(arg,data)
-if data.content_.ID == 'MessagePhoto' then
-if BD..'photo/'..data.content_.photo_.id_..'_(1).jpg' == '' then
-pathf = BD..'photo/'..data.content_.photo_.id_..'.jpg'
-else
-pathf = BD..'photo/'..data.content_.photo_.id_..'_(1).jpg'
-end
-sendSticker(msg.chat_id_,msg.id_,pathf,'')
-else
-sendMsg(msg.chat_id_,msg.id_,'-› اهلا عزيزي\n-› الامر فقط للصوره\n✓')
-end
-end
-tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},tosticker, nil)
-end
-
-if Text == 'tophoto' or Text == 'صوره' and tonumber(msg.reply_to_message_id_) > 0 then
-function tophoto(kara,boss)   
-if boss.content_.ID == "MessageSticker" then        
-local bd = boss.content_.sticker_.sticker_.path_          
-sendPhoto(msg.chat_id_,msg.id_,bd,'')
-else
-sendMsg(msg.chat_id_,msg.id_,'-› اهلا عزيزي\n-› الامر فقط على الملصق\n✓')
-end
-end
-tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},tophoto, nil)
-end
-end
-
-if msg.Director then 
-if MsgText[1] == 'تفعيل ضافني' then  
-redis:del(boss..":Added:Me:"..msg.chat_id_)   
-sendMsg(msg.chat_id_,msg.id_,'-› تم تفعيل امر مين ضافني') 
-end 
-if MsgText[1] == 'تعطيل ضافني' then   
-redis:set(boss..":Added:Me:"..msg.chat_id_,true)     
-sendMsg(msg.chat_id_,msg.id_,'-› تم تعطيل امر مين ضافني') 
-end 
-end
-
-if MsgText[1]== 'مين ضافني' then
-if not redis:get(boss..":Added:Me:"..msg.chat_id_) then
-tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
-if da and da.status_.ID == "ChatMemberStatusCreator" then
-sendMsg(msg.chat_id_,msg.id_,'*-› انت منشئ المجموعه *') 
-return false
-end
-local Added_Me = redis:get(boss..":Added:Me:Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
-if Added_Me then 
-tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
-local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-Text = '*-› الشخص الذي قام باضافتك هو * '..Name
-sendMsg(msg.chat_id_,msg.id_,Text) 
-end,nil)
-else
-sendMsg(msg.chat_id_,msg.id_,'*-› انت دخلت عبر الرابط*') 
-end
-end,nil)
-else
-sendMsg(msg.chat_id_,msg.id_,'* -› امر مين ضافني تم تعطيله من قبل المدراء *') 
-end
-end
-
-if MsgText[1] == "صورتي" or MsgText[1] == 'افتاري' then
-local my_ph = redis:get(boss..'my_photo:status:bot'..msg.chat_id_)
-print(my_ph)
-if not my_ph then
-local function getpro(extra, result, success)
-if result.photos_[0] then
-sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,'')
-else
-send(msg.chat_id_, msg.id_,'*-› ماعندك صوره يالطيب!*')
-end 
-end
-tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
-end
-end
-
 if MsgText[1] == "تثبيت" and msg.reply_id then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 local GroupID = msg.chat_id_:gsub('-100','')
@@ -5766,6 +5686,29 @@ return false
 end
 
 
+if msg.text == 'ضع افتار' then
+  if tonumber(msg.sender_user_id_) ~= tonumber(SUDO_ID) then
+    sendMsg(msg.chat_id_,msg.id_,'فقط المطور الاساسي')
+    return false
+  end 
+  redis:setex(max.."Limit:Photos:"..msg.chat_id_..""..msg.sender_user_id_,300,true)  
+  sendMsg(msg.chat_id_,msg.id_,'- ارسل الصوره')
+end
+if msg.text == 'مسح افتار' then
+  if tonumber(msg.sender_user_id_) ~= tonumber(SUDO_ID) then
+    sendMsg(msg.chat_id_,msg.id_,'فقط المطور الاساسي')
+    return false
+  end 
+  local list = redis:smembers(max.."Limit:Photos:")
+  if #list == 0 then
+    sendMsg(msg.chat_id_,msg.id_,'- فارغه')
+  else
+    redis:del(max.."Limit:Photos:")
+    sendMsg(msg.chat_id_,msg.id_,'- تم مسح الافتارات')
+  end
+end
+
+
 if MsgText[1] == "مغادره" or MsgText[1] == "ادفرني" or MsgText[1] == "احظرني" or MsgText[1] == "اطردني" then
 if msg.Admin then return "*•* للاسف مااقدر اطرد المدراء والادمنيه والمالكيين  \n" end
 if not redis:get(boss.."lock_leftgroup"..msg.chat_id_) then  return "*•* امر اطردني معطل!  \n" end
@@ -5985,8 +5928,10 @@ text = text:gsub("{البوت}",redis:get(boss..':NameBot:'))
 text = text:gsub("{المطور}",SUDO_USER)
 xsudouser = SUDO_USER:gsub('@','')
 xsudouser = xsudouser:gsub([[\_]],'_')
-local inline = {{{text="للاسفتسارات",url="t.me/"..xsudouser}}}
-send_key(msg.sender_user_id_,Flter_Markdown(text),nil,inline,msg.id_)
+--local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/w8gBot?startgroup=start"}}}
+--send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
+local inline = {{{text="ضيفني لـ مجموعتك 🧚",url="https://telegram.me/w8gBOT?startgroup=start"}},{{text="للاستفسارات",url="https://t.me/fawaz901"}}}
+send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
 end,nil)
 return false
 end
@@ -8239,9 +8184,6 @@ Boss = {
 "^([iI][dD])$",
 "^(ايدي)$",
 "^(كشف)$",
-"^(تعطيل ضافني)$",
-"^(تفعيل ضافني)$",
-"^(مين ضافني)$",
 '^(رفع مميز)$',
 '^(تنزيل مميز)$',
 '^(رفع ادمن)$',
@@ -8288,7 +8230,7 @@ Boss = {
 "^(الغاء حظر)$",
 "^(طرد)$",
 "^(كتم)$",
- "^(الغاء الكتم)$",
+"^(الغاء الكتم)$",
 "^(الغاء كتم)$",
 "^(رفع مطور)$",
 "^(تنزيل مطور)$",
@@ -8313,8 +8255,6 @@ Boss = {
 "^(وضع تكرار)$",
 "^(وضع التكرار)$",
 "^(المالكين)$",
-"^(صورتي)$",
-"^(افتاري)$",
 "^(المالكيين)$",
 "^(المالكين الاساسين)$",
 "^(المالكيين الاساسيين)$",
