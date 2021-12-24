@@ -103,7 +103,7 @@ end
 
 
 
-‎--======={ زق }==========
+‎ --======={ زق }==========
 
 if MsgText[1] == "رفع زق" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 if not msg.Rank then end
