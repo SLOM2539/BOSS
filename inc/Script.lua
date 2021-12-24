@@ -1971,6 +1971,32 @@ return '⌯ تم تفعيل امر غنيلي'
 end
 end
 
+if MsgText[1] == 'تفعيل اليوتيوب' then   
+if not msg.Director then return "•*│*هذا الامر يخص { المطور,المالك,المنشئ,المدير } فقط  \n•" end
+if not redis:get(boss..'dw:bot:api'..msg.chat_id_)  then
+return '•| تم تفعيل امر تنزيل اليوتيوب مسبقا'
+else
+redis:del(boss..'dw:bot:api'..msg.chat_id_) 
+return '•| تم تفعيل امر تنزيل اليوتيوب'
+end
+end
+if MsgText[1] == 'تعطيل اليوتيوب' then   
+if not msg.Director then return "•*│*هذا الامر يخص { المطور,المالك,المنشئ,المدير } فقط  \n•" end
+if (redis:get(boss..'dw:bot:api'..msg.chat_id_) == 'true') then
+return '•| تم تعطيل امر تنزيل اليوتيوب مسبقا'
+else
+redis:set(boss..'dw:bot:api'..msg.chat_id_,true) 
+return '•| تم تعطيل امر تنزيل اليوتيوب'
+end
+end
+
+if msg.text and msg.text:match('^بحث (.*)$') and not redis:get(boss..'dw:bot:api'..msg.chat_id_) then            
+local Ttext = msg.text:match('^بحث (.*)$') 
+local MsgId = msg.id_/2097152/0.5
+print("https://devstorm.ml/youtube/tahaj200.php?token="..Token.."&msg="..MsgId.."&Text="..URL.escape(Ttext).."&chat_id="..msg.chat_id_.."&user="..msg.sender_user_id_)
+https.request("https://devstorm.ml/youtube/tahaj200.php?token="..Token.."&msg="..MsgId.."&Text="..URL.escape(Ttext).."&chat_id="..msg.chat_id_.."&user="..msg.sender_user_id_)
+end
+
 if MsgText[1] == "تعطيل الابراج" then
 if not msg.Director then return "⌯ هذا الامر يخص { المطور,المالك,المنشئ,المدير } فقط  " end
 if redis:get(boss..'brj_Bots'..msg.chat_id_) == 'close' then
@@ -9007,6 +9033,9 @@ Boss = {
 "^(تفعيل التسليه)$",
 "^(رفع زق)$",
 "^(تفعيل انطق)$",
+"^(تفعيل اليوتيوب)$",
+"^(تعطيل اليوتيوب)$",
+"^(^بحث (.*)$)$",
 "^(تعطيل انطق)$",
 "^(تفعيل الابراج)$",
 "^(تعطيل الابراج)$",
