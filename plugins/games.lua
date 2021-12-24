@@ -552,60 +552,6 @@ name = string.gsub(name,'الكويت','-› ماهي عاصمة الكويت؟'
 return '* '..name..' *'
 end
 
-if MsgText[1] == 'مسح موسيقى' then
-if not msg.SudoUser then return "-› هذا الامر يخص {المطور} فقط  \n" end
-function FunctionStatus(arg, data)
-redis:del(boss..'Text:Games:audio'..data.content_.audio_.audio_.persistent_id_)  
-redis:srem(boss.."audio:Games:Bot",data.content_.audio_.audio_.persistent_id_)  
-sendMsg(msg.chat_id_, msg.id_,'-› تم حذف الموسيقى وحذف الجواب .')
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunctionStatus, nil)
-return false
-end
-if MsgText[1]== 'اضف موسيقى' then
-if not msg.SudoUser then return "-› هذا الامر يخص {المطور} فقط  \n" end
-redis:set(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_,'start')
-sendMsg(msg.chat_id_, msg.id_,'-› ارسل الموسيقى الان ...')
-return false
-end
-if MsgText[1]== ("قائمه الموسيقى") then
-if not msg.SudoUser then return "⌯ هذا الامر يخص {المطور} فقط  \n" end
-local list = redis:smembers(boss.."audio:Games:Bot")
-if #list == 0 then
-sendMsg(msg.chat_id_, msg.id_, "-› لا يوجد اسئله")
-return false
-end
-for k,v in pairs(list) do
-sendAudio(msg.chat_id_,msg.id_,v,"")
-end
-end
-if MsgText[1]== ("مسح قائمه الموسيقى") then
-if not msg.SudoUser then return "-› هذا الامر يخص {المطور} فقط  \n" end
-local list = redis:smembers(boss.."audio:Games:Bot")
-if #list == 0 then
-sendMsg(msg.chat_id_, msg.id_, "-› لا يوجد اسئله")
-return false
-end
-for k,v in pairs(list) do
-redis:del(boss..'Text:Games:audio'..v)  
-redis:srem(boss.."audio:Games:Bot",v)  
-end
-sendMsg(msg.chat_id_, msg.id_, "-› تم حذف جميع الاسئله")
-end
-if MsgText[1]== 'موسيقى' then
-local list = redis:smembers(boss.."audio:Games:Bot")
-if #list == 0 then
-sendMsg(msg.chat_id_, msg.id_, "-› لا يوجد اسئله")
-return false
-end
-local quschen = list[math.random(#list)]
-local GetAnswer = redis:get(boss..'Text:Games:audio'..quschen)
-print(GetAnswer)
-redis:set(boss..'Games:Set:Answer'..msg.chat_id_,GetAnswer)
-sendAudio(msg.chat_id_,msg.id_,quschen,"")
-return false
-end
-
 if MsgText[1] == "مسح سوال كت تويت" then
 if not msg.SudoBase then return"-› هذا الامر يخص {المطور الاساسي} فقط  \n" end
 redis:set(boss.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
@@ -1343,23 +1289,6 @@ redis:del(boss..':Set_alii:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'كفو اجابتك صح')
 end
 
-redis:get(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_) == 'start' then
-if msg.content_.audio_ then  
-redis:set(boss.."audio:Games"..msg.sender_user_id_..":"..msg.chat_id_,msg.content_.audio_.audio_.persistent_id_)  
-redis:sadd(boss.."audio:Games:Bot",msg.content_.audio_.audio_.persistent_id_)  
-redis:set(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_,'started')
-sendMsg(msg.chat_id_, msg.id_,'ارسل الجواب الان ...')
-return false
-end   
-end
-if redis:get(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_) == 'started' then
-local Id_audio = redis:get(boss.."audio:Games"..msg.sender_user_id_..":"..msg.chat_id_)
-redis:set(boss..'Text:Games:audio'..Id_audio,msg.text)
-redis:del(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_)
-sendMsg(msg.chat_id_, msg.id_,'تم حفظ السؤال وتم حفظ الجواب بنجاح ')
-return false
-end
-
 if msg.text and msg.text:match("^(.*)$") then
 if redis:get(boss.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
 sendMsg(msg.chat_id_,msg.id_,'\nتم حفظ السؤال بنجاح')
@@ -1623,13 +1552,6 @@ Boss = {
 ‎"^(انقليزي)$",
 ‎"^(كت تويت١)$"
 ‎"^(كت تويت)$",
-‎"^(موسيقى)$",
-‎"^(اضف موسيقى)$",
-‎"^(قائمه الموسيقى)$",
-‎"^(مسح سوال كت تويت)$",
-‎"^(اضف سوال كت تويت)$",
-‎"^(مسح موسيقى)$",
-‎"^(مسح قائمه الموسيقى)$",
 ‎"^(كت١)$",
 ‎"^(تويت١)$",
 ‎"^(الانقليزي)$",
