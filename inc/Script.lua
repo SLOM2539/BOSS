@@ -7,7 +7,7 @@ if MsgText[1] == "/start commands" and msg.type == "pv" then
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 text = [[*• هلا فيك في اوامر البوت
  
- للاستفسار -* []]..SUDO_USER..[[]
+‎ للاستفسار -* []]..SUDO_USER..[[]
 
 
 
@@ -103,7 +103,7 @@ end
 
 
 
---======={ زق }==========
+‎--======={ زق }==========
 
 if MsgText[1] == "رفع زق" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 if not msg.Rank then end
@@ -195,7 +195,7 @@ return false
 end
 
 
---======={ كيك }==========
+‎--======={ كيك }==========
 
 
 if MsgText[1] == "رفع كيكه" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
@@ -286,7 +286,7 @@ return false
 end
 
 
---======={ حمار }==========
+‎--======={ حمار }==========
 
 
 if MsgText[1] == "رفع حمار" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
@@ -378,7 +378,7 @@ end
 
 
 
---======={ عسل }==========
+‎--======={ عسل }==========
 
 
 if MsgText[1] == "رفع عسل" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
@@ -470,7 +470,7 @@ end
 
 
 
---======={ بقره }==========
+‎--======={ بقره }==========
 
 if MsgText[1] == "رفع بقره" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 if MsgText[2]:match('@[%a%d_]+') then
@@ -559,7 +559,7 @@ end
 return false
 end
 
---======={ كلب }==========
+‎--======={ كلب }==========
 
 if MsgText[1] == "رفع كلب" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 if MsgText[2]:match('@[%a%d_]+') then
@@ -649,7 +649,7 @@ return false
 end
 
 
---======={ قرد }==========
+‎--======={ قرد }==========
 
 
 if MsgText[1] == "رفع قرد" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
@@ -740,7 +740,7 @@ return false
 end
 
 
---======={ تيس }==========
+‎--======={ تيس }==========
 
 
 if MsgText[1] == "رفع تيس" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
@@ -831,7 +831,7 @@ return false
 end
 
 
---======={ ثور }==========
+‎--======={ ثور }==========
 
 
 if MsgText[1] == "رفع ثور" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
@@ -922,7 +922,7 @@ return false
 end
 
 
---======={ باعوص }==========
+‎--======={ باعوص }==========
 
 if MsgText[1] == "رفع باعوص" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 if MsgText[2]:match('@[%a%d_]+') then
@@ -1013,7 +1013,7 @@ end
 
 
 
---======={ دجاجه }==========
+‎--======={ دجاجه }==========
 
 if MsgText[1] == "رفع دجاجه" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
 if MsgText[2]:match('@[%a%d_]+') then
@@ -1103,7 +1103,7 @@ return false
 end
 
 
---======={ هطف }==========
+‎--======={ هطف }==========
 
 
 if MsgText[1] == "رفع هطف" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
@@ -1194,7 +1194,7 @@ return false
 end
 
 
---======={ صياد }==========
+‎--======={ صياد }==========
 
 if MsgText[1] == "رفع صياد" or MsgText[1] == "رفع صياده" then
 if  MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
@@ -1289,7 +1289,7 @@ return false
 end
 
 
---======={ خاروف }==========
+‎--======={ خاروف }==========
 
 
 if MsgText[1] == "رفع خاروف" or MsgText[1] == "رفع خاروفه" then
@@ -1390,7 +1390,7 @@ end
 
 --====================={ start of list }===================
 
---======={ زق }==========
+‎--======={ زق }==========
 
 if MsgText[1] == "قائمة الزق" or MsgText[1] == "قائمة الزقان" then 
 if not msg.Rank then end
@@ -1409,7 +1409,7 @@ return "*•*أهلا عيني "..msg.TheRankCmd.."   \n• مسحت ( * "..NumM
 end
 
 
---======={ كيك }==========
+‎--======={ كيك }==========
 
 if MsgText[1] == "قائمة الكيك" or MsgText[1] == "قائمة الكيكات" then 
 if not msg.Rank then end
@@ -1428,7 +1428,7 @@ return "*•*أهلا عيني "..msg.TheRankCmd.."   \n• مسحت ( * "..NumM
 end
 
 
---======={ حمار }==========
+‎--======={ حمار }==========
 
 if MsgText[1] == "قائمة الحمار" or MsgText[1] == "قائمة الحمير" then 
 if not msg.Rank then end
@@ -1447,7 +1447,7 @@ return "*•*أهلا عيني "..msg.TheRankCmd.."   \n• مسحت ( * "..NumM
 end
 
 
---======={ عسل }==========
+‎--======={ عسل }==========
 
 if MsgText[1] == "قائمة العسل" then 
 if not msg.Rank then end
@@ -1466,7 +1466,7 @@ return "*•*أهلا عيني "..msg.TheRankCmd.."   \n• مسحت ( * "..NumM
 end
 
 
---======={ بقره }==========
+‎--======={ بقره }==========
 
 if MsgText[1] == "قائمة البقر" then 
 if not msg.Rank then end
@@ -1485,7 +1485,7 @@ return "*•*أهلا عيني "..msg.TheRankCmd.."   \n• مسحت ( * "..NumM
 end
 
 
---======={ كلب }==========
+‎--======={ كلب }==========
 
 
 if MsgText[1] == "قائمة الكلاب" or MsgText[1] == "قائمة الكلب" then 
@@ -1506,7 +1506,7 @@ end
 
 
 
---======={ قرد }==========
+‎--======={ قرد }==========
 
 if MsgText[1] == "قائمة القرود" or MsgText[1] == "قائمة القرد" then 
 if not msg.Rank then end
@@ -1525,7 +1525,7 @@ return "*•*أهلا عيني "..msg.TheRankCmd.."   \n• مسحت ( * "..NumM
 end
 
 
---======={ تيس }==========
+‎--======={ تيس }==========
 
 if MsgText[1] == "قائمة التيس" or MsgText[1] == "قائمة التيوس" then 
 if not msg.Rank then end
@@ -1544,7 +1544,7 @@ return "*•*أهلا عيني "..msg.TheRankCmd.."   \n• مسحت ( * "..NumM
 end
 
 
---======={ ثور }==========
+‎--======={ ثور }==========
 
 
 if MsgText[1] == "قائمة الثور" or MsgText[1] == "قائمة الثيران" then 
@@ -1564,7 +1564,7 @@ return "*•*أهلا عيني "..msg.TheRankCmd.."   \n• مسحت ( * "..NumM
 end
 
 
---======={ باعوص }==========
+‎--======={ باعوص }==========
 
 if MsgText[1] == "قائمة البواعيص" or MsgText[1] == "قائمة الباعوص" then 
 if not msg.Rank then end
@@ -1583,7 +1583,7 @@ return "*•*أهلا عيني "..msg.TheRankCmd.."   \n• مسحت ( * "..NumM
 end
 
 
---======={ دجاجه }==========
+‎--======={ دجاجه }==========
 
 if MsgText[1] == "قائمة الدجاج" then 
 if not msg.Rank then end
@@ -1602,7 +1602,7 @@ return "*•*أهلا عيني "..msg.TheRankCmd.."   \n• مسحت ( * "..NumM
 end
 
 
---======={ هطف }==========
+‎--======={ هطف }==========
 
 
 if MsgText[1] == "قائمة الهطوف" then 
@@ -1622,7 +1622,7 @@ return "*•*أهلا عيني "..msg.TheRankCmd.."   \n• مسحت ( * "..NumM
 end
 
 
---======={ صياد }==========
+‎--======={ صياد }==========
 
 
 if MsgText[1] == "قائمة الصيادين" then 
@@ -1642,7 +1642,7 @@ return "*•*أهلا عيني "..msg.TheRankCmd.."   \n• مسحت ( * "..NumM
 end
 
 
---======={ خاروف }==========
+‎--======={ خاروف }==========
 
 if MsgText[1] == "قائمة الخرفان" or MsgText[1] == "قائمة الخاروف" then 
 if not msg.Rank then end
@@ -1743,13 +1743,13 @@ local edited = (redis:get(boss..':edited:'..arg.chat_id_..':'..arg.sender_user_i
 local points = redis:get(boss..':User_Points:'..arg.chat_id_..arg.sender_user_id_) or 0
 local KleshaID = '' 
 ..' '..words..' \n'
-..'🎟 ↧ايديــك ↞ '..arg.sender_user_id_..' \n'
+‎..'🎟 ↧ايديــك ↞ '..arg.sender_user_id_..' \n'
 ..arg.UserNameID
-..'🔫 ↧رتبتـــك ↞ '..arg.TheRank..' \n'
-..'🧨 ↧تفاعـلك ↞ '..Get_Ttl(arg.msgs)..'\n'
-..'💬 ↧رسائلك ↞ '..arg.msgs..' \n'
-..'💡 ↧تكليجاتك ↞ '..edited..' \n'
-..'💎 ↧مجوهراتك ↞ '..points..' \n'
+‎..'🔫 ↧رتبتـــك ↞ '..arg.TheRank..' \n'
+‎..'🧨 ↧تفاعـلك ↞ '..Get_Ttl(arg.msgs)..'\n'
+‎..'💬 ↧رسائلك ↞ '..arg.msgs..' \n'
+‎..'💡 ↧تكليجاتك ↞ '..edited..' \n'
+‎..'💎 ↧مجوهراتك ↞ '..points..' \n'
 ..' '..bio..' \n'
 local Kleshaidinfo = redis:get(boss..":infoiduser_public:"..arg.chat_id_) or redis:get(boss..":infoiduser")  
 if Kleshaidinfo then 
@@ -1901,8 +1901,8 @@ GetFullChat(msg.chat_id_,function(arg,data)
 local GroupName = (redis:get(boss..'group:name'..arg.ChatID) or '')
 redis:set(boss..'linkGroup'..arg.ChatID,(data.invite_link_ or ""))
 sendMsg(arg.ChatID,arg.MsgID,
-"•  ❪ مـعـلومـات الـمـجـموعـه ❫ \n\n"
-.."*•* عدد الاعـضـاء  ❪ *"..data.member_count_.."* ❫ "
+‎"•  ❪ مـعـلومـات الـمـجـموعـه ❫ \n\n"
+‎.."*•* عدد الاعـضـاء  ❪ *"..data.member_count_.."* ❫ "
 .."\n*•* عدد المحظـوريـن  ❪ *"..data.kicked_count_.."* ❫ "
 .."\n*•* عدد الادمـنـيـه  ❪ *"..data.administrator_count_.."* ❫ "
 .."\n*•* الايــدي  ❪ `"..arg.ChatID.."` ❫ "
@@ -1966,6 +1966,438 @@ end
 end,nil)
 else
 send(msg.chat_id_, msg.id_,'-› امنو ضافني معطل') 
+end
+end
+
+if MsgText[1] == 'تفعيل تاك عام' then   
+if not msg.Director then return "⌯ هذا الامر يخص { المطور,المالك,المنشئ,المدير } فقط  " end
+if (redis:get(boss..'tagall@all'..msg.chat_id_) == 'open') then
+return '⌯ تم تفعيل امر @all مسبقا'
+else
+redis:set(boss..'tagall@all'..msg.chat_id_,'open') 
+return '⌯ تم تفعيل امر @all'
+end
+end
+if MsgText[1] == 'تعطيل تاك عام' then   
+if not msg.Director then return "⌯ هذا الامر يخص { المطور,المالك,المنشئ,المدير } فقط  " end
+if (redis:get(boss..'tagall@all'..msg.chat_id_) == 'close') then
+return '⌯ تم تعطيل امر @all مسبقا'
+else
+redis:set(boss..'tagall@all'..msg.chat_id_,'close') 
+return '⌯ تم تعطيل امر @all'
+end
+end
+
+if MsgText[1] == "تعطيل انطق" then
+if not msg.Director then return "⌯ هذا الامر يخص { المطور,المالك,المنشئ,المدير } فقط  " end
+if redis:get(boss..'intg'..msg.chat_id_)  then
+return '⌯ تم تعطيل امر انطق مسبقا'
+else
+redis:set(boss.."intg"..msg.chat_id_,"true")
+return '⌯ تم تعطيل امر انطق'
+end
+end
+if MsgText[1] == "تفعيل انطق" then
+if not msg.Director then return "⌯ هذا الامر يخص { المطور,المالك,المنشئ,المدير } فقط  " end
+if not redis:get(boss..'intg'..msg.chat_id_)  then
+return '⌯ تم تفعيل امر انطق مسبقا'
+else
+redis:del(boss.."intg"..msg.chat_id_)
+return '⌯ تم تفعيل امر انطق'
+end
+end
+
+if MsgText[1] == "تعطيل غنيلي" then
+if not msg.Director then return "⌯ هذا الامر يخص { المطور,المالك,المنشئ,المدير } فقط  " end
+if redis:get(boss..'knele'..msg.chat_id_)  then
+return '⌯ تم تعطيل امر غنيلي مسبقا'
+else
+redis:set(boss.."knele"..msg.chat_id_,"true")
+return '⌯ تم تعطيل امر غنيلي'
+end
+end
+if MsgText[1] == "تفعيل غنيلي" then
+if not msg.Director then return "⌯ هذا الامر يخص { المطور,المالك,المنشئ,المدير } فقط  " end
+if not redis:get(boss..'knele'..msg.chat_id_)  then
+return '⌯ تم تفعيل امر غنيلي مسبقا'
+else
+redis:del(boss.."knele"..msg.chat_id_)
+return '⌯ تم تفعيل امر غنيلي'
+end
+end
+
+if MsgText[1] == "تعطيل الابراج" then
+if not msg.Director then return "⌯ هذا الامر يخص { المطور,المالك,المنشئ,المدير } فقط  " end
+if redis:get(boss..'brj_Bots'..msg.chat_id_) == 'close' then
+return '⌯ تم تعطيل الابراج مسبقا'
+else
+redis:set(boss.."brj_Bots"..msg.chat_id_,"close")
+return '⌯ تم تعطيل الابراج '
+end
+end
+if MsgText[1] == "تفعيل الابراج" then
+if not msg.Director then return "⌯ هذا الامر يخص { المطور,المالك,المنشئ,المدير } فقط  " end
+if redis:get(boss..'brj_Bots'..msg.chat_id_) == 'open' then
+return '⌯ تم تفعيل الابراج مسبقا'
+else
+redis:set(boss.."brj_Bots"..msg.chat_id_,"open")
+return '⌯ تم تفعيل الابراج '
+end
+end
+
+if text == "غنيلي"  or text == "غني" then
+if is_JoinChannel(msg) == false then
+return false
+end
+if not redis:get(boss.."knele"..msg.chat_id_) then
+data,res = https.request('https://apiabs.ml/Audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text =' '
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
+end
+end
+end
+end
+
+if msg.text and msg.text:match("^انطق (.*)$") and not redis:get(boss..'intg'..msg.chat_id_)   then
+if is_JoinChannel(msg) == false then
+return false
+end
+local UrlAntk = https.request('https://apiabs.ml/Antk.php?abs='..URL.escape(msg.text:match("^انطق (.*)$")))
+Antk = JSON.decode(UrlAntk)
+if UrlAntk.ok ~= false then
+uuu = download("https://translate"..Antk.result.google..Antk.result.code.."UTF-8"..Antk.result.utf..Antk.result.translate.."&tl=ar-IN",'./'..Antk.result.translate..'.mp3') 
+
+sendAudio(msg.chat_id_,msg.id_,uuu)  
+os.execute('rm -rf ./'..Antk.result.translate..'.mp3') 
+end
+end
+
+ 
+if msg.text == "نسبه الحب" or msg.text == "نسبه حب" and msg.reply_to_message_id_ ~= 0 then
+if is_JoinChannel(msg) == false then
+return false
+end
+if not redis:get(boss.."amrthshesh"..msg.chat_id_) then    
+redis:set(boss..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_,"sendlove")
+hggg = '⌯ الان ارسل اسمك واسم الشخص الثاني :'
+sendMsg(msg.chat_id_, msg.id_,hggg) 
+return false
+end
+end
+
+if redis:get(boss..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
+num = {" 10"," 20"," 30"," 35"," 75"," 34"," 66"," 82"," 23"," 19"," 55"," 80"," 63"," 32"," 27"," 89"," 99"," 98"," 79"," 100"," 8"," 3"," 6"," 0",};
+sendnum = num[math.random(#num)]
+local tttttt = '⌯ اليك النتائج الخـاصة :\n\n⌯ نسبة الحب بيـن : *'..msg.text..'* '..sendnum..'%'
+sendMsg(msg.chat_id_, msg.id_,tttttt) 
+redis:del(boss..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_)
+end
+if msg.text == "نسبه الغباء" or msg.text == "نسبه غباء" and msg.reply_to_message_id_ ~= 0 then
+if is_JoinChannel(msg) == false then
+return false
+end
+if not redis:get(boss.."amrthshesh"..msg.chat_id_) then    
+redis:set(boss..":"..msg.sender_user_id_..":lov_Bottts"..msg.chat_id_,"sendlove")
+hggg = '⌯ الان ارسل اسم الشخص :'
+sendMsg(msg.chat_id_, msg.id_,hggg) 
+return false
+end
+end
+
+if redis:get(boss..":"..msg.sender_user_id_..":lov_Bottts"..msg.chat_id_) == "sendlove" then
+num = {" 10"," 20"," 30"," 35"," 75"," 34"," 66"," 82"," 23"," 19"," 55"," 80"," 63"," 32"," 27"," 89"," 99"," 98"," 79"," 100"," 8"," 3"," 6"," 0",};
+sendnum = num[math.random(#num)]
+local tttttt = '⌯ اليك النتائج الخـاصة :\n\n⌯ نسبة الغباء  : *'..msg.text..'* '..sendnum..'%'
+sendMsg(msg.chat_id_, msg.id_,tttttt) 
+redis:del(boss..":"..msg.sender_user_id_..":lov_Bottts"..msg.chat_id_)
+end
+
+if msg.text == "نسبه الذكاء" or msg.text == "نسبه ذكاء" and msg.reply_to_message_id_ ~= 0 then
+if is_JoinChannel(msg) == false then
+return false
+end
+if not redis:get(boss.."amrthshesh"..msg.chat_id_) then    
+redis:set(boss..":"..msg.sender_user_id_..":lov_Botttuus"..msg.chat_id_,"sendlove")
+hggg = '⌯ الان ارسل اسم الشخص :'
+sendMsg(msg.chat_id_, msg.id_,hggg) 
+return false
+end
+end
+
+if redis:get(boss..":"..msg.sender_user_id_..":lov_Botttuus"..msg.chat_id_) == "sendlove" then
+num = {" 10"," 20"," 30"," 35"," 75"," 34"," 66"," 82"," 23"," 19"," 55"," 80"," 63"," 32"," 27"," 89"," 99"," 98"," 79"," 100"," 8"," 3"," 6"," 0",};
+sendnum = num[math.random(#num)]
+local tttttt = '⌯ اليك النتائج الخـاصة :\n\n⌯ نسبة الذكاء  : *'..msg.text..'* '..sendnum..'%'
+sendMsg(msg.chat_id_, msg.id_,tttttt) 
+redis:del(boss..":"..msg.sender_user_id_..":lov_Botttuus"..msg.chat_id_)
+end
+
+
+if msg.text == "نسبه الكره" or msg.text == "نسبه كره" and msg.reply_to_message_id_ ~= 0 then
+if is_JoinChannel(msg) == false then
+return false
+end
+if not redis:get(boss.."amrthshesh"..msg.chat_id_) then    
+redis:set(boss..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_,"sendkrhe")
+hggg = '⌯ الان ارسل اسمك واسم الشخص الثاني :'
+sendMsg(msg.chat_id_, msg.id_,hggg) 
+return false
+end
+end
+
+if msg.text and redis:get(boss..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_) == "sendkrhe" then
+num = {" 10"," 20"," 30"," 35"," 75"," 34"," 66"," 82"," 23"," 19"," 55"," 80"," 63"," 32"," 27"," 89"," 99"," 98"," 79"," 100"," 8"," 3"," 6"," 0",};
+sendnum = num[math.random(#num)]
+local tttttt = '⌯ اليك النتائج الخـاصة :\n\n⌯ نسبه الكره : *'..msg.text..'* '..sendnum..'%'
+sendMsg(msg.chat_id_, msg.id_,tttttt) 
+redis:del(boss..":"..msg.sender_user_id_..":krh_Bots"..msg.chat_id_)
+end
+if msg.text == "نسبه الرجوله" or msg.text == "نسبه رجوله" and msg.reply_to_message_id_ ~= 0 then
+if is_JoinChannel(msg) == false then
+return false
+end
+if not redis:get(boss.."amrthshesh"..msg.chat_id_) then    
+redis:set(boss..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_,"sendrjoe")
+hggg = '⌯ الان ارسل اسم الشخص :'
+sendMsg(msg.chat_id_, msg.id_,hggg) 
+return false
+end
+end
+
+if msg.text and msg.text ~="نسبه الرجوله" and redis:get(boss..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_) == "sendrjoe" then
+numj = {" 10"," 20"," 30"," 35"," 75"," 34"," 66"," 82"," 23"," 19"," 55"," 80"," 63"," 32"," 27"," 89"," 99"," 98","?? 79"," 100"," 8"," 3"," 6"," 0",};
+sendnuj = numj[math.random(#numj)]
+local tttttt = '⌯ اليك النتائج الخـاصة :\n\n⌯  نسبة الرجوله لـ : *'..msg.text..'* '..sendnuj..'%'
+sendMsg(msg.chat_id_, msg.id_,tttttt) 
+redis:del(boss..":"..msg.sender_user_id_..":rjo_Bots"..msg.chat_id_)
+end
+if msg.text == "نسبه الانوثه" or msg.text == "نسبه انوثه" and msg.reply_to_message_id_ ~= 0 then
+if is_JoinChannel(msg) == false then
+return false
+end
+if not redis:get(boss.."amrthshesh"..msg.chat_id_) then    
+redis:set(boss..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_,"sendanoe")
+hggg = '⌯ الان ارسل اسم الشخص :'
+sendMsg(msg.chat_id_, msg.id_,hggg) 
+return false
+end
+end
+
+if msg.text and msg.text ~="نسبه الانوثه" and redis:get(boss..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_) == "sendanoe" then
+numj = {" 10"," 20"," 30"," 35"," 75"," 34"," 66"," 82"," 23"," 19"," 55"," 80"," 63"," 32"," 27"," 89"," 99"," 98"," 79"," 100"," 8"," 3"," 6"," 0",};
+sendnuj = numj[math.random(#numj)]
+local tttttt = '⌯ اليك النتائج الخـاصة :\n\n⌯  نسبه الانوثة لـ : *'..msg.text..'* '..sendnuj..'%'
+sendMsg(msg.chat_id_, msg.id_,tttttt) 
+redis:del(boss..":"..msg.sender_user_id_..":ano_Bots"..msg.chat_id_)
+end
+
+if msg.text and msg.text:match("^برج (.*)$") and redis:get(boss.."brj_Bots"..msg.chat_id_) == "open" then
+local Textbrj = msg.text:match("^برج (.*)$")
+if is_JoinChannel(msg) == false then
+return false
+end
+gk = https.request('https://black-source.tk/BlackTeAM/Horoscopes.php?br='..URL.escape(Textbrj)..'')
+br = JSON.decode(gk)
+sendMsg(msg.chat_id_, msg.id_, br.ok.hso)
+end
+
+if MsgText[1] == "@all" and (redis:get(boss..'tagall@all'..msg.chat_id_) == 'open')  or MsgText[1] == "تاك عام"  and (redis:get(boss..'tagall@all'..msg.chat_id_) == 'open') then
+if not msg.Admin then return "⌯ هذا الامر يخص { الادمن,المدير,المنشئ,المالك,المطور } فقط  " end
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 200},function(ta,datate)
+x = 0
+y = 0
+local list = datate.members_ 
+for k, v in pairs(list) do
+tdcli_function ({ID = "GetUser",user_id_ = v.user_id_},function(arg,b) 
+if x == 20 or x == y or k == 0 then
+y = x + 20
+t = ""
+end
+x = x + 1
+tagname = b.first_name_ or 'Erorr'
+tagname = tagname:gsub("]","")
+tagname = tagname:gsub("[[]","")
+t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
+if x == 20 or x == y or k == 0 then
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(t).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
+end
+end,nil)
+end
+end,nil)
+end
+
+if text == "اضف سؤال" then
+if is_JoinChannel(msg) == false then
+return false
+end
+if not msg.SudoUser then return "⌯ هذا الامر يخص {المطور} فقط  " end
+redis:set(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return sendMsg(msg.chat_id_, msg.id_,"ارسل السؤال الان ")
+end
+if text == "حذف سؤال" then
+if is_JoinChannel(msg) == false then
+return false
+end
+if not msg.SudoUser then return "⌯ هذا الامر يخص {المطور} فقط  " end
+redis:set(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_,'truedel')
+return sendMsg(msg.chat_id_, msg.id_,"ارسل السؤال الان ")
+end
+if text == 'الاسئله المضافه' then
+if is_JoinChannel(msg) == false then
+return false
+end
+if not msg.SudoUser then return "⌯ هذا الامر يخص {المطور} فقط  " end
+local list = redis:smembers(boss.."gamebot:new1")
+t = "⌯ الاسئله المضافه : "
+for k,v in pairs(list) do
+t = t..""..k.."- (["..v.."])\n"
+end
+if #list == 0 then
+t = "⌯ لا يوجد اسئله"
+end
+return sendMsg(msg.chat_id_, msg.id_,t)
+end
+
+if text and text:match("^(.*)$") then
+if redis:get(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_) == "truedel" then
+sendMsg(msg.chat_id_, msg.id_, '\nتم حذف السؤال')
+redis:set(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_,"truefguigf1")
+redis:del(boss.."gamebot:newqus"..msg.chat_id_,text)
+redis:srem(boss.."gamebot:new1", text)
+return false 
+end
+end
+
+if text and text:match("^(.*)$") then
+if redis:get(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+sendMsg(msg.chat_id_, msg.id_, '\nتم حفظ السؤال بنجاح \n ارسل الجواب الاول')
+redis:set(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
+redis:set(boss.."gamebot:newqus"..msg.chat_id_,text)
+redis:sadd(boss.."gamebot:new1", text)
+return false 
+end
+end
+if text and text:match("^(.*)$") then
+if redis:get(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
+sendMsg(msg.chat_id_, msg.id_, ' \n ارسل الجواب الثاني')
+local quschen = redis:get(boss.."gamebot:newqus"..msg.chat_id_)
+redis:set(boss.."gamebot:newqus:as1"..quschen,text)
+redis:set(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_,"true2")
+return false 
+end
+end
+if text and text:match("^(.*)$") then
+if redis:get(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_) == "true2" then
+sendMsg(msg.chat_id_, msg.id_, '\nتم حفظ السؤال بنجاح \n ارسل الجواب الثالث')
+local quschen = redis:get(boss.."gamebot:newqus"..msg.chat_id_)
+redis:set(boss.."gamebot:newqus:as2"..quschen,text)
+redis:set(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_,"true3")
+return false 
+end
+end
+
+if text and text:match("^(.*)$") then
+if redis:get(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_) == "true3" then
+sendMsg(msg.chat_id_, msg.id_, '\nتم حفظ الاجوبه \n ارسل الجواب الرابع')
+local quschen = redis:get(boss.."gamebot:newqus"..msg.chat_id_)
+redis:set(boss.."gamebot:newqus:as3"..quschen,text)
+redis:set(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_,"true4")
+return false 
+end
+end
+
+if text and text:match("^(.*)$") then
+if redis:get(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_) == "true4" then
+sendMsg(msg.chat_id_, msg.id_, '\nتم حفظ الاجوبه \n ارسل الجواب الصحيح')
+local quschen = redis:get(boss.."gamebot:newqus"..msg.chat_id_)
+redis:set(boss.."gamebot:newqus:as0"..quschen,text)
+redis:set(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_,"true44")
+return false 
+end
+end
+
+
+if text and text:match("^(.*)$") then
+if redis:get(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_) == "true44" then
+sendMsg(msg.chat_id_, msg.id_, '\nتم حفض الجواب الصحيح')
+local quschen = redis:get(boss.."gamebot:newqus"..msg.chat_id_)
+redis:set(boss.."gamebot:newqus:as4"..quschen,text)
+redis:set(boss.."gamebot:new"..msg.sender_user_id_..":"..msg.chat_id_,"true186")
+return false 
+end
+end
+if text == 'اسألني' or text == 'اسالني' then
+if is_JoinChannel(msg) == false then
+return false
+end
+if not redis:get(boss..'lock_geams'..msg.chat_id_) then
+local list = redis:smembers(boss.."gamebot:new1")
+if #list ~= 0 then
+local quschen = list[math.random(#list)]
+local ansar1 = redis:get(boss.."gamebot:newqus:as1"..quschen)
+local ansar2 = redis:get(boss.."gamebot:newqus:as2"..quschen)
+local ansar3 = redis:get(boss.."gamebot:newqus:as3"..quschen)
+local ansar0 = redis:get(boss.."gamebot:newqus:as0"..quschen)
+local ansar4 = redis:get(boss.."gamebot:newqus:as4"..quschen)
+if ansar1 == ansar4 then
+tt = 'ansar1'
+elseif ansar2 == ansar4 then
+tt = 'ansar2'
+elseif ansar3 == ansar4 then
+tt = 'ansar3'
+elseif ansar0 == ansar4 then
+tt = 'ansar0'
+end
+print(tt)
+if tt == 'ansar1' then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = URL.escape(ansar1), callback_data='صحيح'},{text = URL.escape(ansar2), callback_data='خطا'},
+},
+{
+{text = URL.escape(ansar3), callback_data='خطا'},{text = URL.escape(ansar0), callback_data='خطا'},
+}, 
+}
+elseif tt == 'ansar2' then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = URL.escape(ansar1), callback_data='خطا'},{text = URL.escape(ansar2), callback_data='صحيح'},
+},
+{
+{text = URL.escape(ansar3), callback_data='خطا'},{text = URL.escape(ansar0), callback_data='خطا'},
+}, 
+}
+elseif tt == 'ansar3' then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = URL.escape(ansar1), callback_data='خطا'},{text = URL.escape(ansar2), callback_data='خطا'},
+},
+{
+{text = URL.escape(ansar3), callback_data='صحيح'},{text = URL.escape(ansar0), callback_data='خطا'},
+}, 
+}
+elseif tt == 'ansar0' then
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = URL.escape(ansar1), callback_data='خطا'},{text = URL.escape(ansar2), callback_data='خطا'},
+},
+{
+{text = URL.escape(ansar3), callback_data='خطا'},{text = URL.escape(ansar0), callback_data='صحيح'},
+}, 
+}
+end
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(quschen).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
 end
 end
 
@@ -2570,10 +3002,10 @@ USERCAR = utf8.len(USERNAME)
 local namei = data.first_name_..' '..(data.last_name_ or "")
 if data.username_ then useri = Flter_Markdown('@'..data.username_) else useri = " مافيه " end
 SendMention(arg.ChatID,arg.UserID,arg.MsgID,'• الاسم ↢ '..namei..'\n'
-..'• الايدي ↢ '..arg.UserID..' \n'
-..'• المعرف ↢ *(* '..useri..' *)*\n'
-..'• الرتبه ↢ '..Getrtba(arg.UserID,arg.ChatID)..'\n'
-..'• نوع الكشف ↢ بالرد\n ',13,utf8.len(namei))
+‎..'• الايدي ↢ '..arg.UserID..' \n'
+‎..'• المعرف ↢ *(* '..useri..' *)*\n'
+‎..'• الرتبه ↢ '..Getrtba(arg.UserID,arg.ChatID)..'\n'
+‎..'• نوع الكشف ↢ بالرد\n ',13,utf8.len(namei))
 end,{ChatID=arg.ChatID,UserID=UserID,MsgID=arg.MsgID})
 end,{ChatID=msg.chat_id_,MsgID=msg.id_})
 elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
@@ -3623,8 +4055,8 @@ AllBots = AllBots..NumBot..'- @['..data.username_..'] '..BotAdmin..'\n'
 if NumBot == total then
 AllBots = AllBots..[[
 
-• موجود {]]..total..[[} بوت
-• ملاحظة : الـ ★ يعني ان البوت مشرف في المجموعـة.]]
+‎• موجود {]]..total..[[} بوت
+‎• ملاحظة : الـ ★ يعني ان البوت مشرف في المجموعـة.]]
 sendMsg(arg.ChatID,arg.MsgID,AllBots) 
 end
 end,{ChatID=arg.ChatID,MsgID=arg.MsgID})
@@ -3790,16 +4222,16 @@ local edited = (redis:get(boss..':edited:'..msg.chat_id_..':'..msg.sender_user_i
 local video = (redis:get(boss..':video:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
 
 local Get_info =  "⠀⠀ { احـصـائـيـات رسايلك } \n \n"
-.."• الـرسـائـل  { `"..msgs.."` } \n"
-.."• الـجـهـات  { `"..NumGha.."` } \n"
-.."• الـصـور  { `"..photo.."` } \n"
-.."• الـمـتـحـركـه  { `"..animation.."` } \n"
-.."• الـمـلـصـقات  { `"..sticker.."` } \n"
-.."• الـبـصـمـات  { `"..voice.."` } \n"
-.."• الـصـوت  { `"..audio.."` } \n"
-.."• الـفـيـديـو  { `"..video.."` } \n"
-.."• الـتـعـديـل  { `"..edited.."` } \n\n"
-.."• تـفـاعـلـك   "..Get_Ttl(msgs).." \n"
+‎.."• الـرسـائـل  { `"..msgs.."` } \n"
+‎.."• الـجـهـات  { `"..NumGha.."` } \n"
+‎.."• الـصـور  { `"..photo.."` } \n"
+‎.."• الـمـتـحـركـه  { `"..animation.."` } \n"
+‎.."• الـمـلـصـقات  { `"..sticker.."` } \n"
+‎.."• الـبـصـمـات  { `"..voice.."` } \n"
+‎.."• الـصـوت  { `"..audio.."` } \n"
+‎.."• الـفـيـديـو  { `"..video.."` } \n"
+‎.."• الـتـعـديـل  { `"..edited.."` } \n\n"
+‎.."• تـفـاعـلـك   "..Get_Ttl(msgs).." \n"
 .."\n "
 return sendMsg(arg.chat_id_,arg.id_,Get_info)    
 end,{chat_id_=msg.chat_id_,id_=msg.id_})
@@ -3832,24 +4264,24 @@ else
 SUDO_USERR = ""
 end
 local Get_info = "• اهلين عيني هذي معلوماتك  \n"
-.."┄─┅═ـ═┅─┄\n"
-.."• الاســم ‹ "..FlterName(Name,25) .." ›\n"
+‎.."┄─┅═ـ═┅─┄\n"
+‎.."• الاســم ‹ "..FlterName(Name,25) .." ›\n"
 ..USERNAME
-.."• الايـدي  ‹ `"..data.id_.."` › \n"
-.."• رتبتــك ‹ "..arg.TheRank.." › \n"
-.."• ــ  ‹ `"..arg.chat_id_.."` › \n"
-.."┄─┅═ـ═┅─┄\n"
-.."  ( احـصـائـيـات الـرسـايـل ) \n"
-.."• الـرسـائـل ‹ `"..msgs.."` › \n"
-.."• الـجـهـات ‹ `"..NumGha.."` › \n"
-.."• الـصـور ‹ `"..photo.."` › \n"
-.."• الـمـتـحـركـه ‹ `"..animation.."` ›\n"
-.."• الـمـلـصـقات ‹ `"..sticker.."` ›\n"
-.."• الـبـصـمـات ‹ `"..voice.."` ›\n"
-.."• الـصـوت ‹ `"..audio.."` ›\n"
-.."• الـفـيـديـو ‹ `"..video.."` › \n"
-.."• الـتـعـديـل ‹ `"..edited.."` › \n\n"
-.."• تـفـاعـلـك  ‹ "..Get_Ttl(msgs).." › \n"
+‎.."• الايـدي  ‹ `"..data.id_.."` › \n"
+‎.."• رتبتــك ‹ "..arg.TheRank.." › \n"
+‎.."• ــ  ‹ `"..arg.chat_id_.."` › \n"
+‎.."┄─┅═ـ═┅─┄\n"
+‎.."  ( احـصـائـيـات الـرسـايـل ) \n"
+‎.."• الـرسـائـل ‹ `"..msgs.."` › \n"
+‎.."• الـجـهـات ‹ `"..NumGha.."` › \n"
+‎.."• الـصـور ‹ `"..photo.."` › \n"
+‎.."• الـمـتـحـركـه ‹ `"..animation.."` ›\n"
+‎.."• الـمـلـصـقات ‹ `"..sticker.."` ›\n"
+‎.."• الـبـصـمـات ‹ `"..voice.."` ›\n"
+‎.."• الـصـوت ‹ `"..audio.."` ›\n"
+‎.."• الـفـيـديـو ‹ `"..video.."` › \n"
+‎.."• الـتـعـديـل ‹ `"..edited.."` › \n\n"
+‎.."• تـفـاعـلـك  ‹ "..Get_Ttl(msgs).." › \n"
 
 ..SUDO_USERR
 sendMsg(arg.chat_id_,arg.id_,Get_info)    
@@ -4596,9 +5028,9 @@ SUDO_USERR = ""
 end
 sendPhoto(msg.chat_id_,msg.id_,Photo_Weloame,[[*اهلين انا*]]..redis:get(boss..':NameBot:')..[[ 🧚‍♀️
 
-↞ اختصاصي ادارة المجموعات من السبام والخ..
-↞ كت تويت, يوتيوب, ساوند , واشياء كثير ..
-↞ عشان تفعلني ارفعني اشراف وارسل تفعيل.
+‎↞ اختصاصي ادارة المجموعات من السبام والخ..
+‎↞ كت تويت, يوتيوب, ساوند , واشياء كثير ..
+‎↞ عشان تفعلني ارفعني اشراف وارسل تفعيل.
 
 ]]..SUDO_USERR)
 return false
@@ -4844,7 +5276,7 @@ end
 
 if MsgText[1] == "رتبتي" then return '** رتبتك ⇠ '..msg.TheRank..'\n' end
 
------------------ استقبال الرسائل ---------------
+‎----------------- استقبال الرسائل ---------------
 if MsgText[1] == "الغاء الامر ✖️" or MsgText[1] == "الغاء" then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 redis:del(boss..'welcom:witting'..msg.chat_id_..msg.sender_user_id_,
@@ -5097,7 +5529,7 @@ else
 return message
 end
 end
-----=================================| كود الرد العشوائي المجموعات|===============================================
+‎----=================================| كود الرد العشوائي المجموعات|===============================================
 if MsgText[1]=="اضف رد عشوائي" and msg.GroupActive then
 if not msg.Director then return "• هذا الامر يخص ( المطور,المالك,المدير ) بس  \n" end
 redis:setex(boss..'addrdRandom1:'..msg.chat_id_..msg.sender_user_id_,1400,true) 
@@ -5137,9 +5569,9 @@ end
 end
 return message.."\n"
 end
-----=================================|نهايه كود الرد العشوائي المجموعات|===============================================
+‎----=================================|نهايه كود الرد العشوائي المجموعات|===============================================
 
-----=================================|كود الرد العشوائي العام|===============================================
+‎----=================================|كود الرد العشوائي العام|===============================================
 
 if MsgText[1]=="اضف رد عشوائي عام" then
 if not msg.SudoUser then return "• هذا الامر يخص ( المطور ) بس  \n" end
@@ -5179,7 +5611,7 @@ end
 return message.."\n"
 end
 
-----=================================|نهايه كود الرد العشوائي العام|===============================================
+‎----=================================|نهايه كود الرد العشوائي العام|===============================================
 
 if MsgText[1]=="اضف رد" and msg.GroupActive then
 if not msg.Director then return "• هذا الامر يخص ( المطور,المالك,المدير ) بس  \n" end
@@ -5265,7 +5697,7 @@ if not msg.Admin then return "• هذا الامر يخص ( الادمن,الم
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 text = [[*• هلا فيك في اوامر البوت
  
- للاستفسار -* []]..SUDO_USER..[[]
+‎ للاستفسار -* []]..SUDO_USER..[[]
 
 
 
@@ -5296,56 +5728,56 @@ if MsgText[1]== 'م1' or MsgText[1]== 'م١' then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 local text = [[
-للاستفسار - []]..SUDO_USER..[[]
+‎للاستفسار - []]..SUDO_USER..[[]
 
 
-*❨ اوامر الرفع والتنزيل ❩*
+‎*❨ اوامر الرفع والتنزيل ❩*
 
-⌯ رفع ↣ ↢ تنزيل مشرف
-⌯ رفع ↣ ↢ تنزيل مالك اساسي
-⌯ رفع ↣ ↢ تنزيل مالك
-⌯ رفع ↣ ↢ تنزيل مدير
-⌯ رفع ↣ ↢ تنزيل ادمن
-⌯ رفع ↣ ↢ تنزيل مميز
-⌯ تنزيل الكل  ↢ بالرد  ↢ لتنزيل الشخص من جميع رتبه
-⌯ تنزيل الكل  ↢ بدون رد  ↢ لتنزيل كل رتب المجموعة
+‎⌯ رفع ↣ ↢ تنزيل مشرف
+‎⌯ رفع ↣ ↢ تنزيل مالك اساسي
+‎⌯ رفع ↣ ↢ تنزيل مالك
+‎⌯ رفع ↣ ↢ تنزيل مدير
+‎⌯ رفع ↣ ↢ تنزيل ادمن
+‎⌯ رفع ↣ ↢ تنزيل مميز
+‎⌯ تنزيل الكل  ↢ بالرد  ↢ لتنزيل الشخص من جميع رتبه
+‎⌯ تنزيل الكل  ↢ بدون رد  ↢ لتنزيل كل رتب المجموعة
 
-*❨ اوامر المسح ❩*
+‎*❨ اوامر المسح ❩*
 
-⌯ مسح المالكيين الاساسيين
-⌯ مسح المالكيين
-⌯ مسح المدراء
-⌯ مسح الادمنيه
-⌯ مسح المميزين
-⌯ مسح المحظورين
-⌯ مسح المكتومين
-⌯ مسح قائمة المنع
-⌯ مسح رتبه
-⌯ مسح الرتب
-⌯ مسح الردود
-⌯ مسح الاوامر
-⌯ مسح + العدد
-⌯ مسح بالرد
-⌯ مسح الترحيب
-⌯ مسح الرابط
-⌯ مسح قائمة التثبيت
+‎⌯ مسح المالكيين الاساسيين
+‎⌯ مسح المالكيين
+‎⌯ مسح المدراء
+‎⌯ مسح الادمنيه
+‎⌯ مسح المميزين
+‎⌯ مسح المحظورين
+‎⌯ مسح المكتومين
+‎⌯ مسح قائمة المنع
+‎⌯ مسح رتبه
+‎⌯ مسح الرتب
+‎⌯ مسح الردود
+‎⌯ مسح الاوامر
+‎⌯ مسح + العدد
+‎⌯ مسح بالرد
+‎⌯ مسح الترحيب
+‎⌯ مسح الرابط
+‎⌯ مسح قائمة التثبيت
 
-*❨ اوامر الطرد الحظر الكتم ❩*
+‎*❨ اوامر الطرد الحظر الكتم ❩*
 
-⌯ حظر ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ طرد ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ كتم ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ تقيد ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ الغاء الحظر ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ الغاء الكتم ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ الغاء التقييد ↢ ❨ بالرد،بالمعرف،بالايدي ❩
-⌯ رفع القيود ↢ لحذف الكتم,الحظر,التقييد
-⌯ منع الكلمة
-⌯ منع بالرد على قيف او ستيكر
-⌯ الغاء منع الكلمة
-⌯ طرد البوتات
-⌯ طرد المحذوفين
-⌯ كشف البوتات
+‎⌯ حظر ↢ ❨ بالرد،بالمعرف،بالايدي ❩
+‎⌯ طرد ↢ ❨ بالرد،بالمعرف،بالايدي ❩
+‎⌯ كتم ↢ ❨ بالرد،بالمعرف،بالايدي ❩
+‎⌯ تقيد ↢ ❨ بالرد،بالمعرف،بالايدي ❩
+‎⌯ الغاء الحظر ↢ ❨ بالرد،بالمعرف،بالايدي ❩
+‎⌯ الغاء الكتم ↢ ❨ بالرد،بالمعرف،بالايدي ❩
+‎⌯ الغاء التقييد ↢ ❨ بالرد،بالمعرف،بالايدي ❩
+‎⌯ رفع القيود ↢ لحذف الكتم,الحظر,التقييد
+‎⌯ منع الكلمة
+‎⌯ منع بالرد على قيف او ستيكر
+‎⌯ الغاء منع الكلمة
+‎⌯ طرد البوتات
+‎⌯ طرد المحذوفين
+‎⌯ كشف البوتات
 
 ]]
 
@@ -5367,38 +5799,38 @@ if MsgText[1]== 'م2' then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 local text = [[
-*للاستفسار -* []]..SUDO_USER..[[]
+‎*للاستفسار -* []]..SUDO_USER..[[]
 
-*❨ اوامر الوضع ❩*
+‎*❨ اوامر الوضع ❩*
 
-⌯ وضع ترحيب
-⌯ وضع قوانين
-⌯ وضع وصف
-⌯ وضع رابط
-⌯ اضف امر
-⌯ تغيير رتبه
+‎⌯ وضع ترحيب
+‎⌯ وضع قوانين
+‎⌯ وضع وصف
+‎⌯ وضع رابط
+‎⌯ اضف امر
+‎⌯ تغيير رتبه
 
 
-*❨ اوامر رؤية الاعدادات ❩*
+‎*❨ اوامر رؤية الاعدادات ❩*
 
-⌯ المطورين
-⌯ المالكيين الاساسيين
-⌯ المالكيين 
-⌯ الادمنيه
-⌯ المدراء
-⌯ المميزين
-⌯ المحظورين
-⌯ القوانين
-⌯ قائمه المنع
-⌯ المكتومين
-⌯ المطور 
-⌯ معلوماتي 
-⌯ الحمايه  
-⌯ الوسائط
-⌯ الاعدادت
-⌯ المجموعه
-⌯ الساعه
-⌯ التاريخ]]
+‎⌯ المطورين
+‎⌯ المالكيين الاساسيين
+‎⌯ المالكيين 
+‎⌯ الادمنيه
+‎⌯ المدراء
+‎⌯ المميزين
+‎⌯ المحظورين
+‎⌯ القوانين
+‎⌯ قائمه المنع
+‎⌯ المكتومين
+‎⌯ المطور 
+‎⌯ معلوماتي 
+‎⌯ الحمايه  
+‎⌯ الوسائط
+‎⌯ الاعدادت
+‎⌯ المجموعه
+‎⌯ الساعه
+‎⌯ التاريخ]]
 
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg
@@ -5418,78 +5850,78 @@ if MsgText[1]== 'م3' then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 local text = [[
-*للاستفسار -* []]..SUDO_USER..[[]
+‎*للاستفسار -* []]..SUDO_USER..[[]
 
-*❨ اوامر الردود ❩*
+‎*❨ اوامر الردود ❩*
 
-⌯ الردود ↢ تشوف كل الردود المضافه
-⌯ اضف رد ↢ عشان تضيف رد
-⌯ مسح رد ↢ عشان تمسح الرد
-⌯ مسح الردود ↢ تمسح كل الردود
+‎⌯ الردود ↢ تشوف كل الردود المضافه
+‎⌯ اضف رد ↢ عشان تضيف رد
+‎⌯ مسح رد ↢ عشان تمسح الرد
+‎⌯ مسح الردود ↢ تمسح كل الردود
 -
-⌯ الردود العشوائية ↢ تشوف كل الردود العشوائية المضافه
-⌯ اضف رد عشوائي ↢ عشان تضيف كلمة لها اكثر من رد
-⌯ مسح رد عشوائي ↢ عشان تمسح رد عشوائي
-⌯ مسح الردود العشوائية ↢ تمسح كل الردود العشوائية
+‎⌯ الردود العشوائية ↢ تشوف كل الردود العشوائية المضافه
+‎⌯ اضف رد عشوائي ↢ عشان تضيف كلمة لها اكثر من رد
+‎⌯ مسح رد عشوائي ↢ عشان تمسح رد عشوائي
+‎⌯ مسح الردود العشوائية ↢ تمسح كل الردود العشوائية
 
-*❨ اوامر القفل والفتح بالمسح ❩*
+‎*❨ اوامر القفل والفتح بالمسح ❩*
 
-⌯ قفل ↣ ↢ فتح  التعديل  
-⌯ قفل ↣ ↢ فتح  البصمات 
-⌯ قفل ↣ ↢ فتح  الفيديو 
-⌯ قفل ↣ ↢ فتح  الـصــور 
-⌯ قفل ↣ ↢ فتح  الملصقات 
-⌯ قفل ↣ ↢ فتح  الملفات  
-⌯ قفل ↣ ↢ فتح  المتحركه 
-⌯ قفل ↣ ↢ فتح  الدردشه 
-⌯ قفل ↣ ↢ فتح  الروابط 
-⌯ قفل ↣ ↢ فتح  الهاشتاق 
-⌯ قفل ↣ ↢ فتح  البوتات 
-⌯ قفل ↣ ↢ فتح  المعرفات 
-⌯ قفل ↣ ↢ فتح  البوتات بالطرد 
-⌯ قفل ↣ ↢ فتح  الاشعارات 
-⌯ قفل ↣ ↢ فتح  الكلايش 
-⌯ قفل ↣ ↢ فتح  التكرار 
-⌯ قفل ↣ ↢ فتح  التوجيه 
-⌯ قفل ↣ ↢ فتح  الانلاين 
-⌯ قفل ↣ ↢ فتح  الجهات 
-⌯ قفل ↣ ↢ فتح  الــكـــل 
-⌯ قفل ↣ ↢ فتح  السب
-⌯ قفل ↣ ↢ فتح  الفارسيه
-⌯ قفل ↣ ↢ فتح  الانجليزيه
-⌯ قفل ↣ ↢ فتح  الاضافه
-⌯ قفل ↣ ↢ فتح  الصوت
-⌯ قفل ↣ ↢ فتح  الالعاب
-⌯ قفل ↣ ↢ فتح  الماركدوان
-⌯ قفل ↣ ↢ فتح  الويب
+‎⌯ قفل ↣ ↢ فتح  التعديل  
+‎⌯ قفل ↣ ↢ فتح  البصمات 
+‎⌯ قفل ↣ ↢ فتح  الفيديو 
+‎⌯ قفل ↣ ↢ فتح  الـصــور 
+‎⌯ قفل ↣ ↢ فتح  الملصقات 
+‎⌯ قفل ↣ ↢ فتح  الملفات  
+‎⌯ قفل ↣ ↢ فتح  المتحركه 
+‎⌯ قفل ↣ ↢ فتح  الدردشه 
+‎⌯ قفل ↣ ↢ فتح  الروابط 
+‎⌯ قفل ↣ ↢ فتح  الهاشتاق 
+‎⌯ قفل ↣ ↢ فتح  البوتات 
+‎⌯ قفل ↣ ↢ فتح  المعرفات 
+‎⌯ قفل ↣ ↢ فتح  البوتات بالطرد 
+‎⌯ قفل ↣ ↢ فتح  الاشعارات 
+‎⌯ قفل ↣ ↢ فتح  الكلايش 
+‎⌯ قفل ↣ ↢ فتح  التكرار 
+‎⌯ قفل ↣ ↢ فتح  التوجيه 
+‎⌯ قفل ↣ ↢ فتح  الانلاين 
+‎⌯ قفل ↣ ↢ فتح  الجهات 
+‎⌯ قفل ↣ ↢ فتح  الــكـــل 
+‎⌯ قفل ↣ ↢ فتح  السب
+‎⌯ قفل ↣ ↢ فتح  الفارسيه
+‎⌯ قفل ↣ ↢ فتح  الانجليزيه
+‎⌯ قفل ↣ ↢ فتح  الاضافه
+‎⌯ قفل ↣ ↢ فتح  الصوت
+‎⌯ قفل ↣ ↢ فتح  الالعاب
+‎⌯ قفل ↣ ↢ فتح  الماركدوان
+‎⌯ قفل ↣ ↢ فتح  الويب
 
-*❨ اوامر الفتح والقفل بالتقييد ❩*
+‎*❨ اوامر الفتح والقفل بالتقييد ❩*
 
-⌯ قفل ↣ ↢ فتح التوجيه بالتقييد 
-⌯ قفل ↣ ↢ فتح الروابط بالتقييد 
-⌯ قفل ↣ ↢ فتح المتحركه بالتقييد 
-⌯ قفل ↣ ↢ فتح الصور بالتقييد 
-⌯ قفل ↣ ↢ فتح الفيديو بالتقييد 
+‎⌯ قفل ↣ ↢ فتح التوجيه بالتقييد 
+‎⌯ قفل ↣ ↢ فتح الروابط بالتقييد 
+‎⌯ قفل ↣ ↢ فتح المتحركه بالتقييد 
+‎⌯ قفل ↣ ↢ فتح الصور بالتقييد 
+‎⌯ قفل ↣ ↢ فتح الفيديو بالتقييد 
 
-*❨ اوامر التفعيل والتعطيل ❩*
+‎*❨ اوامر التفعيل والتعطيل ❩*
 
-⌯ تفعيل ↣ ↢ تعطيل الترحيب 
-⌯ تفعيل ↣ ↢ تعطيل الردود 
-⌯ تفعيل ↣ ↢ تعطيل التحذير 
-⌯ تفعيل ↣ ↢ تعطيل الايدي
-⌯ تفعيل ↣ ↢ تعطيل الرابط
-⌯ تفعيل ↣ ↢ تعطيل اطردني
-⌯ تفعيل ↣ ↢ تعطيل الحظر
-⌯ تفعيل ↣ ↢ تعطيل الحمايه
-⌯ تفعيل ↣ ↢ تعطيل المنشن
-⌯ تفعيل ↣ ↢ تعطيل الايدي بالصوره
-⌯ تفعيل ↣ ↢ تعطيل التحقق 
-⌯ تفعيل ↣ ↢ تعطيل ردود المطور 
-⌯ تفعيل ↣ ↢ تعطيل التنظيف التلقائي
-⌯ تفعيل ↣ ↢ تعطيل البايو 
-⌯ تفعيل ↣ ↢ تعطيل انطقي 
-⌯ تفعيل ↣ ↢ تعطيل الترجمة 
-⌯ تفعيل ↣ ↢ الردود العشوائيه 
+‎⌯ تفعيل ↣ ↢ تعطيل الترحيب 
+‎⌯ تفعيل ↣ ↢ تعطيل الردود 
+‎⌯ تفعيل ↣ ↢ تعطيل التحذير 
+‎⌯ تفعيل ↣ ↢ تعطيل الايدي
+‎⌯ تفعيل ↣ ↢ تعطيل الرابط
+‎⌯ تفعيل ↣ ↢ تعطيل اطردني
+‎⌯ تفعيل ↣ ↢ تعطيل الحظر
+‎⌯ تفعيل ↣ ↢ تعطيل الحمايه
+‎⌯ تفعيل ↣ ↢ تعطيل المنشن
+‎⌯ تفعيل ↣ ↢ تعطيل الايدي بالصوره
+‎⌯ تفعيل ↣ ↢ تعطيل التحقق 
+‎⌯ تفعيل ↣ ↢ تعطيل ردود المطور 
+‎⌯ تفعيل ↣ ↢ تعطيل التنظيف التلقائي
+‎⌯ تفعيل ↣ ↢ تعطيل البايو 
+‎⌯ تفعيل ↣ ↢ تعطيل انطقي 
+‎⌯ تفعيل ↣ ↢ تعطيل الترجمة 
+‎⌯ تفعيل ↣ ↢ الردود العشوائيه 
 
 ]]
 
@@ -5514,17 +5946,17 @@ SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 local text = [[
 
 
-✶ الساوند كلاود
-- امر التشغيل ❨ *تفعيل الساوند* ❩
-- امر التعطيل ❨ *تعطيل الساوند* ❩
+‎✶ الساوند كلاود
+‎- امر التشغيل ❨ *تفعيل الساوند* ❩
+‎- امر التعطيل ❨ *تعطيل الساوند* ❩
 
-✶ البـحث عن اغنية ↓
+‎✶ البـحث عن اغنية ↓
 
-↞ *ساوند* اسم الاغنية
+‎↞ *ساوند* اسم الاغنية
 
-أو
+‎أو
 
-↞ رابط الاغنية
+‎↞ رابط الاغنية
 
 「[𝖥 𝖠 𝖶 𝖠 𝖹](https://t.me/FAWAZ901)」 ]]
 
@@ -5547,24 +5979,24 @@ SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 
 local text = [[ 
 
-✶ اليـوتيوب
-- امر التشغيل ❨ *تفعيل اليوتيوب* ❩
-- امر التعطيل ❨ *تعطيل اليوتيوب* ❩
+‎✶ اليـوتيوب
+‎- امر التشغيل ❨ *تفعيل اليوتيوب* ❩
+‎- امر التعطيل ❨ *تعطيل اليوتيوب* ❩
 
-✶ البـحث عن اغنية ↓
-- *بحث* اسم الاغنية
+‎✶ البـحث عن اغنية ↓
+‎- *بحث* اسم الاغنية
 
-أو
+‎أو
 
 *yt* اسم الاغنية
 
-أو
+‎أو
 
-ترسل ( *تحميل صوت* )
-بعدها ترسل اسم الاغنية او الرابط
+‎ترسل ( *تحميل صوت* )
+‎بعدها ترسل اسم الاغنية او الرابط
 
-ترسل ( *تحميل فيديو* )
-بعدها ترسل اسم الاغنية او الرابط
+‎ترسل ( *تحميل فيديو* )
+‎بعدها ترسل اسم الاغنية او الرابط
 
 
 「[𝖥 𝖠 𝖶 𝖠 𝖹](https://t.me/FAWAZ901)」 ]]
@@ -5589,40 +6021,40 @@ SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 
 local text = [[ 
 
-*⦗ تفعيل التسليه ⦘*
-*⦗ تعطيل التسليه ⦘*
+‎*⦗ تفعيل التسليه ⦘*
+‎*⦗ تعطيل التسليه ⦘*
 
-🍰 ⌯ رفع ↣ ↢ تنزيل كيكه
-🍯 ⌯ رفع ↣ ↢ تنزيل عسل
-💩 ⌯ رفع ↣ ↢ تنزيل زق
-🦓 ⌯ رفع ↣ ↢ تنزيل حمار
-🐄 ⌯ رفع ↣ ↢ تنزيل بقره
-🐩 ⌯ رفع ↣ ↢ تنزيل كلب
-🐒 ⌯ رفع ↣ ↢ تنزيل قرد
-🐐 ⌯ رفع ↣ ↢ تنزيل تيس
-🐂 ⌯ رفع ↣ ↢ تنزيل ثور
-🏅 ⌯ رفع ↣ ↢ تنزيل باعوص
-🐓 ⌯ رفع ↣ ↢ تنزيل دجاجه
-🧱 ⌯ رفع ↣ ↢ تنزيل هطف
-🔫 ⌯ رفع ↣ ↢ تنزيل صياد
-🐏 ⌯ رفع ↣ ↢ تنزيل خاروف
-❤️ ⌯ رفع لقلبي ↣ ↢ تنزيل من قلبي
-👫 ⌯ زواج ↣ ↢ طلاق
+‎🍰 ⌯ رفع ↣ ↢ تنزيل كيكه
+‎🍯 ⌯ رفع ↣ ↢ تنزيل عسل
+‎💩 ⌯ رفع ↣ ↢ تنزيل زق
+‎🦓 ⌯ رفع ↣ ↢ تنزيل حمار
+‎🐄 ⌯ رفع ↣ ↢ تنزيل بقره
+‎🐩 ⌯ رفع ↣ ↢ تنزيل كلب
+‎🐒 ⌯ رفع ↣ ↢ تنزيل قرد
+‎🐐 ⌯ رفع ↣ ↢ تنزيل تيس
+‎🐂 ⌯ رفع ↣ ↢ تنزيل ثور
+‎🏅 ⌯ رفع ↣ ↢ تنزيل باعوص
+‎🐓 ⌯ رفع ↣ ↢ تنزيل دجاجه
+‎🧱 ⌯ رفع ↣ ↢ تنزيل هطف
+‎🔫 ⌯ رفع ↣ ↢ تنزيل صياد
+‎🐏 ⌯ رفع ↣ ↢ تنزيل خاروف
+‎❤️ ⌯ رفع لقلبي ↣ ↢ تنزيل من قلبي
+‎👫 ⌯ زواج ↣ ↢ طلاق
 
-⌯ قائمة الكيك
-⌯ قائمة العسل
-⌯ قائمة الزق
-⌯ قائمة الحمير
-⌯ قائمة البقر
-⌯ قائمة الكلاب
-⌯ قائمة القرود
-⌯ قائمة التيس
-⌯ قائمة الثور
-⌯ قائمة البواعيص
-⌯ قائمة الدجاج
-⌯ قائمة الهطوف
-⌯ قائمة الصيادين
-⌯ قائمة الخرفان
+‎⌯ قائمة الكيك
+‎⌯ قائمة العسل
+‎⌯ قائمة الزق
+‎⌯ قائمة الحمير
+‎⌯ قائمة البقر
+‎⌯ قائمة الكلاب
+‎⌯ قائمة القرود
+‎⌯ قائمة التيس
+‎⌯ قائمة الثور
+‎⌯ قائمة البواعيص
+‎⌯ قائمة الدجاج
+‎⌯ قائمة الهطوف
+‎⌯ قائمة الصيادين
+‎⌯ قائمة الخرفان
 
 ]]
 
@@ -5645,31 +6077,31 @@ if not msg.SudoBase then return "• للمطور الاساسي بس  " end
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 
 local text = [[ ☑️ اهلا بك في قائمة اوامر المطورين
-📨 للاستفسار - []]..SUDO_USER..[[]
+‎📨 للاستفسار - []]..SUDO_USER..[[]
 
-• تفعيل
-• تعطيل
-• اسم بوتك + غادر
-• مسح الادمنيه
-• مسح المميزين
-• مسح المدراء
-• مسح المطورين
-• مسح المنشئين
-• مسح المنشئين الاساسيين
-• مسح كلايش التعليمات
-• اذاعه
-• اذاعه خاص
-• اذاعه عام
-• اذاعه بالتثبيت
-• اذاعه عام بالتوجيه
-• تعيين قائمه الاوامر
-• مسح كلايش التعليمات
-• تعيين كليشه ستارت
-• تعيين ايدي عام
-• مسح ايدي عام
-• تفعيل / تعطيل تعيين الايدي
-• تحديث
-• تحديث السورس ]]
+‎• تفعيل
+‎• تعطيل
+‎• اسم بوتك + غادر
+‎• مسح الادمنيه
+‎• مسح المميزين
+‎• مسح المدراء
+‎• مسح المطورين
+‎• مسح المنشئين
+‎• مسح المنشئين الاساسيين
+‎• مسح كلايش التعليمات
+‎• اذاعه
+‎• اذاعه خاص
+‎• اذاعه عام
+‎• اذاعه بالتثبيت
+‎• اذاعه عام بالتوجيه
+‎• تعيين قائمه الاوامر
+‎• مسح كلايش التعليمات
+‎• تعيين كليشه ستارت
+‎• تعيين ايدي عام
+‎• مسح ايدي عام
+‎• تفعيل / تعطيل تعيين الايدي
+‎• تحديث
+‎• تحديث السورس ]]
 
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg
@@ -5690,16 +6122,16 @@ SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
 
 
 local text = [[ ☑️ اهلا بك في قائمة اوامر الردود
-📨 للاستفسار - []]..SUDO_USER..[[]
+‎📨 للاستفسار - []]..SUDO_USER..[[]
 
-•  جميع اوامر الردود 
-• الردود : لعرض الردود المثبته
-•  اضف رد : لأضافه رد جديد
-• مسح رد  الرد المراد مسحه
-• مسح الردود : لمسح كل الردود
-•  اضف رد عام : لاضافه رد لكل المجموعات
-•  مسح رد عام : لمسح الرد العام 
-• مسح الردود العامه : لمسح كل ردود العامه ]]
+‎•  جميع اوامر الردود 
+‎• الردود : لعرض الردود المثبته
+‎•  اضف رد : لأضافه رد جديد
+‎• مسح رد  الرد المراد مسحه
+‎• مسح الردود : لمسح كل الردود
+‎•  اضف رد عام : لاضافه رد لكل المجموعات
+‎•  مسح رد عام : لمسح الرد العام 
+‎• مسح الردود العامه : لمسح كل ردود العامه ]]
 
 GetUserID(msg.sender_user_id_,function(arg,data)
 msg = arg.msg
@@ -5717,9 +6149,9 @@ end
 if MsgText[1]== "اوامر الملفات" then
 if not msg.SudoBase then return"• هذا الامر يخص ( المطور الاساسي ) بس  \n" end
 local text = [[ ☑️ اهلا بك في قائمة اوامر الملفات
-📨 للاستفسار - []]..SUDO_USER..[[]
+‎📨 للاستفسار - []]..SUDO_USER..[[]
 
-• آوآمر آلملفآت
+‎• آوآمر آلملفآت
 
 •  `/files`  لعرض قائمه الملفات 
 •  `/store`  لعرض متجر الملفات 
@@ -5830,7 +6262,7 @@ end
 
 if MsgText[1] == "الساعه" then
 return "\n• الـسـاعة الحين : "..os.date("%I:%M%p").."\n"
-.."• الـتـاريـخ : "..os.date("%Y/%m/%d")
+‎.."• الـتـاريـخ : "..os.date("%Y/%m/%d")
 end
 
 if MsgText[1] == "التاريخ" then
@@ -5901,29 +6333,29 @@ if msg.SudoBase then
 local text = '• اهلا عيني المطور \n• انت المطور الاساسي هنا \n...\n\n• تقدر تتحكم بكل الاوامر الموجودة بالكيبورد\n• بس اضغط على الامر اللي تبيه ‏‏'
 
 local keyboard = {
-{"الاحصائيات 📈"},
-{"ضع اسم للبوت ©","ضع صوره للترحيب 🌄"},
-{"تعطيل التواصل ✖️","تفعيل التواصل 🔛"},
-{"تعطيل تعيين الايدي ⚔️","تفعيل تعيين الايدي ⌨️"},
-{"تعطيل الاشتراك الاجباري ♨️","تفعيل الاشتراك الاجباري ♦️"},
+‎{"الاحصائيات 📈"},
+‎{"ضع اسم للبوت ©","ضع صوره للترحيب 🌄"},
+‎{"تعطيل التواصل ✖️","تفعيل التواصل 🔛"},
+‎{"تعطيل تعيين الايدي ⚔️","تفعيل تعيين الايدي ⌨️"},
+‎{"تعطيل الاشتراك الاجباري ♨️","تفعيل الاشتراك الاجباري ♦️"},
 
 
-{"تعطيل البوت خدمي 🚫","تفعيل البوت خدمي 🔃"},
-{"مسح كليشه الستارت 🗑","تعيين كليشه الستارت 📱"},
-{"مسح كليشه الايدي عام 🗑","تعيين كليشه الايدي عام 📄"},
+‎{"تعطيل البوت خدمي 🚫","تفعيل البوت خدمي 🔃"},
+‎{"مسح كليشه الستارت 🗑","تعيين كليشه الستارت 📱"},
+‎{"مسح كليشه الايدي عام 🗑","تعيين كليشه الايدي عام 📄"},
 
-{"اذاعه بالتثبيت 📬","تعطيل الاذاعه 🔌","تفعيل الاذاعه 📇"},
-{"اذاعه 🗣","اذاعه عام 📢","اذاعه خاص 👤"},
-{"الملفات 🗂","اذاعه عام بالتوجيه 📣"},
-{"نقل ملكيه البوت 📇"},
-{"تحديث ♻️","قائمه العام 📜","قناة السورس 📡"},
-{"المطورين 🕹","ايدي 🆔"},
-{"اضف رد عام ➕","الردود العامه 🗨"},
-{"تغيير الاشتراك الاجباري 🇸🇦"},
-{"الاشتراك الاجباري 🔺"},
+‎{"اذاعه بالتثبيت 📬","تعطيل الاذاعه 🔌","تفعيل الاذاعه 📇"},
+‎{"اذاعه 🗣","اذاعه عام 📢","اذاعه خاص 👤"},
+‎{"الملفات 🗂","اذاعه عام بالتوجيه 📣"},
+‎{"نقل ملكيه البوت 📇"},
+‎{"تحديث ♻️","قائمه العام 📜","قناة السورس 📡"},
+‎{"المطورين 🕹","ايدي 🆔"},
+‎{"اضف رد عام ➕","الردود العامه 🗨"},
+‎{"تغيير الاشتراك الاجباري 🇸🇦"},
+‎{"الاشتراك الاجباري 🔺"},
 
-{"تحديث السورس ™"},
-{"الغاء الامر ✖️"}}
+‎{"تحديث السورس ™"},
+‎{"الغاء الامر ✖️"}}
 return send_key(msg.sender_user_id_,text,keyboard,nil,msg.id_)
 else
 redis:sadd(boss..'users',msg.sender_user_id_)
@@ -5937,9 +6369,9 @@ end
 
 text = [[*اهلين انا ]]..redis:get(boss..':NameBot:')..[[ 🧚*
 
-↞ اختصاصي ادارة المجموعات من السبام والخ..
-↞ كت تويت, يوتيوب, ساوند , واشياء كثير ..
-↞ عشان تفعلني ارفعني اشراف وارسل تفعيل.
+‎↞ اختصاصي ادارة المجموعات من السبام والخ..
+‎↞ كت تويت, يوتيوب, ساوند , واشياء كثير ..
+‎↞ عشان تفعلني ارفعني اشراف وارسل تفعيل.
 
 
 
@@ -6360,13 +6792,13 @@ end
 
 if Nikname == "" then Nikname = "بدون" end
 sendMsg(msg.chat_id_,msg.id_,"• المشرف「 "..NameUser.." 」 صلاحياته : \n\n"
-.."• تغيير معلومات المجموعة : "..infochange.."\n"
-.."• صلاحية حذف الرسائل : "..infochange1.."\n"
-.."• صلاحية دعوه مستخدمين : "..infochange2.."\n"
-.."• صلاحية حظر وتقييد المستخدمين : "..infochange3.."\n"
-.."• صلاحية تثبيت الرسائل : "..infochange4.."\n"
-.."• صلاحية رفع مشرفين اخرين : "..infochange5.."\n\n"
-.."• اللقب : ["..Nikname.."]\n"
+‎.."• تغيير معلومات المجموعة : "..infochange.."\n"
+‎.."• صلاحية حذف الرسائل : "..infochange1.."\n"
+‎.."• صلاحية دعوه مستخدمين : "..infochange2.."\n"
+‎.."• صلاحية حظر وتقييد المستخدمين : "..infochange3.."\n"
+‎.."• صلاحية تثبيت الرسائل : "..infochange4.."\n"
+‎.."• صلاحية رفع مشرفين اخرين : "..infochange5.."\n\n"
+‎.."• اللقب : ["..Nikname.."]\n"
 .."\n ") 
 else
 sendMsg(msg.chat_id_,msg.id_,"• المشرف 「 "..NameUser.." 」  حدث خطأ ما  \n") 
@@ -7839,19 +8271,19 @@ if msg.text and redis:get(boss.."lock_rdodSource"..msg.chat_id_) then
 --================================{{  Reply Bot  }} ===================================
 
 local su = {
-"ارحب والله",
-"يابعد عيون ["..Bot_Name.."] ",
-"روحي"}
+‎"ارحب والله",
+‎"يابعد عيون ["..Bot_Name.."] ",
+‎"روحي"}
 local ss97 = {
-"عيوني","هلا",
-"نعم","امرني ياعيوني","لبيه","قول شعندك",
-"رنق رنق قول ياخي","سم","امرني",
-"هلا والله","ها يعمري",
-"نييم","روحها","هاه",
-"زفت",
-"الله ياخذ ["..Bot_Name.."] ","لبيه","ها ","الله يرزقك حياة غير ["..Bot_Name.."] ",
-"تواصل مع مدير اعمالي","سم لبيه امر",
-"عيوني","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟",
+‎"عيوني","هلا",
+‎"نعم","امرني ياعيوني","لبيه","قول شعندك",
+‎"رنق رنق قول ياخي","سم","امرني",
+‎"هلا والله","ها يعمري",
+‎"نييم","روحها","هاه",
+‎"زفت",
+‎"الله ياخذ ["..Bot_Name.."] ","لبيه","ها ","الله يرزقك حياة غير ["..Bot_Name.."] ",
+‎"تواصل مع مدير اعمالي","سم لبيه امر",
+‎"عيوني","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟",
 }
 local bs = {
 "",
@@ -7860,55 +8292,55 @@ local bs = {
 "",
 }
 local ns = {
-"هلا فيك",
-"هايات",
-"هلا قلبي️",
-"منور",
-"اهلين",
+‎"هلا فيك",
+‎"هايات",
+‎"هلا قلبي️",
+‎"منور",
+‎"اهلين",
 }
 local sh = {
-"هلا بتاج راسي",
-"هلا بتاج راسي",
+‎"هلا بتاج راسي",
+‎"هلا بتاج راسي",
 }
 local lovm = {
-"يلبيييه",
-"اكثر",
-"يعمري",
-"اعشقك",
-"احلى من يحبني",
-"يحظي والله",
-"اكثر اكثر اكثرر",
-"يروحي",
-"اموت فيك",
+‎"يلبيييه",
+‎"اكثر",
+‎"يعمري",
+‎"اعشقك",
+‎"احلى من يحبني",
+‎"يحظي والله",
+‎"اكثر اكثر اكثرر",
+‎"يروحي",
+‎"اموت فيك",
 }
 local mm = {
-"ابركها من ساعة","احبك","اكثر","ترا ازعجتنا","انقلع","طيب",
+‎"ابركها من ساعة","احبك","اكثر","ترا ازعجتنا","انقلع","طيب",
 }
 local m12 = {
-"مالك دخل","تمام","بخير","تمام انت كيفك","بخير دامك بخير",
+‎"مالك دخل","تمام","بخير","تمام انت كيفك","بخير دامك بخير",
 }
 local gg = {
-"مره","هات لنا سالفة","رح دورلك حياة","مررررررررررره","اونسك يعمري","اونسك يروحي",
+‎"مره","هات لنا سالفة","رح دورلك حياة","مررررررررررره","اونسك يعمري","اونسك يروحي",
 }
 
 local zg = {
-"عييييييييب","عيب","زق بوجهك","يا قليل التربيه","يا قليل الادب","؟؟؟؟؟؟","ياليت تتأدب","بقص لسانك","حاضر","ياخي عيب","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟",
+‎"عييييييييب","عيب","زق بوجهك","يا قليل التربيه","يا قليل الادب","؟؟؟؟؟؟","ياليت تتأدب","بقص لسانك","حاضر","ياخي عيب","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟",
 }
 
 local tbn = {
-"عييييييييب","عيب","تبن بوجهك","يا قليل التربيه","يا قليل الادب","؟؟؟؟؟؟","ياليت تتأدب","بقص لسانك","حاضر","ياخي عيب","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟",
+‎"عييييييييب","عيب","تبن بوجهك","يا قليل التربيه","يا قليل الادب","؟؟؟؟؟؟","ياليت تتأدب","بقص لسانك","حاضر","ياخي عيب","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟",
 }
 
 local ra = {
-"عييييييييب","عيب","خرا بوجهك","يا قليل التربيه","يا قليل الادب","؟؟؟؟؟؟","ياليت تتأدب","بقص لسانك","حاضر","ياخي عيب","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟",
+‎"عييييييييب","عيب","خرا بوجهك","يا قليل التربيه","يا قليل الادب","؟؟؟؟؟؟","ياليت تتأدب","بقص لسانك","حاضر","ياخي عيب","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟",
 }
 
 local sb = {
-"عييييييييب","عيب","ياكلب عيب","يا قليل التربيه","يا قليل الادب","؟؟؟؟؟؟","ياليت تتأدب","بقص لسانك","حاضر","ياخي عيب","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","استغفر الله",
+‎"عييييييييب","عيب","ياكلب عيب","يا قليل التربيه","يا قليل الادب","؟؟؟؟؟؟","ياليت تتأدب","بقص لسانك","حاضر","ياخي عيب","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","استغفر الله",
 }
 
 local bb = {
-"عندي اسم يالهطف","انطم","مو بوته!","اذلف","تراها زاقه","الله يعين","انا عمك مو بوت","ياصبر الارض","هاه","ماتشوف اسمي؟","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
+‎"عندي اسم يالهطف","انطم","مو بوته!","اذلف","تراها زاقه","الله يعين","انا عمك مو بوت","ياصبر الارض","هاه","ماتشوف اسمي؟","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
 }
 
 
@@ -8007,9 +8439,9 @@ return false
 end)
 elseif Text=="ابي رابط الحذف" or Text=="رابط حذف" or Text=="رابط الحذف" or Text=="الحذف" then
 return sendMsg(msg.chat_id_,msg.id_,[[
-** رابط حذف حـساب التليجرام ↯
- فكر لاتستعجل  
- بالتوفيق ..
+‎** رابط حذف حـساب التليجرام ↯
+‎ فكر لاتستعجل  
+‎ بالتوفيق ..
   https://telegram.org/deactivate
 ]] )
 --=====================================
@@ -8082,619 +8514,650 @@ end
 
 return {
 Boss = {
-"^(مسح قائمه الرتب)$",
-"^(مسح الرتب)$",
-"^(مسح قائمة الرتب)$",
-"^(مسح الرتبه)$",
-"^(مسح رتبه)$",
-"^(تغير الرتبه)$",
-"^(تغيير الرتبه)$",
-"^(تغيير رتبه)$",
-"^(تغير رتبه)$",
-"^(قائمه الرتب)$",
-"^(قائمة الرتب)$",
-"^(المالك)$",
-"^(المنشئ)$",
-"^(المنشى)$",
-"^(رفع القيود)$",
-"^(رفع القيود) (%d+)$",
-"^(رفع القيود) (@[%a%d_]+)$",
-"^(تقييد) (%d+)$",
-"^(تقييد) (@[%a%d_]+)$",
-"^(الغاء التقييد) (%d+)$",
-"^(الغاء التقييد) (@[%a%d_]+)$",
-"^(الغاء تقييد) (%d+)$",
-"^(الغاء تقييد) (@[%a%d_]+)$",
-"^(فك التقييد) (%d+)$",
-"^(فك التقييد) (@[%a%d_]+)$",
-"^(فك تقييد) (%d+)$",
-"^(فك تقييد) (@[%a%d_]+)$",
-"^(وضع شرط التفعيل) (%d+)$",
-"^(التفاعل) (@[%a%d_]+)$",
-"^(التفاعل) (%d+)$",
-"^(ايدي) (@[%a%d_]+)$",
-"^(كشف) (%d+)$",
-"^(كشف) (@[%a%d_]+)$",
-'^(رفع مميز) (@[%a%d_]+)$',
-'^(رفع مميز) (%d+)$',
-'^(تنزيل الكل) (@[%a%d_]+)$',
-'^(تنزيل الكل) (%d+)$',
-'^(تنزيل مميز) (@[%a%d_]+)$',
-'^(تنزيل مميز) (%d+)$',
-'^(رفع ادمن) (@[%a%d_]+)$',
-'^(رفع ادمن) (%d+)$',
-'^(تنزيل ادمن) (@[%a%d_]+)$',
-'^(تنزيل ادمن) (%d+)$', 
-'^(رفع مدير) (@[%a%d_]+)$',
-'^(رفع المدير) (@[%a%d_]+)$',
-'^(رفع المدير) (%d+)$',
-'^(رفع مدير) (%d+)$',
-'^(رفع منشئ) (@[%a%d_]+)$',
-'^(رفع مالك) (%d+)$',
-'^(رفع منشئ) (%d+)$',
-'^(رفع مالك) (@[%a%d_]+)$',
-'^(رفع مشرف) (@[%a%d_]+)$',
-'^(تنزيل مشرف)$',
-'^(تنزيل مشرف) (%d+)$',
-'^(رفع مشرف)$',
-'^(رفع مشرف) (%d+)$',
-'^(تنزيل منشئ) (%d+)$',
-'^(تنزيل مالك) (%d+)$',
-'^(تنزيل مشرف) (@[%a%d_]+)$',
-'^(تنزيل مالك) (@[%a%d_]+)$',
-'^(تنزيل منشئ) (@[%a%d_]+)$',
-'^(تنزيل مدير) (@[%a%d_]+)$',
-'^(تنزيل المدير) (@[%a%d_]+)$',
-'^(تنزيل المدير) (%d+)$',
-'^(تنزيل مدير) (%d+)$',
-'^(وضع تكرار) (%d+)$',
-'^(وضع وقت التنظيف) (%d+)$',
-"^(مسح)$",
-"^(مسح) (.+)$",
-'^(منع) (.+)$',
-'^(الغاء منع) (.+)$',
-"^(حظر عام) (@[%a%d_]+)$",
-"^(حظر عام) (%d+)$",
-"^(الغاء العام) (@[%a%d_]+)$",
-"^(الغاء العام) (%d+)$",
-"^(الغاء عام) (@[%a%d_]+)$",
-"^(الغاء عام) (%d+)$",
-"^(حظر) (@[%a%d_]+)$",
-"^(حظر) (%d+)$",
-"^(الغاء الحظر) (@[%a%d_]+)$",
-"^(الغاء الحظر) (%d+)$",
-"^(الغاء حظر) (@[%a%d_]+)$",
-"^(الغاء حظر) (%d+)$",
-"^(طرد) (@[%a%d_]+)$",
-"^(طرد) (%d+)$",
-"^(كتم) (@[%a%d_]+)$",
-"^(كتم) (%d+)$",
-"^(الغاء الكتم) (@[%a%d_]+)$",
-"^(الغاء الكتم) (%d+)$",
-"^(الغاء كتم) (@[%a%d_]+)$",
-"^(الغاء كتم) (%d+)$",
-"^(رفع مطور) (@[%a%d_]+)$",
-"^(رفع مطور) (%d+)$",
-"^(تنزيل مطور) (%d+)$",
-"^(تنزيل مطور) (@[%a%d_]+)$",
-"^(رفع منشئ اساسي) (@[%a%d_]+)$",
-"^(رفع منشئ اساسي) (%d+)$",
-"^(تنزيل منشئ اساسي) (@[%a%d_]+)$",
-"^(تنزيل منشئ اساسي) (%d+)$",
+‎"^(مسح قائمه الرتب)$",
+‎"^(مسح الرتب)$",
+‎"^(مسح قائمة الرتب)$",
+‎"^(مسح الرتبه)$",
+‎"^(مسح رتبه)$",
+‎"^(تغير الرتبه)$",
+‎"^(تغيير الرتبه)$",
+‎"^(تغيير رتبه)$",
+‎"^(تغير رتبه)$",
+‎"^(قائمه الرتب)$",
+‎"^(قائمة الرتب)$",
+‎"^(المالك)$",
+‎"^(المنشئ)$",
+‎"^(المنشى)$",
+‎"^(رفع القيود)$",
+‎"^(رفع القيود) (%d+)$",
+‎"^(رفع القيود) (@[%a%d_]+)$",
+‎"^(تقييد) (%d+)$",
+‎"^(تقييد) (@[%a%d_]+)$",
+‎"^(الغاء التقييد) (%d+)$",
+‎"^(الغاء التقييد) (@[%a%d_]+)$",
+‎"^(الغاء تقييد) (%d+)$",
+‎"^(الغاء تقييد) (@[%a%d_]+)$",
+‎"^(فك التقييد) (%d+)$",
+‎"^(فك التقييد) (@[%a%d_]+)$",
+‎"^(فك تقييد) (%d+)$",
+‎"^(فك تقييد) (@[%a%d_]+)$",
+‎"^(وضع شرط التفعيل) (%d+)$",
+‎"^(التفاعل) (@[%a%d_]+)$",
+‎"^(التفاعل) (%d+)$",
+‎"^(ايدي) (@[%a%d_]+)$",
+‎"^(كشف) (%d+)$",
+‎"^(كشف) (@[%a%d_]+)$",
+‎'^(رفع مميز) (@[%a%d_]+)$',
+‎'^(رفع مميز) (%d+)$',
+‎'^(تنزيل الكل) (@[%a%d_]+)$',
+‎'^(تنزيل الكل) (%d+)$',
+‎'^(تنزيل مميز) (@[%a%d_]+)$',
+‎'^(تنزيل مميز) (%d+)$',
+‎'^(رفع ادمن) (@[%a%d_]+)$',
+‎'^(رفع ادمن) (%d+)$',
+‎'^(تنزيل ادمن) (@[%a%d_]+)$',
+‎'^(تنزيل ادمن) (%d+)$', 
+‎'^(رفع مدير) (@[%a%d_]+)$',
+‎'^(رفع المدير) (@[%a%d_]+)$',
+‎'^(رفع المدير) (%d+)$',
+‎'^(رفع مدير) (%d+)$',
+‎'^(رفع منشئ) (@[%a%d_]+)$',
+‎'^(رفع مالك) (%d+)$',
+‎'^(رفع منشئ) (%d+)$',
+‎'^(رفع مالك) (@[%a%d_]+)$',
+‎'^(رفع مشرف) (@[%a%d_]+)$',
+‎'^(تنزيل مشرف)$',
+‎'^(تنزيل مشرف) (%d+)$',
+‎'^(رفع مشرف)$',
+‎'^(رفع مشرف) (%d+)$',
+‎'^(تنزيل منشئ) (%d+)$',
+‎'^(تنزيل مالك) (%d+)$',
+‎'^(تنزيل مشرف) (@[%a%d_]+)$',
+‎'^(تنزيل مالك) (@[%a%d_]+)$',
+‎'^(تنزيل منشئ) (@[%a%d_]+)$',
+‎'^(تنزيل مدير) (@[%a%d_]+)$',
+‎'^(تنزيل المدير) (@[%a%d_]+)$',
+‎'^(تنزيل المدير) (%d+)$',
+‎'^(تنزيل مدير) (%d+)$',
+‎'^(وضع تكرار) (%d+)$',
+‎'^(وضع وقت التنظيف) (%d+)$',
+‎"^(مسح)$",
+‎"^(مسح) (.+)$",
+‎'^(منع) (.+)$',
+‎'^(الغاء منع) (.+)$',
+‎"^(حظر عام) (@[%a%d_]+)$",
+‎"^(حظر عام) (%d+)$",
+‎"^(الغاء العام) (@[%a%d_]+)$",
+‎"^(الغاء العام) (%d+)$",
+‎"^(الغاء عام) (@[%a%d_]+)$",
+‎"^(الغاء عام) (%d+)$",
+‎"^(حظر) (@[%a%d_]+)$",
+‎"^(حظر) (%d+)$",
+‎"^(الغاء الحظر) (@[%a%d_]+)$",
+‎"^(الغاء الحظر) (%d+)$",
+‎"^(الغاء حظر) (@[%a%d_]+)$",
+‎"^(الغاء حظر) (%d+)$",
+‎"^(طرد) (@[%a%d_]+)$",
+‎"^(طرد) (%d+)$",
+‎"^(كتم) (@[%a%d_]+)$",
+‎"^(كتم) (%d+)$",
+‎"^(الغاء الكتم) (@[%a%d_]+)$",
+‎"^(الغاء الكتم) (%d+)$",
+‎"^(الغاء كتم) (@[%a%d_]+)$",
+‎"^(الغاء كتم) (%d+)$",
+‎"^(رفع مطور) (@[%a%d_]+)$",
+‎"^(رفع مطور) (%d+)$",
+‎"^(تنزيل مطور) (%d+)$",
+‎"^(تنزيل مطور) (@[%a%d_]+)$",
+‎"^(رفع منشئ اساسي) (@[%a%d_]+)$",
+‎"^(رفع منشئ اساسي) (%d+)$",
+‎"^(تنزيل منشئ اساسي) (@[%a%d_]+)$",
+‎"^(تنزيل منشئ اساسي) (%d+)$",
 
-"^(رفع مالك اساسي) (@[%a%d_]+)$",
-"^(رفع مالك اساسي) (%d+)$",
-"^(تنزيل مالك اساسي) (@[%a%d_]+)$",
-"^(تنزيل مالك اساسي) (%d+)$",
+‎"^(رفع مالك اساسي) (@[%a%d_]+)$",
+‎"^(رفع مالك اساسي) (%d+)$",
+‎"^(تنزيل مالك اساسي) (@[%a%d_]+)$",
+‎"^(تنزيل مالك اساسي) (%d+)$",
 
 
-"^(الاشتراك) ([123])$",
-"^(شحن) (%d+)$",
-"^(تغيير امر) (.*)$",
-"^(تغير امر) (.*)$",
-"^(اضف امر) (.*)$",
-"^(اضف امر)$",
-"^(مسح امر) (.*)$",
-"^(مسح امر)$",
+‎"^(الاشتراك) ([123])$",
+‎"^(شحن) (%d+)$",
+‎"^(تغيير امر) (.*)$",
+‎"^(تغير امر) (.*)$",
+‎"^(اضف امر) (.*)$",
+‎"^(اضف امر)$",
+‎"^(مسح امر) (.*)$",
+‎"^(مسح امر)$",
 
 "^([Ss][pP]) ([%a%d_]+.lua)$", 
 "^([dD][pP]) ([%a%d_]+.lua)$", 
 
 
-"^(منشن)$",
-"^(منشن للكل)$",
-"^(تاق)$",
-"^(تاق للكل)$",
-"^(تنزيل الكل)$",
-"^(تقييد)$",
-"^(الغاء التقييد)$",
-"^(الغاء تقييد)$",
-"^(فك التقييد)$",
-"^(فك تقييد)$",
-"^(التفاعل)$",
+‎"^(منشن)$",
+‎"^(منشن للكل)$",
+‎"^(تاق)$",
+‎"^(تاق للكل)$",
+‎"^(تنزيل الكل)$",
+‎"^(تقييد)$",
+‎"^(الغاء التقييد)$",
+‎"^(الغاء تقييد)$",
+‎"^(فك التقييد)$",
+‎"^(فك تقييد)$",
+‎"^(التفاعل)$",
 "^([iI][dD])$",
-"^(ايدي)$",
-"^(كشف)$",
-'^(رفع مميز)$',
-'^(تنزيل مميز)$',
-'^(رفع ادمن)$',
-'^(تنزيل ادمن)$', 
-'^(رفع المدير)$',
-'^(رفع مدير)$',
-'^(رفع مالك)$',
-'^(رفع منشئ)$',
-'^(تنزيل منشئ)$',
-'^(تنزيل مالك)$',
-'^(تنزيل المدير)$',
-'^(تنزيل مدير)$',
-'^(تفعيل)$',
-'^(تعطيل)$',
-'^(تعطيل) [-]100(%d+)$',
+‎"^(ايدي)$",
+‎"^(كشف)$",
+‎'^(رفع مميز)$',
+‎'^(تنزيل مميز)$',
+‎'^(رفع ادمن)$',
+‎'^(تنزيل ادمن)$', 
+‎'^(رفع المدير)$',
+‎'^(رفع مدير)$',
+‎'^(رفع مالك)$',
+‎'^(رفع منشئ)$',
+‎'^(تنزيل منشئ)$',
+‎'^(تنزيل مالك)$',
+‎'^(تنزيل المدير)$',
+‎'^(تنزيل مدير)$',
+‎'^(تفعيل)$',
+‎'^(تعطيل)$',
+‎'^(تعطيل) [-]100(%d+)$',
 
-"^(مسح كلايش التعليمات)$",
+‎"^(مسح كلايش التعليمات)$",
 
 
 
-"^(تعديلاتي)$",
-"^(تكليجاتي)$",
-"^(تعين الايدي)$",
-"^(تعيين ايدي)$",
-"^(تعيين كليشه الستارت)$",
-"^(تعيين كليشه الستارت 📱)$",
-"^(مسح كليشة الستارت)$",
-"^(مسح كليشه الستارت)$",
-"^(مسح كليشه الستارت 🗑)$",
-"^(تعيين كليشه الايدي عام)$",
-"^(تعيين كليشه الايدي عام 📄)$",
-"^(تعيين الايدي عام)$",
-"^(تعين الايدي عام)$",
-"^(تعيين ايدي عام)$",
+‎"^(تعديلاتي)$",
+‎"^(تكليجاتي)$",
+‎"^(تعين الايدي)$",
+‎"^(تعيين ايدي)$",
+‎"^(تعيين كليشه الستارت)$",
+‎"^(تعيين كليشه الستارت 📱)$",
+‎"^(مسح كليشة الستارت)$",
+‎"^(مسح كليشه الستارت)$",
+‎"^(مسح كليشه الستارت 🗑)$",
+‎"^(تعيين كليشه الايدي عام)$",
+‎"^(تعيين كليشه الايدي عام 📄)$",
+‎"^(تعيين الايدي عام)$",
+‎"^(تعين الايدي عام)$",
+‎"^(تعيين ايدي عام)$",
 
-"^(تعيين كليشه الايدي)$",
-"^(تعيين كليشة الايدي)$",
-"^(تعيين الايدي)$",
-"^(حظر عام)$",
-"^(الغاء العام)$",
-"^(الغاء عام)$",
-"^(حظر)$",
-"^(الغاء الحظر)$",
-"^(الغاء حظر)$",
-"^(طرد)$",
-"^(كتم)$",
-"^(الغاء الكتم)$",
-"^(الغاء كتم)$",
-"^(رفع مطور)$",
-"^(تنزيل مطور)$",
-"^(رفع منشئ اساسي)$",
-"^(تنزيل منشئ اساسي)$",
-"^(رفع مالك اساسي)$",
-"^(تنزيل مالك اساسي)$",
-"^(تعيين قائمه الاوامر)$",
-"^(الاشتراك)$",
-"^(المجموعه)$",
-"^(كشف البوت)$",
-"^(انشاء رابط)$",
-"^(وضع الرابط)$",
-"^(تثبيت)$",
-"^(الغاء التثبيت)$",
-"^(الغاء تثبيت)$",
-"^(رابط)$",
-"^(الرابط)$",
-"^(القوانين)$",
-"^(وضع القوانين)$",
-"^(وضع قوانين)$",
-"^(وضع تكرار)$",
-"^(وضع التكرار)$",
-"^(المالكين)$",
-"^(المالكيين)$",
-"^(المالكين الاساسين)$",
-"^(المالكيين الاساسيين)$",
-"^(الادمنيه)$",
-"^(الادمن)$",
-"^(قائمه المنع)$",
-"^(المدراء)$",
-"^(المميزين)$",
-"^(المكتومين)$",
-"^(وضع ترحيب)$",
-"^(فحص البوت)$",
-"^(وضع الترحيب)$",
-"^(تعطيل ضافني)$",
-"^(تفعيل ضافني)$",
-"^(منو ضافني)$",
-"^(الترحيب)$",
-"^(المحظورين)$",
-"^(وضع اسم)$",
-"^(وضع صوره)$",
-"^(وضع وصف)$",
-"^(طرد البوتات)$",
-"^(كشف البوتات)$",
-"^(طرد المحذوفين)$",
-"^(رسائلي)$",
-"^(رسايلي)$",
-"^(احصائياتي)$",
-"^(معلوماتي)$",
-"^(موقعي)$",
-"^(رفع الادمنيه)$",
-"^(رفع الادمن)$",
-"^(صوره الترحيب)$",
-"^(ضع كليشه المطور)$",
-"^(المطور)$",
-"^(شرط التفعيل)$",
-"^(قائمه المجموعات)$",
-"^(المجموعات)$",
-"^(اذاعه)$",
-"^(اذاعه عام)$",
-"^(اذاعه خاص)$",
-"^(اذاعه عام بالتوجيه)$",
-"^(اذاعه عام بالتوجيه 📣)$", 
-"^(اذاعه خاص 👤)$", 
-"^(اذاعه عام 📢)$", 
-"^(اذاعه 🗣)$", 
-"^(قائمه العام)$",
-"^(قائمه العام 📜)$",
-"^(المطورين)$",
-"^(المطورين 🕹)$",
-"^(تيست)$",
+‎"^(تعيين كليشه الايدي)$",
+‎"^(تعيين كليشة الايدي)$",
+‎"^(تعيين الايدي)$",
+‎"^(حظر عام)$",
+‎"^(الغاء العام)$",
+‎"^(الغاء عام)$",
+‎"^(حظر)$",
+‎"^(الغاء الحظر)$",
+‎"^(الغاء حظر)$",
+‎"^(طرد)$",
+‎"^(كتم)$",
+‎"^(الغاء الكتم)$",
+‎"^(الغاء كتم)$",
+‎"^(رفع مطور)$",
+‎"^(تنزيل مطور)$",
+‎"^(رفع منشئ اساسي)$",
+‎"^(تنزيل منشئ اساسي)$",
+‎"^(رفع مالك اساسي)$",
+‎"^(تنزيل مالك اساسي)$",
+‎"^(تعيين قائمه الاوامر)$",
+‎"^(الاشتراك)$",
+‎"^(المجموعه)$",
+‎"^(كشف البوت)$",
+‎"^(انشاء رابط)$",
+‎"^(وضع الرابط)$",
+‎"^(تثبيت)$",
+‎"^(الغاء التثبيت)$",
+‎"^(الغاء تثبيت)$",
+‎"^(رابط)$",
+‎"^(الرابط)$",
+‎"^(القوانين)$",
+‎"^(وضع القوانين)$",
+‎"^(وضع قوانين)$",
+‎"^(وضع تكرار)$",
+‎"^(وضع التكرار)$",
+‎"^(المالكين)$",
+‎"^(المالكيين)$",
+‎"^(المالكين الاساسين)$",
+‎"^(المالكيين الاساسيين)$",
+‎"^(الادمنيه)$",
+‎"^(الادمن)$",
+‎"^(قائمه المنع)$",
+‎"^(المدراء)$",
+‎"^(المميزين)$",
+‎"^(المكتومين)$",
+‎"^(وضع ترحيب)$",
+‎"^(فحص البوت)$",
+‎"^(وضع الترحيب)$",
+‎"^(تعطيل ضافني)$",
+‎"^(تفعيل ضافني)$",
+‎"^(منو ضافني)$",
+‎"^(الترحيب)$",
+‎"^(المحظورين)$",
+‎"^(وضع اسم)$",
+‎"^(وضع صوره)$",
+‎"^(وضع وصف)$",
+‎"^(طرد البوتات)$",
+‎"^(كشف البوتات)$",
+‎"^(طرد المحذوفين)$",
+‎"^(رسائلي)$",
+‎"^(رسايلي)$",
+‎"^(احصائياتي)$",
+‎"^(معلوماتي)$",
+‎"^(موقعي)$",
+‎"^(رفع الادمنيه)$",
+‎"^(رفع الادمن)$",
+‎"^(صوره الترحيب)$",
+‎"^(ضع كليشه المطور)$",
+‎"^(المطور)$",
+‎"^(شرط التفعيل)$",
+‎"^(قائمه المجموعات)$",
+‎"^(المجموعات)$",
+‎"^(اذاعه)$",
+‎"^(اذاعه عام)$",
+‎"^(اذاعه خاص)$",
+‎"^(اذاعه عام بالتوجيه)$",
+‎"^(اذاعه عام بالتوجيه 📣)$", 
+‎"^(اذاعه خاص 👤)$", 
+‎"^(اذاعه عام 📢)$", 
+‎"^(اذاعه 🗣)$", 
+‎"^(قائمه العام)$",
+‎"^(قائمه العام 📜)$",
+‎"^(المطورين)$",
+‎"^(المطورين 🕹)$",
+‎"^(تيست)$",
 "^(test)$",
-"^(ايدي 🆔)$",
-"^(قناة السورس 📡)$",
-"^(الاحصائيات)$",
-"^(الاحصائيات 📈)$",
-"^(اضف رد عام)$",
-"^(اضف رد عام ➕)$",
-"^(مسح الردود)$",
-"^(مسح الردود العامه)$",
-"^(ضع اسم للبوت)$",
-"^(حذف صوره)$",
-"^(مسح رد)$",
-"^(الردود)$",
-"^(الردود العامه)$",
-"^(الردود العامه 🗨)$",
-"^(اضف رد)$",
+‎"^(ايدي 🆔)$",
+‎"^(قناة السورس 📡)$",
+‎"^(الاحصائيات)$",
+‎"^(الاحصائيات 📈)$",
+‎"^(اضف رد عام)$",
+‎"^(اضف رد عام ➕)$",
+‎"^(مسح الردود)$",
+‎"^(مسح الردود العامه)$",
+‎"^(ضع اسم للبوت)$",
+‎"^(حذف صوره)$",
+‎"^(مسح رد)$",
+‎"^(الردود)$",
+‎"^(الردود العامه)$",
+‎"^(الردود العامه 🗨)$",
+‎"^(اضف رد)$",
 "^(/UpdateSource)$",
-"^(تحديث السورس ™)$",
-"^(تحديث السورس)$",
-"^(تنظيف المجموعات)$",
-"^(تنظيف المشتركين)$",
-"^(رتبتي)$",
-"^(ضع اسم للبوت ©)$",
-"^(ضع صوره للترحيب 🌄)$",
-"^(وضع صوره للترحيب)$",
-"^(الحمايه)$",
-"^(الاعدادات)$",
-"^(الوسائط)$",
-"^(الغاء الامر ✖️)$",
-"^(الرتبه)$",
-"^(الغاء)$",
-"^(الساعه)$",
-"^(التاريخ)$",
-"^(متجر الملفات)$",
-"^(الملفات 🗂)$",
-"^(الملفات)$",
-"^(اصدار السورس)$",
-"^(الاصدار)$",
+‎"^(تحديث السورس ™)$",
+‎"^(تحديث السورس)$",
+‎"^(تنظيف المجموعات)$",
+‎"^(تنظيف المشتركين)$",
+‎"^(رتبتي)$",
+‎"^(‎انطق (.*)$)$",
+‎"^(ضع اسم للبوت ©)$",
+‎"^(ضع صوره للترحيب 🌄)$",
+‎"^(وضع صوره للترحيب)$",
+‎"^(الحمايه)$",
+‎"^(الاعدادات)$",
+‎"^(الوسائط)$",
+‎"^(الغاء الامر ✖️)$",
+‎"^(الرتبه)$",
+‎"^(الغاء)$",
+‎"^(الساعه)$",
+‎"^(التاريخ)$",
+‎"^(متجر الملفات)$",
+‎"^(الملفات 🗂)$",
+‎"^(الملفات)$",
+‎"^(اصدار السورس)$",
+‎"^(الاصدار)$",
 "^(server)$",
-"^(تغيير امر)$",
-"^(تغير امر)$",
-"^(السيرفر)$",
-"^(اذاعه بالتثبيت)$",
-"^(اذاعه بالتثبيت 📬)$",
-"^(نسخه احتياطيه للمجموعات)$",
-"^(رفع نسخه الاحتياطيه)$", 
+‎"^(تغيير امر)$",
+‎"^(تغير امر)$",
+‎"^(السيرفر)$",
+‎"^(اذاعه بالتثبيت)$",
+‎"^(اذاعه بالتثبيت 📬)$",
+‎"^(نسخه احتياطيه للمجموعات)$",
+‎"^(رفع نسخه الاحتياطيه)$", 
 
-"^(تفعيل ردود المطور)$", 
-"^(تعطيل ردود المطور)$", 
-"^(تفعيل التنظيف التلقائي)$", 
-"^(تعطيل التنظيف التلقائي)$", 
+‎"^(تفعيل ردود المطور)$", 
+‎"^(تعطيل ردود المطور)$", 
+‎"^(تفعيل التنظيف التلقائي)$", 
+‎"^(تعطيل التنظيف التلقائي)$", 
 
-"^(تفعيل الاشتراك الاجباري)$", 
-"^(تعطيل الاشتراك الاجباري)$", 
-"^(تغيير الاشتراك الاجباري)$", 
-"^(الاشتراك الاجباري)$", 
-"^(ادفرني)$", 
-"^(مغادره)$", 
-"^(قائمه الاوامر)$", 
-"^(قائمة الاوامر)$", 
-"^(مسح الاوامر)$", 
-"^(مسح قائمة الاوامر)$", 
-"^(احظرني)$", 
-"^(اطردني)$", 
-"^(جهاتي)$", 
-"^(وضع رابط)$", 
-"^(نقل ملكيه البوت 📇)$", 
-"^(نقل ملكيه البوت)$", 
-"^(مسح كليشه الايدي)$", 
-"^(مسح الايدي)$", 
-"^(مسح ايدي)$", 
-"^(مسح كليشة الايدي)$", 
-"^(مسح كليشه الايدي عام)$", 
-"^(مسح كليشه الايدي عام 🗑)$", 
-"^(مسح الايدي عام)$", 
-"^(مسح ايدي عام)$", 
-"^(مسح كليشة الايدي عام)$", 
-"^(م المطور)$", 
-"^(اوامر الرد)$",
-"^(اوامر الملفات)$",
-"^(الاوامر)$",
-"^(م1)$",
-"^(م2)$",
-"^(م3)$",
-"^(الاغاني)$",
-"^(التسليه)$",
-"^(التسلية)$",
-"^(اوامر التسليه)$",
-"^(اوامر التسلية)$",
-"^(الساوند)$",
-"^(الساوند كلاود)$",
-"^(اليوتيوب)$", 
+‎"^(تفعيل الاشتراك الاجباري)$", 
+‎"^(تعطيل الاشتراك الاجباري)$", 
+‎"^(تغيير الاشتراك الاجباري)$", 
+‎"^(الاشتراك الاجباري)$", 
+‎"^(ادفرني)$", 
+‎"^(مغادره)$", 
+‎"^(قائمه الاوامر)$", 
+‎"^(قائمة الاوامر)$", 
+‎"^(مسح الاوامر)$", 
+‎"^(مسح قائمة الاوامر)$", 
+‎"^(احظرني)$", 
+‎"^(اطردني)$", 
+‎"^(جهاتي)$", 
+‎"^(وضع رابط)$", 
+‎"^(نقل ملكيه البوت 📇)$", 
+‎"^(نقل ملكيه البوت)$", 
+‎"^(مسح كليشه الايدي)$", 
+‎"^(مسح الايدي)$", 
+‎"^(مسح ايدي)$", 
+‎"^(مسح كليشة الايدي)$", 
+‎"^(مسح كليشه الايدي عام)$", 
+‎"^(مسح كليشه الايدي عام 🗑)$", 
+‎"^(مسح الايدي عام)$", 
+‎"^(مسح ايدي عام)$", 
+‎"^(مسح كليشة الايدي عام)$", 
+‎"^(م المطور)$", 
+‎"^(اوامر الرد)$",
+‎"^(اوامر الملفات)$",
+‎"^(الاوامر)$",
+‎"^(م1)$",
+‎"^(م2)$",
+‎"^(م3)$",
+‎"^(الاغاني)$",
+‎"^(التسليه)$",
+‎"^(التسلية)$",
+‎"^(اوامر التسليه)$",
+‎"^(اوامر التسلية)$",
+‎"^(الساوند)$",
+‎"^(الساوند كلاود)$",
+‎"^(اليوتيوب)$", 
 "^(/store)$", 
 "^(/files)$", 
-"^(قفل الصور بالتقييد)$",
-"^(قفل الفيديو بالتقييد)$",
-"^(قفل المتحركه بالتقييد)$",
-"^(قفل التوجيه بالتقييد)$",
-"^(قفل الروابط بالتقييد)$",
-"^(قفل الدردشه)$",
-"^(قفل المتحركه)$",
-"^(قفل الصور)$",
-"^(قفل الفيديو)$",
-"^(قفل البصمات)$",
-"^(قفل الصوت)$",
-"^(قفل الملصقات)$",
-"^(قفل الجهات)$",
-"^(قفل التوجيه)$",
-"^(قفل الموقع)$",
-"^(قفل الملفات)$",
-"^(قفل الاشعارات)$",
-"^(قفل الانلاين)$",
-"^(قفل الالعاب)$",
-"^(قفل الكيبورد)$",
-"^(قفل الروابط)$",
-"^(قفل الهاشتاق)$",
-"^(قفل المعرفات)$",
-"^(قفل التعديل)$",
-"^(قفل الكلايش)$",
-"^(قفل التكرار)$",
-"^(قفل البوتات)$",
-"^(قفل البوتات بالطرد)$",
-"^(قفل الماركدوان)$",
-"^(قفل الويب)$",
-"^(قفل التثبيت)$",
-"^(قفل الاضافه)$",
-"^(قفل الانجليزيه)$",
-"^(قفل الانجليزية)$",
-"^(قفل الفارسيه)$",
-"^(قفل الفشار)$",
-"^(قفل السب)$",
-"^(فتح الصور بالتقييد)$",
-"^(فتح الفيديو بالتقييد)$",
-"^(فتح المتحركه بالتقييد)$",
-"^(فتح التوجيه بالتقييد)$",
-"^(فتح الروابط بالتقييد)$",
-"^(فتح الدردشه)$",
-"^(فتح المتحركه)$",
-"^(فتح الصور)$",
-"^(فتح الفيديو)$",
-"^(فتح البصمات)$",
-"^(فتح الصوت)$",
-"^(فتح الملصقات)$",
-"^(فتح الجهات)$",
-"^(فتح التوجيه)$",
-"^(فتح الموقع)$",
-"^(فتح الملفات)$",
-"^(فتح الاشعارات)$",
-"^(فتح الانلاين)$",
-"^(فتح الالعاب)$",
-"^(فتح الكيبورد)$",
-"^(فتح الروابط)$",
-"^(فتح الهاشتاق)$",
-"^(فتح المعرفات)$",
-"^(فتح التعديل)$",
-"^(فتح الكلايش)$",
-"^(فتح التكرار)$",
-"^(فتح البوتات)$",
-"^(فتح البوتات بالطرد)$",
-"^(فتح الماركدوان)$",
-"^(فتح الويب)$",
-"^(فتح التثبيت)$",
-"^(فتح الاضافه)$",
-"^(فتح الانجليزيه)$",
-"^(فتح الانجليزية)$",
-"^(فتح الفارسيه)$",
-"^(فتح الفشار)$",
-"^(فتح السب)$",
-"^(تعطيل الردود)$",
-"^(تعطيل الاذاعه)$",
-"^(تعطيل الاذاعه 🔌)$",
-"^(تعطيل الايدي)$",
-"^(تعطيل الترحيب)$",
-"^(تعطيل التحذير)$",
-"^(تعطيل الايدي بالصوره)$",
-"^(تعطيل الحمايه)$",
-"^(تعطيل الحماية)$",
-"^(تعطيل المغادره)$",
-"^(تعطيل اطردني)$",
-"^(تعطيل تعيين الايدي)$",
-"^(تعطيل تعيين الايدي ⚔️)$",
-"^(تعطيل الحظر)$",
-"^(تعطيل الرابط)$",
-"^(تعطيل المنشن)$",
-"^(تعطيل التاق)$",
-"^(تعطيل التاق للكل)$",
-"^(تعطيل المنشن للكل)$",
-"^(تعطيل منشن)$",
-"^(تعطيل التحقق)$",
-"^(تفعيل الردود)$",
-"^(تفعيل الاذاعه)$",
-"^(تفعيل الاذاعه 📇)$",
-"^(تفعيل الايدي)$",
-"^(تفعيل الترحيب)$",
-"^(تفعيل التحذير)$",
-"^(تفعيل الايدي بالصوره)$",
-"^(تفعيل الحمايه)$",
-"^(تفعيل الحماية)$",
-"^(تفعيل المغادره)$",
-"^(تفعيل اطردني)$",
-"^(تفعيل تعيين الايدي)$",
-"^(تفعيل تعيين الايدي ⌨️)$",
-"^(تفعيل الحظر)$",
-"^(تفعيل الرابط)$",
-"^(تفعيل المنشن)$",
-"^(تفعيل التاق)$",
-"^(تفعيل التاق للكل)$",
-"^(تفعيل المنشن للكل)$",
-"^(تفعيل منشن)$",
-"^(تفعيل التحقق)$",
-"^(تفعيل البوت خدمي)$",
-"^(تفعيل البوت خدمي 🔃)$",
-"^(تعطيل البوت خدمي)$",
-"^(تعطيل البوت خدمي 🚫)$",
-"^(تفعيل التواصل 🔛)$",
-"^(تفعيل التواصل)$",
-"^(تفعيل الاشتراك الاجباري ♦️)$",
-"^(تعطيل الاشتراك الاجباري ♨️)$",
-"^(تغيير الاشتراك الاجباري 🇸🇦)$",
-"^(الاشتراك الاجباري 🔺)$",
-"^(تعطيل التواصل ✖️)$",
-"^(قفل الكل)$",
-"^(فتح الكل)$",
-"^(قفل الوسائط)$",
-"^(فتح الوسائط)$",
-"^(منع)$",
-"^(رفع كيك)$",
-"^(تنزيل كيك)$",
-"^(مسح المالكيين الاساسيين)$",
-"^(مسح المالكين الاساسيين)$",
-"^(مسح المالكيين الاساسين)$",
-"^(مسح المالكين الاساسين)$",
-"^(مسح الرسائل المجدوله)$",
-"^(مسح الميديا)$",
-"^(مسح الوسائط)$",
-"^(مسح التعديلات)$",
-"^(مسح تكليجاتي)$",
-"^(مسح تعديلاتي)$",
-"^(مسح الادمنيه)$",
-"^(مسح الادمن)$",
-"^(مسح قائمه المنع)$",
-"^(مسح قائمة المنع)$",
-"^(مسح القوانين)$",
-"^(مسح الترحيب)$",
-"^(مسح المالكيين)$",
-"^(مسح المالكين)$",
-"^(مسح المدراء)$",
-"^(مسح المحظورين)$",
-"^(مسح المكتومين)$",
-"^(مسح المميزين)$",
-"^(مسح الرابط)$",
-"^(بايو)$",
-"^(تفعيل البايو)$",
-"^(تعطيل البايو)$",
-"^(تعطيل الردود العشوائيه)$",
-"^(تعطيل الردود العشوائية)$",
-"^(تفعيل الردود العشوائيه)$",
-"^(تفعيل الردود العشوائية)$",
-"^(اضف رد عشوائي)$",
-"^(مسح رد عشوائي)$",
-"^(مسح الردود العشوائيه)$",
-"^(مسح الردود العشوائية)$",
-"^(الردود العشوائيه)$",
-"^(الردود العشوائية)$",
-"^(اضف رد عشوائي عام)$",
-"^(مسح رد عشوائي عام)$",
-"^(مسح الردود العشوائيه العامه)$",
-"^(الردود العشوائيه العامه)$",
-"^(مسح رسايلي)$",
-"^(مسح رسائلي)$",
-"^(حذف رسائلي)$",
-"^(تعطيل التسليه)$",
-"^(تفعيل التسليه)$",
-"^(رفع زق)$",
-"^(تنزيل زق)$",
-"^(رفع زق) (@[%a%d_]+)$",
-"^(تنزيل زق) (@[%a%d_]+)$",
-"^(قائمة الزق)$",
-"^(قائمة الزقان)$",
-"^(رفع كيكه)$",
-"^(تنزيل كيكه)$",
-"^(قائمة الكيك)$",
-"^(قائمة الكيكات)$",
-"^(رفع كيكه) (@[%a%d_]+)$",
-"^(تنزيل كيكه) (@[%a%d_]+)$",
-"^(رفع حمار)$",
-"^(تنزيل حمار)$",
-"^(رفع حمار) (@[%a%d_]+)$",
-"^(تنزيل حمار) (@[%a%d_]+)$",
-"^(قائمة الحمار)$",
-"^(قائمة الحمير)$",
-"^(رفع عسل)$",
-"^(تنزيل عسل)$",
-"^(رفع عسل) (@[%a%d_]+)$",
-"^(تنزيل عسل) (@[%a%d_]+)$",
-"^(قائمة العسل)$",
-"^(رفع بقره)$",
-"^(تنزيل بقره)$",
-"^(رفع بقره) (@[%a%d_]+)$",
-"^(تنزيل بقره) (@[%a%d_]+)$",
-"^(قائمة البقر)$",
-"^(رفع كلب)$",
-"^(تنزيل كلب)$",
-"^(رفع كلب) (@[%a%d_]+)$",
-"^(تنزيل كلب) (@[%a%d_]+)$",
-"^(قائمة الكلاب)$",
-"^(قائمة الكلب)$",
-"^(رفع قرد)$",
-"^(تنزيل قرد)$",
-"^(رفع قرد) (@[%a%d_]+)$",
-"^(تنزيل قرد) (@[%a%d_]+)$",
-"^(قائمة القرود)$",
-"^(قائمة القرد)$",
-"^(رفع تيس)$",
-"^(تنزيل تيس)$",
-"^(رفع تيس) (@[%a%d_]+)$",
-"^(تنزيل تيس) (@[%a%d_]+)$",
-"^(قائمة التيس)$",
-"^(قائمة التيوس)$",
-"^(رفع ثور)$",
-"^(تنزيل ثور)$",
-"^(رفع ثور) (@[%a%d_]+)$",
-"^(تنزيل ثور) (@[%a%d_]+)$",
-"^(قائمة الثور)$",
-"^(قائمة الثيران)$",
-"^(رفع باعوص)$",
-"^(تنزيل باعوص)$",
-"^(رفع باعوص) (@[%a%d_]+)$",
-"^(تنزيل باعوص) (@[%a%d_]+)$",
-"^(قائمة البواعيص)$",
-"^(قائمة الباعوص)$",
-"^(رفع دجاجه)$",
-"^(تنزيل دجاجه)$",
-"^(رفع دجاجه) (@[%a%d_]+)$",
-"^(تنزيل دجاجه) (@[%a%d_]+)$",
-"^(قائمة الدجاج)$",
-"^(رفع هطف)$",
-"^(تنزيل هطف)$",
-"^(رفع هطف) (@[%a%d_]+)$",
-"^(تنزيل هطف) (@[%a%d_]+)$",
-"^(قائمة الهطوف)$",
-"^(رفع صياد)$",
-"^(رفع صياده)$",
-"^(تنزيل صياد)$",
-"^(تنزيل صياده)$",
-"^(رفع صياد) (@[%a%d_]+)$",
-"^(رفع صياده) (@[%a%d_]+)$",
-"^(تنزيل صياد) (@[%a%d_]+)$",
-"^(تنزيل صياده) (@[%a%d_]+)$",
-"^(قائمة الصيادين)$",
-"^(رفع خاروف)$",
-"^(تنزيل خاروف)$",
-"^(رفع خاروف) (@[%a%d_]+)$",
-"^(تنزيل خاروف) (@[%a%d_]+)$",
-"^(رفع خاروفه)$",
-"^(تنزيل خاروفه)$",
-"^(رفع خاروفه) (@[%a%d_]+)$",
-"^(تنزيل خاروفه) (@[%a%d_]+)$",
-"^(قائمة الخرفان)$",
-"^(قائمة الخاروف)$",
+‎"^(قفل الصور بالتقييد)$",
+‎"^(قفل الفيديو بالتقييد)$",
+‎"^(قفل المتحركه بالتقييد)$",
+‎"^(قفل التوجيه بالتقييد)$",
+‎"^(قفل الروابط بالتقييد)$",
+‎"^(قفل الدردشه)$",
+‎"^(قفل المتحركه)$",
+‎"^(قفل الصور)$",
+‎"^(قفل الفيديو)$",
+‎"^(قفل البصمات)$",
+‎"^(قفل الصوت)$",
+‎"^(قفل الملصقات)$",
+‎"^(قفل الجهات)$",
+‎"^(قفل التوجيه)$",
+‎"^(قفل الموقع)$",
+‎"^(قفل الملفات)$",
+‎"^(قفل الاشعارات)$",
+‎"^(قفل الانلاين)$",
+‎"^(قفل الالعاب)$",
+‎"^(قفل الكيبورد)$",
+‎"^(قفل الروابط)$",
+‎"^(قفل الهاشتاق)$",
+‎"^(قفل المعرفات)$",
+‎"^(قفل التعديل)$",
+‎"^(قفل الكلايش)$",
+‎"^(قفل التكرار)$",
+‎"^(قفل البوتات)$",
+‎"^(قفل البوتات بالطرد)$",
+‎"^(قفل الماركدوان)$",
+‎"^(قفل الويب)$",
+‎"^(قفل التثبيت)$",
+‎"^(قفل الاضافه)$",
+‎"^(قفل الانجليزيه)$",
+‎"^(قفل الانجليزية)$",
+‎"^(قفل الفارسيه)$",
+‎"^(قفل الفشار)$",
+‎"^(قفل السب)$",
+‎"^(فتح الصور بالتقييد)$",
+‎"^(فتح الفيديو بالتقييد)$",
+‎"^(فتح المتحركه بالتقييد)$",
+‎"^(فتح التوجيه بالتقييد)$",
+‎"^(فتح الروابط بالتقييد)$",
+‎"^(فتح الدردشه)$",
+‎"^(فتح المتحركه)$",
+‎"^(فتح الصور)$",
+‎"^(فتح الفيديو)$",
+‎"^(فتح البصمات)$",
+‎"^(فتح الصوت)$",
+‎"^(فتح الملصقات)$",
+‎"^(فتح الجهات)$",
+‎"^(فتح التوجيه)$",
+‎"^(فتح الموقع)$",
+‎"^(فتح الملفات)$",
+‎"^(فتح الاشعارات)$",
+‎"^(فتح الانلاين)$",
+‎"^(فتح الالعاب)$",
+‎"^(فتح الكيبورد)$",
+‎"^(فتح الروابط)$",
+‎"^(فتح الهاشتاق)$",
+‎"^(فتح المعرفات)$",
+‎"^(فتح التعديل)$",
+‎"^(فتح الكلايش)$",
+‎"^(فتح التكرار)$",
+‎"^(فتح البوتات)$",
+‎"^(فتح البوتات بالطرد)$",
+‎"^(فتح الماركدوان)$",
+‎"^(فتح الويب)$",
+‎"^(فتح التثبيت)$",
+‎"^(فتح الاضافه)$",
+‎"^(فتح الانجليزيه)$",
+‎"^(فتح الانجليزية)$",
+‎"^(فتح الفارسيه)$",
+‎"^(فتح الفشار)$",
+‎"^(فتح السب)$",
+‎"^(تعطيل الردود)$",
+‎"^(تعطيل الاذاعه)$",
+‎"^(تعطيل الاذاعه 🔌)$",
+‎"^(تعطيل الايدي)$",
+‎"^(تعطيل الترحيب)$",
+‎"^(تعطيل التحذير)$",
+‎"^(تعطيل الايدي بالصوره)$",
+‎"^(تعطيل الحمايه)$",
+‎"^(تعطيل الحماية)$",
+‎"^(تعطيل المغادره)$",
+‎"^(تعطيل اطردني)$",
+‎"^(تعطيل تعيين الايدي)$",
+‎"^(تعطيل تعيين الايدي ⚔️)$",
+‎"^(تعطيل الحظر)$",
+‎"^(تعطيل الرابط)$",
+‎"^(تعطيل المنشن)$",
+‎"^(تعطيل التاق)$",
+‎"^(تعطيل التاق للكل)$",
+‎"^(تعطيل المنشن للكل)$",
+‎"^(تعطيل منشن)$",
+‎"^(تعطيل التحقق)$",
+‎"^(تفعيل الردود)$",
+‎"^(تفعيل الاذاعه)$",
+‎"^(تفعيل الاذاعه 📇)$",
+‎"^(تفعيل الايدي)$",
+‎"^(تفعيل الترحيب)$",
+‎"^(تفعيل التحذير)$",
+‎"^(تفعيل الايدي بالصوره)$",
+‎"^(تفعيل الحمايه)$",
+‎"^(تفعيل الحماية)$",
+‎"^(تفعيل المغادره)$",
+‎"^(تفعيل اطردني)$",
+‎"^(تفعيل تعيين الايدي)$",
+‎"^(تفعيل تعيين الايدي ⌨️)$",
+‎"^(تفعيل الحظر)$",
+‎"^(تفعيل الرابط)$",
+‎"^(تفعيل المنشن)$",
+‎"^(تفعيل التاق)$",
+‎"^(تفعيل التاق للكل)$",
+‎"^(تفعيل المنشن للكل)$",
+‎"^(تفعيل منشن)$",
+‎"^(تفعيل التحقق)$",
+‎"^(تفعيل البوت خدمي)$",
+‎"^(تفعيل البوت خدمي 🔃)$",
+‎"^(تعطيل البوت خدمي)$",
+‎"^(تعطيل البوت خدمي 🚫)$",
+‎"^(تفعيل التواصل 🔛)$",
+‎"^(تفعيل التواصل)$",
+‎"^(تفعيل الاشتراك الاجباري ♦️)$",
+‎"^(تعطيل الاشتراك الاجباري ♨️)$",
+‎"^(تغيير الاشتراك الاجباري 🇸🇦)$",
+‎"^(الاشتراك الاجباري 🔺)$",
+‎"^(تعطيل التواصل ✖️)$",
+‎"^(قفل الكل)$",
+‎"^(فتح الكل)$",
+‎"^(قفل الوسائط)$",
+‎"^(فتح الوسائط)$",
+‎"^(منع)$",
+‎"^(رفع كيك)$",
+‎"^(تنزيل كيك)$",
+‎"^(مسح المالكيين الاساسيين)$",
+‎"^(مسح المالكين الاساسيين)$",
+‎"^(مسح المالكيين الاساسين)$",
+‎"^(مسح المالكين الاساسين)$",
+‎"^(مسح الرسائل المجدوله)$",
+‎"^(مسح الميديا)$",
+‎"^(مسح الوسائط)$",
+‎"^(مسح التعديلات)$",
+‎"^(مسح تكليجاتي)$",
+‎"^(مسح تعديلاتي)$",
+‎"^(مسح الادمنيه)$",
+‎"^(مسح الادمن)$",
+‎"^(مسح قائمه المنع)$",
+‎"^(مسح قائمة المنع)$",
+‎"^(مسح القوانين)$",
+‎"^(مسح الترحيب)$",
+‎"^(مسح المالكيين)$",
+‎"^(مسح المالكين)$",
+‎"^(مسح المدراء)$",
+‎"^(مسح المحظورين)$",
+‎"^(مسح المكتومين)$",
+‎"^(مسح المميزين)$",
+‎"^(مسح الرابط)$",
+‎"^(بايو)$",
+‎"^(تفعيل البايو)$",
+‎"^(تعطيل البايو)$",
+‎"^(تعطيل الردود العشوائيه)$",
+‎"^(تعطيل الردود العشوائية)$",
+‎"^(تفعيل الردود العشوائيه)$",
+‎"^(تفعيل الردود العشوائية)$",
+‎"^(اضف رد عشوائي)$",
+‎"^(مسح رد عشوائي)$",
+‎"^(مسح الردود العشوائيه)$",
+‎"^(مسح الردود العشوائية)$",
+‎"^(الردود العشوائيه)$",
+‎"^(الردود العشوائية)$",
+‎"^(اضف رد عشوائي عام)$",
+‎"^(مسح رد عشوائي عام)$",
+‎"^(مسح الردود العشوائيه العامه)$",
+‎"^(الردود العشوائيه العامه)$",
+‎"^(مسح رسايلي)$",
+‎"^(مسح رسائلي)$",
+‎"^(حذف رسائلي)$",
+‎"^(تعطيل التسليه)$",
+"^(تفعيل تاك عام)$",
+"^(تعطيل تاك عام)$",
+"^(تعطيل الابراج)$",
+"^(تفعيل الابراج)$",
+"^(تعطيل انطق)$",
+"^(تفعيل انطق)$",
+"^(تفعيل غنيلي)$",
+"^(تعطيل غنيلي)$",
+"^(غنيلي)$",
+‎"^(نسبه الحب)$",
+‎"^(نسبه الغباء)$",
+‎"^(نسبه غباء)$",
+‎"^(نسبه الذكاء)$",
+‎"^(نسبه حب)$",
+‎"^(نسبه ذكاء)$",
+‎"^(نسبه الكره)$",
+‎"^(نسبه كره)$",
+‎"^(نسبه الرجوله)$",
+‎"^(نسبه رجوله)$",
+‎"^(نسبه الانوثه)$",
+‎"^(نسبه انوثه)$",
+‎"^(@all)$",
+‎"^(‎برج (.*)$)$",
+‎"^(اضف سؤال)$",
+‎"^(حذف سؤال)$",
+‎"^(الاسئله المضافه)$",
+‎"^(اسالني)$",
+‎"^(سألني)$",
+‎"^(غني)$",
+‎"^(تاك عام)$",
+‎"^(تفعيل التسليه)$",
+‎"^(رفع زق)$",
+‎"^(تنزيل زق)$",
+‎"^(رفع زق) (@[%a%d_]+)$",
+‎"^(تنزيل زق) (@[%a%d_]+)$",
+‎"^(قائمة الزق)$",
+‎"^(قائمة الزقان)$",
+‎"^(رفع كيكه)$",
+‎"^(تنزيل كيكه)$",
+‎"^(قائمة الكيك)$",
+‎"^(قائمة الكيكات)$",
+‎"^(رفع كيكه) (@[%a%d_]+)$",
+‎"^(تنزيل كيكه) (@[%a%d_]+)$",
+‎"^(رفع حمار)$",
+‎"^(تنزيل حمار)$",
+‎"^(رفع حمار) (@[%a%d_]+)$",
+‎"^(تنزيل حمار) (@[%a%d_]+)$",
+‎"^(قائمة الحمار)$",
+‎"^(قائمة الحمير)$",
+‎"^(رفع عسل)$",
+‎"^(تنزيل عسل)$",
+‎"^(رفع عسل) (@[%a%d_]+)$",
+‎"^(تنزيل عسل) (@[%a%d_]+)$",
+‎"^(قائمة العسل)$",
+‎"^(رفع بقره)$",
+‎"^(تنزيل بقره)$",
+‎"^(رفع بقره) (@[%a%d_]+)$",
+‎"^(تنزيل بقره) (@[%a%d_]+)$",
+‎"^(قائمة البقر)$",
+‎"^(رفع كلب)$",
+‎"^(تنزيل كلب)$",
+‎"^(رفع كلب) (@[%a%d_]+)$",
+‎"^(تنزيل كلب) (@[%a%d_]+)$",
+‎"^(قائمة الكلاب)$",
+‎"^(قائمة الكلب)$",
+‎"^(رفع قرد)$",
+‎"^(تنزيل قرد)$",
+‎"^(رفع قرد) (@[%a%d_]+)$",
+‎"^(تنزيل قرد) (@[%a%d_]+)$",
+‎"^(قائمة القرود)$",
+‎"^(قائمة القرد)$",
+‎"^(رفع تيس)$",
+‎"^(تنزيل تيس)$",
+‎"^(رفع تيس) (@[%a%d_]+)$",
+‎"^(تنزيل تيس) (@[%a%d_]+)$",
+‎"^(قائمة التيس)$",
+‎"^(قائمة التيوس)$",
+‎"^(رفع ثور)$",
+‎"^(تنزيل ثور)$",
+‎"^(رفع ثور) (@[%a%d_]+)$",
+‎"^(تنزيل ثور) (@[%a%d_]+)$",
+‎"^(قائمة الثور)$",
+‎"^(قائمة الثيران)$",
+‎"^(رفع باعوص)$",
+‎"^(تنزيل باعوص)$",
+‎"^(رفع باعوص) (@[%a%d_]+)$",
+‎"^(تنزيل باعوص) (@[%a%d_]+)$",
+‎"^(قائمة البواعيص)$",
+‎"^(قائمة الباعوص)$",
+‎"^(رفع دجاجه)$",
+‎"^(تنزيل دجاجه)$",
+‎"^(رفع دجاجه) (@[%a%d_]+)$",
+‎"^(تنزيل دجاجه) (@[%a%d_]+)$",
+‎"^(قائمة الدجاج)$",
+‎"^(رفع هطف)$",
+‎"^(تنزيل هطف)$",
+‎"^(رفع هطف) (@[%a%d_]+)$",
+‎"^(تنزيل هطف) (@[%a%d_]+)$",
+‎"^(قائمة الهطوف)$",
+‎"^(رفع صياد)$",
+‎"^(رفع صياده)$",
+‎"^(تنزيل صياد)$",
+‎"^(تنزيل صياده)$",
+‎"^(رفع صياد) (@[%a%d_]+)$",
+‎"^(رفع صياده) (@[%a%d_]+)$",
+‎"^(تنزيل صياد) (@[%a%d_]+)$",
+‎"^(تنزيل صياده) (@[%a%d_]+)$",
+‎"^(قائمة الصيادين)$",
+‎"^(رفع خاروف)$",
+‎"^(تنزيل خاروف)$",
+‎"^(رفع خاروف) (@[%a%d_]+)$",
+‎"^(تنزيل خاروف) (@[%a%d_]+)$",
+‎"^(رفع خاروفه)$",
+‎"^(تنزيل خاروفه)$",
+‎"^(رفع خاروفه) (@[%a%d_]+)$",
+‎"^(تنزيل خاروفه) (@[%a%d_]+)$",
+‎"^(قائمة الخرفان)$",
+‎"^(قائمة الخاروف)$",
 "^(/Commands)$",
 "^(/start commands)$",
 "^(/Commands@w8gBot)$",
