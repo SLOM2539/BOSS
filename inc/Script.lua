@@ -8398,8 +8398,6 @@ elseif not msg.SudoUser and Text== "احبك" or Text=="" then
 return sendMsg(msg.chat_id_,msg.id_,lovm[math.random(#lovm)])
 elseif not msg.SudoUser and Text== "احبك" then
 return sendMsg(msg.chat_id_,msg.id_,lovm[math.random(#lovm)])
-elseif Text== "غني" or Text=="غنيلي" then 
-return sendMsg(msg.chat_id_,msg.id_,song[math.random(#song)])
 elseif Text== "كريهه" or Text=="اكرهك" then 
 return sendMsg(msg.chat_id_,msg.id_,mm[math.random(#mm)])
 elseif Text=="شمسوي" or Text== "اخبارك" or Text=="شلونك" then 
