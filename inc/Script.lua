@@ -1913,7 +1913,70 @@ return false
 end
 
 
+if MsgText[1] == 'تفعيل ضافني' then 
+redis:del(boss..":Added:Me:"..msg.chat_id_)  
+sendMsg(msg.chat_id_,msg.id_,'✧|  تم تفعيل امر منو ضافني')
+end
+if MsgText[1] == 'تعطيل ضافني' then  
+redis:set(boss..":Added:Me:"..msg.chat_id_,true)    
+sendMsg(msg.chat_id_,msg.id_,'✧|  تم تعطيل امر منو ضافني')
+end
+end
+if MsgText[1]== 'منو ضافني' then
+if not redis:get(boss..":Added:Me:"..msg.chat_id_) then
+tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
+if da and da.status_.ID == "ChatMemberStatusCreator" then
+sendMsg(msg.chat_id_,msg.id_,'*✧|  انت منشئ المجموعه *') 
+return false
+end
+local Added_Me = redis:get(boss..":Added:Me:Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
+if Added_Me then 
+tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
+local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+Text = '*✧|  » الشخص الذي قام باضافتك هو * '..Name
+sendMsg(msg.chat_id_,msg.id_,Text) 
+end,nil)
+else
+sendMsg(msg.chat_id_,msg.id_,'*✧|  انت دخلت عبر الرابط*') 
+end
+end,nil)
+else
+sendMsg(msg.chat_id_,msg.id_,'*✧|  امر منو ضافني تم تعطيله من قبل المدراء *') 
+end
+end
+if msg.text and (msg.text:match('^tr (.*)') or msg.text:match('^ترجم (.*)')) then 
+bd = msg.text:match('^tr (.*)') or msg.text:match('^ترجم (.*)') 
+url , res = https.request('https://api.codebazan.ir/lang/json/?matn='..bd..'') 
+if res ~= 200 then 
+end 
+local jdat = json:decode(url)  
+fa = jdat.result.fa or '---' 
+en = jdat.result.en or '---' 
+fr = jdat.result.fr or '---' 
+ru = jdat.result.ru or '---' 
+ar = jdat.result.ar or '---' 
+zh = jdat.result.zh or '---' 
+ja = jdat.result.ja or '---' 
+de = jdat.result.de or '---' 
+es = jdat.result.es or '---' 
+tr = [[ 
+ 
+ترجمة |]]..bd..[[| . 
+-----------
+🇮🇷 : Persian : ]]..fa..[[ 
+🏴󠁧󠁢󠁥󠁮󠁧󠁿 : English : ]]..en..[[ 
+🇫🇷 : Farance : ]]..fr..[[ 
+🇷🇺 : Russia : ]]..ru..[[ 
+🇸🇦 : Arabi : ]]..ar..[[  
+🇨🇳 : China : ]]..zh..[[  
+🇯🇵 : Japon : ]]..ja..[[  
+🇩🇪 : Almani : ]]..de..[[  
+🇪🇸 : Spani : ]]..es..[[ 
+ 
 
+]] 
+sendMsg(msg.chat_id_,msg.id_,tr) 
+end
 if MsgText[1] == 'تفعيل تاك عام' then   
 if not msg.Director then return "⌯ هذا الامر يخص { المطور,المالك,المنشئ,المدير } فقط  " end
 if (redis:get(boss..'tagall@all'..msg.chat_id_) == 'open') then
@@ -9032,6 +9095,9 @@ Boss = {
 "^(تفعيل التسليه)$",
 "^(رفع زق)$",
 "^(تفعيل انطق)$",
+"^(تفعيل ضافني)$",
+"^(تعطيل ضافني)$",
+"^(منو ضافني)$",
 "^(تفعيل اليوتيوب)$",
 "^(تعطيل اليوتيوب)$",
 "^(تعطيل انطق)$",
