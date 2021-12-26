@@ -1914,6 +1914,39 @@ end
 
 
 
+if msg.text and (msg.text:match('^tr (.*)') or msg.text:match('^ترجم (.*)')) then 
+bd = msg.text:match('^tr (.*)') or msg.text:match('^ترجم (.*)') 
+url , res = https.request('https://api.codebazan.ir/lang/json/?matn='..bd..'') 
+if res ~= 200 then 
+end 
+local jdat = json:decode(url)  
+fa = jdat.result.fa or '---' 
+en = jdat.result.en or '---' 
+fr = jdat.result.fr or '---' 
+ru = jdat.result.ru or '---' 
+ar = jdat.result.ar or '---' 
+zh = jdat.result.zh or '---' 
+ja = jdat.result.ja or '---' 
+de = jdat.result.de or '---' 
+es = jdat.result.es or '---' 
+tr = [[ 
+ 
+ترجمة |]]..bd..[[| . 
+-----------
+🇮🇷 : Persian : ]]..fa..[[ 
+🏴󠁧󠁢󠁥󠁮󠁧󠁿 : English : ]]..en..[[ 
+🇫🇷 : Farance : ]]..fr..[[ 
+🇷🇺 : Russia : ]]..ru..[[ 
+🇸🇦 : Arabi : ]]..ar..[[  
+🇨🇳 : China : ]]..zh..[[  
+🇯🇵 : Japon : ]]..ja..[[  
+🇩🇪 : Almani : ]]..de..[[  
+🇪🇸 : Spani : ]]..es..[[ 
+ 
+]] 
+sendMsg(msg.chat_id_,msg.id_,tr) 
+end
+
 if MsgText[1] == "تثبيت" and msg.reply_id then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 local GroupID = msg.chat_id_:gsub('-100','')
