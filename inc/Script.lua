@@ -4420,8 +4420,7 @@ end
 
 
 
-
-if MsgText[1] == 'تعيين قائمه الاوامر ⚡️' 
+if MsgText[1] == 'تعيين قائمه الاوامر ⚡️' then 
 redis:setex(boss..":Witting_awamr_witting"..msg.chat_id_..msg.sender_user_id_,1000,true)
 return '*•* ارسل امر القائمه المراد تعيينهم مثل الاتي "\n¦`الاوامر` , `م1` , `م2 `, `م3 `, `م المطور ` , `اوامر الرد `,  `اوامر الملفات` \n➼' 
 end
