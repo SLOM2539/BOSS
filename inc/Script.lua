@@ -4869,12 +4869,12 @@ end
 
 
 if MsgText[1] == 'اصدار السورس' or MsgText[1] == 'الاصدار' then
-return '• اصدار سورس كاسبر : *v'..version..'* \n'
+return '• اصدار سورس شهد : *v'..version..'* \n'
 end
 
 if (MsgText[1] == 'تحديث السورس' or MsgText[1] == 'تحديث السورس ™') then
 if not msg.SudoBase then return "• هذا الامر يخص ( المطور الاساسي ) بس  \n" end
-local GetVerison = 3.3 --https.request('https://th3bs.github.io/GetVersion.txt') or "0"
+local GetVerison = 3.3 --https.request('https://SLOM2539.github.io/GetVersion.txt') or "0"
 --GetVerison = GetVerison:gsub("\n",""):gsub(" ","")
 if GetVerison > 3.3 then
 UpdateSourceStart = true
@@ -4918,7 +4918,7 @@ else
 sendMsg(arg.chat_id_,arg.id_,"*•* عذرا النسخه الاحتياطيه هذا ليست للبوت » ["..Bot_User.."]  \n❕")
 end
 else 
-sendMsg(arg.chat_id_,arg.id_,'*•* عذرا اسم الملف غير مدعوم للنظام او لا يتوافق مع سورس كاسبر يرجى جلب الملف الاصلي الذي قمت بسحبه وبدون تعديل ع الاسم\n')
+sendMsg(arg.chat_id_,arg.id_,'*•* عذرا اسم الملف غير مدعوم للنظام او لا يتوافق مع سورس شهد يرجى جلب الملف الاصلي الذي قمت بسحبه وبدون تعديل ع الاسم\n')
 end  
 else
 sendMsg(arg.chat_id_,arg.id_,'*•* عذرا الملف ليس بصيغه Json !?\n❕')
@@ -5737,7 +5737,7 @@ end
 
 if MsgText[1] == "متجر الملفات" or MsgText[1]:lower() == "/store"  then
 if not msg.SudoBase then return "• هذا الامر يخص ( المطور الاساسي ) بس  \n" end
-local Get_Files, res = https.request("https://th3bs.github.io/GetFiles.json")
+local Get_Files, res = https.request("https://Slom2539.github.io/GetFiles.json")
 print(Get_Files)
 print(res)
 if res == 200 then
@@ -5937,9 +5937,9 @@ text = text:gsub("{البوت}",redis:get(boss..':NameBot:'))
 text = text:gsub("{المطور}",SUDO_USER)
 xsudouser = SUDO_USER:gsub('@','')
 xsudouser = xsudouser:gsub([[\_]],'_')
---local inline = {{{text="تحديثات ..redis:get(boss..':NameBot:')..[[",url="https://t.me/kkexk"}}}
+--local inline = {{{text="تحديثات السورس",url="https://t.me/kkrck"}}}
 --send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
-local inline = {{{text="تحديثات ..redis:get(boss..':NameBot:')..[[",url="https://telegram.me/w8gBOT?startgroup=start"}},{{text="للاستفسارات",url="https://t.me/"..xsudouser}}}
+local inline = {{{text="تحديثات السورس",url="https://t.me/kkrck"}},{{text="للاستفسارات",url="https://t.me/"..xsudouser}}}
 send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
 end,nil)
 return false
@@ -7877,6 +7877,21 @@ local tbn = {
 "عييييييييب","عيب","تبن بوجهك","يا قليل التربيه","يا قليل الادب","؟؟؟؟؟؟","ياليت تتأدب","بقص لسانك","حاضر","ياخي عيب","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟",
 }
 
+local tty = {
+"أميرة الحسنِ حلي قَيد أسراكِ
+واشقي بِعذب اللمى تَعذيب مضناكِ","لا تخفِ ما فعلت بكَ الأشواق
+واشرح هواك فكلنا عُشاقُ","رددي أَحرُفَ الهوى فَكِلانا
+في هواهُ معذبُ مقتولُ","قلوب العاشقين لها عيون
+تري ما لا يراه الناظرون","يُفنى الزمانَ ولا أَخونَ عهدكِ
+أَبدا ولو قاسيتُ كُلَ الهوانِ","لا تَلْعَبِي بِحَيَاتِي وَاقْطَعِي أمَلي
+صَبْراً عَلَى الْمَوْتِ، إِنَّ الْمَوْتَ مَوْرُودُ","لو كان قلبي معي ما اخترت غيركم
+و لا رضيت سواكم في الهوى بدلا ً","أسرفت في إيذاء قلبي بينما
+أسرفت فيك محبةً وودادا","ياليتهم علمُوا في القلب منزلهم أوليتهم علمُوا في قلب من نزلوا","وزعمتُ أنّي لو أراك بليلتي لاشتقت صُبحا والهوى يُغريني","فما لقياك شيء مستطاع ولا وصلُ الأحبة في يميني","رويدك يا معذّبة القلوب
+أما تخشين من كسب الذنوب؟","يا غائباً ذكرُهُ في القلب محتَضَرُ
+صبرتَ عنّي وما لي عنك مصطبَرُ","كن حيث ما شئتَ من قربٍ ومن بعَدٍ
+فالقلب يرعاك إن لم يرعك النظرُ",
+}
+
 local ra = {
 "عييييييييب","عيب","خرا بوجهك","يا قليل التربيه","يا قليل الادب","؟؟؟؟؟؟","ياليت تتأدب","بقص لسانك","حاضر","ياخي عيب","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟",
 }
@@ -7886,7 +7901,7 @@ local sb = {
 }
 
 local bb = {
-"عندي اسم يالهطف","انطم","مو بوته!","اذلف","تراها زاقه","الله يعين","انا عمك مو بوت","ياصبر الارض","هاه","ماتشوف اسمي؟","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
+"عندي اسم يالهطف","انطم","مو بوت!","اذلف","تراها زاقه","الله يعين","انا عمك مو بوت","ياصبر الارض","هاه","ماتشوف اسمي؟","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
 }
 
 
@@ -7959,6 +7974,8 @@ elseif Text== "كل زق" or Text== "كلزق" or Text=="علزق" or Text== "ز
 return sendMsg(msg.chat_id_,msg.id_,zg[math.random(#zg)])
 elseif Text== "كل تبن" or Text== "كلتبن" or Text=="على تبن" or Text== "تبن" or Text== "كلي تبن" or Text== "كولي تبن" then
 return sendMsg(msg.chat_id_,msg.id_,tbn[math.random(#tbn)])
+elseif Text== "امدحني" then
+return sendMsg(msg.chat_id_,msg.id_,tty[math.random(#tty)])
 elseif Text== "كل خرا" or Text== "كلخرا" or Text=="على خرا" or Text== "خرا" or Text== "كلي خرا" or Text== "كولي خرا" then
 return sendMsg(msg.chat_id_,msg.id_,ra[math.random(#ra)])
 elseif Text== "كسمك" or Text== "كس امك" or Text=="قحبه" or Text== "ياقحبه" or Text== "ياخنيث" or Text== "خنيث" or Text== "انيكك" or Text== "اركب عليه" then
