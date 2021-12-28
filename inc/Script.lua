@@ -3923,6 +3923,16 @@ redis:del(boss..'gban_users')
 return "*•* مسحت { *"..addbannds.." *} من قائمه العام\n " 
 end 
 
+if MsgText[1] == 'مسح' and MsgText[2] == "قائمه العام 📩"  then
+if not msg.SudoBase then return"• هذا الامر يخص ( المطور الاساسي ) بس  \n" end
+local addbannds = redis:scard(boss..'gban_users')
+if addbannds ==0 then 
+return "*• قائمة الحظر فاضيه .*" 
+end
+redis:del(boss..'gban_users') 
+return "*•* مسحت { *"..addbannds.." *} من قائمه العام\n " 
+end
+
 if MsgText[1] == "رفع منشئ اساسي" or MsgText[1] == "رفع مالك اساسي" then
 if not msg.SudoUser then return "• هذا الامر يخص ( المطور ) بس  \n" end
 
@@ -4411,7 +4421,7 @@ end
 
 
 
-if MsgText[1] == 'تعيين قائمه الاوامر' then 
+if MsgText[1] == 'تعيين قائمه الاوامر ⚡️' 
 redis:setex(boss..":Witting_awamr_witting"..msg.chat_id_..msg.sender_user_id_,1000,true)
 return '*•* ارسل امر القائمه المراد تعيينهم مثل الاتي "\n¦`الاوامر` , `م1` , `م2 `, `م3 `, `م المطور ` , `اوامر الرد `,  `اوامر الملفات` \n➼' 
 end
@@ -4590,6 +4600,11 @@ redis:setex(boss..'text_sudo:witting'..msg.sender_user_id_,1200,true)
 return '• تمام عيني \n• الحين ارسل الكليشه \n ' 
 end
 
+if MsgText[1] == "ضع كليشه السورس" then 
+redis:setex(boss..'text_sudo1:witting'..msg.sender_user_id_,1200,true) 
+return '• تمام عيني \n• الحين ارسل الكليشه \n ' 
+end
+
 if MsgText[1] == "وضع شرط التفعيل" and MsgText[2] and MsgText[2]:match('^%d+$') then 
 redis:set(boss..':addnumberusers',MsgText[2]) 
 return '*•* وضعت شـرط تفعيل البوت اذا كانت المجموعة‏‏ اكثر من *【'..MsgText[2]..'】* عضـو  ༄\n' 
@@ -4654,6 +4669,15 @@ end
 
 if MsgText[1] == 'المطور' then
 return redis:get(boss..":TEXT_SUDO") or '• مافيه كليشه المطور .\n• يمديك تضيف كليشه من خلال الامر\n       " `ضع كليشه المطور` " \n📡'
+end
+
+if MsgText[1] == 'السورس' then
+return redis:get(boss..":TEXT_SUDO1") or '• مافيه كليشه السورس .\n• يمديك تضيف كليشه من خلال الامر\n       " `ضع كليشه السورس` " \n📡'
+local inline = { 
+{{text = 'للاشتراك بالسورس',url="https://t.me/Fawaz901"}}, 
+{{text = 'تحديثات السورس',url="https://t.me/kkrck"}}, 
+}    
+return send_inline(msg.chat_id_,text,inline,msg.id_) 
 end
 
 if MsgText[1] == "اذاعه بالتثبيت"  or MsgText[1] =="اذاعه بالتثبيت 📬" then
@@ -5005,7 +5029,30 @@ return "مافيه ردود عامه عشان امسحها ! "
 end
 end
 
+if MsgText[1]== 'مسح' and MsgText[2]== 'الردود العامه 🗨' then
+if not msg.SudoBase then return" للمطورين بس!" end
+local names 	= redis:exists(boss..'replay:all')
+local photo 	= redis:exists(boss..'replay_photo:group:')
+local voice 	= redis:exists(boss..'replay_voice:group:')
+local imation 	= redis:exists(boss..'replay_animation:group:')
+local audio 	= redis:exists(boss..'replay_audio:group:')
+local sticker 	= redis:exists(boss..'replay_sticker:group:')
+local video 	= redis:exists(boss..'replay_video:group:')
+if names or photo or voice or imation or audio or sticker or video then
+redis:del(boss..'replay:all',boss..'replay_photo:group:',boss..'replay_voice:group:',boss..'replay_animation:group:',boss..'replay_audio:group:',boss..'replay_sticker:group:',boss..'replay_video:group:')
+return " مسحت كل الردود العامه"
+else
+return "مافيه ردود عامه عشان امسحها ! "
+end
+end
+
 if MsgText[1]== 'مسح' and MsgText[2]== 'رد عام' then
+if not msg.SudoBase then return"• هذا الامر يخص ( المطور الاساسي ) بس  \n" end
+redis:set(boss..'delrdall:'..msg.sender_user_id_,true) 
+return "• تمام عيني  \n• الحين ارسل الرد عشان امسحه من  المجموعات \n "
+end
+
+if MsgText[1]== 'مسح' and MsgText[2]== 'رد عام ➖' then
 if not msg.SudoBase then return"• هذا الامر يخص ( المطور الاساسي ) بس  \n" end
 redis:set(boss..'delrdall:'..msg.sender_user_id_,true) 
 return "• تمام عيني  \n• الحين ارسل الرد عشان امسحه من  المجموعات \n "
@@ -5119,21 +5166,21 @@ end
 
 ----=================================|كود الرد العشوائي العام|===============================================
 
-if MsgText[1]=="اضف رد عشوائي عام" then
-if not msg.SudoUser then return "• هذا الامر يخص ( المطور ) بس  \n" end
+if MsgText[1]=="اضف رد عشوائي عام" or MsgText[1]=="اضف رد عشوائي عام ➕" then
+if not msg.SoudUser then return "• هذا الامر يخص ( المطور ) بس  \n" end
 redis:setex(boss..'addrdRandom1Public:'..msg.chat_id_..msg.sender_user_id_,1400,true) 
 redis:del(boss..'replay1RandomPublic'..msg.chat_id_..msg.sender_user_id_)
 return "• تمام ,  الحين ارسل كلمة الرد للعشوائي العام \n "
 end
 
 
-if MsgText[1]== "مسح رد عشوائي عام" then
+if MsgText[1]== "مسح رد عشوائي عام" or MsgText[1]=="مسح رد عشوائي عام ➖" then
 if not msg.SudoUser then return "• هذا الامر يخص ( المطور ) بس  \n" end
 redis:setex(boss..':DelrdRandomPublic:'..msg.chat_id_..msg.sender_user_id_,300,true)
 return "• تمام عيني  \n• الحين ارسل الرد العشوائي العام عشاان امسحه \n "
 end
 
-if MsgText[1] == "مسح الردود العشوائيه العامه" then
+if MsgText[1] == "مسح الردود العشوائيه العامه" or MsgText[1]=="مسح الردود العشوائيه العامه ➖" then
 if not msg.SudoUser then return "• هذا الامر يخص ( المطور ) بس  \n" end
 local AlRdod = redis:smembers(boss..':KlmatRRandom:') 
 if #AlRdod == 0 then return "*•* الردود العشوائيه العامه محذوفه من قبل \n" end
@@ -5142,7 +5189,7 @@ redis:del(boss..':KlmatRRandom:')
 return "*•* أهلا عيني "..msg.TheRankCmd.."  \n*•* مسحت كل الردود العشوائيه العامه \n "
 end
 
-if MsgText[1] == "الردود العشوائيه العامه" then
+if MsgText[1] == "الردود العشوائيه العامه" or MsgText[1]=="الردود العشوائيه العامه 🗨" then
 if not msg.SudoUser then return "• هذا الامر يخص ( المطور ) بس  \n" end
 message = "*- الردود العشـوائيه العامه:*\n\n"
 local AlRdod = redis:smembers(boss..':KlmatRRandom:') 
@@ -5777,7 +5824,7 @@ TText = "• الملف موجود بالفعل \n• تم تحديث الملف
 else
 TText = "• تم تثبيت وتفعيل الملف بنجاح \n "
 end
-local Get_Files, res = https.request("https://raw.githubusercontent.com/TH3BS/th3bs.github.io/master/plugins/"..FileName)
+local Get_Files, res = https.request("https://raw.githubusercontent.com/Slom2539/SLOM2539.github.io/master/plugins/"..FileName)
 if res == 200 then
 print("DONLOADING_FROM_URL: "..FileName)
 local FileD = io.open("plugins/"..FileName,'w+')
@@ -5884,22 +5931,21 @@ local keyboard = {
 {"تعطيل التواصل ✖️","تفعيل التواصل 🔛"},
 {"تعطيل تعيين الايدي ⚔️","تفعيل تعيين الايدي ⌨️"},
 {"تعطيل الاشتراك الاجباري ♨️","تفعيل الاشتراك الاجباري ♦️"},
-
-
+"{تعيين قائمه الاوامر ⚡️"},
 {"تعطيل البوت خدمي 🚫","تفعيل البوت خدمي 🔃"},
 {"مسح كليشه الستارت 🗑","تعيين كليشه الستارت 📱"},
 {"مسح كليشه الايدي عام 🗑","تعيين كليشه الايدي عام 📄"},
-
 {"اذاعه بالتثبيت 📬","تعطيل الاذاعه 🔌","تفعيل الاذاعه 📇"},
 {"اذاعه 🗣","اذاعه عام 📢","اذاعه خاص 👤"},
 {"الملفات 🗂","اذاعه عام بالتوجيه 📣"},
 {"نقل ملكيه البوت 📇"},
 {"تحديث ♻️","قائمه العام 📜","قناة السورس 📡"},
 {"المطورين 🕹","ايدي 🆔"},
-{"اضف رد عام ➕","الردود العامه 🗨"},
+{"اضف رد عام ➕","مسح رد عام ➖","الردود العامه 🗨"},
+{"اضف رد عشوائي عام ➕","مسح رد عشوائي عام ➖","الردود العشوائيه العامه 🗨"},  
 {"تغيير الاشتراك الاجباري 🇸🇦"},
 {"الاشتراك الاجباري 🔺"},
-{"اضف رد عشوائي عام","مسح رد عشوائي عام"},
+{"مسح قائمه العام 📩"},
 {"تحديث السورس ™"},
 {"الغاء الامر ✖️"}}
 return send_key(msg.sender_user_id_,text,keyboard,nil,msg.id_)
@@ -5937,9 +5983,9 @@ text = text:gsub("{البوت}",redis:get(boss..':NameBot:'))
 text = text:gsub("{المطور}",SUDO_USER)
 xsudouser = SUDO_USER:gsub('@','')
 xsudouser = xsudouser:gsub([[\_]],'_')
---local inline = {{{text="تحديثات السورس",url="https://t.me/kkrck"}}}
+--local inline = {{{text="للاستفسارات",url="https://t.me/"..xsudouser}}}
 --send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
-local inline = {{{text="تحديثات السورس",url="https://t.me/kkrck"}},{{text="للاستفسارات",url="https://t.me/"..xsudouser}}}
+local inline = {{{text="للاستفسارات",url="https://t.me/"..xsudouser}}}
 send_key(msg.sender_user_id_,(text),nil,inline,msg.id_)
 end,nil)
 return false
@@ -6687,7 +6733,14 @@ redis:del(boss..'text_sudo:witting'..msg.sender_user_id_)
 redis:set(boss..':TEXT_SUDO',Flter_Markdown(msg.text))
 return sendMsg(msg.chat_id_,msg.id_, "*•* تم وضع الكليشه بنجاح كلاتي 👋🏻\n\n*{*  "..Flter_Markdown(msg.text).."  *}*\n✓")
 end
-if redis:get(boss..'welcom:witting'..msg.chat_id_..msg.sender_user_id_) then -- استقبال كليشه الترحيب
+if 
+redis:get(boss..'text_sudo1:witting'..msg.sender_user_id_) then -- استقبال كليشه المطور
+redis:del(boss..'text_sudo1:witting'..msg.sender_user_id_) 
+redis:set(boss..':TEXT_SUDO1',Flter_Markdown(msg.text))
+return sendMsg(msg.chat_id_,msg.id_, "*•* تم وضع الكليشه بنجاح كلاتي 👋🏻\n\n*{*  "..Flter_Markdown(msg.text).."  *}*\n✓")
+end
+if 
+redis:get(boss..'welcom:witting'..msg.chat_id_..msg.sender_user_id_) then -- استقبال كليشه الترحيب
 redis:del(boss..'welcom:witting'..msg.chat_id_..msg.sender_user_id_) 
 redis:set(boss..'welcome:msg'..msg.chat_id_,msg.text)
 return sendMsg(msg.chat_id_,msg.id_,"*•* تم وسوينا الترحيب يابعدي\n" )
@@ -7859,24 +7912,6 @@ local lovm = {
 "يروحي",
 "اموت فيك",
 }
-local tty = {
-"أُصَلِّي فَأَبكِي فِي الصَّـلاةِ لذِكرِهَـا",
-"لا تخفِ ما فعلت بكَ الأشواق
-واشرح هواك فكلنا عُشاقُ",
-"أُعللُ قَلبي في الغرامِ وأكتمُ
-ولكنَ حالي عن هَوايَ يُترجمُ",
-"رددي أَحرُفَ الهوى فَكِلانا
-في هواهُ معذبُ مقتولُ",
-"سأكتبُ ما في قلبي سطوراً
-لو كتبت بالدموع لامتلأت بحوراً",
-"ومن عجب إِني أَحنُ إِليهم
-وأَسألُ ، شوقاً ، عنهُم وهم معي",
-"قلوب العاشقين لها عيون
-تري ما لا يراه الناظرون .",
-"وكنتُ خَلياً لستُ أَعرفُ ما الهوى
-فأصبحتُ حَياً والفؤادُ متيمُ",
-"رَمَتِ الفُؤَادَ مَليحَةٌ عَذراءُ بِسِهامِ لَحظٍ ما لَهُنَّ دَواءُ",
-}
 local mm = {
 "ابركها من ساعة","احبك","اكثر","ترا ازعجتنا","انقلع","طيب",
 }
@@ -7977,13 +8012,11 @@ elseif Text== "كل زق" or Text== "كلزق" or Text=="علزق" or Text== "ز
 return sendMsg(msg.chat_id_,msg.id_,zg[math.random(#zg)])
 elseif Text== "كل تبن" or Text== "كلتبن" or Text=="على تبن" or Text== "تبن" or Text== "كلي تبن" or Text== "كولي تبن" then
 return sendMsg(msg.chat_id_,msg.id_,tbn[math.random(#tbn)])
-elseif Text== "شعر" then
-return sendMsg(msg.chat_id_,msg.id_,tty[math.random(#tty)])
 elseif Text== "كل خرا" or Text== "كلخرا" or Text=="على خرا" or Text== "خرا" or Text== "كلي خرا" or Text== "كولي خرا" then
 return sendMsg(msg.chat_id_,msg.id_,ra[math.random(#ra)])
 elseif Text== "كسمك" or Text== "كس امك" or Text=="قحبه" or Text== "ياقحبه" or Text== "ياخنيث" or Text== "خنيث" or Text== "انيكك" or Text== "اركب عليه" then
 return sendMsg(msg.chat_id_,msg.id_,sb[math.random(#sb)])
-elseif Text== "بوت" or Text== "بوته"  then
+elseif Text== "بوت" or Text== "بوت"  then
 return sendMsg(msg.chat_id_,msg.id_,bb[math.random(#bb)])
 elseif Text=="" or Text=="" then
 if msg.Admin then 
@@ -8265,7 +8298,7 @@ Boss = {
 "^(تنزيل منشئ اساسي)$",
 "^(رفع مالك اساسي)$",
 "^(تنزيل مالك اساسي)$",
-"^(تعيين قائمه الاوامر)$",
+"^(تعيين قائمه الاوامر ⚡️)$",
 "^(الاشتراك)$",
 "^(المجموعه)$",
 "^(كشف البوت)$",
@@ -8311,6 +8344,8 @@ Boss = {
 "^(صوره الترحيب)$",
 "^(ضع كليشه المطور)$",
 "^(المطور)$",
+"^(ضع كليشه السورس)$",
+"^(السورس)$",
 "^(شرط التفعيل)$",
 "^(قائمه المجموعات)$",
 "^(المجموعات)$",
@@ -8596,6 +8631,10 @@ Boss = {
 "^(مسح رد عشوائي عام)$",
 "^(مسح الردود العشوائيه العامه)$",
 "^(الردود العشوائيه العامه)$",
+"^(اضف رد عشوائي عام ➕)$",
+"^(مسح رد عشوائي عام ➖)$",
+"^(مسح الردود العشوائيه العامه ➖)$",
+"^(الردود العشوائيه العامه 🗨)$",
 "^(مسح رسايلي)$",
 "^(مسح رسائلي)$",
 "^(حذف رسائلي)$",
