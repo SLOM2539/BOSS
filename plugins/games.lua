@@ -1351,12 +1351,13 @@ redis:del(boss..':Set_alii:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'كفو اجابتك صح')
 end
 
+
 if redis:get(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_) == 'start' then
 if msg.content_.audio_ then  
 redis:set(boss.."audio:Games"..msg.sender_user_id_..":"..msg.chat_id_,msg.content_.audio_.audio_.persistent_id_)  
 redis:sadd(boss.."audio:Games:Bot",msg.content_.audio_.audio_.persistent_id_)  
 redis:set(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_,'started')
-sendMsg(msg.chat_id_, msg.id_,'⌯ ارسل الجواب الان ...')
+sendMsg(msg.chat_id_, msg.id_,'✿*│* ارسل الجواب الان ...')
 return false
 end   
 end
@@ -1364,13 +1365,13 @@ if redis:get(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_) ==
 local Id_audio = redis:get(boss.."audio:Games"..msg.sender_user_id_..":"..msg.chat_id_)
 redis:set(boss..'Text:Games:audio'..Id_audio,msg.text)
 redis:del(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_)
-sendMsg(msg.chat_id_, msg.id_,'⌯ تم حفظ السؤال وتم حفظ الجواب بنجاح ')
+sendMsg(msg.chat_id_, msg.id_,'✿*│* تم حفظ السؤال وتم حفظ الجواب بنجاح ')
 return false
 end
 if redis:get(boss..'Games:Set:Answer'..msg.chat_id_) then
 if msg.text == ""..(redis:get(boss..'Games:Set:Answer'..msg.chat_id_)).."" then 
 redis:del(boss.."Games:Set:Answer"..msg.chat_id_)
-sendMsg(msg.chat_id_,msg.id_,'*⌯ الف مبروك اجابتك صحيحه تم اضافه لك 5 نقاط*')
+sendMsg(msg.chat_id_,msg.id_,'*✿│الف مبروك اجابتك صحيحه تم اضافه لك 5 نقاط*')
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,5)  
 redis:del(boss.."Games:Set:Answer"..msg.chat_id_)
 return false
@@ -1421,6 +1422,12 @@ end
 if msg.text == redis:get(boss..':Set_jjjh:'..msg.chat_id_) then -- // اسم مغني
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_jjjh:'..msg.chat_id_)
+return sendMsg(msg.chat_id_,msg.id_,'*•    كفو اجابتك صح \n*   \n')
+end
+
+if msg.text == redis:get(boss..':Set_cccx:'..msg.chat_id_) then -- // صور
+redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
+redis:del(boss..':Set_cccx:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'*•    كفو اجابتك صح \n*   \n')
 end
 
@@ -1631,6 +1638,8 @@ Boss = {
 "^(روليت)$",
 "^(اسم مغني)$",
 "^(اسم المغني)$",
+"^(صور)$",
+"^(مشاهير)$",
 "^(رياضيات)$",
 "^(الرياضيات)$",
 "^(انقليزي)$",
