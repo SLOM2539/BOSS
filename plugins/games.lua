@@ -670,18 +670,59 @@ if MsgText[1] == 'اسم مغني' or MsgText[1] == 'اسم المغني' then
   return '• من هو مغني الاغنيه (* '..name..' *)'
   end
 
-if MsgText[1] == 'صور' or MsgText[1] == 'مشاهير' then
-  katu = {
-  'انشتاين','محمد بن سلمان','ليوناردو','ميسي',
-  };
-  name = katu[math.random(#katu)]
-  redis:set(boss..':Set_cccx:'..msg.chat_id_,name)
-  name = string.gsub(name,'انشتاين','https://telegra.ph/file/5e4298e5420154513e16b.jpg')
-  name = string.gsub(name,'محمد بن سلمان','https://telegra.ph/file/6981dc6dd70c7fb440141.jpg')
-  name = string.gsub(name,'ليوناردو','https://telegra.ph/file/e43b43f26c647d52b5df0.jpg')
-  name = string.gsub(name,'ميسي','https://telegra.ph/file/25ded2c31475419436a59.jpg')
-  return '• ما اسم المشهور؟ (* '..name..' *)'
-  end
+if MsgText[1] == 'حذف موسيقى' then
+if not msg.SudoUser then return "• هذا الامر يخص {المطور} فقط  \n" end
+function FunctionStatus(arg, data)
+redis:del(boss..'Text:Games:audio'..data.content_.audio_.audio_.persistent_id_)  
+redis:srem(boss.."audio:Games:Bot",data.content_.audio_.audio_.persistent_id_)  
+sendMsg(msg.chat_id_, msg.id_,'• تم حذف الموسيقى وحذف الجواب .')
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunctionStatus, nil)
+return false
+end
+if MsgText[1]== 'اضف موسيقى' then
+if not msg.SudoUser then return "• هذا الامر يخص {المطور} فقط  \n" end
+redis:set(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_,'start')
+sendMsg(msg.chat_id_, msg.id_,'• ارسل الموسيقى الان ...')
+return false
+end
+if MsgText[1]== ("قائمه الموسيقى") then
+if not msg.SudoUser then return "⌯ هذا الامر يخص {المطور} فقط  \n" end
+local list = redis:smembers(boss.."audio:Games:Bot")
+if #list == 0 then
+sendMsg(msg.chat_id_, msg.id_, "• لا يوجد اسئله")
+return false
+end
+for k,v in pairs(list) do
+sendAudio(msg.chat_id_,msg.id_,v,"")
+end
+end
+if MsgText[1]== ("مسح قائمه الموسيقى") then
+if not msg.SudoUser then return "• هذا الامر يخص {المطور} فقط  \n" end
+local list = redis:smembers(boss.."audio:Games:Bot")
+if #list == 0 then
+sendMsg(msg.chat_id_, msg.id_, "• لا يوجد اسئله")
+return false
+end
+for k,v in pairs(list) do
+redis:del(boss..'Text:Games:audio'..v)  
+redis:srem(boss.."audio:Games:Bot",v)  
+end
+sendMsg(msg.chat_id_, msg.id_, "⌯ تم حذف جميع الاسئله")
+end
+if MsgText[1]== 'موسيقى' then
+local list = redis:smembers(boss.."audio:Games:Bot")
+if #list == 0 then
+sendMsg(msg.chat_id_, msg.id_, "• لا يوجد اسئله")
+return false
+end
+local quschen = list[math.random(#list)]
+local GetAnswer = redis:get(boss..'Text:Games:audio'..quschen)
+print(GetAnswer)
+redis:set(boss..'Games:Set:Answer'..msg.chat_id_,GetAnswer)
+sendAudio(msg.chat_id_,msg.id_,quschen,"")
+return false
+end
 
 if MsgText[1] == 'حزوره' then
 katu = {'امي','انا','المخده','الهواء','الهواء','القمر','المقفل','النهر','الغيم','اسمك','حرف الام','الضابط','الدائره','الجمعة','ابل','الصمت','السلحفات','كم الساعه','شجره العائله','ضفدع','خليه النحل','الصوت','الجوع','الكتاب','البيض','الاسفنجه','البرتقال','الكفن','الساعه','الطاولة','البصل','الوقت','النار','الثلج','العمر','المسمار','الحفره','المشط','الجوال','الجرس','المراه','الغداء','الفيل','الصدى','الهواء','عقرب الساعه'};
@@ -1310,6 +1351,32 @@ redis:del(boss..':Set_alii:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'كفو اجابتك صح')
 end
 
+if redis:get(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_) == 'start' then
+if msg.content_.audio_ then  
+redis:set(boss.."audio:Games"..msg.sender_user_id_..":"..msg.chat_id_,msg.content_.audio_.audio_.persistent_id_)  
+redis:sadd(boss.."audio:Games:Bot",msg.content_.audio_.audio_.persistent_id_)  
+redis:set(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_,'started')
+sendMsg(msg.chat_id_, msg.id_,'⌯ ارسل الجواب الان ...')
+return false
+end   
+end
+if redis:get(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_) == 'started' then
+local Id_audio = redis:get(boss.."audio:Games"..msg.sender_user_id_..":"..msg.chat_id_)
+redis:set(boss..'Text:Games:audio'..Id_audio,msg.text)
+redis:del(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_)
+sendMsg(msg.chat_id_, msg.id_,'⌯ تم حفظ السؤال وتم حفظ الجواب بنجاح ')
+return false
+end
+if redis:get(boss..'Games:Set:Answer'..msg.chat_id_) then
+if msg.text == ""..(redis:get(boss..'Games:Set:Answer'..msg.chat_id_)).."" then 
+redis:del(boss.."Games:Set:Answer"..msg.chat_id_)
+sendMsg(msg.chat_id_,msg.id_,'*⌯ الف مبروك اجابتك صحيحه تم اضافه لك 5 نقاط*')
+redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,5)  
+redis:del(boss.."Games:Set:Answer"..msg.chat_id_)
+return false
+end
+end
+
 if msg.text == redis:get(boss..':Set_Amthlh:'..msg.chat_id_) then -- // امثله
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_Amthlh:'..msg.chat_id_)
@@ -1354,12 +1421,6 @@ end
 if msg.text == redis:get(boss..':Set_jjjh:'..msg.chat_id_) then -- // اسم مغني
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_jjjh:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*•    كفو اجابتك صح \n*   \n')
-end
-
-if msg.text == redis:get(boss..':Set_cccx:'..msg.chat_id_) then -- // صور
-redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
-redis:del(boss..':Set_cccx:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'*•    كفو اجابتك صح \n*   \n')
 end
 
@@ -1555,6 +1616,10 @@ Boss = {
 "^(مجوهراتي)$",
 "^(علم الدول)$",
 "^(ترتيب)$",
+"^(اضف موسيقى)$",
+"^(حذف موسيقى)$",
+"^(مسح قائمه الموسيقى)$",
+"^(قائمه الموسيقى)$",
 "^(عواصم)$",
 "^(معاني)$",
 "^(عكس)$",
@@ -1566,8 +1631,6 @@ Boss = {
 "^(روليت)$",
 "^(اسم مغني)$",
 "^(اسم المغني)$",
-"^(صور)$",
-"^(مشاهير)$",
 "^(رياضيات)$",
 "^(الرياضيات)$",
 "^(انقليزي)$",
