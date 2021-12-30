@@ -283,9 +283,9 @@ elseif msg.sender_user_id_ == 1480243587 then
 msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Mamy' 
 msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Mamy' 
 msg.Rank = 1
-elseif msg.sender_user_id_ == 843591577 then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'زلمتي' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'زلمتي' 
+elseif msg.sender_user_id_ == 1315534088 then 
+msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'محبوب الملايين' 
+msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'محبوب الملايين' 
 msg.Rank = 1
 elseif msg.sender_user_id_ == 1142798706 then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Daddy' 
