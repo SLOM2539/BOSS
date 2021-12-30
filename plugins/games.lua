@@ -670,6 +670,19 @@ if MsgText[1] == 'اسم مغني' or MsgText[1] == 'اسم المغني' then
   return '• من هو مغني الاغنيه (* '..name..' *)'
   end
 
+if MsgText[1] == 'صور' or MsgText[1] == 'مشاهير' then
+  katu = {
+  'انشتاين','محمد بن سلمان','ليوناردو','ميسي',
+  };
+  name = katu[math.random(#katu)]
+  redis:set(boss..':Set_cccx:'..msg.chat_id_,name)
+  name = string.gsub(name,'انشتاين','https://telegra.ph/file/5e4298e5420154513e16b.jpg')
+  name = string.gsub(name,'محمد بن سلمان','https://telegra.ph/file/6981dc6dd70c7fb440141.jpg')
+  name = string.gsub(name,'ليوناردو','https://telegra.ph/file/e43b43f26c647d52b5df0.jpg')
+  name = string.gsub(name,'ميسي','https://telegra.ph/file/25ded2c31475419436a59.jpg')
+  return '• ما اسم المشهور؟ (* '..name..' *)'
+  end
+
 if MsgText[1] == 'حزوره' then
 katu = {'امي','انا','المخده','الهواء','الهواء','القمر','المقفل','النهر','الغيم','اسمك','حرف الام','الضابط','الدائره','الجمعة','ابل','الصمت','السلحفات','كم الساعه','شجره العائله','ضفدع','خليه النحل','الصوت','الجوع','الكتاب','البيض','الاسفنجه','البرتقال','الكفن','الساعه','الطاولة','البصل','الوقت','النار','الثلج','العمر','المسمار','الحفره','المشط','الجوال','الجرس','المراه','الغداء','الفيل','الصدى','الهواء','عقرب الساعه'};
 name = katu[math.random(#katu)]
@@ -1344,6 +1357,12 @@ redis:del(boss..':Set_jjjh:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'*•    كفو اجابتك صح \n*   \n')
 end
 
+if msg.text == redis:get(boss..':Set_cccx:'..msg.chat_id_) then -- // صور
+redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
+redis:del(boss..':Set_cccx:'..msg.chat_id_)
+return sendMsg(msg.chat_id_,msg.id_,'*•    كفو اجابتك صح \n*   \n')
+end
+
 if msg.text == redis:get(boss..':Set_ria:'..msg.chat_id_) then -- // رياضيات
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_ria:'..msg.chat_id_)
@@ -1547,6 +1566,8 @@ Boss = {
 "^(روليت)$",
 "^(اسم مغني)$",
 "^(اسم المغني)$",
+"^(صور)$",
+"^(مشاهير)$",
 "^(رياضيات)$",
 "^(الرياضيات)$",
 "^(انقليزي)$",
