@@ -1425,12 +1425,6 @@ redis:del(boss..':Set_jjjh:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'*•    كفو اجابتك صح \n*   \n')
 end
 
-if msg.text == redis:get(boss..':Set_cccx:'..msg.chat_id_) then -- // صور
-redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
-redis:del(boss..':Set_cccx:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*•    كفو اجابتك صح \n*   \n')
-end
-
 if msg.text == redis:get(boss..':Set_ria:'..msg.chat_id_) then -- // رياضيات
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_ria:'..msg.chat_id_)
@@ -1638,8 +1632,6 @@ Boss = {
 "^(روليت)$",
 "^(اسم مغني)$",
 "^(اسم المغني)$",
-"^(صور)$",
-"^(مشاهير)$",
 "^(رياضيات)$",
 "^(الرياضيات)$",
 "^(انقليزي)$",
