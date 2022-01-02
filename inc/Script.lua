@@ -1913,6 +1913,28 @@ return false
 end
 
 
+if text == "تفعيل غنيلي" and Manager(msg) and SourceCh(msg) then 
+local boss = '• اهلا عزيزي ↫ 「 '..RioRank(msg)..' 」\n• تم تفعيل غنيلي' 
+riomoned(msg.chat_id_, msg.sender_user_id_, msg.id_, boss, 14, string.len(msg.sender_user_id_)) 
+DevRio:del(boss..'Rio:Audios:Rio'..msg.chat_id_)  
+end 
+if text == "تعطيل غنيلي" and Manager(msg) and SourceCh(msg) then 
+local boss = '• اهلا عزيزي ↫ 「 '..RioRank(msg)..' 」\n• تم تعطيل غنيلي' 
+riomoned(msg.chat_id_, msg.sender_user_id_, msg.id_, boss, 14, string.len(msg.sender_user_id_)) 
+DevRio:set(boss..'Rio:Audios:Rio'..msg.chat_id_,true)   
+end 
+if text and (text == "غنيلي" or text == "غني") and not DevRio:get(boss..'Rio:Audios:Rio'..msg.chat_id_) and SourceCh(msg) then 
+Rio = math.random(4,2725);  
+local Text ='*• تم اختيار المقطع الصوتي لك*' 
+keyboard = {}   
+keyboard.inline_keyboard = {  
+{{text = 'للاشتراك في السورس',url="t.me/fawaz901"}}, 
+}  
+local msg_id = msg.id_/2097152/0.5  
+https.request("https://api.telegram.org/bot"..TokenBot..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice=https://t.me/fawaz_ii/'..Rio..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
+end
+
+
 
 if MsgText[1] == "تثبيت" and msg.reply_id then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
@@ -8326,6 +8348,10 @@ Boss = {
 "^(المميزين)$",
 "^(المكتومين)$",
 "^(وضع ترحيب)$",
+"^(غني)$",
+"^(غنيلي)$",
+"^(تعطيل غنيلي)$",
+"^(تفعيل غنيلي)$",
 "^(وضع الترحيب)$",
 "^(الترحيب)$",
 "^(المحظورين)$",
