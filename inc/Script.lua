@@ -1923,7 +1923,7 @@ local boss = '• اهلا عزيزي ↫ 「 '..RioRank(msg)..' 」\n• تم �
 riomoned(msg.chat_id_, msg.sender_user_id_, msg.id_, boss, 14, string.len(msg.sender_user_id_)) 
 DevRio:set(boss..'Rio:Audios:Rio'..msg.chat_id_,true)   
 end 
-if text and (text == "غنيلي" or text == "غني") and not DevRio:get(boss..'Rio:Audios:Rio'..msg.chat_id_) and SourceCh(msg) then 
+if text and (text == "اطربيني شهد" or text == "ابي طرب") and not DevRio:get(boss..'Rio:Audios:Rio'..msg.chat_id_) and SourceCh(msg) then 
 Rio = math.random(4,2725);  
 local Text ='*• تم اختيار المقطع الصوتي لك*' 
 keyboard = {}   
@@ -8348,8 +8348,8 @@ Boss = {
 "^(المميزين)$",
 "^(المكتومين)$",
 "^(وضع ترحيب)$",
-"^(غني)$",
-"^(غنيلي)$",
+"^(ابي طرب)$",
+"^(اطربيني شهد)$",
 "^(تعطيل غنيلي)$",
 "^(تفعيل غنيلي)$",
 "^(وضع الترحيب)$",
