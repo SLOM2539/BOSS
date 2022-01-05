@@ -7943,10 +7943,6 @@ local lovm = {
 local mm = {
 ‎"ابركها من ساعة","احبك","اكثر","ترا ازعجتنا","انقلع","طيب",
 }
-local fss = {
-‎"يُفنى الزمانَ ولا أَخونَ عهدكِ\nأَبدا ولو قاسيتُ كُلَ الهوانِ","أُعللُ قَلبي في الغرامِ وأكتمُ\nولكنَ حالي عن هَوايَ يُترجمُ","اكثر","أميرة الحسنِ حلي قَيد أسراكِ\nواشقي بِعذب اللمى تَعذيب مضناكِ","لجُمالك لا أجدْ لِوصفَها حَداً يُرام\nفلِمثل جمَالها خُلق الغَرامْ","
-‎رددي أَحرُفَ الهوى فَكِلانا\nفي هواهُ معذبُ مقتولُ",
-}
 local m12 = {
 ‎"مالك دخل","تمام","بخير","تمام انت كيفك","بخير دامك بخير",
 }
@@ -8052,10 +8048,7 @@ elseif Text== "كل زق" or Text== "كلزق" or Text=="علزق" or Text== "ز
 return sendMsg(msg.chat_id_,msg.id_,zg[math.random(#zg)])
 elseif Text== "كل تبن" or Text== "كلتبن" or Text=="على تبن" or Text== "تبن" or Text== "كلي تبن" or Text== "كولي تبن" then
 return 
-sendMsg(msg.chat_id_,msg.id_,fss[math.random(#fss)])
-elseif Text== "غازليني" or Text== "امدحيني"
-then
-return sendMsg(msg.chat_id_,msg.id_,tbn[math.random(#tbn)])
+sendMsg(msg.chat_id_,msg.id_,tbn[math.random(#tbn)])
 elseif Text== "كل خرا" or Text== "كلخرا" or Text=="على خرا" or Text== "خرا" or Text== "كلي خرا" or Text== "كولي خرا" then
 return sendMsg(msg.chat_id_,msg.id_,ra[math.random(#ra)])
 elseif Text== "كسمك" or Text== "كس امك" or Text=="قحبه" or Text== "ياقحبه" or Text== "ياخنيث" or Text== "خنيث" or Text== "انيكك" or Text== "اركب عليه" then
