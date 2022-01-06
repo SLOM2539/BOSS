@@ -4559,7 +4559,7 @@ end
 
 if MsgText[1] == "ضع كليشه السورس" then  
 redis:setex(boss..'text_sudoo:wittingg'..msg.sender_user_id_,1200,true)  
-return '• حسناً عزيزي \n• الان قم بارسال السورس \n'  
+return '• تمام عيني \n• الحين ارسل كليشه \n'  
 end 
 
 if MsgText[1] == "وضع شرط التفعيل" and MsgText[2] and MsgText[2]:match('^%d+$') then 
@@ -4628,7 +4628,7 @@ return redis:get(boss..":TEXT_SUDO") or '• مافيه كليشه المطور 
 end
 
 if MsgText[1] == "سورس" or MsgText[1]=="السورس" then
-Text = redis:get(boss..":TEXT_SUDOO") or '• لا يوجد كليشه للسورس\n• يمكنك اضافه كليشه من خلال الامر\n       " `ضع كليشه السورس` " \n'
+Text = redis:get(boss..":TEXT_SUDOO") or '• مافيه كليشه للسورس\n• يمديك تضيف كليشه من خلال الامر\n       " `ضع كليشه السورس` " \n'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '𝐒𝐨𝐮𝐫𝐜𝐞 𝐅𝐚𝐰𝐚𝐳',url="t.me/kkrck"}},
@@ -6694,10 +6694,10 @@ end
 end 
 
 
-if redis:get(boss..'text_sudoo:wittingg'..msg.sender_user_id_) then -- استقبال كليشه السورس
-redis:del(boss..'text_sudo:wittingg'..msg.sender_user_id_) 
+if redis:get(boss..'text_sudoo:witting'..msg.sender_user_id_) then -- استقبال كليشه المطور
+redis:del(boss..'text_sudo:witting'..msg.sender_user_id_) 
 redis:set(boss..':TEXT_SUDOO',Flter_Markdown(msg.text))
-return sendMsg(msg.chat_id_,msg.id_, "• تم وضع الكليشه بنجاح كلاتي \n\n(  "..Flter_Markdown(msg.text).." )")
+return sendMsg(msg.chat_id_,msg.id_, "*•* تم وضع الكليشه بنجاح كلاتي 👋🏻\n\n*{*  "..Flter_Markdown(msg.text).."  *}*\n✓")
 end
 if redis:get(boss..'text_sudo:witting'..msg.sender_user_id_) then -- استقبال كليشه المطور
 redis:del(boss..'text_sudo:witting'..msg.sender_user_id_) 
@@ -8315,6 +8315,7 @@ Boss = {
 "^(سورس)$",
 "^(شرط التفعيل)$",
 "^(قائمه المجموعات)$",
+"^(المجموعات 🔖)$",
 "^(المجموعات)$",
 "^(اصدار السورس 🗃)$",
 "^(ضع كليشه المطور 📬)$",
