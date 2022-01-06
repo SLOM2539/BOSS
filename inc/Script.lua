@@ -1914,62 +1914,6 @@ end
 
 
 
-if msg.text == "ايدت" then 
-ban = math.random(2, 116); 
-local Text ='اضغط الزر لتغيير الايدت ' 
-keyboard = {}  
-keyboard.inline_keyboard = {
-{
-{text = 'ايدت اخر', callback_data="/help4@"..msg.sender_user_id_},
-},
-} 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..Token..'/sendvideo?chat_id=' .. msg.chat_id_ .. '&video=https://t.me/exddj/'..ban..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-return false 
-end
-
-if msg.text == "افتارات بنات" then 
-ban = math.random(55, 211); 
-local Text ='اضغطي الزر لتغيير الافتار ' 
-keyboard = {}  
-keyboard.inline_keyboard = {
-{
-{text = 'افتار اخر', callback_data="/help1@"..msg.sender_user_id_},
-},
-}
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/avta1/'..ban..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-return false 
-end
-
-if msg.text == "رياكشن" then 
-ban = math.random(2, 211); 
-local Text =' اضغط الزر لتغيير الرياكشن' 
-keyboard = {}  
-keyboard.inline_keyboard = {
-{
-{text = 'رياكشن اخر', callback_data="/help3@"..msg.sender_user_id_},
-},
-}
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/gafffg/'..ban..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-return false 
-end
-
-if msg.text == "افتارات عيال" then 
-ban = math.random(2, 250); 
-local Text ='اضغط الزر لتغيير الافتار ' 
-keyboard = {}  
-keyboard.inline_keyboard = {
-{
-{text = 'افتار اخر', callback_data="/help2@"..msg.sender_user_id_},
-},
-}
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/iiz20k/'..ban..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-return false 
-end
-
 if MsgText[1] == "تثبيت" and msg.reply_id then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 local GroupID = msg.chat_id_:gsub('-100','')
@@ -6750,7 +6694,7 @@ end
 end 
 
 
-if redis:get(bodd..'text_sudoo:wittingg'..msg.sender_user_id_) then -- استقبال كليشه السورس
+if redis:get(boss..'text_sudoo:wittingg'..msg.sender_user_id_) then -- استقبال كليشه السورس
 redis:del(boss..'text_sudo:wittingg'..msg.sender_user_id_) 
 redis:set(boss..':TEXT_SUDOO',Flter_Markdown(msg.text))
 return sendMsg(msg.chat_id_,msg.id_, "• تم وضع الكليشه بنجاح كلاتي \n\n(  "..Flter_Markdown(msg.text).." )")
@@ -8064,17 +8008,17 @@ return sendMsg(msg.chat_id_,msg.id_,[[
   https://telegram.org/deactivate
 ]] )
 --=====================================
-elseif Text== "" or Text== "" or Text=="" then
+elseif Text== "جب" or Text== "انجب" or Text=="" then
 if msg.SudoUser then  
-return sendMsg(msg.chat_id_,msg.id_,"")
+return sendMsg(msg.chat_id_,msg.id_,"عشانك مطوري بس")
 elseif msg.Creator then 
-return sendMsg(msg.chat_id_,msg.id_,"")
+return sendMsg(msg.chat_id_,msg.id_,"بمشيها لك يالمنشئ")
 elseif msg.Director then 
-return sendMsg(msg.chat_id_,msg.id_,"")
+return sendMsg(msg.chat_id_,msg.id_,"مسوي تهايط يالمدير؟ بتصير عضو اذكرك")
 elseif msg.Admin then 
-return sendMsg(msg.chat_id_,msg.id_,"")
+return sendMsg(msg.chat_id_,msg.id_,"رافعك ادمن وتهايط يورع!")
 else 
-return sendMsg(msg.chat_id_,msg.id_,"")
+return sendMsg(msg.chat_id_,msg.id_,"انجب بس")
 end 
 end 
 
