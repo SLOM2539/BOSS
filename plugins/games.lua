@@ -1110,7 +1110,7 @@ name = string.gsub(name,' دحوو119م ',' نسبة جمال صوتك ؟ ')
 name = string.gsub(name,' دحوو120م ',' كيف تتعامل مع الشخص المُتطفل ( الفضولي ) ؟ ')
 name = string.gsub(name,' دحوو121م ',' من الاشياء اللي تجيب لك الصداع ؟ ')
 name = string.gsub(name,' دحوو122م ',' حصلت الشخص اللي يفهمك ولا باقي ؟ ')
-return '-› '..name..'  ' 
+return '• '..name..'  ' 
 end
 if MsgText[1] == 'عكس' or MsgText[1] == 'العكس' or MsgText[1] == '' then   
 redis:set(boss.."GAME:S"..msg.chat_id_,true) 
@@ -1389,12 +1389,6 @@ redis:del(boss..':Set_dad:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'*•   كفو اجابتك صح   \n*   \n')
 end
 
-if msg.text == redis:get(boss..':Set_mbb:'..msg.chat_id_) then -- // مقالات
-redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
-redis:del(boss..':Set_mbb:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*•   كفو اجابتك صح   \n*   \n')
-end
-
 if msg.text == redis:get(boss..':Set_qwq:'..msg.chat_id_) then -- // علم الدول
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_qwq:'..msg.chat_id_)
@@ -1629,7 +1623,6 @@ Boss = {
 "^(مجوهراتي)$",
 "^(علم الدول)$",
 "^(ترتيب)$",
-"^(مقالات)$",
 "^(عواصم)$",
 "^(معاني)$",
 "^(عكس)$",
