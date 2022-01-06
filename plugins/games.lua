@@ -1369,7 +1369,7 @@ return false
 end
 if redis:get(mero..'Games:Set:Answer'..msg.chat_id_) then
 if msg.text == ""..(redis:get(boss..'Games:Set:Answer'..msg.chat_id_)).."" then 
-redis:del(mero.."Games:Set:Answer"..msg.chat_id_)
+redis:del(boss.."Games:Set:Answer"..msg.chat_id_)
 sendMsg(msg.chat_id_,msg.id_,'*✿│الف مبروك اجابتك صحيحه تم اضافه لك 5 نقاط*')
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,5)  
 redis:del(blss.."Games:Set:Answer"..msg.chat_id_)
