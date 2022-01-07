@@ -6633,8 +6633,8 @@ end
 
 if redis:get(boss..'addrd_all:'..msg.chat_id_..msg.sender_user_id_) then -- استقبال الرد لكل المجموعات
 if not redis:get(boss..'allreplay:'..msg.chat_id_..msg.sender_user_id_) then -- استقبال كلمه الرد لكل المجموعات
-if utf8.len(msg.text) > 500 then 
-return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف كلمة الرد باكثر من 500 حرف \n")
+if utf8.len(msg.text) > 500000 then 
+return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف كلمة الرد باكثر من 500000 حرف \n")
 end
 redis:hdel(boss..'replay_photo:group:',msg.text)
 redis:hdel(boss..'replay_voice:group:',msg.text)
@@ -6828,8 +6828,8 @@ if msg.text then
 if redis:get(boss..'addrdRandom1:'..msg.chat_id_..msg.sender_user_id_) then -- استقبال الرد للمجموعه فقط
 
 if not redis:get(boss..'replay1Random'..msg.chat_id_..msg.sender_user_id_) then  -- كلمه الرد
-if utf8.len(msg.text) > 500 then 
-return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف اكثر من 500 حرف كلمة رد \n ")
+if utf8.len(msg.text) > 500000 then 
+return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف اكثر من 500000 حرف كلمة رد \n ")
 end
 redis:setex(boss..'addrdRandom:'..msg.chat_id_..msg.sender_user_id_,1400,true) 
 redis:setex(boss..'replay1Random'..msg.chat_id_..msg.sender_user_id_,1400,msg.text)
@@ -6840,8 +6840,8 @@ end
 if redis:get(boss..'addrd:'..msg.chat_id_..msg.sender_user_id_) then -- استقبال الرد للمجموعه بس
 
 if not redis:get(boss..'replay1'..msg.chat_id_..msg.sender_user_id_) then  -- كلمه الرد
-if utf8.len(msg.text) > 500 then 
-return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف كلمه الرد باكثر من 500 حرف \n")
+if utf8.len(msg.text) > 500000 then 
+return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف كلمه الرد باكثر من 500000 حرف \n")
 end
 redis:hdel(boss..'replay:'..msg.chat_id_,msg.text)
 redis:hdel(boss..'replay_photo:group:'..msg.chat_id_,msg.text)
