@@ -7821,7 +7821,7 @@ local ss97 = {
 "نعم","امرني ياعيوني","لبيه","قول شعندك",
 "رنق رنق قول ياخي","سم","امرني",
 "هلا والله","ها يعمري",
-"نييم","روحها","هاه",
+"نييم","روحه","هاه",
 "زفت",
 "الله ياخذ ["..Bot_Name.."] ","لبيه","ها ","الله يرزقك حياة غير ["..Bot_Name.."] ",
 "تواصل مع مدير اعمالي","سم لبيه امر",
@@ -7904,8 +7904,8 @@ else
 return sendMsg(msg.chat_id_,0,callback_Text) 
 end
 
-elseif Text:match("^قولي (.*)$") then
-if utf8.len(Text:match("^قولي (.*)$")) > 500 then 
+elseif Text:match("^قول (.*)$") then
+if utf8.len(Text:match("^قول (.*)$")) > 500 then 
 return sendMsg(msg.chat_id_,msg.id_,"• ما اقدر اقول اكثر من 500 حرف ")
 end
 local callback_Text = FlterName(Text:match("^قولي (.*)$"),500)
@@ -7961,7 +7961,7 @@ elseif Text== "كل خرا" or Text== "كلخرا" or Text=="على خرا" or T
 return sendMsg(msg.chat_id_,msg.id_,ra[math.random(#ra)])
 elseif Text== "كسمك" or Text== "كس امك" or Text=="قحبه" or Text== "ياقحبه" or Text== "ياخنيث" or Text== "خنيث" or Text== "انيكك" or Text== "اركب عليه" then
 return sendMsg(msg.chat_id_,msg.id_,sb[math.random(#sb)])
-elseif Text== "بوت" or Text== "بوته"  then
+elseif Text== "بوت" or Text== "بوت"  then
 return sendMsg(msg.chat_id_,msg.id_,bb[math.random(#bb)])
 elseif Text=="" or Text=="" then
 if msg.Admin then 
