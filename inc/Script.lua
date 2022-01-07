@@ -5469,7 +5469,7 @@ local text = [[
 
 ✶ البـحث عن اغنية ↓
 
-↞ *ساوند* اسم الاغنية
+↞ *ساوند؟* اسم الاغنية
 
 أو
 
@@ -5689,29 +5689,43 @@ end,{msg=msg})
 return false
 end
 
+if MsgText[1]  == "يوتيوب!" and MsgText[2] then
 
-if msg.text == 'ضع افتار' then
-  if tonumber(msg.sender_user_id_) ~= tonumber(SUDO_ID) then
-    sendMsg(msg.chat_id_,msg.id_,'فقط المطور الاساسي')
-    return false
-  end 
-  redis:setex(max.."Limit:Photos:"..msg.chat_id_..""..msg.sender_user_id_,300,true)  
-  sendMsg(msg.chat_id_,msg.id_,'- ارسل الصوره')
-end
-if msg.text == 'مسح افتار' then
-  if tonumber(msg.sender_user_id_) ~= tonumber(SUDO_ID) then
-    sendMsg(msg.chat_id_,msg.id_,'فقط المطور الاساسي')
-    return false
-  end 
-  local list = redis:smembers(max.."Limit:Photos:")
-  if #list == 0 then
-    sendMsg(msg.chat_id_,msg.id_,'- فارغه')
-  else
-    redis:del(max.."Limit:Photos:")
-    sendMsg(msg.chat_id_,msg.id_,'- تم مسح الافتارات')
-  end
+url = "https://i1bot.com/main/Beso/t.php?s="..URL.escape(MsgText[2]).."&chat="..msg.chat_id_.."&Token="..Token.."&msgid="..msg.id_/2097152/0.5
+print(url)
+print(https.request(url))
 end
 
+    if MsgText[1] == "يوتيوب؟" and MsgText[2]  then
+        if
+        redis:get(max..'lock_yt'..msg.chat_id_) then
+
+            local ip = {"2a07:3b80:1::f060","2a07:3b80:1::ee63","2a07:3b80:1::de2a","2a07:3b80:1::d433","2a07:3b80:1::6457"}
+
+            text = run_bash('youtube-dl -o "tmp1/%(title)s.%(ext)s" --source-address '..ip[math.random(#ip)]..' -f mp4 "ytsearch:'..MsgText[2]..'"')
+            audio = string.match(text, '%[download%] Destination: tmp1/(.*).mp4') or string.match(text, '%[download%] tmp1/(.*).mp4 has already been downloaded')
+            file = 'tmp1/'..audio..'.mp4'
+
+            sendVideo(msg.chat_id_,msg.id_, file)
+
+        end
+    end
+
+    if MsgText[1] == "ساوند؟" and MsgText[2] then
+        if
+        redis:get(max..'lock_yt'..msg.chat_id_) then
+
+            local URL = MsgText[1]
+
+
+            text = run_bash('youtube-dl -o "tmp/%(title)s.%(ext)s" "scsearch:'..MsgText[2]..'"')
+            audio = string.match(text, '%[download%] Destination: tmp/(.*).mp3') or string.match(text, '%[download%] tmp/(.*).mp3 has already been downloaded')
+            file = 'tmp/'..audio..'.mp3'
+
+
+            sendAudio(msg.chat_id_,msg.id_, file,audio,'@w8gbot','𝗖𝗵𝗮 ➤ @kkrck')
+        end
+    end
 
 if MsgText[1] == "مغادره" or MsgText[1] == "ادفرني" or MsgText[1] == "احظرني" or MsgText[1] == "اطردني" then
 if msg.Admin then return "*•* للاسف مااقدر اطرد المدراء والادمنيه والمالكيين  \n" end
@@ -8401,6 +8415,9 @@ Boss = {
 "^(اوامر التسلية)$",
 "^(الساوند)$",
 "^(الساوند كلاود)$",
+"^(يوتيوب!) (.+)$",
+"^(ساوند؟) (.+)$",
+"^(يوتيوب؟) (.+)$",
 "^(اليوتيوب)$", 
 "^(/store)$", 
 "^(/files)$", 
