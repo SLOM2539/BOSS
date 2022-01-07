@@ -7788,7 +7788,7 @@ end
 --=============================================================================================================================
 if msg.SudoUser and msg.text and redis:get(boss..'addrdRandom1Public:'..msg.chat_id_..msg.sender_user_id_) then 
 if not redis:get(boss..'replay1RandomPublic'..msg.chat_id_..msg.sender_user_id_) then  -- كلمه الرد
-if utf8.len(msg.text) > 500 then return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف اكثر من 500 حرف كلمة رد \n ") end
+if utf8.len(msg.text) > 500000 then return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف اكثر من 500000 حرف كلمة رد \n ") end
 redis:setex(boss..'addrdRandomPublic:'..msg.chat_id_..msg.sender_user_id_,1400,true) 
 redis:setex(boss..'replay1RandomPublic'..msg.chat_id_..msg.sender_user_id_,1400,msg.text)
 return sendMsg(msg.chat_id_,msg.id_,"• حلو , الحين ارسل جواب الرد العشوائي العام \n• ([ نص,صوره,فيديو,متحركه,بصمه,اغنيه ]) \n• مع العلم يمديك تضيف 10 ردود متعدده بس  \n  ")
@@ -7894,10 +7894,10 @@ return sendMsg(msg.chat_id_,msg.id_,su[math.random(#su)])
 elseif not msg.SudoUser and Text== Bot_Name and not Text2 then  
 return sendMsg(msg.chat_id_,msg.id_,ss97[math.random(#ss97)])
 elseif Text:match("^قول (.*)$") then
-if utf8.len(Text:match("^قول (.*)$")) > 500 then 
-return sendMsg(msg.chat_id_,msg.id_,"• ما اقدر اقول اكثر من 500 حرف ")
+if utf8.len(Text:match("^قول (.*)$")) > 500000 then 
+return sendMsg(msg.chat_id_,msg.id_,"• ما اقدر اقول اكثر من 500000 حرف ")
 end
-local callback_Text = FlterName(Text:match("^قول (.*)$"),500)
+local callback_Text = FlterName(Text:match("^قول (.*)$"),500000)
 if callback_Text and callback_Text == 'الاسم سبام ' then
 return sendMsg(msg.chat_id_,msg.id_,"• للاسف النص هذا مخالف ")
 else
@@ -7905,10 +7905,10 @@ return sendMsg(msg.chat_id_,0,callback_Text)
 end
 
 elseif Text:match("^قول (.*)$") then
-if utf8.len(Text:match("^قول (.*)$")) > 500 then 
-return sendMsg(msg.chat_id_,msg.id_,"• ما اقدر اقول اكثر من 500 حرف ")
+if utf8.len(Text:match("^قول (.*)$")) > 500000 then 
+return sendMsg(msg.chat_id_,msg.id_,"• ما اقدر اقول اكثر من 500000 حرف ")
 end
-local callback_Text = FlterName(Text:match("^قولي (.*)$"),500)
+local callback_Text = FlterName(Text:match("^قولي (.*)$"),500000)
 if callback_Text and callback_Text == 'الاسم سبام ' then
 return sendMsg(msg.chat_id_,msg.id_,"• للاسف النص هذا مخالف ")
 else
