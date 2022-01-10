@@ -790,6 +790,7 @@ Text = [[
 *❨ اوامر التفعيل والتعطيل ❩*
 
 ⌯ تفعيل ↣ ↢ تعطيل الترحيب 
+⌯ تفعيل ↣ ↢ تعطيل الاشتراك
 ⌯ تفعيل ↣ ↢ تعطيل الردود 
 ⌯ تفعيل ↣ ↢ تعطيل التحذير 
 ⌯ تفعيل ↣ ↢ تعطيل الايدي
@@ -803,8 +804,6 @@ Text = [[
 ⌯ تفعيل ↣ ↢ تعطيل ردود المطور 
 ⌯ تفعيل ↣ ↢ تعطيل التنظيف التلقائي
 ⌯ تفعيل ↣ ↢ تعطيل البايو 
-⌯ تفعيل ↣ ↢ تعطيل انطقي 
-⌯ تفعيل ↣ ↢ تعطيل الترجمة 
 ⌯ تفعيل ↣ ↢ الردود العشوائيه 
 
 ]]
@@ -944,65 +943,6 @@ Refresh_Start = true
 end)
 end
 
-if DataText and DataText:match('(.*)/help1') then
-local Teext =[[
-اضغط الزر لتغيير الافتار
-]]
-ban = math.random(55, 211); 
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'افتار آخر', callback_data=data.sender_user_id_.."/help1"},
-},
-}
-delete_msg(Chat_Id2, {[0] = MsgId2})  
-https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. Chat_Id2 .. '&photo=https://t.me/avta1/'..ban..'&caption=' .. URL.escape(Teext).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-if DataText and DataText:match('(.*)/help2') then
-local Teext =[[
-اضغط الزر لتغيير الافتار
-]]
-ban = math.random(2, 250); 
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'افتار آخر', callback_data=data.sender_user_id_.."/help2"},
-},
-}
-delete_msg(Chat_Id2, {[0] = MsgId2}) 
-https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. Chat_Id2 .. '&photo=https://t.me/iiz20k/'..ban..'&caption=' .. URL.escape(Teext).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-
-if DataText and DataText:match('(.*)/help3') then 
-local Teext =[[ 
-اضغط الزر لتغير الرياكشن 
-]] 
-ban = math.random(2, 211);  
-keyboard = {}  
-keyboard.inline_keyboard = { 
-{ 
-{text = 'رياكشن اخر', callback_data=data.sender_user_id_.."/help3"}, 
-}, 
-} 
-delete_msg(Chat_Id2, {[0] = MsgId2})   
-https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. Chat_Id2 .. '&photo=https://t.me/gafffg/'..ban..'&caption=' .. URL.escape(Teext).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-end
-
-if DataText and DataText:match('(.*)/help4') then
-local Teext =[[
-اضغط الزر لتغيير الايدت
-]]
-ban = math.random(2, 116); 
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'ايدت آخر', callback_data=data.sender_user_id_.."/help4"},
-},
-}
-delete_msg(Chat_Id2, {[0] = MsgId2}) 
-https.request("https://api.telegram.org/bot"..Token..'/sendvideo?chat_id=' .. Chat_Id2 .. '&video=https://t.me/exddj/'..ban..'&caption=' .. URL.escape(Teext).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
 if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
 UpdateSource(msg)
 sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
