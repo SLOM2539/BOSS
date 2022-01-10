@@ -1914,6 +1914,60 @@ end
 
 
 
+if text == "اطربني"  or text == "طرب" then
+if is_JoinChannel(msg) == false then
+return false
+end
+if not redis:get(boss.."knele"..msg.chat_id_) then
+data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='• تم اختيار المقطع الصوتي لك'
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
+end
+end
+end
+end
+
+if msg.text and msg.text:match("^انطق (.*)$") and not redis:get(boss..'intg'..msg.chat_id_)   then
+if is_JoinChannel(msg) == false then
+return false
+end
+local UrlAntk = https.request('https://apiabs.ml/Antk.php?abs='..URL.escape(msg.text:match("^انطق (.*)$")))
+Antk = JSON.decode(UrlAntk)
+if UrlAntk.ok ~= false then
+uuu = download("https://translate"..Antk.result.google..Antk.result.code.."UTF-8"..Antk.result.utf..Antk.result.translate.."&tl=ar-IN",'./'..Antk.result.translate..'.mp3') 
+
+sendAudio(msg.chat_id_,msg.id_,uuu)  
+os.execute('rm -rf ./'..Antk.result.translate..'.mp3') 
+end
+end
+
+ 
+if msg.text == "نسبه الحب" or msg.text == "نسبه حب" and msg.reply_to_message_id_ ~= 0 then
+if is_JoinChannel(msg) == false then
+return false
+end
+if not redis:get(mero.."amrthshesh"..msg.chat_id_) then    
+redis:set(boss..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_,"sendlove")
+hggg = '•الان ارسل اسمك واسم الشخص الثاني :'
+sendMsg(msg.chat_id_, msg.id_,hggg) 
+return false
+end
+end
+
+if redis:get(boss..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
+num = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
+sendnum = num[math.random(#num)]
+local tttttt = '• اليك النتائج الخـاصة :\n\n• نسبة الحب بيـن : *'..msg.text..'* '..sendnum..'%'
+sendMsg(msg.chat_id_, msg.id_,tttttt) 
+redis:del(boss..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_)
+end
+
+
+
 if MsgText[1] == "تثبيت" and msg.reply_id then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 local GroupID = msg.chat_id_:gsub('-100','')
@@ -8273,6 +8327,10 @@ Boss = {
 "^(وضع الترحيب)$",
 "^(الترحيب)$",
 "^(المحظورين)$",
+"^(اطربني)$",
+"^(طرب)$",
+"^(^انطق (.*)$)$",
+"^(نسبه الحب")$",
 "^(وضع اسم)$",
 "^(وضع صوره)$",
 "^(وضع وصف)$",
