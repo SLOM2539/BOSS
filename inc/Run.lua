@@ -279,22 +279,6 @@ if msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486 then
 msg.TheRankCmd = 'الهكر فواز'
 msg.TheRank = 'الهكر فواز'
 msg.Rank = 1
-elseif msg.sender_user_id_ == 1480243587 then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Mamy' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Mamy' 
-msg.Rank = 1
-elseif msg.sender_user_id_ == 1315534088 then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'محبوب الملايين' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'محبوب الملايين' 
-msg.Rank = 1
-elseif msg.sender_user_id_ == 1708794044 then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'دادي طارق' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'دادي طارق' 
-msg.Rank = 1
-elseif msg.sender_user_id_ == 39809485 then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'المطور الاساسي' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Master' 
-msg.Rank = 1
 elseif msg.sender_user_id_ == SUDO_ID then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'المطور الاساسي' 
 msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Master' 
