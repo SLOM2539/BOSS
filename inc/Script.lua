@@ -6126,8 +6126,8 @@ return false
 end
 
 local CountRdod = redis:scard(boss..':ReplayRandom:'..klma) or 1
-local CountRdod2 = 10 - tonumber(CountRdod)
-local CountRdod = 9 - tonumber(CountRdod)
+local CountRdod2 = 1000 - tonumber(CountRdod)
+local CountRdod = 999 - tonumber(CountRdod)
 if CountRdod2 == 0 then 
 redis:del(boss..'addrdRandom1Public:'..msg.chat_id_..msg.sender_user_id_)
 redis:del(boss..'addrdRandomPublic:'..msg.chat_id_..msg.sender_user_id_)
@@ -6200,8 +6200,8 @@ return false
 end
 
 local CountRdod = redis:scard(boss..':ReplayRandom:'..msg.chat_id_..":"..klma) or 1
-local CountRdod2 = 10 - tonumber(CountRdod)
-local CountRdod = 9 - tonumber(CountRdod)
+local CountRdod2 = 1000 - tonumber(CountRdod)
+local CountRdod = 999 - tonumber(CountRdod)
 if CountRdod2 == 0 then 
 redis:del(boss..'addrdRandom1:'..msg.chat_id_..msg.sender_user_id_)
 redis:del(boss..'addrdRandom:'..msg.chat_id_..msg.sender_user_id_)
@@ -6887,7 +6887,7 @@ return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف ا�
 end
 redis:setex(boss..'addrdRandom:'..msg.chat_id_..msg.sender_user_id_,1400,true) 
 redis:setex(boss..'replay1Random'..msg.chat_id_..msg.sender_user_id_,1400,msg.text)
-return sendMsg(msg.chat_id_,msg.id_,"• تمام , يمديك الحين ترسل جواب الرد العشوائي العام \n• ([ نص,صوره,فيديو,متحركه,بصمه,اغنيه ]) \n• يمديك تضيف 10 ردود عشوائية بس  \n  ")
+return sendMsg(msg.chat_id_,msg.id_,"• تمام , يمديك الحين ترسل جواب الرد العشوائي العام \n• ([ نص,صوره,فيديو,متحركه,بصمه,اغنيه ]) \n• يمديك تضيف 1000 ردود عشوائية بس  \n  ")
 end
 end
 
@@ -7845,7 +7845,7 @@ if not redis:get(boss..'replay1RandomPublic'..msg.chat_id_..msg.sender_user_id_)
 if utf8.len(msg.text) > 500 then return sendMsg(msg.chat_id_,msg.id_,"• معليش مو مسموح تضيف اكثر من 500 حرف كلمة رد \n ") end
 redis:setex(boss..'addrdRandomPublic:'..msg.chat_id_..msg.sender_user_id_,1400,true) 
 redis:setex(boss..'replay1RandomPublic'..msg.chat_id_..msg.sender_user_id_,1400,msg.text)
-return sendMsg(msg.chat_id_,msg.id_,"• حلو , الحين ارسل جواب الرد العشوائي العام \n• ([ نص,صوره,فيديو,متحركه,بصمه,اغنيه ]) \n• مع العلم يمديك تضيف 10 ردود متعدده بس  \n  ")
+return sendMsg(msg.chat_id_,msg.id_,"• حلو , الحين ارسل جواب الرد العشوائي العام \n• ([ نص,صوره,فيديو,متحركه,بصمه,اغنيه ]) \n• مع العلم يمديك تضيف 1000 ردود متعدده بس  \n  ")
 end
 end
 
