@@ -1914,56 +1914,60 @@ end
 
 
 
-if text == "اطربني"  or text == "طرب" then
-if is_JoinChannel(msg) == false then
-return false
+if msg.text and msg.text:match('@all (.*)')  then
+if not msg.Admin then return "• هذا الامر يخص { الادمن,المدير,المالك,المطور } فقط \n" end 
+tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa)   
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_},function(ta,datate)  
+x = 0  
+tags = 0  
+local list = datate.members_   
+for k, v in pairs(list) do
+tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
+if x == 10 or x == tags or k == 0 then
+tags = x + 10
+t = ""
 end
-if not redis:get(boss.."knele"..msg.chat_id_) then
-data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
-if res == 200 then
-audios = json:decode(data)
-if audios.Info == true then
-local Text ='• تم اختيار المقطع الصوتي لك'
+x = x + 1
+tagname = data.first_name_
+tagname = tagname:gsub("]","")
+tagname = tagname:gsub("[[]","")
+t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
+if x == 10 or x == tags or k == 0 then
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..Token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")
+https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(msg.text:match('@all (.*)')..'\n'..t).."&parse_mode=Markdown&reply_to_message_id="..msg_id)
+end  
+end,nil)  
+end  
+end,nil)  
+end,nil)  
 end
-end
-end
-end
-
-if msg.text and msg.text:match("^انطق (.*)$") and not redis:get(boss..'intg'..msg.chat_id_)   then
-if is_JoinChannel(msg) == false then
-return false
-end
-local UrlAntk = https.request('https://apiabs.ml/Antk.php?abs='..URL.escape(msg.text:match("^انطق (.*)$")))
-Antk = JSON.decode(UrlAntk)
-if UrlAntk.ok ~= false then
-uuu = download("https://translate"..Antk.result.google..Antk.result.code.."UTF-8"..Antk.result.utf..Antk.result.translate.."&tl=ar-IN",'./'..Antk.result.translate..'.mp3') 
-
-sendAudio(msg.chat_id_,msg.id_,uuu)  
-os.execute('rm -rf ./'..Antk.result.translate..'.mp3') 
-end
-end
-
- 
-if msg.text == "نسبه الحب" or msg.text == "نسبه حب" and msg.reply_to_message_id_ ~= 0 then
-if is_JoinChannel(msg) == false then
-return false
-end
-if not redis:get(mero.."amrthshesh"..msg.chat_id_) then    
-redis:set(boss..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_,"sendlove")
-hggg = '•الان ارسل اسمك واسم الشخص الثاني :'
-sendMsg(msg.chat_id_, msg.id_,hggg) 
-return false
-end
-end
-
-if redis:get(boss..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_) == "sendlove" then
-num = {"😂 10","🤤 20","😢 30","😔 35","😒 75","🤩 34","😗 66","🤐 82","😪 23","😫 19","😛 55","😜 80","😲 63","😓 32","🙂 27","😎 89","😋 99","😁 98","😀 79","🤣 100","😣 8","🙄 3","😕 6","🤯 0",};
-sendnum = num[math.random(#num)]
-local tttttt = '• اليك النتائج الخـاصة :\n\n• نسبة الحب بيـن : *'..msg.text..'* '..sendnum..'%'
-sendMsg(msg.chat_id_, msg.id_,tttttt) 
-redis:del(boss..":"..msg.sender_user_id_..":lov_Bots"..msg.chat_id_)
+ if MsgText[1] == "@all" then  
+if not msg.Admin then return "• هذا الامر يخص { الادمن,المدير,المالك,المطور } فقط \n" end 
+tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa)   
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_},function(ta,datate)  
+x = 0  
+tags = 0  
+local list = datate.members_   
+for k, v in pairs(list) do  
+tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)  
+if x == 5 or x == tags or k == 0 then  
+tags = x + 5  
+t = "#all"  
+end  
+x = x + 1  
+tagname = data.first_name_  
+tagname = tagname:gsub("]","")  
+tagname = tagname:gsub("[[]","")  
+t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"  
+if x == 5 or x == tags or k == 0 then  
+local Text = t:gsub(',','\n')  
+local msg_id = msg.id_/2097152/0.5  
+https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown")  
+end  
+end,nil)  
+end  
+end,nil)  
+end,nil)  
 end
 
 
@@ -7936,7 +7940,7 @@ local sb = {
 }
 
 local bb = {
-"عندي اسم يالهطف","انطم","مو بوته!","اذلف","تراها زاقه","الله يعين","انا عمك مو بوت","ياصبر الارض","هاه","ماتشوف اسمي؟","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
+"عندي اسم يالهطف","انطم","مو بوت!","اذلف","تراها زاقه","الله يعين","انا عمك مو بوت","ياصبر الارض","هاه","ماتشوف اسمي؟","؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟؟","تراك ازعجتنا","الله يصبرني",
 }
 
 
@@ -8330,9 +8334,8 @@ Boss = {
 "^(وضع اسم)$",
 "^(وضع صوره)$",
 "^(وضع وصف)$",
-"^(اطربني)$",
-"^(نسبه الحب)$",
-"^(^انطق (.*)$)$",
+"^(@all)$",
+"^(@all (.*))$",
 "^(طرد البوتات)$",
 "^(كشف البوتات)$",
 "^(طرد المحذوفين)$",
