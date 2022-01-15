@@ -598,6 +598,60 @@ if MsgText[1] == 'كلمات' or MsgText[1] == 'كلمات' then
   return 'اسرع شخص يكتب (* '..name..' *)'
   end
 
+if MsgText[1] == 'حذف موسيقى' then
+if not msg.SudoUser then return "• هذا الامر يخص {المطور} فقط  \n༄" end
+function FunctionStatus(arg, data)
+redis:del(boss..'Text:Games:audio'..data.content_.audio_.audio_.persistent_id_)  
+redis:srem(boss.."audio:Games:Bot",data.content_.audio_.audio_.persistent_id_)  
+sendMsg(msg.chat_id_, msg.id_,'❈*│* تم حذف الموسيقى وحذف الجواب .')
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunctionStatus, nil)
+return false
+end
+if MsgText[1]== 'اضف موسيقى' then
+if not msg.SudoUser then return "• هذا الامر يخص {المطور} فقط  \n༄" end
+redis:set(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_,'start')
+sendMsg(msg.chat_id_, msg.id_,'❈*│* ارسل الموسيقى الان ...')
+return false
+end
+if MsgText[1]== ("قائمه الموسيقى") then
+if not msg.SudoUser then return "• هذا الامر يخص {المطور} فقط  \n༄" end
+local list = redis:smembers(boss.."audio:Games:Bot")
+if #list == 0 then
+sendMsg(msg.chat_id_, msg.id_, "• لا يوجد اسئله")
+return false
+end
+for k,v in pairs(list) do
+sendAudio(msg.chat_id_,msg.id_,v,"")
+end
+end
+if MsgText[1]== ("مسح قائمه الموسيقى") then
+if not msg.SudoUser then return "• هذا الامر يخص {المطور} فقط  \n༄" end
+local list = redis:smembers(boss.."audio:Games:Bot")
+if #list == 0 then
+sendMsg(msg.chat_id_, msg.id_, "• لا يوجد اسئله")
+return false
+end
+for k,v in pairs(list) do
+redis:del(boss..'Text:Games:audio'..v)  
+redis:srem(boss.."audio:Games:Bot",v)  
+end
+sendMsg(msg.chat_id_, msg.id_, "• تم حذف جميع الاسئله")
+end
+if MsgText[1]== 'موسيقى' then
+local list = redis:smembers(boss.."audio:Games:Bot")
+if #list == 0 then
+sendMsg(msg.chat_id_, msg.id_, "• لا يوجد اسئله")
+return false
+end
+local quschen = list[math.random(#list)]
+local GetAnswer = redis:get(boss..'Text:Games:audio'..quschen)
+print(GetAnswer)
+redis:set(boss..'Games:Set:Answer'..msg.chat_id_,GetAnswer)
+sendAudio(msg.chat_id_,msg.id_,quschen,"")
+return false
+end
+
 if MsgText[1] == 'انقليزي' or MsgText[1] == 'الانقليزي' then
   katu = {
   'افتح','باب','الافضل','جدار','طيران','ورده','جيد','سيء','اريد','غريب','خطير','يهتم','حفظ','تحرك','ربما','ثقة','حقيقه','صندوق','يد','شجاع','هادئ','حذر','مرح','ذكي','جبان','مجنون','عاطفي','ودود','مضحك','كريم','صادق','غير صبور','غير مهذب','حنون','كسول','حقير','مريض',
@@ -673,7 +727,7 @@ if MsgText[1] == 'اسم مغني' or MsgText[1] == 'اسم المغني' then
 
 if MsgText[1] == 'عربي' then
   katu = {
-  'ضغوط','فحص','فواكه','مرحله','شوارع','مسجد','حدائق','مشكلة','هاتف','منازل','مدرسة','مناطق','عصر',
+  'ضغوط','فحص','فواكه','مرحلة','شوارع','مسجد','حدائق','مشكلة','هاتف','منازل','مدرسة','مناطق','عصر',
   };
   name = katu[math.random(#katu)]
   redis:set(boss..':Set_zxz:'..msg.chat_id_,name)
@@ -1332,43 +1386,67 @@ return Text
 end
 if MsgText[1] == 'قائمه الالعاب' then
 sendMsg(msg.chat_id_,msg.id_,[[
-  *العاب البوت* 🏌🏻‍♂️   
-⇠  لتفعيل الالعاب او تعطيلها ارسل
-⇠  تفعـيل ⇠ تعطيل ⇠ الالعاب
+• تفعيل الالعاب
+• تعطيل الالعاب
 ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ
-• امثله ⇠ لعبه امثله قديمه
-• معاني ⇠ لعبه معاني لسمايلات 
-•اسئله ⇠ لعبه اسئله عامه
-• روليت ⇠ لعبه الروليت الشهيره
-• حزوره ⇠ لعبه الحزورات
-• ترتيب ⇠ لعبه ترتيب الكلمات
-• العكس ⇠ لعبه عكس الكلمه
-• تخمين ⇠ لعبه تخمين الكلمه 
-• الاسرع ⇠ لعبه اسرع واحد 
-• كت تويت ⇠ لعبه التسليه 
-• انقليزي ⇠ لعبه ترجمة انقليزي
-• تفكيك ⇠ لعبه تفكيك الكلمات
-• تركيب ⇠ لعبه تركيب الكلمات
-• رياضيات ⇠ لعبة الرياضيات
-• محيبس ⇠ لعبه محيبس الشهيره
-• كلمات ⇠ لعبة اسرع شخص
-• اغاني الطفوله ⇠ لعبة اغاني كرتون قديمة
-• دين ⇠ لعبه اسئله دينيه
-• علم الدول ⇠ لعبه اعلام دول
-• عواصم ⇠ لعبة عواصم دول
-• اسم مغني ⇠ لعبه معرفه اسماء المغنيين
-• عربي ⇠ لعبه تطلع المفرد والجمع
-• المختلف ⇠ لعبه اختلاف لسمايل
+• امثله 
+• معاني 
+• اسئله 
+• روليت 
+• حزوره 
+• ترتيب 
+• العكس 
+• تخمين 
+• الاسرع 
+• كت تويت 
+• انقليزي 
+• تفكيك 
+• تركيب 
+• رياضيات 
+• محيبس
+• كلمات 
+• اغاني الطفوله
+• دين
+• علم الدول
+• عواصم 
+• اسم مغني
+• عربي
+• المختلف
 ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ
-  ⇠ مجوهراتي ⇠ عشان تشوف عدد مجوهراتك 
-⇠ بيع مجوهراتي + العدد للأستبدال -
-
+• مجوهراتي ( عشان تبين عدد مجوهراتك )
+• بيع مجوهراتي + العدد ( لبيع عدد من مجوهراتك )
 ]])
 end
 end
 end
 end
 local function procces(msg)
+if redis:get(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_) == 'start' then
+if msg.content_.audio_ then  
+redis:set(boss.."audio:Games"..msg.sender_user_id_..":"..msg.chat_id_,msg.content_.audio_.audio_.persistent_id_)  
+redis:sadd(boss.."audio:Games:Bot",msg.content_.audio_.audio_.persistent_id_)  
+redis:set(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_,'started')
+sendMsg(msg.chat_id_, msg.id_,'• ارسل الجواب الان ...')
+return false
+end   
+end
+if redis:get(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_) == 'started' then
+local Id_audio = redis:get(boss.."audio:Games"..msg.sender_user_id_..":"..msg.chat_id_)
+redis:set(boss..'Text:Games:audio'..Id_audio,msg.text)
+redis:del(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_)
+sendMsg(msg.chat_id_, msg.id_,'• تم حفظ السؤال وتم حفظ الجواب بنجاح ')
+return false
+end
+if redis:get(boss..'Games:Set:Answer'..msg.chat_id_) then
+if msg.text == ""..(redis:get(boss..'Games:Set:Answer'..msg.chat_id_)).."" then 
+redis:del(boss.."Games:Set:Answer"..msg.chat_id_)
+sendMsg(msg.chat_id_,msg.id_,'*• الف مبروك اجابتك صحيحه تم اضافه لك 5 نقاط*')
+redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,5)  
+redis:del(boss.."Games:Set:Answer"..msg.chat_id_)
+return false
+end
+end
+
 if msg.text and not redis:get(boss..'lock_geams'..msg.chat_id_) then
 if msg.text == redis:get(boss..':Set_alii:'..msg.chat_id_) then -- // المختلف
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
@@ -1631,6 +1709,11 @@ Boss = {
 "^(عكس)$",
 "^(العكس)$", 
 "^(العكسس)$", 
+"^(حذف موسيقى)$",
+"^(اضف موسيقى)$", 
+"^(قائمه الموسيقى)$", 
+"^(مسح قائمه الموسيقى)$",
+"^(موسيقى)$", 
 "^(بيع مجوهراتي) (%d+)$",
 "^(اضف رسائل) (%d+)$",
 "^(اضف مجوهرات) (%d+)$",
