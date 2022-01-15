@@ -825,25 +825,6 @@ name = string.gsub(name,'511','500+11')
 name = string.gsub(name,'509','500+9')
 return 'اجـب على المسئله الحسابيه التالية ↤ (* '..name..' *)'
 end
-if MsgText[1] == 'عربي' then
-katu = {
-'ضغوط','فحص','فواكه','مرحلة','شوارع','مسجد','حدائق','مشكلة','هاتف','منازل','مدرسة',
-};
-name = katu[math.random(#katu)]
-redis:set(boss..':Set_zxz:'..msg.chat_id_,name)
-name = string.gsub(name,'ضغوط','• ماهو جمع ⇠ ( ضغط )')
-name = string.gsub(name,'فحص','• ماهو مفرد ⇠ ( فحوص )')
-name = string.gsub(name,'فواكه','• ماهو جمع ⇠ ( فاكهة )')
-name = string.gsub(name,'مرحلة','• ماهو مفرد ⇠ ( مراحل )')
-name = string.gsub(name,'شوارع','• ماهو جمع ⇠ ( شارع )')
-name = string.gsub(name,'مسجد','• ماهو مفرد ⇠ ( مساجد )')
-name = string.gsub(name,'حدائق','• ماهو جمع ⇠ ( حديقة )')
-name = string.gsub(name,'مشكلة','• ماهو مفرد ⇠ ( مشاكل )')
-name = string.gsub(name,'هاتف','• ماهو مفرد ⇠ ( هواتف )')
-name = string.gsub(name,'منازل','• ماهو جمع ⇠ ( منزل )')
-name = string.gsub(name,'مدرسة','• ماهو مفرد ⇠ ( مدارس )')
-return '(* '..name..' *)'
-end
 
 if MsgText[1] == 'محيبس' then
 Num = math.random(1,6)
