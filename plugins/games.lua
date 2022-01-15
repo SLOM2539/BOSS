@@ -4,35 +4,35 @@
 local function games(msg,MsgText)
 if msg.type ~= "pv" then
 if MsgText[1] == "تفعيل" and MsgText[2] == "الالعاب" or MsgText[2] == "اللعبه" or MsgText[2] == "اللعبة" then
-if not msg.Admin then return "- هذا الامر يخص ( الادمن,المدير,المالك,المطور) بس" end
+if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور) بس" end
 if not redis:get(boss..'lock_geams'..msg.chat_id_) then 
-return "⇠ اهلين عزيزي "..msg.TheRankCmd.."\n⇠ الالعاب مفتوح من قبل\n" 
+return "• اهلين عزيزي "..msg.TheRankCmd.."\n• الالعاب مفتوح من قبل\n" 
 else 
 redis:del(boss..'lock_geams'..msg.chat_id_) 
-return "⇠ اهلين عزيزي "..msg.TheRankCmd.."\n⇠ ابشر فتحت الالعاب \n" 
+return "• اهلين عزيزي "..msg.TheRankCmd.."\n⇠ ابشر فتحت الالعاب \n" 
 end 
 end
 if MsgText[1] == "تعطيل" and MsgText[2] == "الالعاب" or MsgText[2] == "اللعبه" or MsgText[2] == "اللعبة" then
-if not msg.Admin then return "- هذا الامر يخص ( الادمن,المدير,المالك,المطور) بس" end
+if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور) بس" end
 if redis:get(boss..'lock_geams'..msg.chat_id_) then 
-return "⇠ اهلين عزيزي "..msg.TheRankCmd.."\n⇠ الالعاب معطله من قبل\n" 
+return "• اهلين عزيزي "..msg.TheRankCmd.."\n• الالعاب معطله من قبل\n" 
 else
 redis:set(boss..'lock_geams'..msg.chat_id_,true)  
-return "⇠ اهلين عزيزي "..msg.TheRankCmd.."\n⇠ ابشر تم تعطيل الالعاب\n" 
+return "• اهلين عزيزي "..msg.TheRankCmd.."\n• ابشر تم تعطيل الالعاب\n" 
 end   
 end
 if MsgText[1] == "اضف رسائل" and msg.reply_to_message_id_ == 0 then       
 if not msg.Creator then 
-return "- هذا الامر يخص (المالك,المطور) بس" 
+return "• هذا الامر يخص (المالك,المطور) بس" 
 end 
 local ID_USER = MsgText[2]
 redis:set(boss..'SET:ID:USER'..msg.chat_id_,ID_USER)  
 redis:setex(boss.."SETEX:MSG"..msg.chat_id_..""..msg.sender_user_id_,500,true)  
-sendMsg(msg.chat_id_,msg.id_,'*⇜ ارسل لي عدد الرسائل اللي تبيها*')
+sendMsg(msg.chat_id_,msg.id_,'*• ارسل لي عدد الرسائل اللي تبيها*')
 end
 if MsgText[1] == "اضف مجوهرات" and msg.reply_to_message_id_ == 0 then       
 if not msg.Creator then 
-return "- هذا الامر يخص (المالك,المطور) بس" 
+return "• هذا الامر يخص (المالك,المطور) بس" 
 end 
 local ID_USER = MsgText[2]
 redis:set(boss..'SET:ID:USER:NUM'..msg.chat_id_,ID_USER)  
@@ -1319,36 +1319,36 @@ end
 end
 if MsgText[1] == "الالعاب" or MsgText[1] == "اللعبه" or MsgText[1] == "اللعبة" then
 return [[ 
-⤶  العاب []]..redis:get(boss..':NameBot:')..[[]  🏌🏻‍♂️ 
-⇠  لتفعيل الالعاب او تعطيلها ارسل
-⇠  تفعـيل ⇠ تعطيل ⇠ الالعاب
+• تفعيل الالعاب
+• تعطيل الالعاب
 ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ
-• امثله ⇠ لعبه امثله قديمه
-• معاني ⇠ لعبه معاني لسمايلات 
-•اسئله ⇠ لعبه اسئله عامه
-• روليت ⇠ لعبه الروليت الشهيره
-• حزوره ⇠ لعبه الحزورات
-• ترتيب ⇠ لعبه ترتيب الكلمات
-• العكس ⇠ لعبه عكس الكلمه
-• تخمين ⇠ لعبه تخمين الكلمه 
-• الاسرع ⇠ لعبه اسرع واحد 
-• كت تويت ⇠ لعبه التسليه 
-• انقليزي ⇠ لعبه ترجمة انقليزي
-• تفكيك ⇠ لعبه تفكيك الكلمات
-• تركيب ⇠ لعبه تركيب الكلمات
-• رياضيات ⇠ لعبة الرياضيات
-• محيبس ⇠ لعبه محيبس الشهيره
-• كلمات ⇠ لعبة اسرع شخص
-• اغاني الطفوله ⇠ لعبة اغاني كرتون قديمة 
-• دين ⇠ لعبه اسئله دينيه
-• علم الدول ⇠ لعبه اعلام دول
-• عواصم ⇠ لعبة عواصم دول
-• اسم مغني ⇠ لعبه معرفه اسماء المغنيين
-• عربي ⇠ لعبه تطلع المفرد والجمع
-• المختلف ⇠ لعبه اختلاف لسمايل
+• امثله 
+• معاني 
+• اسئله 
+• روليت 
+• حزوره 
+• ترتيب 
+• العكس 
+• تخمين 
+• الاسرع 
+• كت تويت 
+• انقليزي 
+• تفكيك 
+• تركيب 
+• رياضيات 
+• محيبس
+• كلمات 
+• اغاني الطفوله
+• دين
+• علم الدول
+• عواصم 
+• اسم مغني
+• عربي
+• المختلف
+• موسيقى
 ꔹ┉ ┉ ┉ ┉ ┉ ┉ ┉ꔹ
-  ⇠ مجوهراتي ⇠ عشان تشوف عدد مجوهراتك 
-⇠ بيع مجوهراتي + العدد للأستبدال ⇺
+• مجوهراتي ( عشان تبين عدد مجوهراتك )
+• بيع مجوهراتي + العدد ( لبيع عدد من مجوهراتك )
 
 ]]
 end
@@ -1361,9 +1361,9 @@ end
 if MsgText[1] == 'نعم' and redis:get(boss..":Witting_StartGame:"..msg.chat_id_..msg.sender_user_id_) then
 local list = redis:smembers(boss..':List_Rolet:'..msg.chat_id_) 
 if #list == 1 then 
-return "⇠لم يكتمل العدد الكلي للاعبين .!؟" 
+return "لم يكتمل العدد الكلي للاعبين .!؟" 
 elseif #list == 0 then 
-return "⇠عذرا لم تقوم باضافه اي لاعب .؟!" 
+return "عذرا لم تقوم باضافه اي لاعب .؟!" 
 end 
 local UserName = list[math.random(#list)]
 GetUserName(UserName,function(arg,data)
@@ -1371,7 +1371,7 @@ redis:incrby(boss..':User_Points:'..msg.chat_id_..data.id_,5)
 end,nil)
 redis:del(boss..':List_Rolet:'..msg.chat_id_) 
 redis:del(boss..":Witting_StartGame:"..msg.chat_id_..msg.sender_user_id_)
-return '⇠ واخترنا صاحب الحظ هذا\n- المحظوظ (['..UserName..'])\n- فزت معنا ب 5 مجوهرات' 
+return '• واخترنا صاحب الحظ هذا\n• المحظوظ (['..UserName..'])\n• فزت معنا ب 5 مجوهرات' 
 end
 if MsgText[1] == 'الاعبين' then
 local list = redis:smembers(boss..':List_Rolet:'..msg.chat_id_) 
@@ -1577,7 +1577,7 @@ end
 if redis:get(boss.."SETEX:MSG"..msg.chat_id_..""..msg.sender_user_id_) then 
 if msg.text:match("^(%d+)$") then
 if tonumber(msg.text:match("^(%d+)$")) > 99999999990 then
-sendMsg(msg.chat_id_,msg.id_,"*⇠ مايمديك تضيف اكثر من 99999999990 رساله\n*")
+sendMsg(msg.chat_id_,msg.id_,"*• مايمديك تضيف اكثر من 99999999990 رساله\n*")
 redis:del(boss.."SETEX:MSG"..msg.chat_id_..""..msg.sender_user_id_)  
 return false  end 
 local GET_IDUSER = redis:get(boss..'SET:ID:USER'..msg.chat_id_)  
@@ -1589,11 +1589,11 @@ end
 if redis:get(boss.."SETEX:NUM"..msg.chat_id_..""..msg.sender_user_id_) then 
 if msg.text:match("^(%d+)$") then
 if tonumber(msg.text:match("^(%d+)$")) > 99999999990 then
-sendMsg(msg.chat_id_,msg.id_,"*⇠ مايمديك تضيف اكثر من 99999999990 مجوهره\n*")   
+sendMsg(msg.chat_id_,msg.id_,"*• مايمديك تضيف اكثر من 99999999990 مجوهره\n*")   
 redis:del(boss.."SETEX:NUM"..msg.chat_id_..""..msg.sender_user_id_)  
 return false  end 
 local GET_IDUSER = redis:get(boss..'SET:ID:USER:NUM'..msg.chat_id_)  
-sendMsg(msg.chat_id_,msg.id_,"\n⇠ تم اضفت له ( "..msg.text.." ) مجوهرات")
+sendMsg(msg.chat_id_,msg.id_,"\n• تم اضفت له ( "..msg.text.." ) مجوهرات")
 redis:incrby(boss..':User_Points:'..msg.chat_id_..GET_IDUSER,msg.text)  
 end
 redis:del(boss.."SETEX:NUM"..msg.chat_id_..""..msg.sender_user_id_)  
@@ -1602,16 +1602,16 @@ if redis:get(boss.."SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then
 if msg.text:match("^(%d+)$") then
 local NUM = msg.text:match("^(%d+)$")
 if tonumber(NUM) > 6 then
-sendMsg(msg.chat_id_,msg.id_,"*⇠ عذرا مافيه الى ( 6 ) اختيارات بس ارسل اختيارك مره ثانية*\n")   
+sendMsg(msg.chat_id_,msg.id_,"*• عذرا مافيه الى ( 6 ) اختيارات بس ارسل اختيارك مره ثانية*\n")   
 return false  end 
 local GETNUM = redis:get(boss.."GAMES"..msg.chat_id_)
 if tonumber(NUM) == tonumber(GETNUM) then
 redis:del(boss.."SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-sendMsg(msg.chat_id_,msg.id_,'* ⇠مبروك فزت وطلعت المحيبس في اليد رقم ( '..NUM..' )\n⇠لقد حصلت على ( 3 )من مجوهرات يمكنك استبدالهن برسائل *')   
+sendMsg(msg.chat_id_,msg.id_,'* • مبروك فزت وطلعت المحيبس في اليد رقم ( '..NUM..' )\n• لقد حصلت على ( 3 )من مجوهرات يمكنك استبدالهن برسائل *')   
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,3)  
 elseif tonumber(NUM) ~= tonumber(GETNUM) then
 redis:del(boss.."SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-sendMsg(msg.chat_id_,msg.id_,'\n*⇠ للاسف خسرت \n⇠ المحيبس في اليد رقم ( '..GETNUM..' )\n حاول مره ثانيه عشان تحصل المحيبس *')   
+sendMsg(msg.chat_id_,msg.id_,'\n*• للاسف خسرت \n⇠ المحيبس في اليد رقم ( '..GETNUM..' )\n حاول مره ثانيه عشان تحصل المحيبس *')   
 end
 end
 end
@@ -1656,22 +1656,22 @@ if redis:get(boss.."GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_) th
 if msg.text:match("^(%d+)$") then
 local NUM = msg.text:match("^(%d+)$")
 if tonumber(NUM) > 20 then
-sendMsg(msg.chat_id_,msg.id_,"*⇠ مايمديك تخمين عدد اكبر من ال ( 20 ) خمن رقم ما بين ال( 1 و 20 ) *\n")
+sendMsg(msg.chat_id_,msg.id_,"*• مايمديك تخمين عدد اكبر من ال ( 20 ) خمن رقم ما بين ال( 1 و 20 ) *\n")
 return false  end 
 local GETNUM = redis:get(boss.."GAMES:NUM"..msg.chat_id_)
 if tonumber(NUM) == tonumber(GETNUM) then
 redis:del(boss..'SADD:NUM'..msg.chat_id_..msg.sender_user_id_)
 redis:del(boss.."GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
 redis:incrby(boss..':User_Points:'..msg.chat_id_..data.id_,5)
-sendMsg(msg.chat_id_,msg.id_,'*⇠ كفو فزت معنا وخمنت الرقم صح تم اضفت لك ( 5 ) مجوهرات\n *\n')
+sendMsg(msg.chat_id_,msg.id_,'*• كفو فزت معنا وخمنت الرقم صح تم اضفت لك ( 5 ) مجوهرات\n *\n')
 elseif tonumber(NUM) ~= tonumber(GETNUM) then
 redis:incrby(boss..'SADD:NUM'..msg.chat_id_..msg.sender_user_id_,1)
 if tonumber(redis:get(boss..'SADD:NUM'..msg.chat_id_..msg.sender_user_id_)) >= 3 then
 redis:del(boss..'SADD:NUM'..msg.chat_id_..msg.sender_user_id_)
 redis:del(boss.."GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-sendMsg(msg.chat_id_,msg.id_,'\n*⇠ للاسف خسرت باللعبة \n⇠ موفق بالمرات الجايه \n⇠ كان الرقم اللي خمنته ( '..GETNUM..' )\n*')
+sendMsg(msg.chat_id_,msg.id_,'\n*• للاسف خسرت باللعبة \n• موفق بالمرات الجايه \n⇠ كان الرقم اللي خمنته ( '..GETNUM..' )\n*')
 else
-sendMsg(msg.chat_id_,msg.id_,'\n* ⇠  تخمينك غلط \n⇠ ارسل رقم تخمنه مره ثانيه \n*')
+sendMsg(msg.chat_id_,msg.id_,'\n* •  تخمينك غلط \n• ارسل رقم تخمنه مره ثانيه \n*')
 end
 end
 end
