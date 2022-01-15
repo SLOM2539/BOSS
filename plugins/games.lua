@@ -690,7 +690,7 @@ if MsgText[1] == 'عربي' then
   name = string.gsub(name,'مدرسة','• ماهو مفرد ⇠ ( مدارس )')
   name = string.gsub(name,'مناطق','• ماهو جمع ⇠ ( منطقة )')
   name = string.gsub(name,'عصر','• ماهو جمع ⇠ ( عصور )')
-  return '(* '..name..' *)'
+  return '* '..name..' *'
   end
 
 if MsgText[1] == 'حزوره' then
