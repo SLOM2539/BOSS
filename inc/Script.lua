@@ -1972,6 +1972,147 @@ end
 
 
 
+if MsgText[1] == "تعطيل الافلام" then 
+if not msg.Director then return "*•* هذا الامر يخص بس {المطور,المنشئ,المدير} " end
+sendMsg(msg.chat_id_, msg.id_, '• تم تعطيل الافلام') 
+redis:set(boss.."BLACKBOTSS:movie_bot"..msg.chat_id_,"close") 
+end 
+if MsgText[1] == "تفعيل الافلام" then 
+if not msg.Director then return "*•* هذا الامر يخص بس {المطور,المنشئ,المدير} " end
+sendMsg(msg.chat_id_, msg.id_,'• تم تفعيل الافلام') 
+redis:set(boss.."BLACKBOTSS:movie_bot"..msg.chat_id_,"open") 
+end 
+if MsgText[1] == 'فلم' and MsgText[2] and redis:get(boss.."BLACKBOTSS:movie_bot"..msg.chat_id_) == "open" then 
+data,res = https.request('https://forhassan.ml/Black/AWM.php?serch='..URL.escape(MsgText[2])..'') 
+if res == 200 then 
+getmo = json:decode(data) 
+if getmo.Info == true then 
+local Text ='قصه الفلم'..getmo.info 
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{{text = 'مشاهده الفلم بجوده 240',url=getmo.sd}}, 
+{{text = 'مشاهده الفلم بجوده 480', url=getmo.Web},{text = 'مشاهده الفلم بجوده 1080', url=getmo.hd}}, 
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..Token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end 
+end 
+end
+
+if (MsgText[1] == "فلم") then
+if MsgText[2] and MsgText[2]:match("^فلم (.*)$") then 
+data,res = https.request('https://forhassan.ml/Black/movie.php?serch='..URL.escape(MsgText[2])..'')
+if res == 200 then
+getmo = json:decode(data)
+if getmo.Info == true then
+local Text ='قصه الفلم'..getmo.info
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'مشاهده الفلم بجوده 240',url=getmo.sd}},
+{{text = 'مشاهده الفلم بجوده 480', url=getmo.Web},{text = 'مشاهده الفلم بجوده 1080', url=getmo.hd}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+end
+
+if text == 'مين ضافني' then
+if not redis:get(boss..'Added:Me'..msg.chat_id_) then
+tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
+if da and da.status_.ID == "ChatMemberStatusCreator" then
+send(msg.chat_id_, msg.id_,'• انت منشئ المجموعة ') 
+return false
+end
+local Added_Me = redis:get(boss.."Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
+if Added_Me then 
+tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
+local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+Text = '• الشخص اللي اضافك هو » '..Name
+sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
+end,nil)
+else
+send(msg.chat_id_, msg.id_,'• انت دخلت من الرابط') 
+end
+end,nil)
+else
+send(msg.chat_id_, msg.id_,'• امر مين ضافني تم تعطيله من المدراء ') 
+end
+end
+
+if text == "تفعيل ضافني" then   
+if redis:get(boss..'Added:Me'..msg.chat_id_) then
+sendMsg(msg.chat_id_,msg.id_,"*•* اهلين عيني "..msg.TheRankCmd.."\n*•* ابشر تم تفعيل امر مين ضافني\n༄")
+redis:del(boss..'Added:Me'..msg.chat_id_)  
+else
+sendMsg(msg.chat_id_,msg.id_,"*•* اهلين عيني "..msg.TheRankCmd.."\n*•* امر مين ضافني مفعل من قبل\n༄")
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل ضافني' then  
+if not redis:get(boss..'Added:Me'..msg.chat_id_) then
+redis:set(boss..'Added:Me'..msg.chat_id_,true)  
+sendMsg(msg.chat_id_,msg.id_,"*•* اهلين عيني "..msg.TheRankCmd.."\n*•* ابشر تم تعطيل امر مين ضافني\n༄")
+else
+sendMsg(msg.chat_id_,msg.id_,"*•* اهلين عيني "..msg.TheRankCmd.."\n*•* امر مين ضافني معطل من قبل\n༄")
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+
+if MsgText[1] == "صلاحياته" then 
+if not msg.Director then return "*•* هذا الامر يخص بس {المطور,المنشئ,المدير}" end
+if tonumber(msg.reply_to_message_id_) ~= 0 then 
+function prom_reply(extra, result, success) 
+Get_Info(msg,msg.chat_id_,result.sender_user_id_)
+end  
+tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},prom_reply, nil)
+end
+end
+if MsgText[1] == "صلاحياتي" then 
+if tonumber(msg.reply_to_message_id_) == 0 then 
+Get_Info(msg,msg.chat_id_,msg.sender_user_id_)
+end  
+end
+if MsgText[1] == "صلاحياته" and MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
+if not msg.Director then return "*•* هذا الامر يخص بس {المطور,المنشئ,المدير}" end
+if tonumber(msg.reply_to_message_id_) == 0 then 
+local username = MsgText[2]
+function prom_username(extra, result, success) 
+if (result and result.code_ == 400 or result and result.message_ == "USERNAME_NOT_OCCUPIED") then
+return sendMsg(msg.chat_id_,msg.id_,'• المعرف غير صحيح')   
+end   
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+return sendMsg(msg.chat_id_,msg.id_,'• هاذا معرف قناة')   
+end      
+Get_Info(msg,msg.chat_id_,result.id_)
+end  
+tdcli_function ({ID = "SearchPublicChat",username_ = username},prom_username,nil) 
+end 
+end
+if MsgText[1] == "فحص البوت" then
+if not msg.Director then return "*•* هذا الامر يخص بس {Dev,المنشئ,المدير} " end
+local Chek_Info = https.request('https://api.telegram.org/bot'..Token..'/getChatMember?chat_id='.. msg.chat_id_ ..'&user_id='.. boss..'')
+local Json_Info = JSON.decode(Chek_Info)
+if Json_Info.ok == true then
+if Json_Info.result.status == "administrator" then
+if Json_Info.result.can_change_info == true then
+info = 'ꪜ' else info = '✘' end
+if Json_Info.result.can_delete_messages == true then
+delete = 'ꪜ' else delete = '✘' end
+if Json_Info.result.can_invite_users == true then
+invite = 'ꪜ' else invite = '✘' end
+if Json_Info.result.can_pin_messages == true then
+pin = 'ꪜ' else pin = '✘' end
+if Json_Info.result.can_restrict_members == true then
+restrict = 'ꪜ' else restrict = '✘' end
+if Json_Info.result.can_promote_members == true then
+promote = 'ꪜ' else promote = '✘' end 
+return sendMsg(msg.chat_id_,msg.id_,'\n• اهلين عيني البوت هنا ادمن بالقروب \n• صلاحياته هي ⇓ \nـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n• تغير معلومات المجموعه ↞ ❪ '..info..' ❫\n• حذف الرسائل ↞ ❪ '..delete..' ❫\n• حظر المستخدمين ↞ ❪ '..restrict..' ❫\n• دعوة مستخدمين ↞ ❪ '..invite..' ❫\n• تثبيت الرسائل ↞ ❪ '..pin..' ❫\n• اضافة مشرفين جدد ↞ ❪ '..promote..' ❫\n\n- ملاحظة » علامة ❪  ꪜ ❫ يعني عنده الصلاحية وعلامة  ❪ ✘ ❫ يعني ماعنده الا الضعوي')   
+end
+end
+end
+
 if MsgText[1] == "تثبيت" and msg.reply_id then
 if not msg.Admin then return "• هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس  \n" end
 local GroupID = msg.chat_id_:gsub('-100','')
@@ -4630,6 +4771,11 @@ if not msg.SudoUser then return "• هذا الامر يخص ( المطور ) �
 return '*•* عدد المجموعات المفعلة ⇠ `'..redis:scard(boss..'group:ids')..'`  ➼' 
 end
 
+if MsgText[1] == "المشتركين" or MsgText[1] == "المشتركين ®️" then
+if not msg.SudoUser then return "*•* هذا الامر يخص بس {المطور}  " end
+return '*•* عدد المشتركين في البوت : `'..redis:scard(boss..'users')..'` '
+end
+
 if MsgText[1] == 'مسح كليشه الايدي عام' or MsgText[1] == 'مسح الايدي عام' or MsgText[1] == 'مسح ايدي عام'  or MsgText[1] == 'مسح كليشة الايدي عام' or MsgText[1] == 'مسح كليشه الايدي عام 🗑' then 
 if not msg.SudoUser then return "• هذا الامر يخص ( المطور ) بس  \n" end
 if not msg.SudoBase and not redis:get(boss.."lockidedit") then return "*•* الامر معطل من المطور الاساسي  \n" end
@@ -5864,6 +6010,46 @@ return "\n• الـسـاعة الحين : "..os.date("%I:%M%p").."\n"
 .."• الـتـاريـخ : "..os.date("%Y/%m/%d")
 end
 
+if Text == 'time' or Text == 'الوقت' and is_JoinChannel(msg) then
+local colors = {'blue','green','yellow','magenta','Orange','DarkOrange','red'}
+local fonts = {'mathbf','mathit','mathfrak','mathrm'}
+local url1 = 'http://latex.codecogs.com/png.download?'..'\\dpi{600}%20\\huge%20\\'..fonts[math.random(#fonts)]..'{{\\color{'..colors[math.random(#colors)]..'}'..os.date("%H:%M")..'}}'	
+file = download_to_file(url1,'time.webp')
+
+print('TIMESSSS')
+sendDocument(msg.chat_id_,msg.id_,file,'',dl_cb,nil)
+end
+if Text:match('^tosticker$') or Text:match('^ملصق$') and tonumber(msg.reply_to_message_id_) > 0 then
+whoami()
+BD = '/home/root/.telegram-cli/data/'
+function tosticker(arg,data)
+if data.content_.ID == 'MessagePhoto' then
+if BD..'photo/'..data.content_.photo_.id_..'_(1).jpg' == '' then
+pathf = BD..'photo/'..data.content_.photo_.id_..'.jpg'
+else
+pathf = BD..'photo/'..data.content_.photo_.id_..'_(1).jpg'
+end
+sendSticker(msg.chat_id_,msg.id_,pathf,'')
+else
+sendMsg(msg.chat_id_,msg.id_,'• اهلين عيني \n• الامر للصوره بس')
+end
+end
+tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},tosticker, nil)
+end
+
+  if Text == 'tophoto' or Text == 'صوره' and tonumber(msg.reply_to_message_id_) > 0 then
+  function tophoto(kara,max)   
+  if max.content_.ID == "MessageSticker" then        
+local bd = max.content_.sticker_.sticker_.path_          
+sendPhoto(msg.chat_id_,msg.id_,bd,'')
+else
+sendMsg(msg.chat_id_,msg.id_,'• اهلين عيني \n• الامر للملصق بس')
+end
+end
+tdcli_function ({ID = "GetMessage",chat_id_=msg.chat_id_,message_id_=tonumber(msg.reply_to_message_id_)},tophoto, nil)
+end
+end
+
 if MsgText[1] == "التاريخ" then
 return "\n• الـتـاريـخ : "..os.date("%Y/%m/%d")
 end
@@ -5953,6 +6139,7 @@ local keyboard = {
 {"تغيير الاشتراك الاجباري 🇸🇦"},
 {"الاشتراك الاجباري 🔺"},
 {"نسخه احتياطيه للمجموعات 📚","قائمه المجموعات 📊"},
+{"المجموعات 🔝","المشتركين ®️"},
 {"تنظيف المجموعات","تنظيف المشتركين"},
 {"مسح قائمه العام"},
 {"تعيين قائمه الاوامر"},
@@ -5993,7 +6180,7 @@ text = text:gsub("{البوت}",redis:get(boss..':NameBot:'))
 text = text:gsub("{المطور}",SUDO_USER)
 xsudouser = SUDO_USER:gsub('@','')
 xsudouser = xsudouser:gsub([[\_]],'_')
-local inline = {{{text="للاسفتسارات",url="t.me/"..xsudouser}}}
+local inline = {{{text="ضيفني لـ مجموعتك",url="https://t.me/'..UserBot..'?startgroup=new"}}, ,{{text="للاستفسارات",url="https://t.me/..xsudouser"}}}
 send_key(msg.sender_user_id_,Flter_Markdown(text),nil,inline,msg.id_)
 end,nil)
 return false
@@ -6762,6 +6949,35 @@ if data.ID == "Ok" then
 return sendMsg(msg.chat_id_,msg.id_,"*•* تم وحطينا الوصف ياحلو \n")
 end 
 end,nil)
+end
+
+
+ function Get_Info(msg,chat,user) --// ارسال نتيجة الصلاحيه
+local Chek_Info = https.request('https://api.telegram.org/bot'..Token..'/getChatMember?chat_id='.. chat ..'&user_id='.. user..'')
+local Json_Info = JSON.decode(Chek_Info)
+if Json_Info.ok == true then
+if Json_Info.result.status == "creator" then
+return sendMsg(msg.chat_id_,msg.id_,'• صلاحياته منشئ القروب \n ')   
+end 
+if Json_Info.result.status == "member" then
+return sendMsg(msg.chat_id_,msg.id_,'• مجرد عضو هنا \n ')   
+end 
+if Json_Info.result.status == "administrator" then
+if Json_Info.result.can_change_info == true then
+info = 'ꪜ' else info = '✘' end
+if Json_Info.result.can_delete_messages == true then
+delete = 'ꪜ' else delete = '✘' end
+if Json_Info.result.can_invite_users == true then
+invite = 'ꪜ' else invite = '✘' end
+if Json_Info.result.can_pin_messages == true then
+pin = 'ꪜ' else pin = '✘' end
+if Json_Info.result.can_restrict_members == true then
+restrict = 'ꪜ' else restrict = '✘' end
+if Json_Info.result.can_promote_members == true then
+promote = 'ꪜ' else promote = '✘' end
+return sendMsg(chat,msg.id_,'• الرتبة : مشرف \n• لصلاحيات هي ⇓ \nـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n• تغير معلومات المجموعه ↞ ❪ '..info..' ❫\n• حذف الرسائل ↞ ❪ '..delete..' ❫\n• حظر المستخدمين ↞ ❪ '..restrict..' ❫\n• دعوة مستخدمين ↞ ❪ '..invite..' ❫\n• تثبيت الرسائل ↞ ❪ '..pin..' ❫\n-› اضافة مشرفين جدد ↞ ❪ '..promote..' ❫\n\n• ملاحظه » علامة ❪  ꪜ ❫ تعني لديه الصلاحية وعلامة ❪ ✘ ❫ تعني ليس ليديه الصلاحيه')   
+end
+end
 end
 
 
@@ -8594,7 +8810,16 @@ Boss = {
 "^(قفل الكل)$",
 "^(فتح الكل)$",
 "^(قفل الوسائط)$",
+"^(صلاحياتي)$",
+"^(صلاحياته)$",
+"^(صلاحياته) (@[%a%d_]+)$",
 "^(فتح الوسائط)$",
+"^(تفعيل الافلام)$",
+"^(تعطيل الافلام)$",
+"^(فلم) (.+)$",
+"^(المشتركين ®️)$",
+"^(المشتركين)$",
+"^(المجموعات 🔝)$",
 "^(منع)$",
 "^(رفع كيك)$",
 "^(تنزيل كيك)$",
