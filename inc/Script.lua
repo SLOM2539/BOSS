@@ -1712,102 +1712,85 @@ end
 
 
 
-if MsgText[1] == "ايدي" or MsgText[1]:lower() == "id" or MsgText[1]:lower() == "فوفو" then
+if MsgText[1] == "ايدي" or MsgText[1]:lower() == "id" then
 if not MsgText[2] and not msg.reply_id then
-if redis:get(boss..'lock_id'..msg.chat_id_) then 
-local msgs = redis:get(boss..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_) or 1
+if redis:get(boss..'lock_id'..msg.chat_id_) then
+
 GetUserID(msg.sender_user_id_,function(arg,data)
-if data.username_ then UserNameID = "@"..data.username_.."" else UserNameID = "لايوجد" end
-local points = redis:get(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_)
-if points and points ~= "0" then
-nko = points
-else
-nko = '0'
-end
-local rfih = (redis:get(boss..':edited:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
-local NumGha = (redis:get(boss..':adduser:'..msg.chat_id_..':'..msg.sender_user_id_) or 0)
-local Namei = FlterName(data.first_name_..' '..(data.last_name_ or ""),20)
+
+local msgs = redis:get(boss..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_) or 1
+if data.username_ then UserNameID = "🎫 ↧مـعرفك ↞ [ @"..data.username_.." ] \n" else UserNameID = "" end
+if data.username_ then UserNameID1 = "@"..data.username_ else UserNameID1 = "مافيه" end
+if data.last_name_ then Name = data.first_name_ .." "..data.last_name_ else Name = data.first_name_ end
 local url , res = https.request(ApiToken..'/getChat?chat_id='..msg.sender_user_id_)
 if res == 200 then
 local jsonn = JSON.decode(url)
 bio = jsonn.result.bio
 if jsonn.result.bio ~= nil then 
-bio = bio
+bio = '<code>'..bio..'</code>'
 else
 bio = 'لايوجد'
 end
 end
-GetPhotoUser(msg.sender_user_id_,function(arg, data)
-if redis:get(boss.."getidstatus"..msg.chat_id_) == "Photo" then
-	if data.photos_[0] then 
-		ali = {'',
-		}
-		ssssys = ali[math.random(#ali)]
-		if not redis:get(boss.."KLISH:ID") then
-		sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,''..ssssys..' \n🎟 ↧ايديــك ↞ '..msg.sender_user_id_..'\n🎫 ↧مـعرفك ↞ '..UserNameID..'\n🔫 ↧رتبتـــك ↞ '..msg.TheRank..'\n💬 ↧رسائلك ↞ '..msgs..'\n🫂 ↧الـبايـو ↞ '..bio..'',dl_cb,nil)
-		else
-		Text = redis:get(boss.."KLISH:ID")
-		Text = Text:gsub('{الايدي}',msg.sender_user_id_)
-		Text = Text:gsub('{اليوزر}',UserNameID)
-		Text = Text:gsub('{الرتبه}',msg.TheRank)
-		Text = Text:gsub('{التفاعل}',Get_Ttl(msgs))
-		Text = Text:gsub('{الرسائل}',msgs)
-		Text = Text:gsub('{التعديل}',rfih)
-		Text = Text:gsub('{الجهات}',NumGha)
-		Text = Text:gsub('{نقاطك}',nko)
-		Text = Text:gsub('{البايو}',bio)
-		sendPhoto(msg.chat_id_,msg.id_,data.photos_[0].sizes_[1].photo_.persistent_id_,Flter_Markdown(Text),dl_cb,nil)
-		end
-	else
-		if not redis:get(boss.."KLISH:ID") then
-		sendMsg(msg.chat_id_,msg.id_,'• لا يمكنني عرض صورتك لانك قمت بحظر البوت او انك لاتملك صوره في ملفك الشخصي \n🎟 ↧ايديــك ↞ '..msg.sender_user_id_..' \n🎫 ↧مـعرفك ↞ '..UserNameID..'\n🔫 ↧رتبتـــك ↞ '..msg.TheRank..'\n💬 ↧رسائلك ↞ '..msgs..'\n🫂 ↧الـبايـو ↞ '..bio..'',dl_cb,nil)
-		else
-		Text = redis:get(boss.."KLISH:ID")
-		Text = Text:gsub('{الايدي}',msg.sender_user_id_)
-		Text = Text:gsub('{اليوزر}',UserNameID)
-		Text = Text:gsub('{الرتبه}',msg.TheRank)
-		Text = Text:gsub('{التفاعل}',Get_Ttl(msgs))
-		Text = Text:gsub('{الرسائل}',msgs)
-		Text = Text:gsub('{التعديل}',rfih)
-		Text = Text:gsub('{الجهات}',NumGha)
-		Text = Text:gsub('{نقاطك}',nko)
-		Text = Text:gsub('{البايو}',bio)
-		sendMsg(msg.chat_id_,msg.id_,Flter_Markdown(Text))
-		end
-	end
+word = {'📸 ↧ دز','بس بس يكفي حلاوه','📸 ↧ اذا مو احلى ايدي','📸 ↧ جبر ياخي','📸 ↧ الله!','📸 ↧ عمري الحلوين','📸 ↧ ايدي قلبي',}
+words = word[math.random(#word)]
+local Namei = FlterName(data,99)
+if data.status_.ID == "UserStatusEmpty" then
+sendMsg(arg.chat_id_,arg.id_,'• مايمديني اطلع افتارك لانك حاظرني!\n\n')
 else
-	if redis:get(boss.."KLISH:ID") then
-		Text = redis:get(boss.."KLISH:ID")
-		Text = Text:gsub('{الايدي}',msg.sender_user_id_)
-		Text = Text:gsub('{اليوزر}',UserNameID)
-		Text = Text:gsub('{الرتبه}',msg.TheRank)
-		Text = Text:gsub('{التفاعل}',Get_Ttl(msgs))
-		Text = Text:gsub('{الرسائل}',msgs)
-		Text = Text:gsub('{التعديل}',rfih)
-		Text = Text:gsub('{الجهات}',NumGha)
-		Text = Text:gsub('{نقاطك}',nko)
-		Text = Text:gsub('{البايو}',bio)
-		sendMsg(msg.chat_id_,msg.id_,Flter_Markdown(Text))
-		else
-		sendMsg(msg.chat_id_,msg.id_,'الايدي بالصوره معطل \n🎟 ↧ايديــك ↞ '..msg.sender_user_id_..' \n🎫 ↧مـعرفك ↞ '..UserNameID..'\n🔫 ↧رتبتـــك ↞ '..msg.TheRank..'\n💬 ↧رسائلك ↞ '..msgs..'\n🫂 ↧الـبايـو ↞ '..bio..'',dl_cb,nil)
-		end
+GetPhotoUser(data.id_,function(arg,data)
+local edited = (redis:get(boss..':edited:'..arg.chat_id_..':'..arg.sender_user_id_) or 0)
+local points = redis:get(boss..':User_Points:'..arg.chat_id_..arg.sender_user_id_) or 0
+local KleshaID = '' 
+..' '..words..' \n'
+‎..'🎟 ↧ايديــك ↞ '..arg.sender_user_id_..' \n'
+..arg.UserNameID
+‎..'🔫 ↧رتبتـــك ↞ '..arg.TheRank..' \n'
+‎..'🧨 ↧تفاعـلك ↞ '..Get_Ttl(arg.msgs)..'\n'
+‎..'💬 ↧رسائلك ↞ '..arg.msgs..' \n'
+‎..'💡 ↧تكليجاتك ↞ '..edited..' \n'
+‎..'💎 ↧مجوهراتك ↞ '..points..' \n'
+..' '..bio..' \n'
+local Kleshaidinfo = redis:get(boss..":infoiduser_public:"..arg.chat_id_) or redis:get(boss..":infoiduser")  
+if Kleshaidinfo then 
+local points = redis:get(boss..':User_Points:'..arg.chat_id_..arg.sender_user_id_) or 0
+KleshaID = Kleshaidinfo:gsub("{الاسم}",arg.Namei)
+KleshaID = KleshaID:gsub("{الايدي}",arg.sender_user_id_)
+KleshaID = KleshaID:gsub("{المعرف}",arg.UserNameID1)
+KleshaID = KleshaID:gsub("{الرتبه}",arg.TheRank)
+KleshaID = KleshaID:gsub("{التفاعل}",Get_Ttl(arg.msgs))
+KleshaID = KleshaID:gsub("{الرسائل}",arg.msgs)
+KleshaID = KleshaID:gsub("{التعديل}",edited)
+KleshaID = KleshaID:gsub("{المجوهرات}",points)
+KleshaID = KleshaID:gsub("{البوت}",redis:get(boss..':NameBot:'))
+KleshaID = KleshaID:gsub("{المطور}",SUDO_USER)
+KleshaID = KleshaID:gsub("{بايو}",bio)
+KleshaID = KleshaID:gsub("{البايو}",bio)
+end
+if redis:get(boss.."idphoto"..msg.chat_id_) then
+if data.photos_ and data.photos_[0] then 
+KleshaID = KleshaID:gsub("{تعليق}",words)
+local req = https.request(ApiToken..'/sendPhoto?chat_id='..arg.chat_id_..'&reply_to_message_id='..tonumber(arg.id_/2097152/0.5)..'&photo='..data.photos_[0].sizes_[1].photo_.persistent_id_..'&parse_mode=html&caption='..URL.escape(KleshaID))
+else
+KleshaID = KleshaID:gsub("{تعليق}",'مافيه')
+local req = https.request(ApiToken..'/sendMessage?chat_id='..arg.chat_id_..'&reply_to_message_id='..tonumber(arg.id_/2097152/0.5)..'&parse_mode=html&text='..URL.escape("• ماحطيت افتار ... !\n\n"..KleshaID))
+--sendMsg(arg.chat_id_,arg.id_,'• ماحطيت افتار ... !\n\n'..KleshaID..bio)
+end
+else
+KleshaID = KleshaID:gsub("{تعليق}",'مافيه')
+local req = https.request(ApiToken..'/sendMessage?chat_id='..arg.chat_id_..'&reply_to_message_id='..tonumber(arg.id_/2097152/0.5)..'&parse_mode=html&text='..URL.escape(KleshaID))
+--sendMsg(arg.chat_id_,arg.id_,KleshaID)
 end
 
-end) 
-end ,nil)
-end
-return false
+end,{chat_id_=arg.chat_id_,id_=arg.id_,TheRank=arg.TheRank,sender_user_id_=data.id_,msgs=msgs,Namei=Namei,UserNameID=UserNameID,UserNameID1=UserNameID1})
+
+
 end
 
-if msg.reply_id and not MsgText[2] then
-GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="iduser"})
-elseif MsgText[2] and MsgText[2]:match('@[%a%d_]+') then
-GetUserName(MsgText[2],action_by_username,{msg=msg,cmd="iduser"})
-return false
-end 
-return false
-end
+end,{chat_id_=msg.chat_id_,id_=msg.id_,TheRank=msg.TheRank})
 
+end
+end
 
 
 
