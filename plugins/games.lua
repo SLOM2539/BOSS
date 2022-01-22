@@ -9,7 +9,7 @@ if not redis:get(boss..'lock_geams'..msg.chat_id_) then
 return "⇜ اهلين عزيزي "..msg.TheRankCmd.."\n⇜ الالعاب مفتوح من قبل\n" 
 else 
 redis:del(boss..'lock_geams'..msg.chat_id_) 
-return "⇜ اهلين عزيزي "..msg.TheRankCmd.."\n⇠ ابشر فتحت الالعاب \n" 
+return "⇜ اهلين عزيزي "..msg.TheRankCmd.."\n⇜ ابشر فتحت الالعاب \n" 
 end 
 end
 if MsgText[1] == "تعطيل" and MsgText[2] == "الالعاب" or MsgText[2] == "اللعبه" or MsgText[2] == "اللعبة" then
@@ -37,7 +37,7 @@ end
 local ID_USER = MsgText[2]
 redis:set(boss..'SET:ID:USER:NUM'..msg.chat_id_,ID_USER)  
 redis:setex(boss.."SETEX:NUM"..msg.chat_id_..""..msg.sender_user_id_,500,true)  
-sendMsg(msg.chat_id_,msg.id_,'*⇠ ارسل لي عدد المجوهرات اللي تبيها*')
+sendMsg(msg.chat_id_,msg.id_,'*⇜ ارسل لي عدد المجوهرات اللي تبيها*')
 end
 if not redis:get(boss..'lock_geams'..msg.chat_id_) and msg.GroupActive then
 if MsgText[1] == 'اسئله' or MsgText[1] == 'اسئلة' or MsgText[1] == ' ' then   
@@ -467,30 +467,30 @@ end
 
 if MsgText[1] == 'دين' then
 katu = {
-'موسى','عثمان بن عفان','عمر 63','الرحمن','عبدالله بن الزبير','التين','ابو خزاعة','داود','1000 مسلم','زكريا','عيسى','ابو حنيفة','الشافعي','زيد بن ثابت','عمر بن الخطاب','علي بن ابي طالب','خديجه','الاوس والخزرج','الفاتحة','خمس اركان',
+'موسى','عثمان بن عفان','عمر 63','الرحمن','عبدالله بن الزبير','التين','ابو خزاعة','داود','1000 مسلم','زكريا','عيسى','ابو حنيفة','الشافعي','زيد بن ثابت','عمر بن الخطاب','علي بن ابي طالب','خديجه','الاوس والخزرج','الفاتحة','خمس',
 };
 name = katu[math.random(#katu)]
 redis:set(boss..':Set_dad:'..msg.chat_id_,name)
 name = string.gsub(name,'موسى','-› من اكثر الانبياء ذكراً بالقران؟')
-name = string.gsub(name,'عثمان بن عفان','-› من الحلفاء الراشدين كان اكبر سنا عندما لقي ربه؟')
-name = string.gsub(name,'عمر 63','-› كم كان عمر علي بن أبي طالب رضي الله عنه حين استشهد؟')
-name = string.gsub(name,'الرحمن','-› ما السورة التي بُدأت باسم من أسماء الله الحسنى؟')
-name = string.gsub(name,'عبدالله بن الزبير','-› من أول من استلم الحجر الأسود من الأئمة؟')
-name = string.gsub(name,'التين','-› ما السورة التي بدأت باسم ثمرتين؟')
-name = string.gsub(name,'ابو خزاعة','-› من أول من أدخل عبادة الأصنام ؟')
-name = string.gsub(name,'داود','-› من أول نبي قال أما بعد ؟')
-name = string.gsub(name,'1000 مسلم','-› كم كان عدد المسلمين في غزوة أحد ؟')
-name = string.gsub(name,'زكريا','-› من الذي كفل السيدة مريم؟')
-name = string.gsub(name,'عيسى','-› من النبي الذي طلب منه قومه أن ينزل لهم مائدة من السماء ؟')
-name = string.gsub(name,'ابو حنيفة','-› من هو أول الأئمة الأربعة ؟')
-name = string.gsub(name,'الشافعي','-› من أول من دول علم أصول الفقه؟')
-name = string.gsub(name,'زيد بن ثابت','-› من هو الصحابي الجليل الذي حضر العرضة الأخيرة للرسول للقرآن الكريم ؟')
-name = string.gsub(name,'عمر بن الخطاب','-› من هو الصحابي الجليل الذي حضر العرضة الأخيرة للرسول للقرآن الكريم ؟')
-name = string.gsub(name,'علي بن ابي طالب','-› من أول من آمن بالرسول صلى الله عليه وسلم من الصبيان؟')
-name = string.gsub(name,'خديجه','-› ما هو اسم زوجة النبي صلى الله عليه وسلم الأولى؟')
-name = string.gsub(name,'الاوس والخزرج','-› من هم سكان المدينة المنورة الذين آمنوا بالرسول صلى الله عليه وسلم؟')
-name = string.gsub(name,'الفاتحة','-› ما هي السورة التي يجب قراءتها في كل ركعة في الصلاة؟')
-name = string.gsub(name,'خمس اركان','-› كم عدد أركان الإسلام ؟')
+name = string.gsub(name,'عثمان بن عفان','⇜ من الحلفاء الراشدين كان اكبر سنا عندما لقي ربه؟')
+name = string.gsub(name,'عمر 63','⇜ كم كان عمر علي بن أبي طالب رضي الله عنه حين استشهد؟')
+name = string.gsub(name,'الرحمن','⇜ ما السورة التي بُدأت باسم من أسماء الله الحسنى؟')
+name = string.gsub(name,'عبدالله بن الزبير','⇜ من أول من استلم الحجر الأسود من الأئمة؟')
+name = string.gsub(name,'التين','⇜ ما السورة التي بدأت باسم ثمرتين؟')
+name = string.gsub(name,'ابو خزاعة','⇜ من أول من أدخل عبادة الأصنام ؟')
+name = string.gsub(name,'داود','⇜ من أول نبي قال أما بعد ؟')
+name = string.gsub(name,'1000 مسلم','⇜ كم كان عدد المسلمين في غزوة أحد ؟')
+name = string.gsub(name,'زكريا','⇜ من الذي كفل السيدة مريم؟')
+name = string.gsub(name,'عيسى','⇜ من النبي الذي طلب منه قومه أن ينزل لهم مائدة من السماء ؟')
+name = string.gsub(name,'ابو حنيفة','⇜ من هو أول الأئمة الأربعة ؟')
+name = string.gsub(name,'الشافعي','⇜ من أول من دول علم أصول الفقه؟')
+name = string.gsub(name,'زيد بن ثابت','⇜ من هو الصحابي الجليل الذي حضر العرضة الأخيرة للرسول للقرآن الكريم ؟')
+name = string.gsub(name,'عمر بن الخطاب','⇜ من هو الصحابي الجليل الذي حضر العرضة الأخيرة للرسول للقرآن الكريم ؟')
+name = string.gsub(name,'علي بن ابي طالب','⇜ من أول من آمن بالرسول صلى الله عليه وسلم من الصبيان؟')
+name = string.gsub(name,'خديجه','⇜ ما هو اسم زوجة النبي صلى الله عليه وسلم الأولى؟')
+name = string.gsub(name,'الاوس والخزرج','⇜ من هم سكان المدينة المنورة الذين آمنوا بالرسول صلى الله عليه وسلم؟')
+name = string.gsub(name,'الفاتحة','⇜ ما هي السورة التي يجب قراءتها في كل ركعة في الصلاة؟')
+name = string.gsub(name,'خمس','⇜ كم عدد أركان الإسلام ؟')
 return '* '..name..' *'
 end
 
@@ -500,26 +500,26 @@ katu = {
 };
 name = katu[math.random(#katu)]
 redis:set(boss..':Set_qwq:'..msg.chat_id_,name)
-name = string.gsub(name,'السعوديه','-› ماهو علم الدوله「 🇸🇦 」')
-name = string.gsub(name,'الارجنتين','-› ماهو علم الدوله「 🇦🇷 」')
-name = string.gsub(name,'البرازيل','-› ماهو علم الدوله「 🇧🇷 」')
-name = string.gsub(name,'بوليفيا','-› ماهو علم الدوله「 🇧🇴 」')
-name = string.gsub(name,'كولومبيا','-› ماهو علم الدوله「 🇨🇴 」')
-name = string.gsub(name,'تشيلي','-› ماهو علم الدوله「 🇨🇱 」')
-name = string.gsub(name,'باراغواي','-› ماهو علم الدوله「 🇵🇾 」')
-name = string.gsub(name,'سورينام','-› ماهو علم الدوله「 🇸🇷 」')
-name = string.gsub(name,'فنزويلا','-› ماهو علم الدوله「 🇻🇪 」')
-name = string.gsub(name,'الجزائر','-› ماهو علم الدوله「 🇩🇿 」')
-name = string.gsub(name,'البحرين','-› ماهو علم الدوله「 🇧🇭 」')
-name = string.gsub(name,'العراق','-› ماهو علم الدوله「 🇮🇶 」')
-name = string.gsub(name,'مصر','-› ماهو علم الدوله「 🇪🇬 」')
-name = string.gsub(name,'الاردن','-› ماهو علم الدوله「 🇯🇴 」')
-name = string.gsub(name,'الكويت','-› ماهو علم الدوله「 🇰🇼 」')
-name = string.gsub(name,'لبنان','-› ماهو علم الدوله「 🇱🇧 」')
-name = string.gsub(name,'ليبيا','-› ماهو علم الدوله「 🇱🇾 」')
-name = string.gsub(name,'المغرب','-› ماهو علم الدوله「 🇲🇦 」')
-name = string.gsub(name,'فلسطين','-› ماهو علم الدوله「 🇵🇸 」')
-name = string.gsub(name,'قطر','-› ماهو علم الدوله「 🇶🇦 」')
+name = string.gsub(name,'السعودية','⇜ ماهو علم الدوله「 🇸🇦 」')
+name = string.gsub(name,'الارجنتين','⇜ ماهو علم الدوله「 🇦🇷 」')
+name = string.gsub(name,'البرازيل','⇜ ماهو علم الدوله「 🇧🇷 」')
+name = string.gsub(name,'بوليفيا','⇜ ماهو علم الدوله「 🇧🇴 」')
+name = string.gsub(name,'كولومبيا','⇜ ماهو علم الدوله「 🇨🇴 」')
+name = string.gsub(name,'تشيلي','⇜ ماهو علم الدوله「 🇨🇱 」')
+name = string.gsub(name,'باراغواي','⇜ ماهو علم الدوله「 🇵🇾 」')
+name = string.gsub(name,'سورينام','⇜ ماهو علم الدوله「 🇸🇷 」')
+name = string.gsub(name,'فنزويلا','⇜ ماهو علم الدوله「 🇻🇪 」')
+name = string.gsub(name,'الجزائر','⇜ ماهو علم الدوله「 🇩🇿 」')
+name = string.gsub(name,'البحرين','⇜ ماهو علم الدوله「 🇧🇭 」')
+name = string.gsub(name,'العراق','⇜ ماهو علم الدوله「 🇮🇶 」')
+name = string.gsub(name,'مصر','⇜ ماهو علم الدوله「 🇪🇬 」')
+name = string.gsub(name,'الاردن','⇜ ماهو علم الدوله「 🇯🇴 」')
+name = string.gsub(name,'الكويت','⇜ ماهو علم الدوله「 🇰🇼 」')
+name = string.gsub(name,'لبنان','⇜ ماهو علم الدوله「 🇱🇧 」')
+name = string.gsub(name,'ليبيا','⇜ ماهو علم الدوله「 🇱🇾 」')
+name = string.gsub(name,'المغرب','⇜ ماهو علم الدوله「 🇲🇦 」')
+name = string.gsub(name,'فلسطين','⇜ ماهو علم الدوله「 🇵🇸 」')
+name = string.gsub(name,'قطر','⇜ ماهو علم الدوله「 🇶🇦 」')
 return '* '..name..' *'
 end
 
@@ -548,26 +548,26 @@ katu = {
 };
 name = katu[math.random(#katu)]
 redis:set(boss..':Set_ssa:'..msg.chat_id_,name)
-name = string.gsub(name,'تيرانا','-› ماهي عاصمة البانيا؟')
-name = string.gsub(name,'لواندا','-› ماهي عاصمة أنغولا؟')
-name = string.gsub(name,'كانبيرا','-› ماهي عاصمة استراليا؟')
-name = string.gsub(name,'باكو','-› ماهي عاصمة اذربيجان؟')
-name = string.gsub(name,'المنامة','-› ماهي عاصمة البحرين؟')
-name = string.gsub(name,'بروكسل','-› ماهي عاصمة بلجيكا؟')
-name = string.gsub(name,'تيمفو','-› ماهي عاصمة بوتان؟')
-name = string.gsub(name,'القدس','-› ماهي عاصمة فلسطين؟')
-name = string.gsub(name,'بلموبان','-› ماهي عاصمة بليز؟')
-name = string.gsub(name,'دكا','-› ماهي عاصمة بنغلاديش')
-name = string.gsub(name,'الدوحة','-› ماهي عاصمة قطر؟')
-name = string.gsub(name,'الجزائر','-› ماهي عاصمة الجزائر؟')
-name = string.gsub(name,'برلين','-› ماهي عاصمة المانيا؟')
-name = string.gsub(name,'الرياض','-› ماهي عاصمة المملكة العربية السعودية؟')
-name = string.gsub(name,'بغداد','-› ماهي عاصمة العراق؟')
-name = string.gsub(name,'دمشق','-› ماهي عاصمة سوريا؟')
-name = string.gsub(name,'القاهرة','-› ماهي عاصمة مصر؟')
-name = string.gsub(name,'صنعاء','-› ماهي عاصمة اليمن؟')
-name = string.gsub(name,'عمان','-› ماهي عاصمة الاردن؟')
-name = string.gsub(name,'الكويت','-› ماهي عاصمة الكويت؟')
+name = string.gsub(name,'تيرانا','⇜ ماهي عاصمة البانيا؟')
+name = string.gsub(name,'لواندا','⇜ ماهي عاصمة أنغولا؟')
+name = string.gsub(name,'كانبيرا','⇜ ماهي عاصمة استراليا؟')
+name = string.gsub(name,'باكو','⇜ ماهي عاصمة اذربيجان؟')
+name = string.gsub(name,'المنامة','⇜ ماهي عاصمة البحرين؟')
+name = string.gsub(name,'بروكسل','⇜ ماهي عاصمة بلجيكا؟')
+name = string.gsub(name,'تيمفو','⇜ ماهي عاصمة بوتان؟')
+name = string.gsub(name,'القدس','⇜ ماهي عاصمة فلسطين؟')
+name = string.gsub(name,'بلموبان','⇜ ماهي عاصمة بليز؟')
+name = string.gsub(name,'دكا','⇜ ماهي عاصمة بنغلاديش')
+name = string.gsub(name,'الدوحة','⇜ ماهي عاصمة قطر؟')
+name = string.gsub(name,'الجزائر','⇜ ماهي عاصمة الجزائر؟')
+name = string.gsub(name,'برلين','⇜ ماهي عاصمة المانيا؟')
+name = string.gsub(name,'الرياض','⇜ ماهي عاصمة المملكة العربية السعودية؟')
+name = string.gsub(name,'بغداد','⇜ ماهي عاصمة العراق؟')
+name = string.gsub(name,'دمشق','⇜ ماهي عاصمة سوريا؟')
+name = string.gsub(name,'القاهرة','⇜ ماهي عاصمة مصر؟')
+name = string.gsub(name,'صنعاء','⇜ ماهي عاصمة اليمن؟')
+name = string.gsub(name,'عمان','⇜ ماهي عاصمة الاردن؟')
+name = string.gsub(name,'الكويت','⇜ ماهي عاصمة الكويت؟')
 return '* '..name..' *'
 end
 
@@ -622,7 +622,7 @@ if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} ف�
 function FunctionStatus(arg, data)
 redis:del(boss..'Text:Games:audio'..data.content_.audio_.audio_.persistent_id_)  
 redis:srem(boss.."audio:Games:Bot",data.content_.audio_.audio_.persistent_id_)  
-sendMsg(msg.chat_id_, msg.id_,'❈*│* تم حذف الموسيقى وحذف الجواب .')
+sendMsg(msg.chat_id_, msg.id_,'⇜ تم حذف الموسيقى وحذف الجواب .')
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunctionStatus, nil)
 return false
@@ -630,7 +630,7 @@ end
 if MsgText[1]== 'اضف موسيقى' then
 if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} فقط  \n༄" end
 redis:set(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_,'start')
-sendMsg(msg.chat_id_, msg.id_,'❈*│* ارسل الموسيقى الان ...')
+sendMsg(msg.chat_id_, msg.id_,'⇜ ارسل الموسيقى الان ...')
 return false
 end
 if MsgText[1]== ("قائمه الموسيقى") then
@@ -668,6 +668,60 @@ local GetAnswer = redis:get(boss..'Text:Games:audio'..quschen)
 print(GetAnswer)
 redis:set(boss..'Games:Set:Answer'..msg.chat_id_,GetAnswer)
 sendAudio(msg.chat_id_,msg.id_,quschen,"")
+return false
+end
+
+if MsgText[1] == 'حذف صور' then
+if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} فقط  \n༄" end
+function FunctionStatus(arg, data)
+redis:del(boss..'Text:Games:photo'..data.content_.photo_.photo_.persistent_id_)  
+redis:srem(boss.."photo:Games:Bot",data.content_.photo_.photo_.persistent_id_)  
+sendMsg(msg.chat_id_, msg.id_,'⇜ تم حذف السؤال وحذف الجواب .')
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunctionStatus, nil)
+return false
+end
+if MsgText[1]== 'اضف صور' then
+if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} فقط  \n༄" end
+redis:set(boss.."Add:photo:Games"..msg.sender_user_id_..":"..msg.chat_id_,'start')
+sendMsg(msg.chat_id_, msg.id_,'⇜ ارسل الموسيقى الان ...')
+return false
+end
+if MsgText[1]== ("قائمه الصور") then
+if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} فقط  \n༄" end
+local list = redis:smembers(boss.."photo:Games:Bot")
+if #list == 0 then
+sendMsg(msg.chat_id_, msg.id_, "⇜ لا يوجد اسئله")
+return false
+end
+for k,v in pairs(list) do
+sendphoto(msg.chat_id_,msg.id_,v,"")
+end
+end
+if MsgText[1]== ("مسح قائمه الصور") then
+if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} فقط  \n༄" end
+local list = redis:smembers(boss.."photo:Games:Bot")
+if #list == 0 then
+sendMsg(msg.chat_id_, msg.id_, "⇜ لا يوجد اسئله")
+return false
+end
+for k,v in pairs(list) do
+redis:del(boss..'Text:Games:photo'..v)  
+redis:srem(boss.."photo:Games:Bot",v)  
+end
+sendMsg(msg.chat_id_, msg.id_, "⇜ تم حذف جميع الاسئله")
+end
+if MsgText[1]== 'صور' then
+local list = redis:smembers(boss.."photo:Games:Bot")
+if #list == 0 then
+sendMsg(msg.chat_id_, msg.id_, "⇜ لا يوجد اسئله")
+return false
+end
+local quschen = list[math.random(#list)]
+local Getyytt = redis:get(boss..'Text:Games:photo'..quschen)
+print(Getyytt)
+redis:set(boss..'Games:Set:yytt'..msg.chat_id_,Getyytt)
+sendphoto(msg.chat_id_,msg.id_,quschen,"")
 return false
 end
 
@@ -815,7 +869,7 @@ name = string.gsub(name,'الفيل','من هوه الحيوان الذي يحك
 name = string.gsub(name,'الصدى','ماهو الشيء الذي يتكلم جميع اللغات؟ ')
 name = string.gsub(name,'الهواء','شيء بيني وبينك لا تراه عينك ولا عيني فما هوه؟')
 name = string.gsub(name,'عقرب الساعه','هناك عقرب لا يلدغ ولا يخاف منه الاطفال فما هوه؟')
-return '  اول واحد يحلها  ⇠ (* '..name..' *) ' 
+return '  اول واحد يحلها  ⇜ (* '..name..' *) ' 
 end
 
 if MsgText[1] == 'اغاني الطفوله' then
@@ -867,7 +921,7 @@ name = string.gsub(name,'اخي العزيز','ما اجمل الطفولة وص
 name = string.gsub(name,'ابنتي العزيزة','نسعى وفي السعي رجاء نتعب وفي التعب هناء')
 name = string.gsub(name,'زهرة الجبل','اليك لم نزل نبوح بالاسرار')
 name = string.gsub(name,'سبونج بوب','جاهزون يا اطفال هاي هاي كابتن')
-return '  وش اسم اغنيه الطفوله ⇠ (* '..name..' *) ' 
+return '  وش اسم اغنيه الطفوله ⇜ (* '..name..' *) ' 
 end
 
 if MsgText[1] == 'رياضيات' then
@@ -918,7 +972,7 @@ end
 if MsgText[1] == 'خمن' or MsgText[1] == 'تخمين' then   
 Num = math.random(1,20)
 redis:set(boss.."GAMES:NUM"..msg.chat_id_,Num) 
-TEST = '*\n⇠ هلا فيك بلعبة التخمين :\n━━━━━━━━━━\n'..' ⇠ عندك ( 3 ) محاولات بس فكر قبل ماترسل تخمينك \n\n'..' ⇠ راح يتم تخمين عدد بين ال (1 و 20) اذا تحس انك تقدر تفوز جرب واللعب الحين! \n𓍦*'
+TEST = '*\n⇜ هلا فيك بلعبة التخمين :\n━━━━━━━━━━\n'..' ⇜ عندك ( 3 ) محاولات بس فكر قبل ماترسل تخمينك \n\n'..' ⇜ راح يتم تخمين عدد بين ال (1 و 20) اذا تحس انك تقدر تفوز جرب واللعب الحين! \n𓍦*'
 sendMsg(msg.chat_id_,msg.id_,TEST)
 redis:setex(boss.."GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 100, true)  
 return false  
@@ -1317,23 +1371,23 @@ local points = redis:get(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id
 if points and points ~= "0" then
 return '* ⇠عدد المجوهرات اللي جمعتها هي ( '..points..' )\n ⇠ يمديك تبيع مجوهراتك وتاخذ (100) رساله مقابل كل جوهره من المجوهرات *\n'
 else
-return ' *⇠ ماعندك مجوهرات ،\n⇠ عشان تحصل المجوهرات ،\n ⇠ارسل الالعاب وابدأ اللعب ! *'
+return ' *⇜ ماعندك مجوهرات ،\n⇜ عشان تحصل المجوهرات ،\n⇜ ارسل الالعاب وابدأ اللعب ! *'
 end
 end
 if MsgText[1] == 'بيع مجوهراتي' then
 if MsgText[2] == "0" then
-return '⇠ فيه خطأ عزيزي  \n⇠ لازم يكون البيع ع الاقل 1 من المجوهرات . 'end
+return '⇜ فيه خطأ عزيزي  \n⇜ لازم يكون البيع ع الاقل 1 من المجوهرات . 'end
 local points = redis:get(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_)
 if tonumber(MsgText[2]) > tonumber(points) then
-return '⇠ ماعندك مجوهرات بذا العدد عشان ابيعهم!' 
+return '⇜ ماعندك مجوهرات بذا العدد عشان ابيعهم!' 
 end
 if points == "0" then
-return '⇠للاسف ليس لديك المجوهرات \n🔖╽للحصول على المجوهرات العب احد الالعاب الموجوده في `قائمه الالعاب`'
+return '⇜ للاسف ليس لديك المجوهرات \n⇜ للحصول على المجوهرات العب احد الالعاب الموجوده في `قائمه الالعاب`'
 else
 local Total_Point = MsgText[2] * 100
 redis:decrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,MsgText[2])  
 redis:incrby(boss..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_,Total_Point)  
-return " ⇠ تم خصمت (* "..MsgText[2].." *) من مجوهراتك\n⇠ وزدت لك ( * "..Total_Point.."* ) رساله \n⇠ وصارت رسائلك ( *"..redis:get(boss..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_).."* ) رساله\n"
+return " ⇜ تم خصمت (* "..MsgText[2].." *) من مجوهراتك\n⇜ وزدت لك ( * "..Total_Point.."* ) رساله \n⇜ وصارت رسائلك ( *"..redis:get(boss..'msgs:'..msg.sender_user_id_..':'..msg.chat_id_).."* ) رساله\n"
 end
 end
 if MsgText[1] == "الالعاب" or MsgText[1] == "اللعبه" or MsgText[1] == "اللعبة" then
@@ -1466,6 +1520,31 @@ redis:del(boss.."Games:Set:Answer"..msg.chat_id_)
 return false
 end
 end
+if redis:get(boss.."Add:photo:Games"..msg.sender_user_id_..":"..msg.chat_id_) == 'start' then
+if msg.content_.photo_ then  
+redis:set(boss.."photo:Games"..msg.sender_user_id_..":"..msg.chat_id_,msg.content_.photo_.photo_.persistent_id_)  
+redis:sadd(boss.."photo:Games:Bot",msg.content_.photo_.photo_.persistent_id_)  
+redis:set(boss.."Add:photo:Games"..msg.sender_user_id_..":"..msg.chat_id_,'started')
+sendMsg(msg.chat_id_, msg.id_,'⇜ ارسل الجواب الان ...')
+return false
+end   
+end
+if redis:get(boss.."Add:photo:Games"..msg.sender_user_id_..":"..msg.chat_id_) == 'started' then
+local Id_photo = redis:get(boss.."photo:Games"..msg.sender_user_id_..":"..msg.chat_id_)
+redis:set(boss..'Text:Games:photo'..Id_photo,msg.text)
+redis:del(boss.."Add:photo:Games"..msg.sender_user_id_..":"..msg.chat_id_)
+sendMsg(msg.chat_id_, msg.id_,'⇜ تم حفظ السؤال وتم حفظ الجواب بنجاح ')
+return false
+end
+if redis:get(boss..'Games:Set:yytt'..msg.chat_id_) then
+if msg.text == ""..(redis:get(boss..'Games:Set:yytt'..msg.chat_id_)).."" then 
+redis:del(boss.."Games:Set:yytt"..msg.chat_id_)
+sendMsg(msg.chat_id_,msg.id_,'*⇜ الف مبروك اجابتك صحيحه تم اضافه لك 5 نقاط*')
+redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,5)  
+redis:del(boss.."Games:Set:yytt"..msg.chat_id_)
+return false
+end
+end
 
 if msg.text and msg.text:match("^(.*)$") then
 if redis:get(boss.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
@@ -1486,37 +1565,37 @@ if msg.text and not redis:get(boss..'lock_geams'..msg.chat_id_) then
 if msg.text == redis:get(boss..':Set_alii:'..msg.chat_id_) then -- // المختلف
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_alii:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'كفو اجابتك صح')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح*')
 end
 
 if msg.text == redis:get(boss..':Set_Amthlh:'..msg.chat_id_) then -- // امثله
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_Amthlh:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*⇜   كفو اجابتك صح   \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح   \n*   \n')
 end
 
 if msg.text == redis:get(boss..':Set_dad:'..msg.chat_id_) then -- // دين
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_dad:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*⇜   كفو اجابتك صح   \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح   \n*   \n')
 end
 
 if msg.text == redis:get(boss..':Set_qwq:'..msg.chat_id_) then -- // علم الدول
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_qwq:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*⇜   كفو اجابتك صح   \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح   \n*   \n')
 end
 
 if msg.text == redis:get(boss..':Set_ssa:'..msg.chat_id_) then -- // عواصم
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_ssa:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*⇜   كفو اجابتك صح   \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح   \n*   \n')
 end
 
 if msg.text == redis:get(boss..':Set_klm:'..msg.chat_id_) then -- // كلمات
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_klm:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*⇜   كفو اجابتك صح   \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح   \n*   \n')
 end
 
 if msg.text == redis:get(boss..':Set_trkib:'..msg.chat_id_) then -- // تركيب
@@ -1527,13 +1606,13 @@ end
 if msg.text == redis:get(boss..':Set_ang:'..msg.chat_id_) then -- // النجليزي
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_ang:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*⇜    كفو اجابتك صح \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح \n*   \n')
 end
 
 if msg.text == redis:get(boss..':Set_jjjh:'..msg.chat_id_) then -- // اسم مغني
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_jjjh:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*⇜    كفو اجابتك صح \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح \n*   \n')
 end
 
 if msg.text == redis:get(boss..':Set_ria:'..msg.chat_id_) then -- // رياضيات
@@ -1545,43 +1624,43 @@ end
 if msg.text == redis:get(boss..':Set_fkk:'..msg.chat_id_) then -- // تفكيك
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_fkk:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*⇜   كفو اجابتك صح   \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح   \n*   \n')
 end
 
 if msg.text == redis:get(boss..':Set_Smile:'..msg.chat_id_) then --//  الاسرع
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_Smile:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*كفو اجابتك صح \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح \n*   \n')
 end 
 if msg.text == redis:get(boss..':Set_zxz:'..msg.chat_id_) then --//  عربي
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_zxz:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*كفو اجابتك صح \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح \n*   \n')
 end 
 if msg.text == redis:get(boss..':Set_alii:'..msg.chat_id_) then -- // المختلف
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_alii:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*     كفو اجابتك صح    \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح    \n*   \n')
 end 
 if msg.text == redis:get(boss..':Set_Hzorh:'..msg.chat_id_) then -- // حزوره
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_Hzorh:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*  كفو اجابتك صح   \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح   \n*   \n')
 end 
 if msg.text == redis:get(boss..':Set_Spa:'..msg.chat_id_) then -- // اغاني الطفوله
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_Spa:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*  كفو اجابتك صح   \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح   \n*   \n')
 end 
 if msg.text == redis:get(boss..':Set_Arg:'..msg.chat_id_) then -- // الترتيب
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_Arg:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*    كفو اجابتك صح \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح \n*   \n')
 end 
 if msg.text == redis:get(boss..':Set_Name_Meant:'..msg.chat_id_) then --// المعاني
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_Name_Meant:'..msg.chat_id_)
-return sendMsg(msg.chat_id_,msg.id_,'*  كفو اجابتك صح    \n*   \n')
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح    \n*   \n')
 end 
 if msg.text:match("^(%d+)$") and redis:get(boss..":Start_Rolet:"..msg.chat_id_..msg.sender_user_id_) then  --// استقبال اللعبه الدمبله
 if msg.text == "1" then
@@ -1604,9 +1683,9 @@ local CountUser = CountAdd - CountAll
 if tonumber(CountAll) == tonumber(CountAdd) then 
 redis:del(boss..":Number_Add:"..msg.chat_id_..msg.sender_user_id_) 
 redis:setex(boss..":Witting_StartGame:"..msg.chat_id_..msg.sender_user_id_,1400,true)  
-return sendMsg(msg.chat_id_,msg.id_,"⇠ تم سجلت اليوزر ( ["..msg.text.."] ) \n- وتم اكتمل العدد  \n- هل انت مستعد ؟ ارسل ( نعم )")
+return sendMsg(msg.chat_id_,msg.id_,"⇜ تم سجلت اليوزر ( ["..msg.text.."] ) \n- وتم اكتمل العدد  \n⇜ هل انت مستعد ؟ ارسل ( نعم )")
 end 
-return sendMsg(msg.chat_id_,msg.id_,"⇠ تم سجلت اليوزر ( ["..msg.text.."] ) \n ⇠ باقي ( *"..CountUser.."* ) لاعبين عشان يكتمل العدد\nارسل اليوزر الي بعده ")
+return sendMsg(msg.chat_id_,msg.id_,"⇜ تم سجلت اليوزر ( ["..msg.text.."] ) \n⇜ باقي ( *"..CountUser.."* ) لاعبين عشان يكتمل العدد\nارسل اليوزر الي بعده ")
 end
 end 
 if redis:get(boss.."SETEX:MSG"..msg.chat_id_..""..msg.sender_user_id_) then 
@@ -1651,7 +1730,7 @@ end
 end
 end
 if (msg.text == redis:get(boss.."GAME:CHER"..msg.chat_id_)) and redis:get(boss.."GAME:S"..msg.chat_id_) then  
-sendMsg(msg.chat_id_,msg.id_,'كفو اجابتك صح')     
+sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح*')     
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss.."GAME:S"..msg.chat_id_)
 redis:del(boss.."GAME:CHER"..msg.chat_id_)
@@ -1669,7 +1748,7 @@ end
 end
 end
 if (msg.text == redis:get(boss.."GAME:CHER"..msg.chat_id_)) and redis:get(boss.."GAME:S"..msg.chat_id_) then  
-sendMsg(msg.chat_id_,msg.id_,'كفو اجابتك صح')     
+sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح*')     
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss.."GAME:S"..msg.chat_id_)
 redis:del(boss.."GAME:CHER"..msg.chat_id_)
@@ -1678,7 +1757,7 @@ if redis:get(boss.."GAME:S"..msg.chat_id_) then
 local list = {'فهمت' , 'مو جبان' , ' مو عطشان' , 'عدل' , 'نشط' , 'مو زين' , ' خاره ' , 'خلف' , 'مو خايف' , 'لين' , 'القزم' , 'وفي' , 'عاقل' , 'خشن' , 'ذكي' , 'اسمعك' , 'مو مسموح' , 'مو ظلمه'}
 for k, v in pairs(list) do 
 if msg.text ~= v then
-sendMsg(msg.chat_id_,msg.id_,'كفو اجابتك صح')     
+sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح*')     
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss.."GAME:S"..msg.chat_id_)
 redis:del(boss.."GAME:CHER"..msg.chat_id_)
@@ -1748,6 +1827,11 @@ Boss = {
 "^(اضف موسيقى)$", 
 "^(قائمه الموسيقى)$", 
 "^(مسح قائمه الموسيقى)$",
+"^(حذف صور)$",
+"^(اضف صور)$", 
+"^(قائمه الصور)$", 
+"^(مسح قائمه الصور)$",
+"^(صور)$", 
 "^(سبيستون)$", 
 "^(بيع مجوهراتي) (%d+)$",
 "^(اضف رسائل) (%d+)$",
@@ -1772,4 +1856,3 @@ Boss = {
  iBoss = games,
  dBoss = procces,
  }
-
