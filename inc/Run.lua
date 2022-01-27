@@ -280,7 +280,7 @@ msg.TheRankCmd = 'مطور السورس'
 msg.TheRank = 'مطور السورس'
 msg.Rank = 1
 elseif msg.sender_user_id_ == 2089102006 then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or ' 𝗞 𝗛 𝗗' 
+msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or '𝗞 𝗛 𝗗' 
 msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or '𝗞 𝗛 𝗗' 
 msg.Rank = 1
 elseif redis:sismember(boss..':SUDO_BOT:',msg.sender_user_id_) then 
