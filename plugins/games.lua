@@ -500,42 +500,109 @@ katu = {
 };
 name = katu[math.random(#katu)]
 redis:set(boss..':Set_qwq:'..msg.chat_id_,name)
-name = string.gsub(name,'السعودية','⇜ ماهو علم الدوله「 🇸🇦 」')
-name = string.gsub(name,'الارجنتين','⇜ ماهو علم الدوله「 🇦🇷 」')
-name = string.gsub(name,'البرازيل','⇜ ماهو علم الدوله「 🇧🇷 」')
-name = string.gsub(name,'بوليفيا','⇜ ماهو علم الدوله「 🇧🇴 」')
-name = string.gsub(name,'كولومبيا','⇜ ماهو علم الدوله「 🇨🇴 」')
-name = string.gsub(name,'تشيلي','⇜ ماهو علم الدوله「 🇨🇱 」')
-name = string.gsub(name,'باراغواي','⇜ ماهو علم الدوله「 🇵🇾 」')
-name = string.gsub(name,'سورينام','⇜ ماهو علم الدوله「 🇸🇷 」')
-name = string.gsub(name,'فنزويلا','⇜ ماهو علم الدوله「 🇻🇪 」')
-name = string.gsub(name,'الجزائر','⇜ ماهو علم الدوله「 🇩🇿 」')
-name = string.gsub(name,'البحرين','⇜ ماهو علم الدوله「 🇧🇭 」')
-name = string.gsub(name,'العراق','⇜ ماهو علم الدوله「 🇮🇶 」')
-name = string.gsub(name,'مصر','⇜ ماهو علم الدوله「 🇪🇬 」')
-name = string.gsub(name,'الاردن','⇜ ماهو علم الدوله「 🇯🇴 」')
-name = string.gsub(name,'الكويت','⇜ ماهو علم الدوله「 🇰🇼 」')
-name = string.gsub(name,'لبنان','⇜ ماهو علم الدوله「 🇱🇧 」')
-name = string.gsub(name,'ليبيا','⇜ ماهو علم الدوله「 🇱🇾 」')
-name = string.gsub(name,'المغرب','⇜ ماهو علم الدوله「 🇲🇦 」')
-name = string.gsub(name,'فلسطين','⇜ ماهو علم الدوله「 🇵🇸 」')
-name = string.gsub(name,'قطر','⇜ ماهو علم الدوله「 🇶🇦 」')
+name = string.gsub(name,'السعودية','「 🇸🇦 」')
+name = string.gsub(name,'الارجنتين','「 🇦🇷 」')
+name = string.gsub(name,'البرازيل','「 🇧🇷 」')
+name = string.gsub(name,'بوليفيا','「 🇧🇴 」')
+name = string.gsub(name,'كولومبيا','「 🇨🇴 」')
+name = string.gsub(name,'تشيلي','「 🇨🇱 」')
+name = string.gsub(name,'باراغواي','「 🇵🇾 」')
+name = string.gsub(name,'سورينام','「 🇸🇷 」')
+name = string.gsub(name,'فنزويلا','「 🇻🇪 」')
+name = string.gsub(name,'الجزائر','「 🇩🇿 」')
+name = string.gsub(name,'البحرين','「 🇧🇭 」')
+name = string.gsub(name,'العراق','「 🇮🇶 」')
+name = string.gsub(name,'مصر','「 🇪🇬 」')
+name = string.gsub(name,'الاردن','「 🇯🇴 」')
+name = string.gsub(name,'الكويت','「 🇰🇼 」')
+name = string.gsub(name,'لبنان','「 🇱🇧 」')
+name = string.gsub(name,'ليبيا','「 🇱🇾 」')
+name = string.gsub(name,'المغرب','「 🇲🇦 」')
+name = string.gsub(name,'فلسطين','「 🇵🇸 」')
+name = string.gsub(name,'قطر','「 🇶🇦 」')
+return '⇜ ماهو علم الدوله * '..name..' *'
+end
+
+if MsgText[1] == 'كرة القدم' then
+katu = {
+'1986','كريستيانو رونالدو','ايطاليا','207','1904','ريال مدريد','كلارنس','كريستيانو رونالد','1960','1976','1970','1992','1970','الحارس','فرنسا','بيليه','11','بايرن ميونخ','هولندا','ريال مدريد',
+};
+name = katu[math.random(#katu)]
+redis:set(boss..':Set_kkki:'..msg.chat_id_,name)
+name = string.gsub(name,'1986','في أي عام قام دييجو مارادونا بتسجيل الهدف الشهير له في كأس العالم باليد؟')
+name = string.gsub(name,'كريستيانو رونالدو','من هو اللاعب الذي حصل على جائزة الكرة الذهبية في عام 2015؟')
+name = string.gsub(name,'ايطاليا','في أي دولة تم إقامة كأس العالم للمرة الثانية؟')
+name = string.gsub(name,'207','كم عدد الاتحادات التي قامت بالإنضمام إلى الاتحاد الدولي لكرة القدم؟')
+name = string.gsub(name,'1904','في أي عام تم تأسيس الاتحاد الدولي لكرة القدم؟')
+name = string.gsub(name,'ريال مدريد','ما هو النادي الذي فاز بأكبر عدد القاب لدوري أبطال أوروبا؟')
+name = string.gsub(name,'كلارنس','من هو اللاعب الذي فاز مع ثلاثة أندية مختلفة بطولة دوري أبطال أوروبا؟')
+name = string.gsub(name,'كريستيانو رونالدو','من هو هداف دوري أبطال أوروبا؟')
+name = string.gsub(name,'1960','متى تم إقامة كأس أمم أوروبا أول مرة؟')
+name = string.gsub(name,'1976','في أي عام بدأ الدوري السعودي رسميًا؟')
+name = string.gsub(name,'1970','في أي عام ظهرت البطاقات الحمراء والصفراء في كأس العالم؟')
+name = string.gsub(name,'1992','في أي عام فاز المنتخب المصري بالميدالية الذهبية في البطولة العربية؟')
+name = string.gsub(name,'1970','في أي عام صعد منتخب المغرب لكأس العالم لأول مرة؟')
+name = string.gsub(name,'الحارس','من هو اللاعب الذي لا تبدأ كرة القدم إلا بوجوده؟')
+name = string.gsub(name,'فرنسا','ما هي البلد التي حصلت على بطولة كأس العالم في عام 2018؟')
+name = string.gsub(name,'بيليه','من هو أشهر لاعب كرة قدم في التاريخ؟')
+name = string.gsub(name,'11','كم عدد لاعبي كرة القدم؟')
+name = string.gsub(name,'بايرن ميونخ','ما هو النادي الذي يتم الإشارة إليه باسم إف سي هوليوود؟')
+name = string.gsub(name,'هولندا','أي دولة لعبت في ثلاث نهائيات كأس العالم، لكنه لم يفز؟')
+name = string.gsub(name,'ريال مدريد','أي نادي أوروبي فاز بأكبر عدد من القاب دوري أبطال أوروبا؟')
 return '* '..name..' *'
 end
 
 if MsgText[1] == "اضف مغازله" then
-if not msg.SudoBase then return"⇜ هذا الامر يخص {المطور الاساسي} فقط  \n༄" end
+if not msg.SudoBase then return"⇜ هذا الامر يخص {المطور الاساسي} بس  \n༄" end
 redis:set(boss.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return sendMsg(msg.chat_id_,msg.id_,"ارسل السؤال الان ")
+return sendMsg(msg.chat_id_,msg.id_,"‎⇜ اهلين مطوري الشجاع\n ارسل الان المغازله\n༄")
 end
 if MsgText[1] == "حذف مغازله" then
 if not msg.SudoBase then return"⇜ هذا الامر يخص {المطور الاساسي} فقط  \n༄" end
 redis:set(boss.."gamebot:Set:Manager:rdd"..msg.sender_user_id_..":"..msg.chat_id_,true)
-return sendMsg(msg.chat_id_,msg.id_,"ارسل السؤال")
+return sendMsg(msg.chat_id_,msg.id_,"⇜ ارحب يالشجاع\n⇜ ارسل المغازله لحذفها\n༄")
 end
 
 if MsgText[1] == 'غازلني' or MsgText[1] == 'امدحني' then
 local list = redis:smembers(boss.."gamebot:List:Manager")
+if #list ~= 0 then
+local quschen = list[math.random(#list)]
+sendMsg(msg.chat_id_,msg.id_,quschen)
+end
+end
+
+if MsgText[1] == "اضف اقتباس" then
+if not msg.SudoBase then return"⇜ هذا الامر يخص {المطور الاساسي} فقط  \n༄" end
+redis:set(boss.."gamebot:Set:Managerr:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return sendMsg(msg.chat_id_,msg.id_,"⇜ اهلين مطوري الشجاع\n ارسل الان الاقتباس\n༄")
+end
+if MsgText[1] == "حذف اقتباس" then
+if not msg.SudoBase then return"⇜ هذا الامر يخص {المطور الاساسي} بس  \n༄" end
+redis:set(boss.."gamebot:Set:Managerr:rdd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return sendMsg(msg.chat_id_,msg.id_,"⇜ ارحب يالمطور الشجاع\n⇜ ارسل الاقتباس لحذفه")
+end
+
+if MsgText[1] == 'اقتباس' or MsgText[1] == 'اقتباسات' then
+local list = redis:smembers(boss.."gamebot:List:Managerr")
+if #list ~= 0 then
+local quschen = list[math.random(#list)]
+sendMsg(msg.chat_id_,msg.id_,quschen)
+end
+end
+
+if MsgText[1] == "اضف النسب" then
+if not msg.SudoBase then return"⇜ هذا الامر يخص {المطور الاساسي} فقط  \n༄" end
+redis:set(boss.."gamebot:Set:Managerrr:rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return sendMsg(msg.chat_id_,msg.id_,"⇜ اهلين مطوري الشجاع\n ارسل الان النسبه\n༄")
+end
+if MsgText[1] == "حذف النسب" then
+if not msg.SudoBase then return"⇜ هذا الامر يخص {المطور الاساسي} بس  \n༄" end
+redis:set(boss.."gamebot:Set:Managerrr:rdd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return sendMsg(msg.chat_id_,msg.id_,"⇜ ارحب يالشجاع\n⇜ ارسل النسبه لحذفها\n༄")
+end
+
+if MsgText[1] == 'نسبه حبك لي' or MsgText[1] == 'نسبه جمالي' or MsgText[1] == 'نسبه ذكائي' or MsgText[1] == 'نسبه غبائي' or MsgText[1] == 'نسبه هطافتي' or MsgText[1] == 'نسبه وطنيتي' then
+local list = redis:smembers(boss.."gamebot:List:Managerrr")
 if #list ~= 0 then
 local quschen = list[math.random(#list)]
 sendMsg(msg.chat_id_,msg.id_,quschen)
@@ -617,7 +684,7 @@ if MsgText[1] == 'كلمات' or MsgText[1] == 'كلمات' then
   return 'اسرع شخص يكتب (* '..name..' *)'
   end
 
-if MsgText[1] == 'حذف موسيقى' then
+if MsgText[1] == 'حذف سبيستون' then
 if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} فقط  \n༄" end
 function FunctionStatus(arg, data)
 redis:del(boss..'Text:Games:audio'..data.content_.audio_.audio_.persistent_id_)  
@@ -627,13 +694,13 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunctionStatus, nil)
 return false
 end
-if MsgText[1]== 'اضف موسيقى' then
+if MsgText[1]== 'اضف سبيستون' then
 if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} فقط  \n༄" end
 redis:set(boss.."Add:audio:Games"..msg.sender_user_id_..":"..msg.chat_id_,'start')
-sendMsg(msg.chat_id_, msg.id_,'⇜ ارسل الموسيقى الان ...')
+sendMsg(msg.chat_id_, msg.id_,'⇜ ارسل الموسيقى يالمطور الشجاع')
 return false
 end
-if MsgText[1]== ("قائمه الموسيقى") then
+if MsgText[1]== ("قائمه سبيستون") then
 if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} فقط  \n༄" end
 local list = redis:smembers(boss.."audio:Games:Bot")
 if #list == 0 then
@@ -644,7 +711,7 @@ for k,v in pairs(list) do
 sendAudio(msg.chat_id_,msg.id_,v,"")
 end
 end
-if MsgText[1]== ("مسح قائمه الموسيقى") then
+if MsgText[1]== ("مسح قائمه سبيستون") then
 if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} فقط  \n༄" end
 local list = redis:smembers(boss.."audio:Games:Bot")
 if #list == 0 then
@@ -668,60 +735,6 @@ local GetAnswer = redis:get(boss..'Text:Games:audio'..quschen)
 print(GetAnswer)
 redis:set(boss..'Games:Set:Answer'..msg.chat_id_,GetAnswer)
 sendAudio(msg.chat_id_,msg.id_,quschen,"")
-return false
-end
-
-if MsgText[1] == 'حذف صور' then
-if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} فقط  \n༄" end
-function FunctionStatus(arg, data)
-redis:del(boss..'Text:Games:photo'..data.content_.photo_.photo_.persistent_id_)  
-redis:srem(boss.."photo:Games:Bot",data.content_.photo_.photo_.persistent_id_)  
-sendMsg(msg.chat_id_, msg.id_,'⇜ تم حذف السؤال وحذف الجواب .')
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, FunctionStatus, nil)
-return false
-end
-if MsgText[1]== 'اضف صور' then
-if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} فقط  \n༄" end
-redis:set(boss.."Add:photo:Games"..msg.sender_user_id_..":"..msg.chat_id_,'start')
-sendMsg(msg.chat_id_, msg.id_,'⇜ ارسل الموسيقى الان ...')
-return false
-end
-if MsgText[1]== ("قائمه الصور") then
-if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} فقط  \n༄" end
-local list = redis:smembers(boss.."photo:Games:Bot")
-if #list == 0 then
-sendMsg(msg.chat_id_, msg.id_, "⇜ لا يوجد اسئله")
-return false
-end
-for k,v in pairs(list) do
-sendphoto(msg.chat_id_,msg.id_,v,"")
-end
-end
-if MsgText[1]== ("مسح قائمه الصور") then
-if not msg.SudoUser then return "⇜ هذا الامر يخص {المطور} فقط  \n༄" end
-local list = redis:smembers(boss.."photo:Games:Bot")
-if #list == 0 then
-sendMsg(msg.chat_id_, msg.id_, "⇜ لا يوجد اسئله")
-return false
-end
-for k,v in pairs(list) do
-redis:del(boss..'Text:Games:photo'..v)  
-redis:srem(boss.."photo:Games:Bot",v)  
-end
-sendMsg(msg.chat_id_, msg.id_, "⇜ تم حذف جميع الاسئله")
-end
-if MsgText[1]== 'صور' then
-local list = redis:smembers(boss.."photo:Games:Bot")
-if #list == 0 then
-sendMsg(msg.chat_id_, msg.id_, "⇜ لا يوجد اسئله")
-return false
-end
-local quschen = list[math.random(#list)]
-local Getyytt = redis:get(boss..'Text:Games:photo'..quschen)
-print(Getyytt)
-redis:set(boss..'Games:Set:yytt'..msg.chat_id_,Getyytt)
-sendphoto(msg.chat_id_,msg.id_,quschen,"")
 return false
 end
 
@@ -774,11 +787,20 @@ if MsgText[1] == 'انجليزي' or MsgText[1] == 'الانجليزي' then
 
 if MsgText[1] == 'اسم مغني' or MsgText[1] == 'اسم المغني' then
   katu = {
-  'محمد عبده','طلال مداح','حماقي','عصام النجار','عماد باشا','عبدالله ناصر','روان','اصاله','ايمان','نبيل شعيل','فضل شاكر','حسين الجسمي','ماجد المهندس','يوسف الصميدعي','راشد الماجد','اصيل همام',
+  'محمد عبده','خالد عبدالرحمن','سعد عبدالعزيز','ادهم نابلسي','راشد الماجد','فهد بن فصلا','نجم السلمان','محمد عبده','لميس كان','محمد الليثي','طلال مداح','حماقي','عصام النجار','عماد باشا','عبدالله ناصر','روان','اصاله','ايمان','نبيل شعيل','فضل شاكر','حسين الجسمي','ماجد المهندس','يوسف الصميدعي','راشد الماجد','اصيل هميم',
   };
   name = katu[math.random(#katu)]
   redis:set(boss..':Set_jjjh:'..msg.chat_id_,name)
   name = string.gsub(name,'محمد عبده','توصيني على الكتمان')
+  name = string.gsub(name,'خالد عبدالرحمن','مابغيت اكثر حدي نظر')
+  name = string.gsub(name,'سعد عبدالعزيز','هي الحياة لعبة قانونها .. الفوز ليس بالوصول اولاً')
+  name = string.gsub(name,'ادهم نابلسي','خايف بكرا يكون من دونك')
+  name = string.gsub(name,'راشد الماجد','حافرين اسمك وسط قلوبنا')
+  name = string.gsub(name,'فهد بن فصلا','ياسيدي وارقى سنود الشعب كله لك جنود')
+  name = string.gsub(name,'نجم السلمان','تغير فيك كل شي حتى طرق المعاملة')
+  name = string.gsub(name,'محمد عبده','جيتني وانت يحبك الف محبوب بدالي')
+  name = string.gsub(name,'لميس كان','مسيطره همشيك مسطره')
+  name = string.gsub(name,'محمد الليثي','عمي ياصياد رميت شباكك فين')
   name = string.gsub(name,'طلال مداح','اليوم يمكن تقولي')
   name = string.gsub(name,'حماقي','حبيت سنيني بيك عشان بحبك')
   name = string.gsub(name,'عصام النجار','حطي راسك على المخده')
@@ -793,7 +815,7 @@ if MsgText[1] == 'اسم مغني' or MsgText[1] == 'اسم المغني' then
   name = string.gsub(name,'ماجد المهندس','الليالي برد واشواقي هبوب')
   name = string.gsub(name,'يوسف الصميدعي','اني سمحت لنفسي يصير هيجي بيه')
   name = string.gsub(name,'راشد الماجد','تلمست لك عذر')
-  name = string.gsub(name,'اصيل همام','يشبهك قلبي كنك لقلبي مخلوق')
+  name = string.gsub(name,'اصيل هميم','يشبهك قلبي كنك لقلبي مخلوق')
   name = string.gsub(name,'محمود','غمرني بالحنان قلبي دايب بالغرام')
   return '⇜ من هو مغني الاغنيه (* '..name..' *)'
   end
@@ -922,35 +944,6 @@ name = string.gsub(name,'ابنتي العزيزة','نسعى وفي السعي 
 name = string.gsub(name,'زهرة الجبل','اليك لم نزل نبوح بالاسرار')
 name = string.gsub(name,'سبونج بوب','جاهزون يا اطفال هاي هاي كابتن')
 return '  وش اسم اغنيه الطفوله ⇜ (* '..name..' *) ' 
-end
-
-if MsgText[1] == 'رياضيات' then
-katu = {
-'95','399','9','119','2-','877','8','55','114','143','144','153','932','211','7','67','515','520','511','509',
-};
-name = katu[math.random(#katu)]
-redis:set(boss..':Set_ria:'..msg.chat_id_,name)
-name = string.gsub(name,'95','12+83')
-name = string.gsub(name,'399','491-92')
-name = string.gsub(name,'9','3+6')
-name = string.gsub(name,'119','37+82')
-name = string.gsub(name,'2-','5+18-25')
-name = string.gsub(name,'877','300+827-250')
-name = string.gsub(name,'8','2+7-1')
-name = string.gsub(name,'55','36+19')
-name = string.gsub(name,'114','6+8+100')
-name = string.gsub(name,'143','62+72')
-name = string.gsub(name,'144','62+82')
-name = string.gsub(name,'153','72+81')
-name = string.gsub(name,'932','566+566-200')
-name = string.gsub(name,'211','139+72')
-name = string.gsub(name,'7','6+7-6')
-name = string.gsub(name,'67','55+12')
-name = string.gsub(name,'515','514+1')
-name = string.gsub(name,'520','100+420')
-name = string.gsub(name,'511','500+11')
-name = string.gsub(name,'509','500+9')
-return 'اجـب على المسئله الحسابيه التالية ↤ (* '..name..' *)'
 end
 
 if MsgText[1] == 'محيبس' then
@@ -1258,7 +1251,7 @@ name = string.gsub(name,' دحوو119م ',' نسبة جمال صوتك ؟ ')
 name = string.gsub(name,' دحوو120م ',' كيف تتعامل مع الشخص المُتطفل ( الفضولي ) ؟ ')
 name = string.gsub(name,' دحوو121م ',' من الاشياء اللي تجيب لك الصداع ؟ ')
 name = string.gsub(name,' دحوو122م ',' حصلت الشخص اللي يفهمك ولا باقي ؟ ')
-return '⇜ '..name..'  ' 
+return ''..name..'' 
 end
 if MsgText[1] == 'عكس' or MsgText[1] == 'العكس' or MsgText[1] == '' then   
 redis:set(boss.."GAME:S"..msg.chat_id_,true) 
@@ -1369,9 +1362,9 @@ end
 if MsgText[1] == 'مجوهراتي' then 
 local points = redis:get(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_)
 if points and points ~= "0" then
-return '* ⇠عدد المجوهرات اللي جمعتها هي ( '..points..' )\n ⇠ يمديك تبيع مجوهراتك وتاخذ (100) رساله مقابل كل جوهره من المجوهرات *\n'
+return '*⇜ عدد المجوهرات اللي جمعتها هي ( '..points..' )\n⇜ يمديك تبيع مجوهراتك وتاخذ (100) رساله مقابل كل جوهره من المجوهرات *\n'
 else
-return ' *⇜ ماعندك مجوهرات ،\n⇜ عشان تحصل المجوهرات ،\n⇜ ارسل الالعاب وابدأ اللعب ! *'
+return ' *⇜ ماعندك مجوهرات\n⇜ عشان تحصل المجوهرات\n⇜ ارسل الالعاب وابدأ اللعب ! *'
 end
 end
 if MsgText[1] == 'بيع مجوهراتي' then
@@ -1415,6 +1408,7 @@ return [[
 ⇜ دين
 ⇜ علم الدول
 ⇜ عواصم 
+⇜ كرة القدم
 ⇜ اسم مغني
 ⇜ عربي
 ⇜ المختلف
@@ -1429,7 +1423,7 @@ if MsgText[1] == 'روليت' then
 redis:del(boss..":Number_Add:"..msg.chat_id_..msg.sender_user_id_) 
 redis:del(boss..':List_Rolet:'..msg.chat_id_)  
 redis:setex(boss..":Start_Rolet:"..msg.chat_id_..msg.sender_user_id_,3600,true)  
-return '⇠ تمام لنلعب , ارسل عدد اللاعبين للروليت .'
+return '⇜ هيا خلنا نلعب , ارسل عدد اللاعبين للروليت .'
 end
 if MsgText[1] == 'نعم' and redis:get(boss..":Witting_StartGame:"..msg.chat_id_..msg.sender_user_id_) then
 local list = redis:smembers(boss..':List_Rolet:'..msg.chat_id_) 
@@ -1481,7 +1475,8 @@ sendMsg(msg.chat_id_,msg.id_,[[
 ⇜ اغاني الطفوله
 ⇜ دين
 ⇜ علم الدول
-⇜ عواصم 
+⇜ عواصم
+ ⇜ كرة القدم
 ⇜ اسم مغني
 ⇜ عربي
 ⇜ المختلف
@@ -1520,44 +1515,49 @@ redis:del(boss.."Games:Set:Answer"..msg.chat_id_)
 return false
 end
 end
-if redis:get(boss.."Add:photo:Games"..msg.sender_user_id_..":"..msg.chat_id_) == 'start' then
-if msg.content_.photo_ then  
-redis:set(boss.."photo:Games"..msg.sender_user_id_..":"..msg.chat_id_,msg.content_.photo_.photo_.persistent_id_)  
-redis:sadd(boss.."photo:Games:Bot",msg.content_.photo_.photo_.persistent_id_)  
-redis:set(boss.."Add:photo:Games"..msg.sender_user_id_..":"..msg.chat_id_,'started')
-sendMsg(msg.chat_id_, msg.id_,'⇜ ارسل الجواب الان ...')
-return false
-end   
-end
-if redis:get(boss.."Add:photo:Games"..msg.sender_user_id_..":"..msg.chat_id_) == 'started' then
-local Id_photo = redis:get(boss.."photo:Games"..msg.sender_user_id_..":"..msg.chat_id_)
-redis:set(boss..'Text:Games:photo'..Id_photo,msg.text)
-redis:del(boss.."Add:photo:Games"..msg.sender_user_id_..":"..msg.chat_id_)
-sendMsg(msg.chat_id_, msg.id_,'⇜ تم حفظ السؤال وتم حفظ الجواب بنجاح ')
-return false
-end
-if redis:get(boss..'Games:Set:yytt'..msg.chat_id_) then
-if msg.text == ""..(redis:get(boss..'Games:Set:yytt'..msg.chat_id_)).."" then 
-redis:del(boss.."Games:Set:yytt"..msg.chat_id_)
-sendMsg(msg.chat_id_,msg.id_,'*⇜ الف مبروك اجابتك صحيحه تم اضافه لك 5 نقاط*')
-redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,5)  
-redis:del(boss.."Games:Set:yytt"..msg.chat_id_)
-return false
-end
-end
 
 if msg.text and msg.text:match("^(.*)$") then
 if redis:get(boss.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-sendMsg(msg.chat_id_,msg.id_,'\nتم حفظ السؤال بنجاح')
+sendMsg(msg.chat_id_,msg.id_,'\nتم حفظ المغازله بنجاح')
 redis:set(boss.."gamebot:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
 redis:sadd(boss.."gamebot:List:Manager", msg.text)
 return false end
 end
 if msg.text and msg.text:match("^(.*)$") then
 if redis:get(boss.."gamebot:Set:Manager:rdd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
-sendMsg(msg.chat_id_,msg.id_,'\nتم حذف السؤال بنجاح')
+sendMsg(msg.chat_id_,msg.id_,'\nتم حذف المغازله بنجاح')
 redis:set(boss.."gamebot:Set:Manager:rdd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
 redis:srem(boss.."gamebot:List:Manager", msg.text)
+return false end
+end
+
+if msg.text and msg.text:match("^(.*)$") then
+if redis:get(boss.."gamebot:Set:Managerr:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+sendMsg(msg.chat_id_,msg.id_,'\nتم حفظ الاقتباس بنجاح')
+redis:set(boss.."gamebot:Set:Managerr:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
+redis:sadd(boss.."gamebot:List:Managerr", msg.text)
+return false end
+end
+if msg.text and msg.text:match("^(.*)$") then
+if redis:get(boss.."gamebot:Set:Managerr:rdd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+sendMsg(msg.chat_id_,msg.id_,'\nتم حذف الاقتباس بنجاح')
+redis:set(boss.."gamebot:Set:Managerr:rdd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
+redis:srem(boss.."gamebot:List:Managerr", msg.text)
+return false end
+end
+
+if msg.text and msg.text:match("^(.*)$") then
+if redis:get(boss.."gamebot:Set:Managerrr:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+sendMsg(msg.chat_id_,msg.id_,'\nتم حفظ النسبه بنجاح')
+redis:set(boss.."gamebot:Set:Managerrr:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
+redis:sadd(boss.."gamebot:List:Managerrr", msg.text)
+return false end
+end
+if msg.text and msg.text:match("^(.*)$") then
+if redis:get(boss.."gamebot:Set:Managerrr:rdd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+sendMsg(msg.chat_id_,msg.id_,'\nتم حذف النسبه بنجاح')
+redis:set(boss.."gamebot:Set:Managerrr:rdd"..msg.sender_user_id_..":"..msg.chat_id_,"true1uu")
+redis:srem(boss.."gamebot:List:Managerrr", msg.text)
 return false end
 end
 
@@ -1583,6 +1583,12 @@ end
 if msg.text == redis:get(boss..':Set_qwq:'..msg.chat_id_) then -- // علم الدول
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_qwq:'..msg.chat_id_)
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح   \n*   \n')
+end
+
+if msg.text == redis:get(boss..':Set_kkki:'..msg.chat_id_) then -- // كرة القدم
+redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
+redis:del(boss..':Set_kkki:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح   \n*   \n')
 end
 
@@ -1667,7 +1673,7 @@ if msg.text == "1" then
 Text = "** لا استطيع بدء اللعبه بلاعب واحد فقط\n"
 else
 redis:set(boss..":Number_Add:"..msg.chat_id_..msg.sender_user_id_,msg.text)  
-Text = '⇠ تم الحين نبدأ نسجل اللسته \n- ياليت ترسل المعرفات \n- الفايز ياخذ (5) مجوهرات\n- عدد الاعبين المطلوب ( *'..msg.text..'* )  \n '
+Text = '⇜ تم الحين نبدأ نسجل اللسته \n⇜ ياليت ترسل المعرفات \n⇜ الفايز ياخذ (5) مجوهرات\n⇜ عدد الاعبين المطلوب ( *'..msg.text..'* )  \n '
 end
 redis:del(boss..":Start_Rolet:"..msg.chat_id_..msg.sender_user_id_)  
 return sendMsg(msg.chat_id_,msg.id_,Text)    
@@ -1683,7 +1689,7 @@ local CountUser = CountAdd - CountAll
 if tonumber(CountAll) == tonumber(CountAdd) then 
 redis:del(boss..":Number_Add:"..msg.chat_id_..msg.sender_user_id_) 
 redis:setex(boss..":Witting_StartGame:"..msg.chat_id_..msg.sender_user_id_,1400,true)  
-return sendMsg(msg.chat_id_,msg.id_,"⇜ تم سجلت اليوزر ( ["..msg.text.."] ) \n- وتم اكتمل العدد  \n⇜ هل انت مستعد ؟ ارسل ( نعم )")
+return sendMsg(msg.chat_id_,msg.id_,"⇜ تم سجلت اليوزر ( ["..msg.text.."] ) \n⇜ وتم اكتمل العدد  \n⇜ هل انت مستعد ؟ ارسل ( نعم )")
 end 
 return sendMsg(msg.chat_id_,msg.id_,"⇜ تم سجلت اليوزر ( ["..msg.text.."] ) \n⇜ باقي ( *"..CountUser.."* ) لاعبين عشان يكتمل العدد\nارسل اليوزر الي بعده ")
 end
@@ -1721,11 +1727,11 @@ return false  end
 local GETNUM = redis:get(boss.."GAMES"..msg.chat_id_)
 if tonumber(NUM) == tonumber(GETNUM) then
 redis:del(boss.."SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-sendMsg(msg.chat_id_,msg.id_,'* ⇜ مبروك فزت وطلعت المحيبس في اليد رقم ( '..NUM..' )\n⇜ لقد حصلت على ( 3 )من مجوهرات يمكنك استبدالهن برسائل *')   
+sendMsg(msg.chat_id_,msg.id_,'*⇜ مبروك فزت وطلعت المحيبس في اليد رقم ( '..NUM..' )\n⇜ لقد حصلت على ( 3 )من مجوهرات يمكنك استبدالهن برسائل *')   
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,3)  
 elseif tonumber(NUM) ~= tonumber(GETNUM) then
 redis:del(boss.."SET:GAME" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-sendMsg(msg.chat_id_,msg.id_,'\n*⇜ للاسف خسرت \n⇠ المحيبس في اليد رقم ( '..GETNUM..' )\n حاول مره ثانيه عشان تحصل المحيبس *')   
+sendMsg(msg.chat_id_,msg.id_,'\n*⇜ للاسف خسرت \n⇜ المحيبس في اليد رقم ( '..GETNUM..' )\n حاول مره ثانيه عشان تحصل المحيبس *')   
 end
 end
 end
@@ -1739,7 +1745,7 @@ if redis:get(boss.."GAME:S"..msg.chat_id_) then
 local list = {'10' , 'براسي' , 'النمل' , '32' , 'بوتين' , '30' , '11' , 'الفم' , '14' , 'النيل' , 'ستيف جوبر' , 'خديجه' , 'الاسد' , 'طوكيو' , 'الانسان' , 'لندن' , 'الزئبق' , 'اورباالدولفين' , 'المهر' , '4' , 'اسيا' , 'اسيا' , 'المنجنيق' , 'انسات' , 'العزائم' , 'حرف الام' , 'ذهب' , 'الاسم' , 'سحاب' , 'ابراهيم' , 'الشعر' , 'حرف الواو'}
 for k, v in pairs(list) do 
 if msg.text ~= v then
-sendMsg(msg.chat_id_,msg.id_,'اجابتك غلطططط ')     
+sendMsg(msg.chat_id_,msg.id_,'اجابتك غلط ياعيني')     
 redis:del(boss.."GAME:S"..msg.chat_id_)
 redis:del(boss.."GAME:CHER"..msg.chat_id_)
 return false  
@@ -1783,7 +1789,7 @@ redis:incrby(boss..'SADD:NUM'..msg.chat_id_..msg.sender_user_id_,1)
 if tonumber(redis:get(boss..'SADD:NUM'..msg.chat_id_..msg.sender_user_id_)) >= 3 then
 redis:del(boss..'SADD:NUM'..msg.chat_id_..msg.sender_user_id_)
 redis:del(boss.."GAME:TKMEN" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
-sendMsg(msg.chat_id_,msg.id_,'\n*⇜ للاسف خسرت باللعبة \n⇜ موفق بالمرات الجايه \n⇠ كان الرقم اللي خمنته ( '..GETNUM..' )\n*')
+sendMsg(msg.chat_id_,msg.id_,'\n*⇜ للاسف خسرت باللعبة \n⇜ موفق بالمرات الجايه \n⇜ كان الرقم اللي خمنته ( '..GETNUM..' )\n*')
 else
 sendMsg(msg.chat_id_,msg.id_,'\n* ⇜  تخمينك غلط \n⇜ ارسل رقم تخمنه مره ثانيه \n*')
 end
@@ -1823,21 +1829,31 @@ Boss = {
 "^(عكس)$",
 "^(العكس)$", 
 "^(العكسس)$", 
-"^(حذف موسيقى)$",
-"^(اضف موسيقى)$", 
-"^(قائمه الموسيقى)$", 
-"^(مسح قائمه الموسيقى)$",
-"^(حذف صور)$",
-"^(اضف صور)$", 
-"^(قائمه الصور)$", 
-"^(مسح قائمه الصور)$",
-"^(صور)$", 
+"^(حذف سبيستون)$",
+"^(اضف سبيستون)$", 
+"^(قائمه سبيستون)$", 
+"^(مسح قائمه سبيستون)$",
+"^(حذف اقتباس)$",
+"^(اضف اقتباس)$", 
+"^(اضف النسب)$", 
+"^(حذف النسب)$",
+"^(نسبه وطنيتي)$", 
+"^(نسبه هطافتي)$", 
+"^(نسبه غبائي)$", 
+"^(نسبه جمالي)$", 
+"^(نسبه ذكائي)$", 
+"^(نسبه حبك لي)$", 
+"^(اقتباس)$", 
+"^(اقتباسات)$", 
 "^(سبيستون)$", 
 "^(بيع مجوهراتي) (%d+)$",
 "^(اضف رسائل) (%d+)$",
 "^(اضف مجوهرات) (%d+)$",
 "^(روليت)$",
+"^(كرة القدم)$",
 "^(اغاني الطفوله)$",
+"^(كره القدم)$",
+"^(اعلام)$",
 "^(عربي)$",
 "^(اسم مغني)$",
 "^(رياضيات)$",
