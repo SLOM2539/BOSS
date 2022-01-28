@@ -949,9 +949,8 @@ dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end) 
 end
-if (msg.text == 'reload' or msg.text == "تحديث البوت") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486)
-msg.sender_user_id_ == 2089102006 or msg.sender_user_id_ == 2089102006) then
-sendMsg(msg.chat_id_,msg.id_,'*تم يروحي انت*',function(arg,data)
+if (msg.text == 'reload' or msg.text == "تحديث البوت") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
+sendMsg(msg.chat_id_,msg.id_,'*تم*',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end)
