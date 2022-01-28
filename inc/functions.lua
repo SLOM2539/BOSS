@@ -643,10 +643,12 @@ if UserID == our_id then
 var = 'هذا البوت! ' 
 elseif UserID == 1619524486 or UserID == 1619524486  then 
 var = '*( مطور السورس )*'
-elseif UserID == 1480243587 or UserID == 1480243587  then 
-var = '*( Mamy )*'
-elseif UserID == 39809485 or UserID == 39809485  then 
-var = '*( دحدوحه )*'
+elseif UserID == 2089102006 or UserID == 2089102006  then 
+var = '*( 𝗞 𝗛 𝗗 )*'
+elseif UserID == 1976387497 or UserID == 1976387497  then 
+var = '*( افعى بجسد انثى )*'
+elseif UserID == 988115723 or UserID == 988115723  then 
+var = '*( S7S )*'
 elseif  UserID == SUDO_ID then
 var = redis:get(boss..":RtbaNew1:"..ChatID) or '*( Master )*' 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then
