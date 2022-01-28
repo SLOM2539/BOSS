@@ -69,11 +69,11 @@ GetUser.result.username = GetUser.result.username or GetUser.result.first_name
 print('\n\27[1;36m￤تم آدخآل آيدي آلمـطـور بنجآح , سـوف يتم تشـغيل سورس فواز الآن .\n￤Success Save ID : \27[0;32m['..SUDO_USER..']\n\27[0;39;49m')
 boss = Token:match("(%d+)")
 redis:mset(
-boss..":VERSION","1.2",
+boss..":VERSION","1.0",
 boss..":SUDO_ID:",SUDO_USER,
 boss..":DataCenter:","Amsterdam",
 boss..":UserNameBot:",BOT_User,
-boss..":ApiSource","SourceShahad",
+boss..":ApiSource","Sourceabaza",
 boss..":NameBot:","شهد",
 "TH3BOSS_INSTALL","Yes"
 )
@@ -90,7 +90,7 @@ Cr_file = io.open("./inc/Token.txt", "w")
 Cr_file:write(Token)
 Cr_file:close()
 print('\27[1;36m￤Token.txt is created.\27[m')
-local Text = " اهلا عزيزي[المطور الاساسي](tg://user?id="..SUDO_USER..") \n شكرا لاستخدامك سورس شهد \n ارسل الان /start\n لاضهار الاوامر للمطور  المجهزه بالكيبورد\n\n"
+local Text = " اهلا عزيزي[المطور الاساسي](tg://user?id="..SUDO_USER..") \n شكرا لاستخدامك سورس شهد \n أرســل  الان /start\n لاضهار الاوامر للمطور  المجهزه بالكيبورد\n\n"
 https.request(Api_Token..'/sendMessage?chat_id='..SUDO_USER..'&text='..URL.escape(Text)..'&parse_mode=Markdown')
 local CmdRun = [[
 rm -f ./README.md
@@ -275,48 +275,37 @@ end
 return false 
 end 
 
-if msg.sender_user_id_ == 1619523386 or msg.sender_user_id_ == 1619524486 then 
-msg.TheRankCmd = 'مطور السورس'
-msg.TheRank = 'مطور السورس'
+if msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486 then 
+msg.TheRankCmd = 'الهكر فواز'
+msg.TheRank = 'الهكر فواز'
 msg.Rank = 1
-if msg.sender_user_id_ == 2089102006 or msg.sender_user_id_ == 2089102006 then 
-msg.TheRankCmd = '𝗞 𝗛 𝗗 ♪'
-msg.TheRank = '𝗞 𝗛 𝗗 ♪'
 msg.Rank = 1
-elseif msg.sender_user_id_ == 988115723 then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'S7S' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'S7S' 
-msg.Rank = 2
-elseif msg.sender_user_id_ == 1976387497 then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'افعى بجسد انثى' 
-msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'افعى بجسد انثى' 
-msg.Rank = 3
+elseif msg.sender_user_id_ == SUDO_ID then 
+msg.TheRankCmd = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'المطور الاساسي' 
+msg.TheRank = redis:get(boss..":RtbaNew1:"..msg.chat_id_) or 'Master' 
+msg.Rank = 1
 elseif redis:sismember(boss..':SUDO_BOT:',msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'المطور'
-msg.TheRank = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'Myth'
-msg.Rank = 2
-elseif redis:sismember(boss..':SUDO_BOT:',msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'المطور 🎖'
-msg.TheRank = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'Myth🎖'
+msg.TheRank = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'Dev'
 msg.Rank = 2
 elseif msg.GroupActive and redis:sismember(boss..':MONSHA_Group:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المالك الاساسي'
-msg.TheRank = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المالك الاساسي'
+msg.TheRankCmd = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'المالك الاساسي'
+msg.TheRank = redis:get(boss..":RtbaNew3:"..msg.chat_id_) or 'المالك الاساسي'
 msg.Rank = 11
 elseif msg.GroupActive and redis:sismember(boss..':MONSHA_BOT:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'المالك'
-msg.TheRank = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'المالك '
+msg.TheRankCmd = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المالك'
+msg.TheRank = redis:get(boss..":RtbaNew4:"..msg.chat_id_) or 'المالك '
 msg.Rank = 3
 elseif msg.GroupActive and redis:sismember(boss..'owners:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'المدير' 
-msg.TheRank = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'المدير' 
+msg.TheRankCmd = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'المدير' 
+msg.TheRank = redis:get(boss..":RtbaNew5:"..msg.chat_id_) or 'المدير' 
 msg.Rank = 4
 elseif msg.GroupActive and redis:sismember(boss..'admins:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRankCmd = redis:get(boss..":RtbaNew7:"..msg.chat_id_) or 'الادمن'
-msg.TheRank = redis:get(boss..":RtbaNew7:"..msg.chat_id_) or 'الادمن'
+msg.TheRankCmd = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'الادمن'
+msg.TheRank = redis:get(boss..":RtbaNew6:"..msg.chat_id_) or 'الادمن'
 msg.Rank = 5
 elseif msg.GroupActive and redis:sismember(boss..'whitelist:'..msg.chat_id_,msg.sender_user_id_) then 
-msg.TheRank = redis:get(boss..":RtbaNew8:"..msg.chat_id_) or 'عضو مميز'
+msg.TheRank = redis:get(boss..":RtbaNew7:"..msg.chat_id_) or 'عضو مميز'
 msg.Rank = 6
 elseif msg.sender_user_id_ == our_id then
 msg.Rank = 7
@@ -336,9 +325,6 @@ msg.Director = true
 end
 if msg.Rank == 1 or msg.Rank == 2 then
 msg.SudoUser = true
-end
-if msg.Rank == 1 or msg.Rank == 2 then
-msg.SudoDev = true
 end
 if msg.Rank == 1 or msg.Rank == 2 or msg.Rank == 3 then
 msg.Creator = true
@@ -413,7 +399,7 @@ Del_msg(msg.chat_id_,msg.id_)
 return false 
 else
 if redis:get(boss.."lock_check"..msg.chat_id_) and not redis:get(boss..":TqeedUser:"..msg.chat_id_..Senderid) then
-local text = "⇜ اهلين قيدناك عشان نتاكد انك شخص حقيقي اضغط الزر اللي تحت ياحلو"
+local text = "• اهلين قيدناك عشان نتاكد انك شخص حقيقي اضغط الزر اللي تحت ياحلو"
 local inline = {{{text="انا شخص حقيقي",callback_data="CheckRobotJoin:"..Senderid}}}
 Restrict(msg.chat_id_,Senderid,1)
 return send_inline(msg.chat_id_,text,inline,msg.id_)
@@ -605,10 +591,10 @@ Adminn = true
 end	
 if Adminn then
 Restrict(ChatID,UserJoin,2)
-answerCallbackQuery(data.id_,"⇜ تم فك التقييد بنجاح و التأكد بانك مو زومبي️",true)
-EditMsg(ChatID,dataid,"⇜ تم فك التقييد بنجاح والتأكد بانك مو زومبي️")
+answerCallbackQuery(data.id_,"• تم فك التقييد بنجاح و التأكد بانك مو زومبي️",true)
+EditMsg(ChatID,dataid,"• تم فك التقييد بنجاح والتأكد بانك مو زومبي️")
 else
-answerCallbackQuery(data.id_,"⇜ عذرا انت مو الشخص المقيد او مامعك لديك صلاحيه الادارة , اسفين ",true)	
+answerCallbackQuery(data.id_,"• عذرا انت مو الشخص المقيد او مامعك لديك صلاحيه الادارة , اسفين ",true)	
 end
 
 else
@@ -789,7 +775,6 @@ Text = [[
 *❨ اوامر التفعيل والتعطيل ❩*
 
 ⌯ تفعيل ↣ ↢ تعطيل الترحيب 
-⌯ تفعيل ↣ ↢ تعطيل الاشتراك
 ⌯ تفعيل ↣ ↢ تعطيل الردود 
 ⌯ تفعيل ↣ ↢ تعطيل التحذير 
 ⌯ تفعيل ↣ ↢ تعطيل الايدي
@@ -803,6 +788,8 @@ Text = [[
 ⌯ تفعيل ↣ ↢ تعطيل ردود المطور 
 ⌯ تفعيل ↣ ↢ تعطيل التنظيف التلقائي
 ⌯ تفعيل ↣ ↢ تعطيل البايو 
+⌯ تفعيل ↣ ↢ تعطيل انطقي 
+⌯ تفعيل ↣ ↢ تعطيل الترجمة 
 ⌯ تفعيل ↣ ↢ الردود العشوائيه 
 
 ]]
@@ -889,7 +876,7 @@ end
 
 if abbas == '/HelpList'..UserID then
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
-Text = [[*⇜ اهلا بك في اوامر البوت
+Text = [[*• اهلا بك في اوامر البوت
 
 للاستفسار -* []]..SUDO_USER..[[]
 
@@ -942,6 +929,65 @@ Refresh_Start = true
 end)
 end
 
+if DataText and DataText:match('(.*)/help1') then
+local Teext =[[
+اضغط الزر لتغيير الافتار
+]]
+ban = math.random(55, 211); 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'افتار آخر', callback_data=data.sender_user_id_.."/help1"},
+},
+}
+delete_msg(Chat_Id2, {[0] = MsgId2})  
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. Chat_Id2 .. '&photo=https://t.me/avta1/'..ban..'&caption=' .. URL.escape(Teext).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+if DataText and DataText:match('(.*)/help2') then
+local Teext =[[
+اضغط الزر لتغيير الافتار
+]]
+ban = math.random(2, 250); 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'افتار آخر', callback_data=data.sender_user_id_.."/help2"},
+},
+}
+delete_msg(Chat_Id2, {[0] = MsgId2}) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. Chat_Id2 .. '&photo=https://t.me/iiz20k/'..ban..'&caption=' .. URL.escape(Teext).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+if DataText and DataText:match('(.*)/help3') then 
+local Teext =[[ 
+اضغط الزر لتغير الرياكشن 
+]] 
+ban = math.random(2, 211);  
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{ 
+{text = 'رياكشن اخر', callback_data=data.sender_user_id_.."/help3"}, 
+}, 
+} 
+delete_msg(Chat_Id2, {[0] = MsgId2})   
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. Chat_Id2 .. '&photo=https://t.me/gafffg/'..ban..'&caption=' .. URL.escape(Teext).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+
+if DataText and DataText:match('(.*)/help4') then
+local Teext =[[
+اضغط الزر لتغيير الايدت
+]]
+ban = math.random(2, 116); 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'ايدت آخر', callback_data=data.sender_user_id_.."/help4"},
+},
+}
+delete_msg(Chat_Id2, {[0] = MsgId2}) 
+https.request("https://api.telegram.org/bot"..Token..'/sendvideo?chat_id=' .. Chat_Id2 .. '&video=https://t.me/exddj/'..ban..'&caption=' .. URL.escape(Teext).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
 if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
 UpdateSource(msg)
 sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
@@ -949,8 +995,8 @@ dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end) 
 end
-if (msg.text == 'reload' or msg.text == "تحديث البوت") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
-sendMsg(msg.chat_id_,msg.id_,'*تم*',function(arg,data)
+if (msg.text == 'reload' or msg.text == "ر") and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
+sendMsg(msg.chat_id_,msg.id_,'*تم يروحي انت*',function(arg,data)
 dofile("./inc/Run.lua")
 print("Reload ~ ./inc/Run.lua")
 end)
@@ -968,7 +1014,7 @@ if data.channel_.status_.ID == "ChatMemberStatusKicked" then
 if redis:get(boss..'group:add-100'..data.channel_.id_) then
 local linkGroup = (redis:get(boss..'linkGroup-100'..data.channel_.id_) or "")
 local NameGroup = (redis:get(boss..'group:name-100'..data.channel_.id_) or "")
-send_msg(SUDO_ID,"⇜ قام شخص بطرد البوت من المجموعه الاتيه : \n⇜ ألايدي : `-100"..data.channel_.id_.."`\n⇜ الـمجموعه : "..Flter_Markdown(NameGroup).."\n\n⇜ تـم مسح كل بيانات المجموعه بنـجاح ")
+send_msg(SUDO_ID,"• قام شخص بطرد البوت من المجموعه الاتيه : \n• ألايدي : `-100"..data.channel_.id_.."`\n• الـمجموعه : "..Flter_Markdown(NameGroup).."\n\n• تـم مسح كل بيانات المجموعه بنـجاح ")
 rem_data_group('-100'..data.channel_.id_)
 end
 end
@@ -1017,7 +1063,7 @@ end
 end
 end
 io.popen("rm -fr ../.telegram-cli/data/document/*")
-sendMsg(Uploaded_Groups_CH,Uploaded_Groups_MS,'*⇜* تم رفع النسخة‏‏ الاحتياطيه\n*⇜* حاليا عدد مجموعاتك هي‏‏ *'..redis:scard(boss..'group:ids')..'* 🌿\n✓')
+sendMsg(Uploaded_Groups_CH,Uploaded_Groups_MS,'*•* تم رفع النسخة‏‏ الاحتياطيه\n*•* حاليا عدد مجموعاتك هي‏‏ *'..redis:scard(boss..'group:ids')..'* 🌿\n✓')
 end
 elseif data.ID == "UpdateUser" then  
 if data.user_.type_.ID == "UserTypeDeleted" then
@@ -1049,4 +1095,3 @@ end
 
 
 end
-
