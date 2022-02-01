@@ -2023,7 +2023,7 @@ return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تقييد ا
 elseif UserID == 2089102006 or UserID == 2089102006  then  
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تقييد 𝗞 𝗛 𝗗!\n") 
 elseif UserID == SUDO_ID then 
-return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هيييه مايمديك تقييد K H D ياورع!\n") 
+return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هيييه مايمديك تقييد المطور الاساسي ياورع!\n") 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تقييد المطور!\n") 
 elseif redis:sismember(boss..':MONSHA_BOT:'..arg.ChatID,UserID) then 
@@ -2066,7 +2066,7 @@ return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تقييد ا
 elseif UserID == 2089102006 or UserID == 2089102006  then  
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تقييد 𝗞 𝗛 𝗗!\n")
 elseif UserID == SUDO_ID then 
-return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تقييد K H D ياورع!\n") 
+return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تقييد المطور الاساسي ياورع!\n") 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تقييد المطور! \n") 
 elseif redis:sismember(boss..':MONSHA_BOT:'..arg.ChatID,UserID) then 
@@ -2105,7 +2105,7 @@ return sendMsg(msg.chat_id_,msg.id_,"*⇜* هييه مايمديك تقييد ا
 elseif UserID == "2089102006" or UserID == "2089102006" then 
 return sendMsg(msg.chat_id_,msg.id_,"*⇜* هييه مايمديك تقييد 𝗞 𝗛 𝗗! \n") 
 elseif UserID == tostring(SUDO_ID) then 
-return sendMsg(msg.chat_id_,msg.id_,"*⇜* هييه مايمديك تقييد K H D ياورع!\n") 
+return sendMsg(msg.chat_id_,msg.id_,"*⇜* هييه مايمديك تقييد المطور الاساسي ياورع!\n") 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
 return sendMsg(msg.chat_id_,msg.id_,"*⇜* هييه مايمديك تقييد المطور!\n") 
 elseif redis:sismember(boss..':MONSHA_BOT:'..msg.chat_id_,UserID) then 
@@ -2649,7 +2649,7 @@ return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تطرد ال
 elseif UserID == 1619524486 or UserID == 1619524486 then 
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تطرد الهكر فواز! \n") 
 elseif UserID == SUDO_ID then 
-return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تطرد K H D ياورع! \n") 
+return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تطرد المطور الاساسي ياورع! \n") 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تطرد المطور! \n") 
 elseif redis:sismember(boss..':MONSHA_BOT:'..arg.ChatID,UserID) then 
@@ -2688,7 +2688,7 @@ return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تطرد ال
 elseif UserID == 1619524486 or UserID == 1619524486 then 
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تطرد الهكر فواز! \n") 
 elseif UserID == SUDO_ID then 
-return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تطرد K H D ياورع! \n") 
+return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تطرد المطور الاساسي ياورع! \n") 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تطرد المطور! \n") 
 elseif redis:sismember(boss..':MONSHA_BOT:'..arg.ChatID,UserID) then 
@@ -2731,7 +2731,7 @@ local UserID = data.sender_user_id_
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تحظر البوت! \n") 
 elseif UserID == SUDO_ID then 
-return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تحظر K H D ياورع! \n") 
+return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تحظر المطور الاساسي ياورع! \n") 
 elseif UserID == 1619524486 or UserID == 1619524486 then 
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تحظر الهكر فواز! \n") 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
@@ -2780,7 +2780,7 @@ NameUser = Hyper_Link_Name(data)
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تحظر البوت! \n") 
 elseif UserID == SUDO_ID then 
-return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تحظر K H D ياورع! \n") 
+return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تحظر المطور الاساسي ياورع! \n") 
 elseif UserID == 1619524486 or UserID == 1619524486 then 
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تحظر الهكر فواز! \n") 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
@@ -2965,7 +2965,7 @@ local UserID = data.sender_user_id_
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تكتم البوت! \n") 
 elseif UserID == SUDO_ID then 
-return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تكتم K H D ياورع! \n") 
+return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تكتم المطور الاساسي ياورع! \n") 
 elseif UserID == 1619524486 or UserID == 1619524486 then 
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تكتم الهكر فواز! \n") 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
@@ -3002,7 +3002,7 @@ NameUser = Hyper_Link_Name(data)
 if UserID == our_id then   
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تكتم البوت! \n") 
 elseif UserID == SUDO_ID then 
-return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تكتم K H D ياورع! \n") 
+return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تكتم المطور الاساسي ياورع! \n") 
 elseif UserID == 1619524486 or UserID == 1619524486 then 
 return sendMsg(arg.ChatID,arg.MsgID,"*⇜* هييه مايمديك تكتم الهكر فواز! \n") 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then 
