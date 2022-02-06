@@ -1700,7 +1700,7 @@ end
 
 return {
 boss = {
-‎"^(زخرفه)$"
+"^(زخرفه)$"
  },
  iboss = Zhrfa,
  dboss = TextRes,
