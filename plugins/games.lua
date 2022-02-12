@@ -609,6 +609,75 @@ sendMsg(msg.chat_id_,msg.id_,quschen)
 end
 end
 
+if MsgText[1] == 'كلمة وضدها' or MsgText[1] == 'كلمه وضدها' then
+  katu = {
+'الإيمان','التصديق','الرجاء','العدل','الرضى','الذكاء','الشكر','الطمع','التوكل','الرأفة','الرحمة','العلم','الفهم','العفة','الزهد','الرفق','الرهبة','التواضع','التؤدة','الحلم','الصمت','الاستسلام','التسليم','الصبر','الصفح','الغنى','التذكر','الحفظ','التعطف','القنوع','المواساة','المودة','الوفاء','الطاعة','الغضوع','السلامة','الحب','الصدق','الحق','الامانة','الإخلاص','الشهامة','الذكاء','المعرفة','المداراة','الكتمان','الصلاة','الصوم','الجهاد','الحقيقة','المعروف','الستر','التقية','الإنصاف','التهيئة','النظافة','الحياء','القصد','الراحة','السهولة',
+  };
+  name = katu[math.random(#katu)]
+  redis:set(boss..':Set_fawaz:'..msg.chat_id_,name)
+  name = string.gsub(name,'الإيمان','الكفر')
+  name = string.gsub(name,'التصديق','الجحود')
+  name = string.gsub(name,'الرجاء','القنوط')
+  name = string.gsub(name,'العدل','الجور')
+  name = string.gsub(name,'الرضا','السخط')
+  name = string.gsub(name,'الذكاء','الغباء')
+  name = string.gsub(name,'الشكر','الكفران')
+  name = string.gsub(name,'الطمع','اليأس')
+  name = string.gsub(name,'التوكل','الحرص')
+  name = string.gsub(name,'الرأفة','القسوة')
+  name = string.gsub(name,'الرحمة','الغضب')
+  name = string.gsub(name,'العلم','الجهل')
+  name = string.gsub(name,'الفهم','الحمق')
+  name = string.gsub(name,'العفة','التهتك')
+  name = string.gsub(name,'الزهد','الرغبة')
+  name = string.gsub(name,'الرفق','الخرق')
+  name = string.gsub(name,'الرهبة','الجراة')
+  name = string.gsub(name,'التواضع','الكبر')
+  name = string.gsub(name,'التؤدة','التسرع')
+  name = string.gsub(name,'الحلم','السفه')
+  name = string.gsub(name,'الصمت','الهذر')
+  name = string.gsub(name,'الاستسلام','الاستكبار')
+  name = string.gsub(name,'التسليم','الشك')
+  name = string.gsub(name,'الصبر','الجزع')
+  name = string.gsub(name,'الصفح','الانتقام')
+  name = string.gsub(name,'الغنى','الفقر')
+  name = string.gsub(name,'التذكر','السهو')
+  name = string.gsub(name,'الحفظ','النسيان')
+  name = string.gsub(name,'التعطف','القطيعة')
+  name = string.gsub(name,'القنوع','الحرص')
+  name = string.gsub(name,'المواساة','المنع')
+  name = string.gsub(name,'المودة','العداوة')
+  name = string.gsub(name,'الوفاء','الغدر')
+  name = string.gsub(name,'الطاعة','المعصية')
+  name = string.gsub(name,'الخضوع','التطاول')
+  name = string.gsub(name,'السلامة','البلاء')
+  name = string.gsub(name,'الحب','البغض')
+  name = string.gsub(name,'الصدق','الكذب')
+  name = string.gsub(name,'الحق','الباطل')
+  name = string.gsub(name,'الامانة','الخيانة')
+  name = string.gsub(name,'الإخلاص','الشوب')
+  name = string.gsub(name,'الشهامة','البلادة')
+  name = string.gsub(name,'الذكاء','الغباوة')
+  name = string.gsub(name,'المعرفة','الانكار')
+  name = string.gsub(name,'المداراة','المكاشفة')
+  name = string.gsub(name,'الكتمان','الافشاء')
+  name = string.gsub(name,'الصلاة','الاطاعه')
+  name = string.gsub(name,'الصوم','الإفطار')
+  name = string.gsub(name,'الجهد','النكول')
+  name = string.gsub(name,'الحقيقة','الرياء')
+  name = string.gsub(name,'المعروف','المنكر')
+  name = string.gsub(name,'الستر','التبرج')
+  name = string.gsub(name,'التقية','الاذاعه')
+  name = string.gsub(name,'الإنصاف','الحمية')
+  name = string.gsub(name,'التهيئة','البغي')
+  name = string.gsub(name,'النظافة','القذر')
+  name = string.gsub(name,'الحياء','الخلع')
+  name = string.gsub(name,'القصد','العدوان')
+  name = string.gsub(name,'الراحة','التعب')
+  name = string.gsub(name,'السهولة','الصعوبة')
+  return '⇜ ضد كلمة ↢ (* '..name..' *)'
+  end
+  
 if MsgText[1] == 'عواصم' then
 katu = {
 'تيرانا','لواندا','كانبيرا','باكو','المنامة','بروكسل','تيمفو','القدس','بلموبان','دكا','الدوحة','الجزائر','برلين','الرياض','بغداد','دمشق','القاهرة','صنعاء','عمان','الكويت',
@@ -1439,6 +1508,7 @@ return [[
 ⇜ اغاني الطفوله
 ⇜ دين
 ⇜ علم الدول
+⇜ كلمة وضدها
 ⇜ عواصم 
 ⇜ كرة القدم
 ⇜ اسم مغني
@@ -1507,6 +1577,7 @@ sendMsg(msg.chat_id_,msg.id_,[[
 ⇜ اغاني الطفوله
 ⇜ دين
 ⇜ علم الدول
+⇜ كلمة وضدها
 ⇜ عواصم
  ⇜ كرة القدم
 ⇜ اسم مغني
@@ -1615,6 +1686,12 @@ end
 if msg.text == redis:get(boss..':Set_qwq:'..msg.chat_id_) then -- // علم الدول
 redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
 redis:del(boss..':Set_qwq:'..msg.chat_id_)
+return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح   \n*   \n')
+end
+
+if msg.text == redis:get(boss..':Set_fawaz:'..msg.chat_id_) then -- // كلمة وضدها
+redis:incrby(boss..':User_Points:'..msg.chat_id_..msg.sender_user_id_,1)  
+redis:del(boss..':Set_fawaz:'..msg.chat_id_)
 return sendMsg(msg.chat_id_,msg.id_,'*⇜ كفو اجابتك صح   \n*   \n')
 end
 
@@ -1885,6 +1962,8 @@ Boss = {
 "^(كرة القدم)$",
 "^(اغاني الطفوله)$",
 "^(كره القدم)$",
+"^(كلمة وضدها)$",
+"^(كلمه وضدها)$",
 "^(اعلام)$",
 "^(عربي)$",
 "^(اسم مغني)$",
