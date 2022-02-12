@@ -288,7 +288,7 @@ elseif redis:sismember(boss..':SUDO_Dev:',msg.sender_user_id_) then
 msg.TheRankCmd = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'المطور 🎖'
 msg.TheRank = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'Dev 🎖'
 msg.Rank = 2
-redis:sismember(boss..':SUDO_BOT:',msg.sender_user_id_) then 
+elseif redis:sismember(boss..':SUDO_BOT:',msg.sender_user_id_) then 
 msg.TheRankCmd = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'المطور'
 msg.TheRank = redis:get(boss..":RtbaNew2:"..msg.chat_id_) or 'Dev'
 msg.Rank = 2
