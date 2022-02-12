@@ -642,11 +642,9 @@ function Getrtba(UserID,ChatID)
 if UserID == our_id then 
 var = 'هذا البوت! ' 
 elseif UserID == 1619524486 or UserID == 1619524486  then 
-var = '*( عمك فواز )*'
+var = '*( مطور السورس )*'
 elseif  UserID == SUDO_ID then
 var = redis:get(boss..":RtbaNew1:"..ChatID) or '*( Master )*' 
-elseif redis:sismember(boss..':SUDO_Dev:',UserID) then
-var = redis:get(boss..":RtbaNew2:"..ChatID) or '*( Dev 🎖 )*' 
 elseif redis:sismember(boss..':SUDO_BOT:',UserID) then
 var = redis:get(boss..":RtbaNew2:"..ChatID) or '*( Dev )*' 
 elseif redis:sismember(boss..':MONSHA_Group:'..ChatID,UserID) then
@@ -2296,23 +2294,6 @@ if not redis:sismember(boss..':SUDO_BOT:',UserID) then
 return sendMsg(ChatID,MsgID,"「 "..NameUser.." 」 \n⇜ مو مطور من قبل \n ") 
 end
 redis:srem(boss..':SUDO_BOT:',UserID) 
-return sendMsg(ChatID,MsgID,"「 "..NameUser.." 」 \n⇜ نزلته من المطور \n ") 
-end
-
-if cmd == "up_sudo" then
-if redis:sismember(boss..':SUDO_Dev:',UserID) then 
-return sendMsg(ChatID,MsgID,"⇜ الحلو「 "..NameUser.." 」 \n⇜ مطور من قبل \n ") 
-end
-redis:hset(boss..'username:'..UserID, 'username', USERNAME)
-redis:sadd(boss..':SUDO_Dev:',UserID)
-return sendMsg(ChatID,MsgID,"⇜ الحلو「 "..NameUser.." 」 \n⇜ رفعته صار مطور \n") 
-end
-
-if cmd == "dn_sudo" then
-if not redis:sismember(boss..':SUDO_Dev:',UserID) then 
-return sendMsg(ChatID,MsgID,"「 "..NameUser.." 」 \n⇜ مو مطور من قبل \n ") 
-end
-redis:srem(boss..':SUDO_Dev:',UserID) 
 return sendMsg(ChatID,MsgID,"「 "..NameUser.." 」 \n⇜ نزلته من المطور \n ") 
 end
 
