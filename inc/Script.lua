@@ -1675,6 +1675,22 @@ end)
 end
 
 
+
+if MsgText[1] == "صورتي" or MsgText[1] == 'افتاري' then
+local my_ph = redis:get(boss..'my_photo:status:bot'..msg.chat_id_)
+print(my_ph)
+if not my_ph then
+local function getpro(extra, result, success)
+if result.photos_[0] then
+sendPhoto(msg.chat_id_,msg.id_,result.photos_[0].sizes_[1].photo_.persistent_id_,'')
+else
+send(msg.chat_id_, msg.id_,'ماعندك افتار بحسابك')
+end 
+end
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
+end
+end
+
 if MsgText[1] == "تفعيل البايو" and msg.Admin then
 sendMsg(msg.chat_id_,msg.id_,"تم تفعيل البايو")
 redis:set(boss..':bio:'..msg.chat_id_,"yes")
@@ -5292,6 +5308,17 @@ local inline = {{{text="م1",callback_data="/HelpList1"..msg.sender_user_id_},{t
 return send_inline(msg.chat_id_,text,inline,msg.id_)
 end
 
+if MsgText[1] == "الابراج" then
+SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
+text = [[*⇜ من خلال شهد يُمكنك معرفه توقعات برجك .
+⇜ فقط اضغط على برجك من الازرار التالية .
+⇜ او فقط قم بارسال امر برج + اسم البرج .
+⇜ مثال : برج العقرب .*
+]]
+local inline = {{{text="برج الحمل",callback_data="/FAWAZ"..msg.sender_user_id_},{text="برج السرطان",callback_data="/FAWAZ1"..msg.sender_user_id_}},{{text="برج الميزان",callback_data="/FAWAZ2"..msg.sender_user_id_},{text="برج الجدي",callback_data="/FAWAZ3"..msg.sender_user_id_}},{{text="برج الثور",callback_data="/FAWAZ4"..msg.sender_user_id_},{text="برج الاسد",callback_data="/FAWAZ5"..msg.sender_user_id_}},{{text="برج العقرب",callback_data="/FAWAZ6"..msg.sender_user_id_},{text="برج الدلو",callback_data="/FAWAZ7"..msg.sender_user_id_}},{{text="برج الجوزاء",callback_data="/FAWAZ8"..msg.sender_user_id_},{text="برج العذراء",callback_data="/FAWAZ9"..msg.sender_user_id_}},{{text="برج القوس",callback_data="/FAWAZ10"..msg.sender_user_id_},{text="برج الحوت",callback_data="/FAWAZ11"..msg.sender_user_id_}}}
+return send_inline(msg.chat_id_,text,inline,msg.id_)
+end
+
 --if MsgText[1] == "الاوامر" then
 --if not msg.Admin then return "⇜ هذا الامر يخص ( الادمن,المدير,المالك,المطور ) بس " end
 --SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
@@ -8633,6 +8660,7 @@ Boss = {
 "^(مسح المكتومين)$",
 "^(مسح المميزين)$",
 "^(مسح الرابط)$",
+"^(الابراج)$",
 "^(بايو)$",
 "^(المشتركين)$",
 "^(المشتركين 💥)$",
@@ -8658,6 +8686,8 @@ Boss = {
 "^(حذف رسائلي)$",
 "^(تعطيل التسليه)$",
 "^(تفعيل التسليه)$",
+"^(افتاري)$",
+"^(صورتي)$",
 "^(رفع زق)$",
 "^(تنزيل زق)$",
 "^(رفع زق) (@[%a%d_]+)$",
