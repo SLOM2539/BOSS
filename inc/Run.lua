@@ -21,59 +21,59 @@ end
 
 function create_config(Token)
 if not Token then
-io.write('\n\27[1;33m￤دخل توكن البوت يامز ↓  \n￤Enter TOKEN your BOT : \27[0;39;49m')
+io.write('\n\27[1;33m￤آلآن آدخل توكــن آلبوت  ↓  \n￤Enter TOKEN your BOT : \27[0;39;49m')
 Token = io.read():gsub(' ','')
 if Token == '' then
-print('\n\27[1;31m￤ You Did not Enter TOKEN !\n￤مادخلت شي يالطيب! تأكد ')
+print('\n\27[1;31m￤ You Did not Enter TOKEN !\n￤ عذرآ لم تقوم بآدخآل آي شـيء , آدخل توگن آلبوت آلآن ')
 create_config()
 end
 Api_Token = 'https://api.telegram.org/bot'..Token
 local url , res = https.request(Api_Token..'/getMe')
 if res ~= 200 then
-print('\n\27[1;31m￤ Your Token is Incorrect Please Check it!\n￤التوكن اللي دخلته غلط تأكد !')
+print('\n\27[1;31m￤ Your Token is Incorrect Please Check it!\n￤ آلتوگن آلذي آدخلتهہ‏‏ غير صـحيح , تآگد مـنهہ‏‏ ثم حآول مـجددآ!')
 create_config()
 end
 local GetToken = JSON.decode(url)
 BOT_NAME = GetToken.result.first_name
 BOT_User = "@"..GetToken.result.username
-io.write('\n\27[1;36m￤تم دخلت التوكن ياعيني   \n￤Success Enter Your Token: \27[1;34m@'..GetToken.result.username..'\n\27[0;39;49m') 
+io.write('\n\27[1;36m￤تم آدخآل آلتوگن بنجآح   \n￤Success Enter Your Token: \27[1;34m@'..GetToken.result.username..'\n\27[0;39;49m') 
 end
 
-io.write('\n\27[1;33m￤ادخل ايدي المطور ياعيني ↓  \n￤Enter your ID SUDO : \27[0;39;49m')
+io.write('\n\27[1;33m￤آدخل ايدي آلمـطـور آلآسـآسـي ↓  \n￤Enter your ID SUDO : \27[0;39;49m')
 SUDO_USER = io.read():gsub(' ','')
 if SUDO_USER == '' then
-print('\n\27[1;31m￤ You Did not Enter ID !\n￤يبن الحلال دخل ايديك !')
+print('\n\27[1;31m￤ You Did not Enter ID !\n￤ لم تقوم بآدخآل شـي , يرجى آلآنتبآهہ‏‏ وآدخل آلآن ايدي آلمطور آلآسـآسـي')
 create_config(Token)
 end 
 if not SUDO_USER:match('(%d+)(%d+)(%d+)(%d+)(%d+)') then
-print('\n\27[1;31m￤ This is Not ID !\n￤هذا الايدي مو موجود بالتلي تأكد')
+print('\n\27[1;31m￤ This is Not ID !\n￤هہ‏‏ذآ الايدي ليس موجود بل تلگرآم , عذرآ آدخل آلايدي آلصـحيح آلآن . ')
 create_config(Token)
 end 
 print('('..SUDO_USER..')')
 local url , res = https.request('https://api.telegram.org/bot'..Token..'/getchat?chat_id='..SUDO_USER)
 print(res)
 if res ~= 200 then
-print('\n\27[1;31m￤ Conect is Failed !\n￤صار شي غلط بالسيرفر يبيلك تكلم عمك فواز عشان تقدر تحل المشكله')
+print('\n\27[1;31m￤ Conect is Failed !\n￤ حدث خطـآ في آلآتصـآل بآلسـيرفر , يرجى مـرآسـلهہ‏‏ مـطـور آلسـورس ليتمـگن مـن حل آلمـشـگلهہ‏‏ في آسـرع وقت مـمـگن . !')
 os.exit()
 end
 success, GetUser = pcall(JSON.decode, url)
 if not success then
-print('\n\27[1;31m￤ Conect is Failed !\n￤صارت مشكله بسكربت الاتصال يُرجى التواصل مع المطور')
+print('\n\27[1;31m￤ Conect is Failed !\n￤ حدث مشـگلهہ‌‏ في سـگربت آلآسـتخرآج , يرجى مـرآسـلهہ‏‏ مـطـور آلسـورس ليتمـگن مـن حل آلمـشـگلهہ‏‏ في آسـرع وقت مـمـگن . !')
 os.exit()
 end
 if GetUser.ok == false then
-print('\n\27[1;31m￤ {USERNAME_NOT_OCCUPIED} => Please Check it!\n￤يالطيب! تأكد مافي ايدي زي كذا !')
+print('\n\27[1;31m￤ {USERNAME_NOT_OCCUPIED} => Please Check it!\n￤ لآ يوجد حسـآب بهہ‏‏ذآ آلايدي , تآگد مـنهہ‏‏ جيدآ  !')
 create_config(Token)
 end 
 GetUser.result.username = GetUser.result.username or GetUser.result.first_name
-print('\n\27[1;36m￤تم ياعيني انت دخلت الايدي الحين اشغل البوت بسورس شهد .\n￤Success Save ID : \27[0;32m['..SUDO_USER..']\n\27[0;39;49m')
+print('\n\27[1;36m￤تم آدخآل آيدي آلمـطـور بنجآح , سـوف يتم تشـغيل سورس فواز الآن .\n￤Success Save ID : \27[0;32m['..SUDO_USER..']\n\27[0;39;49m')
 boss = Token:match("(%d+)")
 redis:mset(
 boss..":VERSION","1.0",
 boss..":SUDO_ID:",SUDO_USER,
 boss..":DataCenter:","Amsterdam",
 boss..":UserNameBot:",BOT_User,
-boss..":ApiSource","SourceFawaz",
+boss..":ApiSource","Sourceabaza",
 boss..":NameBot:","شهد",
 "TH3BOSS_INSTALL","Yes"
 )
@@ -116,8 +116,8 @@ print('\27[0;33m>>'..[[
 ███    ███ ███    ███   ███    ███   ███    ███
 ███    ███ ███    ███   ███    █▀    ███    █▀
 ▄███▄▄▄██▀  ███    ███   ███          ███
-▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @KKRCK
-███    ██▄ ███    ███          ███          ███ ¦ Dev : @KKRCK
+▀▀███▀▀▀██▄  ███    ███ ▀███████████ ▀███████████ ¦ Dev : @GMBOTS
+███    ██▄ ███    ███          ███          ███ ¦ Dev : @OMMMM
 ███    ███ ███    ███    ▄█    ███    ▄█    ███
 ▄█████████▀   ▀██████▀   ▄████████▀   ▄████████▀  ¦ Source The3Boss
 ---------------------------------------------------------------------
@@ -399,7 +399,7 @@ Del_msg(msg.chat_id_,msg.id_)
 return false 
 else
 if redis:get(boss.."lock_check"..msg.chat_id_) and not redis:get(boss..":TqeedUser:"..msg.chat_id_..Senderid) then
-local text = "⇜ اهلين قيدناك عشان نتاكد انك شخص حقيقي اضغط الزر اللي تحت ياحلو"
+local text = "• اهلين قيدناك عشان نتاكد انك شخص حقيقي اضغط الزر اللي تحت ياحلو"
 local inline = {{{text="انا شخص حقيقي",callback_data="CheckRobotJoin:"..Senderid}}}
 Restrict(msg.chat_id_,Senderid,1)
 return send_inline(msg.chat_id_,text,inline,msg.id_)
@@ -591,10 +591,10 @@ Adminn = true
 end	
 if Adminn then
 Restrict(ChatID,UserJoin,2)
-answerCallbackQuery(data.id_,"⇜ تم فك التقييد بنجاح و التأكد بانك مو زومبي️",true)
-EditMsg(ChatID,dataid,"⇜ تم فك التقييد بنجاح والتأكد بانك مو زومبي️")
+answerCallbackQuery(data.id_,"• تم فك التقييد بنجاح و التأكد بانك مو زومبي️",true)
+EditMsg(ChatID,dataid,"• تم فك التقييد بنجاح والتأكد بانك مو زومبي️")
 else
-answerCallbackQuery(data.id_,"⇜ عذرا انت مو الشخص المقيد او مامعك لديك صلاحيه الادارة , اسفين ",true)	
+answerCallbackQuery(data.id_,"• عذرا انت مو الشخص المقيد او مامعك لديك صلاحيه الادارة , اسفين ",true)	
 end
 
 else
@@ -876,7 +876,7 @@ end
 
 if abbas == '/HelpList'..UserID then
 SUDO_USER = redis:hgetall(boss..'username:'..SUDO_ID).username
-Text = [[*⇜ اهلا بك في اوامر البوت
+Text = [[*• اهلا بك في اوامر البوت
 
 للاستفسار -* []]..SUDO_USER..[[]
 
@@ -928,6 +928,66 @@ return sendMsg(msg.chat_id_,msg.id_,"*تم*",function(arg,data)
 Refresh_Start = true
 end)
 end
+
+if DataText and DataText:match('(.*)/help1') then
+local Teext =[[
+اضغط الزر لتغيير الافتار
+]]
+ban = math.random(55, 211); 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'افتار آخر', callback_data=data.sender_user_id_.."/help1"},
+},
+}
+delete_msg(Chat_Id2, {[0] = MsgId2})  
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. Chat_Id2 .. '&photo=https://t.me/avta1/'..ban..'&caption=' .. URL.escape(Teext).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+if DataText and DataText:match('(.*)/help2') then
+local Teext =[[
+اضغط الزر لتغيير الافتار
+]]
+ban = math.random(2, 250); 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'افتار آخر', callback_data=data.sender_user_id_.."/help2"},
+},
+}
+delete_msg(Chat_Id2, {[0] = MsgId2}) 
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. Chat_Id2 .. '&photo=https://t.me/iiz20k/'..ban..'&caption=' .. URL.escape(Teext).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+
+if DataText and DataText:match('(.*)/help3') then 
+local Teext =[[ 
+اضغط الزر لتغير الرياكشن 
+]] 
+ban = math.random(2, 211);  
+keyboard = {}  
+keyboard.inline_keyboard = { 
+{ 
+{text = 'رياكشن اخر', callback_data=data.sender_user_id_.."/help3"}, 
+}, 
+} 
+delete_msg(Chat_Id2, {[0] = MsgId2})   
+https.request("https://api.telegram.org/bot"..Token..'/sendphoto?chat_id=' .. Chat_Id2 .. '&photo=https://t.me/gafffg/'..ban..'&caption=' .. URL.escape(Teext).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+
+if DataText and DataText:match('(.*)/help4') then
+local Teext =[[
+اضغط الزر لتغيير الايدت
+]]
+ban = math.random(2, 116); 
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'ايدت آخر', callback_data=data.sender_user_id_.."/help4"},
+},
+}
+delete_msg(Chat_Id2, {[0] = MsgId2}) 
+https.request("https://api.telegram.org/bot"..Token..'/sendvideo?chat_id=' .. Chat_Id2 .. '&video=https://t.me/exddj/'..ban..'&caption=' .. URL.escape(Teext).."&reply_to_message_id=0&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
 if msg.text == 'Update Source' and (msg.sender_user_id_ == SUDO_ID or msg.sender_user_id_ == 1619524486 or msg.sender_user_id_ == 1619524486) then
 UpdateSource(msg)
 sendMsg(msg.chat_id_,msg.id_,'👷🏽| {* تــم تحديث وتثبيت السورس  *} 📡.\n\n👨🏼‍💼| { Bot is Update » }👍🏿',function(arg,data)
@@ -954,7 +1014,7 @@ if data.channel_.status_.ID == "ChatMemberStatusKicked" then
 if redis:get(boss..'group:add-100'..data.channel_.id_) then
 local linkGroup = (redis:get(boss..'linkGroup-100'..data.channel_.id_) or "")
 local NameGroup = (redis:get(boss..'group:name-100'..data.channel_.id_) or "")
-send_msg(SUDO_ID,"⇜ قام شخص بطرد البوت من المجموعه الاتيه : \n⇜ ألايدي : `-100"..data.channel_.id_.."`\n⇜ الـمجموعه : "..Flter_Markdown(NameGroup).."\n\n⇜ تـم مسح كل بيانات المجموعه بنـجاح ")
+send_msg(SUDO_ID,"• قام شخص بطرد البوت من المجموعه الاتيه : \n• ألايدي : `-100"..data.channel_.id_.."`\n• الـمجموعه : "..Flter_Markdown(NameGroup).."\n\n• تـم مسح كل بيانات المجموعه بنـجاح ")
 rem_data_group('-100'..data.channel_.id_)
 end
 end
@@ -1003,7 +1063,7 @@ end
 end
 end
 io.popen("rm -fr ../.telegram-cli/data/document/*")
-sendMsg(Uploaded_Groups_CH,Uploaded_Groups_MS,'*⇜* تم رفع النسخة‏‏ الاحتياطيه\n*⇜* حاليا عدد مجموعاتك هي‏‏ *'..redis:scard(boss..'group:ids')..'* 🌿\n✓')
+sendMsg(Uploaded_Groups_CH,Uploaded_Groups_MS,'*•* تم رفع النسخة‏‏ الاحتياطيه\n*•* حاليا عدد مجموعاتك هي‏‏ *'..redis:scard(boss..'group:ids')..'* 🌿\n✓')
 end
 elseif data.ID == "UpdateUser" then  
 if data.user_.type_.ID == "UserTypeDeleted" then
